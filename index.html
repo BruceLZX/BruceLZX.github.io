@@ -2,192 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zhexiang Li - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bruce Li — USC · Computer Science</title>
+  <meta name="description" content="USC Computer Science student portfolio of Zhexiang (Bruce) Li." />
   <style>
-    :root {
-      --primary: #2563eb;
-      --text-dark: #1e293b;
-      --text-light: #64748b;
-      --bg-light: #f8fafc;
-      --card-bg: #ffffff;
+    :root{
+      --accent:#2563eb;          /* primary blue */
+      --accent-2:#7c3aed;        /* violet */
+      --ink:#0f172a;             /* slate-900 */
+      --muted:#475569;           /* slate-600 */
+      --bg:#f6f9fc;              /* not full white */
+      --glass:rgba(255,255,255,0.72);
+      --stroke:rgba(15,23,42,0.08);
+      --shadow:0 10px 30px rgba(2,6,23,0.08);
+      --radius:16px;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink); background:var(--bg);
+      line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      background-image:
+        radial-gradient(60vh 60vh at -10% -10%, rgba(37,99,235,.10), transparent 60%),
+        radial-gradient(70vh 70vh at 110% 10%, rgba(124,58,237,.10), transparent 60%),
+        radial-gradient(80vh 80vh at 50% 120%, rgba(37,99,235,.08), transparent 60%);
+      background-attachment: fixed;
     }
-    body {
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.7;
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* --- layout --- */
+    .wrap{max-width:1080px;margin:0 auto;padding:32px}
+    header.nav{
+      position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(8px);
+      background:rgba(246,249,252,.6); border-bottom:1px solid var(--stroke);
     }
-    header {
-      text-align: center;
-      padding: 80px 20px 50px;
+    .nav .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .logo{font-weight:700; letter-spacing:.2px}
+    .pill{display:inline-block; padding:6px 12px; border-radius:999px; border:1px solid var(--stroke); background:var(--glass)}
+    .links a{margin-left:18px; color:var(--muted)}
+
+    /* --- hero --- */
+    .hero{padding:72px 0 36px}
+    .headline{font-size:clamp(36px,6vw,56px); font-weight:800; line-height:1.05; margin:8px 0 14px;
+      background:linear-gradient(90deg,var(--ink), var(--accent) 55%, var(--accent-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-    }
-    nav {
-      text-align: center;
-      padding: 15px;
-      background: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      margin: 0 18px;
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: var(--primary);
-    }
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 25px;
-      color: var(--primary);
-      border-left: 4px solid var(--primary);
-      padding-left: 10px;
-    }
-    .card {
-      background: var(--card-bg);
-      padding: 25px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: var(--text-dark);
-    }
-    .meta {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9rem;
-      color: var(--text-light);
+    .sub{font-size:18px; color:var(--muted)}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; margin-top:28px}
+    .card{background:var(--glass); border:1px solid var(--stroke); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .card.pad{padding:22px}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .badge{padding:8px 12px; border-radius:12px; background:#fff; border:1px solid var(--stroke); font-size:13px}
+
+    /* --- sections --- */
+    section{margin:56px 0}
+    .section-title{display:flex; align-items:center; gap:10px; margin-bottom:18px}
+    .section-title .bar{width:8px; height:22px; border-radius:6px; background:linear-gradient(180deg,var(--accent),var(--accent-2))}
+    h2{font-size:22px; margin:0}
+
+    /* grid cards */
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .g-6{grid-column: span 6}
+    .g-4{grid-column: span 4}
+    .g-8{grid-column: span 8}
+    .tile{background:var(--glass); border:1px solid var(--stroke); border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; transition:transform .2s ease, box-shadow .2s ease}
+    .tile:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(2,6,23,.12)}
+    .meta{color:var(--muted); font-size:14px}
+    .title{font-weight:700; margin:2px 0 8px}
+    .kvs{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .kv{padding:6px 10px; border-radius:10px; background:#fff; border:1px solid var(--stroke); font-size:12px}
+
+    /* timeline (education/experience) */
+    .timeline{position:relative; padding-left:22px}
+    .timeline:before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, var(--accent), var(--accent-2))}
+    .node{position:relative; margin:18px 0; padding-left:8px}
+    .node:before{content:""; position:absolute; left:-14px; top:7px; width:10px; height:10px; border-radius:50%; background:#fff; border:2px solid var(--accent)}
+
+    /* footer */
+    footer{margin:80px 0 30px; color:var(--muted); text-align:center}
+
+    /* responsive */
+    @media (max-width: 880px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(6,1fr)}
+      .g-8{grid-column: span 6}
+      .g-6{grid-column: span 6}
+      .g-4{grid-column: span 6}
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Zhexiang (Bruce) Li</h1>
-    <p>Computer Science & Engineering · USC & UCSC</p>
-    <p>
-      📍 Los Angeles · 
-      <a href="mailto:brucel@usc.edu" style="color:var(--primary);text-decoration:none;">brucel@usc.edu</a> · 
-      <a href="https://github.com/你的用户名" style="color:var(--primary);text-decoration:none;">GitHub</a>
-    </p>
+  <!-- top nav -->
+  <header class="nav">
+    <div class="wrap bar">
+      <div class="logo">Bruce Li</div>
+      <div class="links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <a href="#qualifications">Qualifications</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
-  </nav>
+  <!-- hero -->
+  <div class="wrap hero">
+    <span class="pill">USC · Computer Science</span>
+    <h1 class="headline">Zhexiang (Bruce) Li</h1>
+    <div class="sub">Building reliable ML systems and clean backend services. Interested in efficient Transformers & practical tooling.</div>
 
-  <section id="qualifications">
-    <h2>Qualifications</h2>
-    <div class="card">
-      <p><b>Languages:</b> Python, Java, C++, Javascript</p>
-      <p><b>Technologies:</b> Docker, PyTorch, MySQL, GCP, AWS, Transformers</p>
+    <div class="hero-grid">
+      <div class="card pad">
+        <strong>About</strong>
+        <p style="margin-top:8px">I’m a CS student at the University of Southern California. Previously at UCSC. I enjoy working across ML research prototypes and production-grade web backends.</p>
+        <div class="badges">
+          <span class="badge">Python</span>
+          <span class="badge">Java</span>
+          <span class="badge">C++</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">PyTorch</span>
+          <span class="badge">Docker</span>
+          <span class="badge">GCP / AWS</span>
+          <span class="badge">Transformers</span>
+          <span class="badge">MySQL</span>
+        </div>
+      </div>
+      <div class="card pad">
+        <strong>Quick Stats</strong>
+        <div class="kvs">
+          <div class="kv">GPA (USC): 3.62</div>
+          <div class="kv">GPA (UCSC): 3.97</div>
+          <div class="kv">GRE: 162 · 170 · 4.0</div>
+        </div>
+        <div class="kvs" style="margin-top:12px">
+          <div class="kv">Los Angeles, CA</div>
+          <div class="kv"><a href="mailto:brucel@usc.edu">brucel@usc.edu</a></div>
+          <div class="kv"><a href="https://github.com/USERNAME" target="_blank">github.com/USERNAME</a></div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>University of Southern California</h3>
-      <div class="meta">BS in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div>
+  <!-- projects -->
+  <div class="wrap" id="projects">
+    <div class="section-title"><span class="bar"></span><h2>Highlighted Projects</h2></div>
+    <div class="grid">
+      <div class="g-6 tile">
+        <div class="title">CNN Deep Fake Face Detection</div>
+        <div class="meta">2025 · Kaggle xhlulu/140k-real-and-fake-faces · 99% accuracy</div>
+        <p style="margin-top:8px">Explored model and data curation strategies for robust real-vs-fake face classification.</p>
+        <div class="kvs"><span class="kv">PyTorch</span><span class="kv">CUDA</span><span class="kv">TensorFlow</span><span class="kv">Keras</span></div>
+      </div>
+      <div class="g-6 tile">
+        <div class="title">TradeViewer — Full‑stack Data Visualization</div>
+        <div class="meta">2024 · Team lead (8 people)</div>
+        <p style="margin-top:8px">React + Java backend application delivering user transaction dashboards with deployable Docker setup.</p>
+        <div class="kvs"><span class="kv">React</span><span class="kv">Spring Boot</span><span class="kv">Maven</span><span class="kv">Chart.js</span><span class="kv">Docker</span></div>
+      </div>
     </div>
-    <div class="card">
-      <h3>University of California, Santa Cruz</h3>
-      <div class="meta">BS in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div>
-    </div>
-  </section>
+  </div>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Assistant to CEO · Haoan Health</h3>
-      <div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div>
-      <p>Rotated through departments, built internal platforms, recruited engineers, and defined program structure.</p>
+  <!-- experience -->
+  <div class="wrap" id="experience">
+    <div class="section-title"><span class="bar"></span><h2>Experience</h2></div>
+    <div class="grid">
+      <div class="g-8 tile">
+        <div class="title">Assistant to CEO — Haoan Health</div>
+        <div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div>
+        <p style="margin-top:8px">Rotated through major departments, helped build internal platform on NetEase Codewave, and supported hiring & program structure design.</p>
+        <div class="kvs"><span class="kv">Java</span><span class="kv">Kanban</span><span class="kv">Agile</span><span class="kv">Codewave</span></div>
+      </div>
+      <div class="g-4 tile">
+        <div class="title">Application Engineer Intern — Synaptics</div>
+        <div class="meta">San Jose · Jun 2023 – Aug 2023</div>
+        <p style="margin-top:8px">Firmware testing on ESP32; built Ali Cloud MQTT pipeline for multi‑sensor data.</p>
+        <div class="kvs"><span class="kv">ESP32</span><span class="kv">Ali Cloud</span><span class="kv">MQTT</span><span class="kv">MicroPython</span></div>
+      </div>
+      <div class="g-6 tile">
+        <div class="title">Investment Decision‑Making — GUDU Medical</div>
+        <div class="meta">Singapore · 2021 – 2025</div>
+        <p style="margin-top:8px">Visited 10+ med‑tech startups across CN & US, interviewed executives, and voted on investment opportunities.</p>
+      </div>
+      <div class="g-6 tile">
+        <div class="title">Teaching Assistant — UCSC (Intro to ML)</div>
+        <div class="meta">Spring 2023</div>
+        <p style="margin-top:8px">Graded assignments/exams and supported students in office hours. Built auto‑graded notebooks.</p>
+        <div class="kvs"><span class="kv">Python</span><span class="kv">NumPy</span><span class="kv">PyTorch</span><span class="kv">Jupyter</span></div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Application Engineer Intern · Synaptics</h3>
-      <div class="meta">San Jose · Jun 2023 – Aug 2023</div>
-      <p>Tested firmware on ESP32 microchips, integrated with Ali Cloud to process data.</p>
-    </div>
-    <div class="card">
-      <h3>Investment Analyst · GUDU Medical</h3>
-      <div class="meta">Singapore · 2021 – 2025</div>
-      <p>Visited 10+ startups, interviewed executives, voted on investments, analyzed health-tech trends.</p>
-    </div>
-  </section>
+  </div>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>CNN Deep Fake Face Detection</h3>
-      <p>Achieved 99% accuracy on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>.</p>
-      <p class="meta">Tech: PyTorch, CUDA, TensorFlow, Keras</p>
+  <!-- education -->
+  <div class="wrap" id="education">
+    <div class="section-title"><span class="bar"></span><h2>Education</h2></div>
+    <div class="tile">
+      <div class="timeline">
+        <div class="node">
+          <div class="title">University of Southern California — B.S. in Computer Science</div>
+          <div class="meta">Aug 2023 – May 2026 · GPA 3.62/4</div>
+        </div>
+        <div class="node">
+          <div class="title">University of California, Santa Cruz — B.S. in Computer Engineering</div>
+          <div class="meta">Sept 2021 – Jun 2023 · GPA 3.97/4</div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>TradeViewer</h3>
-      <p>Led team of 8, integrated React frontend with Java backend for transaction visualization.</p>
-      <p class="meta">Tech: React, Spring Boot, Maven, Chart.js, Docker</p>
-    </div>
-  </section>
+  </div>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="card">
-      <h3>Game Theory in Companies</h3>
-      <div class="meta">Advances in Economics, Management and Political Sciences (2023)</div>
-      <a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" style="color:var(--primary);">DOI Link</a>
+  <!-- publications -->
+  <div class="wrap" id="publications">
+    <div class="section-title"><span class="bar"></span><h2>Publications</h2></div>
+    <div class="grid">
+      <div class="g-6 tile">
+        <div class="title">Game Theory in Companies</div>
+        <div class="meta">Advances in Economics, Management and Political Sciences (2023)</div>
+        <p style="margin-top:8px">A program approach to compute all Nash equilibria in two‑player games.</p>
+        <p class="meta"><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">DOI</a></p>
+      </div>
+      <div class="g-6 tile">
+        <div class="title">PreScored HyperAttention</div>
+        <div class="meta">NeurIPS (target) · 2024–2025</div>
+        <p style="margin-top:8px">Research on speeding up Transformers via HyperAttention & LevAttention; implemented with Triton & PyTorch.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>PreScored HyperAttention</h3>
-      <div class="meta">Target Conference: NeurIPS (2025)</div>
-      <p>Research on Transformer efficiency based on HyperAttention & LevAttention.</p>
+  </div>
+
+  <!-- contact -->
+  <div class="wrap" id="contact">
+    <div class="section-title"><span class="bar"></span><h2>Get in touch</h2></div>
+    <div class="tile">
+      <p>Email: <a href="mailto:brucel@usc.edu">brucel@usc.edu</a> · GitHub: <a href="https://github.com/USERNAME" target="_blank">github.com/USERNAME</a></p>
     </div>
-  </section>
+  </div>
 
   <footer>
-    © 2025 Zhexiang (Bruce) Li · Built with GitHub Pages
+    © 2025 Zhexiang (Bruce) Li — Built on GitHub Pages
   </footer>
-
 </body>
 </html>
