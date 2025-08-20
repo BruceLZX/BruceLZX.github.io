@@ -5,67 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhexiang Li - Portfolio</title>
   <style>
+    :root {
+      --primary: #2563eb;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
     body {
-      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-      margin: 0;
-      background: #0d1117;
-      color: #e6edf3;
-      line-height: 1.6;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.7;
     }
     header {
       text-align: center;
-      padding: 60px 20px 30px;
-      background: linear-gradient(135deg, #1f2937, #111827);
+      padding: 80px 20px 50px;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      font-weight: 700;
       margin-bottom: 10px;
     }
     header p {
       font-size: 1.1rem;
-      color: #9ca3af;
+      color: var(--text-light);
     }
     nav {
       text-align: center;
       padding: 15px;
-      background: #111827;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     nav a {
-      margin: 0 15px;
+      margin: 0 18px;
       text-decoration: none;
-      color: #60a5fa;
+      color: var(--text-dark);
       font-weight: 500;
+      transition: color 0.2s ease;
     }
     nav a:hover {
-      color: #93c5fd;
+      color: var(--primary);
     }
     section {
       max-width: 900px;
-      margin: 50px auto;
+      margin: 60px auto;
       padding: 0 20px;
     }
     h2 {
-      border-left: 4px solid #60a5fa;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
       padding-left: 10px;
-      margin-bottom: 20px;
     }
     .card {
-      background: #161b22;
-      padding: 20px;
+      background: var(--card-bg);
+      padding: 25px;
       margin-bottom: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
     .card h3 {
       margin-top: 0;
-      color: #93c5fd;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: var(--text-dark);
+    }
+    .meta {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
     }
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       font-size: 0.9rem;
-      background: #111827;
-      color: #9ca3af;
+      color: var(--text-light);
     }
   </style>
 </head>
@@ -73,10 +102,11 @@
 
   <header>
     <h1>Zhexiang (Bruce) Li</h1>
-    <p>Computer Science & Engineering | USC & UCSC</p>
+    <p>Computer Science & Engineering · USC & UCSC</p>
     <p>
-      📍 Los Angeles, CA | 📧 <a href="mailto:brucel@usc.edu" style="color:#93c5fd;">brucel@usc.edu</a> | 
-      <a href="https://github.com/你的用户名" style="color:#93c5fd;">GitHub</a>
+      📍 Los Angeles · 
+      <a href="mailto:brucel@usc.edu" style="color:var(--primary);text-decoration:none;">brucel@usc.edu</a> · 
+      <a href="https://github.com/你的用户名" style="color:var(--primary);text-decoration:none;">GitHub</a>
     </p>
   </header>
 
@@ -100,30 +130,30 @@
     <h2>Education</h2>
     <div class="card">
       <h3>University of Southern California</h3>
-      <p>BS in Computer Science | GPA: 3.62/4 | Aug 2023 – May 2026</p>
+      <div class="meta">BS in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div>
     </div>
     <div class="card">
       <h3>University of California, Santa Cruz</h3>
-      <p>BS in Computer Engineering | GPA: 3.97/4 | Sept 2021 – Jun 2023</p>
+      <div class="meta">BS in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div>
     </div>
   </section>
 
   <section id="experience">
-    <h2>Internships & Experience</h2>
+    <h2>Experience</h2>
     <div class="card">
-      <h3>Assistant to CEO, Haoan Health (Hangzhou, China)</h3>
-      <p>Jun 2024 – Aug 2024</p>
-      <p>Rotated through major departments, built internal platforms, recruited engineers, and defined program structure.</p>
+      <h3>Assistant to CEO · Haoan Health</h3>
+      <div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div>
+      <p>Rotated through departments, built internal platforms, recruited engineers, and defined program structure.</p>
     </div>
     <div class="card">
-      <h3>Application Engineer Intern, Synaptics (San Jose)</h3>
-      <p>Jun 2023 – Aug 2023</p>
-      <p>Tested firmware on ESP32 microchips, integrated with Ali Cloud to process sensor data.</p>
+      <h3>Application Engineer Intern · Synaptics</h3>
+      <div class="meta">San Jose · Jun 2023 – Aug 2023</div>
+      <p>Tested firmware on ESP32 microchips, integrated with Ali Cloud to process data.</p>
     </div>
     <div class="card">
-      <h3>Investment Decision-Making, GUDU Medical (Singapore)</h3>
-      <p>2021 – 2025</p>
-      <p>Visited 10+ startups, interviewed executives, voted on investment decisions, analyzed health-tech trends.</p>
+      <h3>Investment Analyst · GUDU Medical</h3>
+      <div class="meta">Singapore · 2021 – 2025</div>
+      <p>Visited 10+ startups, interviewed executives, voted on investments, analyzed health-tech trends.</p>
     </div>
   </section>
 
@@ -132,12 +162,12 @@
     <div class="card">
       <h3>CNN Deep Fake Face Detection</h3>
       <p>Achieved 99% accuracy on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>.</p>
-      <p><b>Tech:</b> PyTorch, CUDA, TensorFlow, Keras</p>
+      <p class="meta">Tech: PyTorch, CUDA, TensorFlow, Keras</p>
     </div>
     <div class="card">
       <h3>TradeViewer</h3>
-      <p>Led a team of 8, integrated React frontend with Java backend for transaction visualization.</p>
-      <p><b>Tech:</b> React, Spring Boot, Maven, Chart.js, Docker</p>
+      <p>Led team of 8, integrated React frontend with Java backend for transaction visualization.</p>
+      <p class="meta">Tech: React, Spring Boot, Maven, Chart.js, Docker</p>
     </div>
   </section>
 
@@ -145,12 +175,13 @@
     <h2>Publications</h2>
     <div class="card">
       <h3>Game Theory in Companies</h3>
-      <p><i>Advances in Economics, Management and Political Sciences</i> (2023)</p>
-      <a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" style="color:#60a5fa;">DOI Link</a>
+      <div class="meta">Advances in Economics, Management and Political Sciences (2023)</div>
+      <a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" style="color:var(--primary);">DOI Link</a>
     </div>
     <div class="card">
       <h3>PreScored HyperAttention</h3>
-      <p>Research on Transformer efficiency, target conference: NeurIPS (2025)</p>
+      <div class="meta">Target Conference: NeurIPS (2025)</div>
+      <p>Research on Transformer efficiency based on HyperAttention & LevAttention.</p>
     </div>
   </section>
 
