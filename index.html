@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bruce Li — USC · Computer Science</title>
-  <meta name="description" content="USC Computer Science student portfolio of Zhexiang (Bruce) Li." />
   <style>
     :root{
       --accent:#2563eb;
@@ -12,58 +11,44 @@
       --ink:#0f172a;
       --muted:#475569;
       --bg:#f6f9fc;
-      --glass:rgba(255,255,255,0.72);
       --stroke:rgba(15,23,42,0.08);
-      --shadow:0 6px 18px rgba(2,6,23,0.06);
-      --radius:14px;
+      --shadow:0 4px 12px rgba(2,6,23,0.06);
+      --radius:12px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--ink); background:var(--bg);
-      line-height:1.65; -webkit-font-smoothing:antialiased;
-      background-image:
-        radial-gradient(60vh 60vh at -10% -10%, rgba(37,99,235,.08), transparent 60%),
-        radial-gradient(70vh 70vh at 110% 10%, rgba(124,58,237,.08), transparent 60%),
-        radial-gradient(80vh 80vh at 50% 120%, rgba(37,99,235,.06), transparent 60%);
-      background-attachment: fixed;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
     }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{max-width:1000px;margin:0 auto;padding:28px}
-    header.nav{position:sticky; top:0; z-index:20; backdrop-filter:saturate(140%) blur(8px);
-      background:rgba(246,249,252,.7); border-bottom:1px solid var(--stroke);}
-    .nav .bar{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .logo{font-weight:700; letter-spacing:.2px}
-    .links a{margin-left:18px; color:var(--muted)}
+    header.nav{position:sticky;top:0;z-index:20;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
+    .logo{font-weight:700}
+    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
     .links a:hover{color:var(--accent)}
 
-    .hero{padding:64px 0 40px; text-align:center}
-    .hero img{width:140px; height:140px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.15); margin-bottom:20px}
-    .headline{font-size:clamp(34px,6vw,52px); font-weight:800; line-height:1.05; margin:10px 0 14px;
-      background:linear-gradient(90deg,var(--ink), var(--accent) 55%, var(--accent-2));
-      -webkit-background-clip:text; background-clip:text; color:transparent;}
-    .pill{display:inline-block; padding:6px 14px; border-radius:999px; border:1px solid var(--stroke); background:var(--glass); font-size:14px;}
-    .sub{font-size:17px; color:var(--muted)}
+    .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
+    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:#fff;font-size:13px;color:var(--muted)}
+    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .sub{font-size:16px;color:var(--muted)}
 
-    section{margin:50px 0}
-    h2{font-size:20px; font-weight:600; margin-bottom:18px; color:var(--accent)}
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
-    .tile{background:#fff; border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);}
-    .tile strong{display:block; margin-bottom:6px; font-weight:600}
-    .meta{color:var(--muted); font-size:14px; margin-bottom:6px}
+    section{max-width:1000px;margin:40px auto;padding:0 20px}
+    h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .tile strong{display:block;margin-bottom:6px;font-weight:600}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
 
-    .compact .tile{padding:14px; border-radius:10px}
-    .compact h2{margin-bottom:14px}
-
-    footer{margin:70px 0 30px; color:var(--muted); text-align:center}
+    @media(max-width:768px){
+      .headline{font-size:32px}
+    }
   </style>
 </head>
 <body>
   <header class="nav">
-    <div class="wrap bar">
+    <div class="bar">
       <div class="logo">Bruce Li</div>
       <div class="links">
         <a href="#qualifications">Qualifications</a>
@@ -71,69 +56,59 @@
         <a href="#internship">Internship</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
       </div>
     </div>
   </header>
 
-  <div class="wrap hero">
+  <div class="hero">
     <img src="se.jpg" alt="Bruce Li portrait" />
-    <span class="pill">USC · Computer Science</span>
     <h1 class="headline">Zhexiang (Bruce) Li</h1>
+    <div class="pill">USC · Computer Science</div>
     <div class="sub">CS student passionate about efficient Transformers, ML systems, and backend engineering.</div>
   </div>
 
-  <div class="wrap compact" id="qualifications">
+  <section id="qualifications">
     <h2>Qualifications</h2>
     <div class="grid">
       <div class="tile"><strong>Languages</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>Technologies</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
     </div>
-  </div>
+  </section>
 
-  <div class="wrap compact" id="education">
+  <section id="education">
     <h2>Education</h2>
     <div class="grid">
       <div class="tile"><strong>University of Southern California (USC)</strong><div class="meta">B.S. in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div></div>
       <div class="tile"><strong>University of California, Santa Cruz (UCSC)</strong><div class="meta">B.S. in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div></div>
       <div class="tile"><strong>GRE</strong><div class="meta">162 · 170 · 4.0 · June 3, 2025</div></div>
-      <div class="tile"><strong>Teaching Assistant — Intro to Machine Learning (UCSC)</strong><div class="meta">Spring 2023 · Prof. Lise Getoor</div><p>Graded assignments/exams; supported students; authored auto‑graded Jupyter notebooks.</p><div class="meta">Tech: Python, PyTorch, NumPy, Jupyter Notebook</div></div>
+      <div class="tile"><strong>Teaching Assistant — Intro to Machine Learning (UCSC)</strong><div class="meta">Spring 2023 · Prof. Lise Getoor</div><p>Graded assignments & exams; supported students; authored auto‑graded Jupyter notebooks.</p><div class="meta">Tech: Python, PyTorch, NumPy, Jupyter Notebook</div></div>
     </div>
-  </div>
+  </section>
 
-  <div class="wrap compact" id="internship">
+  <section id="internship">
     <h2>Internship</h2>
     <div class="grid">
       <div class="tile"><strong>Assistant to CEO — Haoan Health</strong><div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div><p>Rotated across departments; helped build internal platform on NetEase Codewave; recruited engineers; drafted program structure & interfaces.</p></div>
       <div class="tile"><strong>Investment Decision‑making — GUDU MEDICAL</strong><div class="meta">Singapore · 2021 – 2025</div><p>Visited 10+ med‑tech startups (Zhejiang, Irvine, Silicon Valley); interviewed executives; voted on investment decisions; analyzed CN/US digital‑health & diagnostics trends.</p></div>
       <div class="tile"><strong>Application Engineer Intern — Synaptics</strong><div class="meta">San Jose · Jun 2023 – Aug 2023</div><p>Tested product firmware; used ESP32 with Ali Cloud to convert and transmit multi‑protocol data (I²C etc.).</p><div class="meta">Tech: Ali Cloud, MQTT, Python, MicroPython, C, ESP32, Bluetooth LE, Firmware, Visual Studio</div></div>
     </div>
-  </div>
+  </section>
 
-  <div class="wrap compact" id="publications">
+  <section id="publications">
     <h2>Publications</h2>
     <div class="grid">
       <div class="tile"><strong>Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div><p><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank">DOI</a></p></div>
       <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div><p>Research on speeding up Transformers with HyperAttention & LevAttention; explored CNNs, DNNs, GANs, distributed big data.</p><div class="meta">Tech: HyperAttention, LevAttention, Transformers, PyTorch, Triton, Hugging Face, Google Cloud</div></div>
     </div>
-  </div>
+  </section>
 
-  <div class="wrap compact" id="projects">
+  <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
       <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">Feb 2025 – Apr 2025</div><p>Model accuracy reached 99% on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>.</p><div class="meta">Tech: PyTorch, Python Notebook, CUDA, TensorFlow, Keras</div></div>
       <div class="tile"><strong>TradeViewer</strong><div class="meta">Oct 2024 – Dec 2024</div><p>Led a team of 8; integrated React frontend with Java backend to build a deployable transaction visualization system.</p><div class="meta">Tech: Jira, Scrum, Spring Boot, Maven, React, Servlet, Chart.js, Vite, Lottie React, Docker</div></div>
     </div>
-  </div>
-
-  <div class="wrap compact" id="contact">
-    <h2>Get in touch</h2>
-    <div class="grid">
-      <div class="tile">Email: <a href="mailto:brucel@usc.edu">brucel@usc.edu</a></div>
-      <div class="tile">GitHub: <a href="https://github.com/USERNAME" target="_blank">github.com/USERNAME</a></div>
-      <div class="tile">Location: Los Angeles, CA</div>
-    </div>
-  </div>
+  </section>
 
   <footer>© 2025 Zhexiang (Bruce) Li — Built on GitHub Pages</footer>
 </body>
