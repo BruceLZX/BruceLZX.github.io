@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>李哲翔（Bruce）— USC · 计算机科学</title>
+  <style>
+    :root{--accent:#2563eb;--ink:#0f172a;--muted:#475569;--bg:#f6f9fc;--stroke:rgba(15,23,42,0.08);--shadow:0 4px 12px rgba(2,6,23,0.06);--radius:12px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;background:var(--bg);color:var(--ink);line-height:1.6;display:flex;flex-direction:column;min-height:100vh;padding-top:58px}
+    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
+    .logo{font-weight:700}
+    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
+    .links a:hover{color:var(--accent)}
+    .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
+    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:#fff;font-size:13px;color:var(--muted)}
+    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .sub{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
+    section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
+    h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .tile strong{display:block;margin-bottom:6px;font-weight:600}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    /* 教育卡片 */
+    .edu-list{display:flex;flex-direction:column;gap:12px}
+    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+    .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
+    .edu-meta{color:var(--muted);font-size:14px}
+    .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
+    @media(max-width:640px){.edu-item{flex-direction:column}.edu-when{text-align:left}}
+    main{flex:1}
+    footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="bar">
+      <div class="logo">李哲翔 Bruce Li</div>
+      <div class="links">
+        <a href="#qualifications">能力</a>
+        <a href="#education">教育</a>
+        <a href="#internship">实习</a>
+        <a href="#publications">论文</a>
+        <a href="#projects">项目</a>
+        <a href="#business">商业</a>
+        <a href="index.html" title="English">EN</a>
+        <a href="cv_zh.html" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">个人简历</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+  <div class="hero">
+    <img src="se.jpg" alt="Bruce Li" />
+    <h1 class="headline">李哲翔（Bruce）</h1>
+    <div class="pill">南加州大学 · 计算机科学</div>
+    <div class="sub">我喜欢把想法做成能落地的产品，关注高效 Transformer、机器学习系统与可靠的后端工程；也对商业与投资有兴趣。计划继续读硕士，做更有影响力的系统与应用。</div>
+    <div class="pill" style="margin:14px auto 0">联系方式：brucel@USC dot edu · 8312392728 · <a href="https://github.com/BruceLZX" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a></div>
+  </div>
+
+  <section id="qualifications">
+    <h2>能力</h2>
+    <div class="grid">
+      <div class="tile"><strong>编程语言</strong><p>Python, Java, C++, JavaScript</p></div>
+      <div class="tile"><strong>技术</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
+      <div class="tile"><strong>标准化考试</strong><p>GRE: 162 · 170 · 4.0（2025-06-03）</p></div>
+      <div class="tile"><strong>主修课程</strong><p>算法与计算理论（CSCI‑270）；数据结构与面向对象（CSCI‑104L）；概率与统计（EE‑364）；线性代数与微分方程（MATH‑225）；人工智能（CSCI‑360）；机器学习（CSCI‑467）；软件工程（CSCI‑310）；嵌入式系统（EE‑109L）；软件开发原理（CSCI‑201）；高等微积分（MATH‑226g）</p></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>教育</h2>
+    <div class="edu-list">
+      <div class="edu-item"><div class="edu-left"><strong>南加州大学（USC）</strong><div class="edu-meta">计算机科学 学士 · GPA 3.62/4</div></div><div class="edu-when">2023-08 – 2026-05</div></div>
+      <div class="edu-item"><div class="edu-left"><strong>加州大学圣克鲁兹（UCSC）</strong><div class="edu-meta">计算机工程 学士 · GPA 3.97/4</div></div><div class="edu-when">2021-09 – 2023-06</div></div>
+      <div class="edu-item"><div class="edu-left"><strong>American Heritage School（Boca Delray, FL）</strong><div class="edu-meta">高中 · G11–G12</div></div><div class="edu-when">2019 – 2021</div></div>
+      <div class="edu-item"><div class="edu-left"><strong>苏州德威国际高中</strong><div class="edu-meta">高中 · G10–G11</div></div><div class="edu-when">2017 – 2019</div></div>
+      <div class="edu-item"><div class="edu-left"><strong>良渚安吉路实验中学</strong><div class="edu-meta">初中 · G7–G9</div></div><div class="edu-when">2014 – 2017</div></div>
+      <div class="edu-item"><div class="edu-left"><strong>浙江大学附属小学</strong><div class="edu-meta">小学 · G1–G6</div></div><div class="edu-when">2008 – 2014</div></div>
+    </div>
+  </section>
+
+  <section id="internship">
+    <h2>实习</h2>
+    <div class="grid">
+      <div class="tile"><strong>AI 实习生 — Piezolabs</strong><div class="meta">2025-06 – 2025-07</div><p>利用 AI 工具分析医疗事故数据库与竞品；部署 AI 工具并协助测试实验材料。</p></div>
+      <div class="tile"><strong>CEO 助理 — 浩安健康</strong><div class="meta">杭州 · 2024-06 – 2024-08</div><p>跨部门轮岗；在网易低代码平台搭建内部系统；协助招募工程师与梳理接口/结构。</p></div>
+      <div class="tile"><strong>应用工程师实习 — Synaptics</strong><div class="meta">圣何塞 · 2023-06 – 2023-08</div><p>为公司最新一代内部产品验证技术路线；测试固件；基于 ESP32 与阿里云完成多协议数据（含 I²C）转换与传输。</p><div class="meta">Ali Cloud, MQTT, Python/MicroPython, C, ESP32, BLE, Firmware</div></div>
+      <div class="tile"><strong>投资决策 — GUDU MEDICAL</strong><div class="meta">新加坡 · 2021 – 2025</div><p>调研 10+ 医疗科技企业、拜访高管，参与投决并分析中美数字医疗/诊断趋势。</p></div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>论文</h2>
+    <div class="grid">
+      <div class="tile"><strong>Game theory in companies: ...</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023)</div><p>2021–2022 跟随加州大学伯克利分校 Ming Gu 教授学习与研究；将发布时间、预告片与平台选择建模为收益矩阵，使用 Gambit 与 Python 求解所有纳什均衡。</p></div>
+      <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">2024-10 – 2025-05 · 目标会议：NeurIPS</div><p>与 CMU 的 David P. Woodruff 教授合作，提出预评分与选择性注意机制以降低注意力复杂度并保持精度。</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>项目</h2>
+    <div class="grid">
+      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">2025-02 – 2025-04</div><p>人脸深伪检测，精度 99%（Kaggle <code>xhlulu/140k-real-and-fake-faces</code>）。<a href="https://github.com/BruceLZX/ai_face_detection" target="_blank">代码</a></p></div>
+      <div class="tile"><strong>TradeViewer</strong><div class="meta">2024-10 – 2024-12</div><p>团队 8 人，React + Spring Boot 的交易可视化系统。<a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank">代码</a></p></div>
+      <div class="tile"><strong>transparentWindow</strong><div class="meta">开源小工具</div><p>一键让网页背景透明，用于视觉特效与演示。<a href="https://github.com/BruceLZX/transparentWindow" target="_blank">代码</a></p></div>
+      <div class="tile"><strong>miniQUANT</strong><div class="meta">个人量化练习</div><p>量化策略探索与回测仓库。<a href="https://github.com/BruceLZX/miniQUANT" target="_blank">代码</a></p></div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2>活动与竞赛</h2>
+    <div class="grid">
+      <div class="tile"><strong>USC 羽毛球俱乐部</strong><div class="meta">成员 · 2024–2025 学年</div></div>
+      <div class="tile"><strong>TIE Hub 创业黑客松（5 天）</strong><div class="meta">参与者 · 2025-09</div><p>5 天内完成创意、Demo 与路演。</p></div>
+      <div class="tile"><strong>硅谷公司游学（诺亚主办）</strong><div class="meta">2025-10-16 – 2025-10-21 · Bay Area</div><p>参访多家科技公司，与创始人/投资人交流。</p></div>
+    </div>
+  </section>
+
+  <section id="business">
+    <h2>商学院/商业</h2>
+    <div class="grid">
+      <div class="tile"><strong>诺亚商学院（Noah Business School, Noah Holdings）</strong><div class="meta">创业者与企业家课程</div><p>参与企业参访、融资/运营等模块，与校友导师交流。</p></div>
+      <div class="tile"><strong>之江商学院</strong><div class="meta">创业与领导力课程</div><p>围绕战略、运营与团队领导力的系统学习。</p></div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>© 2025 李哲翔（Bruce） — 构建于 GitHub Pages</footer>
+
+  <script>
+    (function(){
+      const links = document.querySelectorAll('.links a[href^="#"]');
+      links.forEach(a=>{
+        a.addEventListener('click',e=>{
+          const el=document.querySelector(a.getAttribute('href'));
+          if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

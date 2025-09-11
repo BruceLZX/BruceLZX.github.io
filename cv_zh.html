@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>个人简历 — 李哲翔（Bruce）</title>
+  <style>
+    :root{ --ink:#0f172a; --muted:#475569; --accent:#2563eb; }
+    *{ box-sizing:border-box; }
+    body{ font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); margin:0; }
+    .page{ max-width:820px; margin:0 auto; padding:32px 28px; }
+    header{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px; }
+    h1{ font-size:28px; margin:0; font-weight:800; letter-spacing:.2px; }
+    .tag{ color:var(--muted); margin-top:3px; font-size:13px; }
+    .print-btn{ border:1px solid #e5e7eb; padding:6px 10px; border-radius:8px; background:#fff; color:var(--accent); font-weight:600; text-decoration:none; font-size:12px; height:32px; }
+    h2{ font-size:14px; margin:18px 0 8px; text-transform:uppercase; letter-spacing:.12em; color:#111827; border-bottom:1px solid #e5e7eb; padding-bottom:4px; }
+    .item{ margin:8px 0 10px; }
+    .role{ font-weight:700; font-size:13.5px; }
+    .meta{ color:var(--muted); font-size:12.5px; }
+    .row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .when{ color:#111827; font-size:12.5px; font-weight:600; white-space:nowrap; }
+    ul{ margin:6px 0 0 18px; }
+    li{ margin:3px 0; font-size:12.5px; }
+    .links a{ color:var(--accent); text-decoration:none; }
+    .links a:hover{ text-decoration:underline; }
+    @media print{ .print-btn{ display:none } .page{ padding:24px } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>李哲翔（Bruce）</h1>
+        <div class="tag">USC · 计算机科学</div>
+        <div class="tag">brucel@USC dot edu · 8312392728 · <span class="links"><a href="https://brucelzx.github.io/" target="_blank">网站</a> · <a href="https://github.com/BruceLZX" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a> · <a href="cv.html">EN</a></span></div>
+      </div>
+      <a class="print-btn" href="#" onclick="window.print();return false;">下载 PDF</a>
+    </header>
+
+    <section>
+      <h2>教育</h2>
+      <div class="item"><div class="row"><div class="role">南加州大学（USC）</div><div class="when">2023-08 – 2026-05</div></div><div class="meta">计算机科学 学士 · GPA 3.62/4</div></div>
+      <div class="item"><div class="row"><div class="role">加州大学圣克鲁兹（UCSC）</div><div class="when">2021-09 – 2023-06</div></div><div class="meta">计算机工程 学士 · GPA 3.97/4</div></div>
+      <div class="item"><div class="row"><div class="role">American Heritage School（Boca Delray, FL）</div><div class="when">2019 – 2021</div></div><div class="meta">高中 · G11–G12</div></div>
+      <div class="item"><div class="row"><div class="role">苏州德威国际高中</div><div class="when">2017 – 2019</div></div><div class="meta">高中 · G10–G11</div></div>
+      <div class="item"><div class="role">标准化考试</div><div class="meta">GRE 162 · 170 · 4.0 · 2025-06-03</div></div>
+      <div class="item"><div class="role">主修课程</div><div class="meta">算法与计算理论（CSCI‑270）；数据结构与面向对象（CSCI‑104L）；概率与统计（EE‑364）；线性代数与微分方程（MATH‑225）；人工智能（CSCI‑360）；机器学习（CSCI‑467）；软件工程（CSCI‑310）；嵌入式系统（EE‑109L）</div></div>
+    </section>
+
+    <section>
+      <h2>经历</h2>
+      <div class="item">
+        <div class="row"><div class="role">AI 实习生 — Piezolabs</div><div class="when">2025-06 – 2025-07</div></div>
+        <ul>
+          <li>使用 AI 工具分析医疗事故数据库与竞品；部署 AI 工具并协助测试实验材料。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><div class="role">CEO 助理 — 浩安健康</div><div class="when">2024-06 – 2024-08 · 杭州</div></div>
+        <ul>
+          <li>跨部门轮岗；基于网易低代码平台搭建内部系统；协助招募与接口/结构设计。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><div class="role">投资决策 — GUDU MEDICAL</div><div class="when">2021 – 2025 · 新加坡</div></div>
+        <ul>
+          <li>调研 10+ 医疗科技公司、访谈高管，参与投决与趋势分析。</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="row"><div class="role">应用工程师实习 — Synaptics</div><div class="when">2023-06 – 2023-08 · 圣何塞</div></div>
+        <ul>
+          <li>为最新一代内部产品验证技术路线；测试固件；基于 ESP32 与阿里云完成多协议数据传输。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>项目</h2>
+      <div class="item"><div class="row"><div class="role">CNN Deep Fake Face Detection</div><div class="when">2025-02 – 2025-04</div></div><ul><li>人脸深伪检测，精度 99%（Kaggle <code>xhlulu/140k-real-and-fake-faces</code>）。<a href="https://github.com/BruceLZX/ai_face_detection" target="_blank">代码</a></li></ul></div>
+      <div class="item"><div class="row"><div class="role">TradeViewer</div><div class="when">2024-10 – 2024-12</div></div><ul><li>团队 8 人；React + Spring Boot 的交易可视化系统。<a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank">代码</a></li></ul></div>
+      <div class="item"><div class="row"><div class="role">transparentWindow</div><div class="when">开源</div></div><ul><li>让网页背景透明的趣味小工具。<a href="https://github.com/BruceLZX/transparentWindow" target="_blank">代码</a></li></ul></div>
+      <div class="item"><div class="row"><div class="role">miniQUANT</div><div class="when">个人</div></div><ul><li>量化策略探索与回测仓库。<a href="https://github.com/BruceLZX/miniQUANT" target="_blank">代码</a></li></ul></div>
+    </section>
+
+    <section>
+      <h2>论文</h2>
+      <div class="item"><div class="row"><div class="role">Game theory in companies: ...</div><div class="when">学习：2021–2022 · 发表：2023</div></div><div class="meta">与加州大学伯克利分校 Ming Gu 教授学习；使用 Gambit 与 Python 求解所有纳什均衡。</div></div>
+      <div class="item"><div class="row"><div class="role">PreScored HyperAttention</div><div class="when">2024-10 – 2025-05</div></div><div class="meta">与 CMU 的 David P. Woodruff 教授合作，提出预评分与选择性注意机制以降复杂度。</div></div>
+    </section>
+
+    <section>
+      <h2>奖项</h2>
+      <div class="item"><div class="row"><div class="role">Viterbi Dean’s List</div><div class="when">2024 秋 – 至今</div></div></div>
+      <div class="item"><div class="row"><div class="role">VEX 机器人亚太赛 — 冠军（初中组）</div><div class="when">2015</div></div></div>
+      <div class="item"><div class="row"><div class="role">VEX 机器人亚太赛 — 冠军（高中组）</div><div class="when">2017</div></div></div>
+    </section>
+
+    <section>
+      <h2>教学 / 指导</h2>
+      <div class="item"><div class="row"><div class="role">助教 — 机器学习导论（UCSC）</div><div class="when">2023 春</div></div><div class="meta">Lise Getoor 教授</div><ul><li>负责答疑与作业批改；维护自动评分的 Notebook 与周作业说明。</li></ul></div>
+      <div class="item"><div class="row"><div class="role">助教 — VEX 机器人 / 信息学竞赛</div><div class="when">2014 – 2018</div></div><div class="meta">上海伯思地教育</div><ul><li>协助队伍训练与算法训练营，支持模拟赛与赛事筹备。</li></ul></div>
+    </section>
+  </div>
+</body>
+</html>
