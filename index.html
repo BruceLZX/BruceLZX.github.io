@@ -25,7 +25,7 @@
       line-height:1.6;
       display:flex;flex-direction:column;min-height:100vh
     }
-    header.nav{position:sticky;top:0;z-index:20;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    header.nav{position:sticky;top:0;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
     .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
     .logo{font-weight:700}
     .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
@@ -35,7 +35,7 @@
     .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
     .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:#fff;font-size:13px;color:var(--muted)}
     .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .sub{font-size:17px;color:var(--muted);max-width:680px;margin:0 auto}
+    .sub{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
 
     section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
     h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
@@ -45,13 +45,13 @@
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
 
     /* Education timeline */
-    .timeline{position:relative;padding-left:32px}
+    .timeline{position:relative;padding-left:36px}
     .timeline:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--stroke)}
-    .tl-item{position:relative;margin:28px 0}
+    .tl-item{position:relative;margin:34px 0}
     .tl-item:before{content:"";position:absolute;left:6px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
     .tl-row{display:flex;align-items:center;gap:14px;margin-left:16px}
-    .tl-year{color:var(--muted);font-size:15px;font-weight:600;min-width:140px;white-space:nowrap}
-    .tl-hline{flex:0 0 64px;height:2px;background:var(--stroke)}
+    .tl-year{color:var(--muted);font-size:16px;font-weight:700;min-width:160px;white-space:nowrap;letter-spacing:.1px}
+    .tl-hline{flex:0 0 72px;height:2px;background:var(--stroke)}
     .tl-label{font-weight:700;font-size:17px}
 
     main{flex:1}
@@ -73,8 +73,6 @@
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
         <a id="cv-link" href="/assets/pdf/cv.pdf" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
-        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </header>
@@ -84,7 +82,7 @@
     <img src="se.jpg" alt="Bruce Li portrait" />
     <h1 class="headline">Zhexiang (Bruce) Li</h1>
     <div class="pill">USC · Computer Science</div>
-    <div class="sub">I like building things with code and machine learning, and I’m excited about bringing AI into real products and industries. I also enjoy investing and business operations. I plan to pursue a master's degree focused on efficient Transformers, ML systems, and production‑grade backend engineering.</div>
+    <div class="sub">Hi — I’m Bruce. I love turning ideas into working software, especially around machine learning and systems. Recently I’ve been exploring efficient Transformers and how to ship AI that’s reliable in production. Outside of code I follow markets and enjoy investing. I’m planning a CS master’s to go deeper and build bigger things.</div>
     <div class="pill" style="margin:14px auto 0">Contact: brucel@USC dot edu · 8312392728 · <a href="https://brucelzx.github.io/" target="_blank" rel="noopener">Website</a> · <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
 
@@ -93,6 +91,7 @@
     <div class="grid">
       <div class="tile"><strong>Languages</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>Technologies</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
+      <div class="tile"><strong>Standardized Tests</strong><p>GRE: 162 · 170 · 4.0 (June 3, 2025)</p></div>
     </div>
   </section>
 
@@ -124,9 +123,7 @@
         <div class="meta" style="margin-left:116px">Primary School</div>
       </div>
     </div>
-    <div class="grid" style="margin-top:18px">
-      <div class="tile"><strong>Standardized Tests</strong><div class="meta">GRE 162 · 170 · 4.0 · June 3, 2025</div></div>
-    </div>
+    
   </section>
 
   <section id="internship">
