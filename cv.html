@@ -17,6 +17,8 @@
     .item{ margin:8px 0 10px; }
     .role{ font-weight:700; font-size:13.5px; }
     .meta{ color:var(--muted); font-size:12.5px; }
+    .row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+    .when{ color:#111827; font-size:12.5px; font-weight:600; white-space:nowrap; }
     ul{ margin:6px 0 0 18px; }
     li{ margin:3px 0; font-size:12.5px; }
     .links a{ color:var(--accent); text-decoration:none; }
@@ -42,42 +44,38 @@
 
     <section>
       <h2>Education</h2>
-      <div class="item"><div class="role">University of Southern California (USC)</div><div class="meta">B.S. in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div></div>
-      <div class="item"><div class="role">University of California, Santa Cruz (UCSC)</div><div class="meta">B.S. in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div></div>
-      <div class="item"><div class="role">American Heritage School (Boca Delray, FL)</div><div class="meta">2019 – 2021 · Secondary Education (Grades 11–12)</div></div>
-      <div class="item"><div class="role">Dulwich International High School Suzhou</div><div class="meta">2018 – 2020 · Secondary Education (Grades 10–11)</div></div>
+      <div class="item"><div class="row"><div class="role">University of Southern California (USC)</div><div class="when">Aug 2023 – May 2026</div></div><div class="meta">B.S. in Computer Science · GPA 3.62/4</div></div>
+      <div class="item"><div class="row"><div class="role">University of California, Santa Cruz (UCSC)</div><div class="when">Sept 2021 – Jun 2023</div></div><div class="meta">B.S. in Computer Engineering · GPA 3.97/4</div></div>
+      <div class="item"><div class="row"><div class="role">American Heritage School (Boca Delray, FL)</div><div class="when">2019 – 2021</div></div><div class="meta">Secondary Education (Grades 11–12)</div></div>
+      <div class="item"><div class="row"><div class="role">Dulwich International High School Suzhou</div><div class="when">2017 – 2019</div></div><div class="meta">Secondary Education (Grades 10–11)</div></div>
       <div class="item"><div class="role">Standardized Tests</div><div class="meta">GRE 162 · 170 · 4.0 · June 3, 2025</div></div>
     </section>
 
     <section>
       <h2>Experience</h2>
       <div class="item">
-        <div class="role">AI Intern — Piezolabs</div>
-        <div class="meta">Jun 2025 – Jul 2025</div>
+        <div class="row"><div class="role">AI Intern — Piezolabs</div><div class="when">Jun 2025 – Jul 2025</div></div>
         <ul>
           <li>Used AI to analyze medical malpractice databases and conduct competitive analysis.</li>
           <li>Deployed AI utilities and assisted with testing experimental materials.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="role">Assistant to CEO — Haoan Health</div>
-        <div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div>
+        <div class="row"><div class="role">Assistant to CEO — Haoan Health</div><div class="when">Jun 2024 – Aug 2024 · Hangzhou, China</div></div>
         <ul>
           <li>Rotated across departments; helped build internal platform on NetEase Codewave.</li>
           <li>Recruited engineers; drafted program structure and interfaces.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="role">Investment Decision‑making — GUDU MEDICAL</div>
-        <div class="meta">Singapore · 2021 – 2025</div>
+        <div class="row"><div class="role">Investment Decision‑making — GUDU MEDICAL</div><div class="when">2021 – 2025 · Singapore</div></div>
         <ul>
           <li>Visited 10+ med‑tech startups; interviewed executives; voted on investment decisions.</li>
           <li>Analyzed China/US trends in digital health and diagnostics.</li>
         </ul>
       </div>
       <div class="item">
-        <div class="role">Application Engineer Intern — Synaptics</div>
-        <div class="meta">San Jose · Jun 2023 – Aug 2023</div>
+        <div class="row"><div class="role">Application Engineer Intern — Synaptics</div><div class="when">Jun 2023 – Aug 2023 · San Jose</div></div>
         <ul>
           <li>Tested product firmware; built ESP32 + Ali Cloud pipeline for multi‑protocol data.</li>
         </ul>
@@ -85,8 +83,8 @@
     </section>
     <section>
       <h2>Projects</h2>
-      <div class="item"><div class="role">CNN Deep Fake Face Detection</div><div class="meta">Feb 2025 – Apr 2025 · Accuracy 99%</div></div>
-      <div class="item"><div class="role">TradeViewer</div><div class="meta">Oct 2024 – Dec 2024 · Team lead</div></div>
+      <div class="item"><div class="row"><div class="role">CNN Deep Fake Face Detection</div><div class="when">Feb 2025 – Apr 2025</div></div><div class="meta">Accuracy 99% · <a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></div></div>
+      <div class="item"><div class="row"><div class="role">TradeViewer</div><div class="when">Oct 2024 – Dec 2024</div></div><div class="meta">Team lead · <a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">Code</a></div></div>
       <div class="item"><div class="role">transparentWindow</div><div class="meta">Open‑source utility</div><ul><li>Make web pages transparent on demand; simple and fun to try. <a href="https://github.com/BruceLZX/transparentWindow" target="_blank" rel="noopener">GitHub</a></li></ul></div>
       <div class="item"><div class="role">miniQUANT</div><div class="meta">Personal quantitative trading practice</div><ul><li>Exploratory repo for strategies and backtesting. <a href="https://github.com/BruceLZX/miniQUANT" target="_blank" rel="noopener">GitHub</a></li></ul></div>
     </section>
@@ -94,7 +92,7 @@
     <section>
       <h2>Publications</h2>
       <div class="item">
-        <div class="role">Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</div>
+        <div class="row"><div class="role">Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</div><div class="when">Study: 2021–2022 · Pub: 2023</div></div>
         <div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div>
         <ul>
           <li>Models launch timing, trailer timing, and platform choice as payoffs; computes all Nash equilibria (Gambit + Python) to derive profit‑maximizing release strategies.</li>
@@ -102,11 +100,10 @@
         </ul>
       </div>
       <div class="item">
-        <div class="role">PreScored HyperAttention</div>
-        <div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div>
+        <div class="row"><div class="role">PreScored HyperAttention</div><div class="when">Oct 2024 – May 2025</div></div>
         <ul>
           <li>Pre‑scores key intervals and applies selective attention to reduce attention complexity while maintaining accuracy.</li>
-          <li>Advised by Prof. David P. Woodruff (CMU).</li>
+          <li>Learned with and co‑authored alongside Prof. David P. Woodruff (CMU).</li>
           <li>Code: <a href="https://github.com/BruceLZX/prescored-transformer" target="_blank" rel="noopener">prescored-transformer</a></li>
         </ul>
       </div>

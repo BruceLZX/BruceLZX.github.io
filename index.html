@@ -45,13 +45,14 @@
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
 
     /* Education timeline */
-    .timeline{position:relative;padding-left:36px}
+    .timeline{position:relative;padding-left:44px}
     .timeline:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--stroke)}
-    .tl-item{position:relative;margin:34px 0}
-    .tl-item:before{content:"";position:absolute;left:6px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
-    .tl-row{display:flex;align-items:center;gap:14px;margin-left:16px}
-    .tl-year{color:var(--muted);font-size:16px;font-weight:700;min-width:160px;white-space:nowrap;letter-spacing:.1px}
-    .tl-hline{flex:0 0 72px;height:2px;background:var(--stroke)}
+    .tl-item{position:relative;margin:36px 0}
+    .tl-item:before{content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+    .tl-row{position:relative;display:flex;align-items:center;gap:16px;margin-left:16px}
+    .tl-row:before{content:"";position:absolute;left:16px;right:auto;top:50%;transform:translateY(-50%);width:16px;height:2px;background:var(--stroke)}
+    .tl-year{color:var(--muted);font-size:16px;font-weight:700;min-width:176px;white-space:nowrap;letter-spacing:.1px;padding-left:20px}
+    .tl-hline{flex:0 0 88px;height:2px;background:var(--stroke)}
     .tl-label{font-weight:700;font-size:17px}
 
     main{flex:1}
@@ -111,15 +112,15 @@
         <div class="meta" style="margin-left:116px">Secondary Education · Grades 11–12</div>
       </div>
       <div class="tl-item">
-        <div class="tl-row"><div class="tl-year">2018 – 2020</div><div class="tl-hline"></div><div class="tl-label">Dulwich International High School Suzhou</div></div>
+        <div class="tl-row"><div class="tl-year">2017 – 2019</div><div class="tl-hline"></div><div class="tl-label">Dulwich International High School Suzhou</div></div>
         <div class="meta" style="margin-left:116px">Secondary Education · Grades 10–11</div>
       </div>
       <div class="tl-item">
-        <div class="tl-row"><div class="tl-year">2015 – 2018</div><div class="tl-hline"></div><div class="tl-label">Liangzhu Anjilu Experimental Middle School</div></div>
+        <div class="tl-row"><div class="tl-year">2014 – 2017</div><div class="tl-hline"></div><div class="tl-label">Liangzhu Anjilu Experimental Middle School</div></div>
         <div class="meta" style="margin-left:116px">Middle School · Grades 7–9</div>
       </div>
       <div class="tl-item">
-        <div class="tl-row"><div class="tl-year">2009 – 2015</div><div class="tl-hline"></div><div class="tl-label">Zhejiang University Affiliated Primary School</div></div>
+        <div class="tl-row"><div class="tl-year">2008 – 2014</div><div class="tl-hline"></div><div class="tl-label">Zhejiang University Affiliated Primary School</div></div>
         <div class="meta" style="margin-left:116px">Primary School · Grades 1–6</div>
       </div>
     </div>
@@ -164,16 +165,16 @@
   <section id="publications">
     <h2>Publications</h2>
     <div class="grid">
-      <div class="tile"><strong>Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div><p>We model launch timing, trailer timing, and platform choice as a payoff matrix and compute all Nash equilibria with tools like Gambit and custom Python programs, deriving data‑driven release strategies to maximize profits. Advised by Prof. Ming Gu (UC Berkeley).</p><p><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank">DOI</a></p></div>
-      <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div><p>Proposes pre‑scoring of key intervals and a selective attention mechanism to reduce attention complexity, inspired by HyperAttention and LevAttention, while maintaining accuracy. Conducted under the guidance of Prof. David P. Woodruff (CMU).</p><p><a href="https://github.com/BruceLZX/prescored-transformer" target="_blank" rel="noopener">Code: prescored-transformer</a></p><div class="meta">Tech: Transformers, PyTorch, Triton, CUDA, Hugging Face, Google Cloud</div></div>
+      <div class="tile"><strong>Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div><p>Studied game theory under Prof. Ming Gu (UC Berkeley) during 2021–2022, then modeled launch timing, trailer timing, and platform choice as a payoff matrix and computed all Nash equilibria (Gambit + Python), deriving data‑driven release strategies.</p><p><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank">DOI</a></p></div>
+      <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div><p>Learned advanced algorithms with Prof. David P. Woodruff (CMU) and co‑authored a method that pre‑scores key intervals and applies selective attention to reduce attention complexity while maintaining accuracy.</p><p><a href="https://github.com/BruceLZX/prescored-transformer" target="_blank" rel="noopener">Code: prescored-transformer</a></p><div class="meta">Tech: Transformers, PyTorch, Triton, CUDA, Hugging Face, Google Cloud</div></div>
     </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
-      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">Feb 2025 – Apr 2025</div><p>Model accuracy reached 99% on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>.</p><div class="meta">Tech: PyTorch, Python Notebook, CUDA, TensorFlow, Keras</div></div>
-      <div class="tile"><strong>TradeViewer</strong><div class="meta">Oct 2024 – Dec 2024</div><p>Led a team of 8; integrated React frontend with Java backend to build a deployable transaction visualization system.</p><div class="meta">Tech: Jira, Scrum, Spring Boot, Maven, React, Servlet, Chart.js, Vite, Lottie React, Docker</div></div>
+      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">Feb 2025 – Apr 2025</div><p>Model accuracy reached 99% on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>. <a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></p><div class="meta">Tech: PyTorch, Python Notebook, CUDA, TensorFlow, Keras</div></div>
+      <div class="tile"><strong>TradeViewer</strong><div class="meta">Oct 2024 – Dec 2024</div><p>Led a team of 8; integrated React frontend with Java backend to build a deployable transaction visualization system. <a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">Code</a></p><div class="meta">Tech: Jira, Scrum, Spring Boot, Maven, React, Servlet, Chart.js, Vite, Lottie React, Docker</div></div>
       <div class="tile"><strong>transparentWindow</strong><div class="meta">Open‑source utility</div><p>Make web pages transparent on demand; simple and fun to try. <a href="https://github.com/BruceLZX/transparentWindow" target="_blank" rel="noopener">Try it on GitHub</a></p></div>
       <div class="tile"><strong>miniQUANT</strong><div class="meta">Personal quantitative trading practice</div><p>Exploratory repo for strategies and backtesting in quant trading. <a href="https://github.com/BruceLZX/miniQUANT" target="_blank" rel="noopener">Repo</a></p></div>
     </div>
