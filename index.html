@@ -14,6 +14,12 @@
       --stroke:rgba(15,23,42,0.08);
       --shadow:0 4px 12px rgba(2,6,23,0.06);
       --radius:12px;
+      /* timeline metrics */
+      --tl-dot-x:16px;          /* x of vertical line */
+      --tl-left-pad:28px;       /* padding from line to content */
+      --tl-year-w:210px;        /* width of year column */
+      --tl-hline-w:200px;       /* width of connector line */
+      --tl-gap:18px;            /* gap between columns */
     }
     html{scroll-behavior:smooth}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -45,15 +51,16 @@
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
 
     /* Education timeline */
-    .timeline{position:relative;padding-left:48px}
-    .timeline:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--stroke)}
+    .timeline{position:relative;padding-left:calc(var(--tl-dot-x) + var(--tl-left-pad))}
+    .timeline:before{content:"";position:absolute;left:var(--tl-dot-x);top:0;bottom:0;width:2px;background:var(--stroke)}
     .tl-item{position:relative;margin:40px 0}
-    .tl-item:before{content:"";position:absolute;left:10px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
-    .tl-row{position:relative;display:flex;align-items:center;gap:18px;margin-left:24px}
-    .tl-row:before{content:"";position:absolute;left:-8px;top:50%;transform:translateY(-50%);width:32px;height:2px;background:var(--stroke)}
-    .tl-year{color:var(--muted);font-size:16px;font-weight:700;min-width:190px;white-space:nowrap;letter-spacing:.1px}
-    .tl-hline{flex:0 0 160px;height:2px;background:var(--stroke)}
+    .tl-item:before{content:"";position:absolute;left:calc(var(--tl-dot-x) - 6px);top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+    .tl-row{position:relative;display:grid;grid-template-columns:var(--tl-year-w) var(--tl-hline-w) 1fr;column-gap:var(--tl-gap);align-items:center;margin-left:var(--tl-left-pad)}
+    .tl-row:before{content:"";position:absolute;left:calc(-1 * var(--tl-left-pad));top:50%;transform:translateY(-50%);width:var(--tl-left-pad);height:2px;background:var(--stroke)}
+    .tl-year{color:var(--muted);font-size:16px;font-weight:700;white-space:nowrap;letter-spacing:.1px}
+    .tl-hline{height:2px;background:var(--stroke)}
     .tl-label{font-weight:700;font-size:17px}
+    .tl-sub{margin-left:calc(var(--tl-left-pad) + var(--tl-year-w) + var(--tl-gap) + var(--tl-hline-w) + var(--tl-gap))}
 
     main{flex:1}
     footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
@@ -101,27 +108,27 @@
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">Aug 2023 – May 2026</div><div class="tl-hline"></div><div class="tl-label">University of Southern California (USC)</div></div>
-        <div class="meta" style="margin-left:116px">B.S. in Computer Science · GPA 3.62/4</div>
+        <div class="meta tl-sub">B.S. in Computer Science · GPA 3.62/4</div>
       </div>
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">Sept 2021 – Jun 2023</div><div class="tl-hline"></div><div class="tl-label">University of California, Santa Cruz (UCSC)</div></div>
-        <div class="meta" style="margin-left:116px">B.S. in Computer Engineering · GPA 3.97/4</div>
+        <div class="meta tl-sub">B.S. in Computer Engineering · GPA 3.97/4</div>
       </div>
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">2019 – 2021</div><div class="tl-hline"></div><div class="tl-label">American Heritage School (Boca Delray, FL)</div></div>
-        <div class="meta" style="margin-left:116px">Secondary Education · Grades 11–12</div>
+        <div class="meta tl-sub">Secondary Education · Grades 11–12</div>
       </div>
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">2017 – 2019</div><div class="tl-hline"></div><div class="tl-label">Dulwich International High School Suzhou</div></div>
-        <div class="meta" style="margin-left:116px">Secondary Education · Grades 10–11</div>
+        <div class="meta tl-sub">Secondary Education · Grades 10–11</div>
       </div>
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">2014 – 2017</div><div class="tl-hline"></div><div class="tl-label">Liangzhu Anjilu Experimental Middle School</div></div>
-        <div class="meta" style="margin-left:116px">Middle School · Grades 7–9</div>
+        <div class="meta tl-sub">Middle School · Grades 7–9</div>
       </div>
       <div class="tl-item">
         <div class="tl-row"><div class="tl-year">2008 – 2014</div><div class="tl-hline"></div><div class="tl-label">Zhejiang University Affiliated Primary School</div></div>
-        <div class="meta" style="margin-left:116px">Primary School · Grades 1–6</div>
+        <div class="meta tl-sub">Primary School · Grades 1–6</div>
       </div>
     </div>
     
