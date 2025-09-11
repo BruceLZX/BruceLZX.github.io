@@ -30,6 +30,19 @@
     .logo{font-weight:700}
     .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
     .links a:hover{color:var(--accent)}
+    /* Hamburger + drawer */
+    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:#fff;cursor:pointer;margin-right:10px}
+    .burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
+    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+    .burger span:before{top:-6px}.burger span:after{top:6px}
+    .overlay{position:fixed;inset:0;background:rgba(15,23,42,0.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
+    .overlay.open{opacity:1;pointer-events:auto}
+    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#fff;border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
+    .drawer.open{left:0}
+    .drawer h3{margin:6px 0 10px;font-size:14px;color:var(--muted)}
+    .drawer a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
+    .drawer a:hover{background:rgba(37,99,235,0.08);color:var(--accent)}
+    body.no-scroll{overflow:hidden}
 
     .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
     .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
@@ -63,19 +76,31 @@
 <body>
   <header class="nav">
     <div class="bar">
-      <div class="logo">Bruce Li</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button id="burger" class="burger" aria-label="Open menu"><span></span></button>
+        <div class="logo">Bruce Li</div>
+      </div>
       <div class="links">
-        <a href="#qualifications">Qualifications</a>
-        <a href="#education">Education</a>
-        <a href="#internship">Internship</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#business">Business</a>
         <a href="index-zh.html" title="中文">中文</a>
-        <a id="cv-link" href="cv.html" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
+        <a id="cv-link" href="cv.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
+        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </header>
+  <div id="overlay" class="overlay"></div>
+  <aside id="drawer" class="drawer" aria-label="Section menu">
+    <h3>Sections</h3>
+    <a href="#qualifications">Qualifications</a>
+    <a href="#education">Education</a>
+    <a href="#internship">Internship</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#activities">Activities & Competitions</a>
+    <a href="#teaching">Teaching & Mentorship</a>
+    <a href="#awards">Awards</a>
+    <a href="#business">Business</a>
+  </aside>
 
   <main>
   <div class="hero">
@@ -212,19 +237,17 @@
   <script>
     // Enhance internal anchor links with smooth scrolling (cross-browser) and header offset.
     (function(){
-      const links = document.querySelectorAll('.links a[href^="#"]');
-      links.forEach(a => {
-        a.addEventListener('click', (e) => {
-          const href = a.getAttribute('href');
-          if (href && href.length > 1) {
-            const el = document.querySelector(href);
-            if (el) {
-              e.preventDefault();
-              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }
-        });
-      });
+      function smoothTo(sel,e){const el=document.querySelector(sel);if(el){e&&e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}
+      // Smooth scroll for drawer items
+      document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{smoothTo(a.getAttribute('href'),e)}));
+      // Drawer interactions
+      const burger=document.getElementById('burger');
+      const drawer=document.getElementById('drawer');
+      const overlay=document.getElementById('overlay');
+      function openDrawer(state){drawer.classList.toggle('open',state);overlay.classList.toggle('open',state);document.body.classList.toggle('no-scroll',state)}
+      if(burger){burger.addEventListener('click',()=>openDrawer(true));}
+      if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
+      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
     })();
   </script>
 </body>

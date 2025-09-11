@@ -10,10 +10,23 @@
     html,body{height:100%}
     body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;background:var(--bg);color:var(--ink);line-height:1.6;display:flex;flex-direction:column;min-height:100vh;padding-top:58px}
     header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
-    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
+    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:12px 16px}
     .logo{font-weight:700}
     .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
     .links a:hover{color:var(--accent)}
+    /* 汉堡与侧栏 */
+    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:#fff;cursor:pointer;margin-right:10px}
+    .burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
+    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+    .burger span:before{top:-6px}.burger span:after{top:6px}
+    .overlay{position:fixed;inset:0;background:rgba(15,23,42,0.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
+    .overlay.open{opacity:1;pointer-events:auto}
+    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#fff;border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
+    .drawer.open{left:0}
+    .drawer h3{margin:6px 0 10px;font-size:14px;color:var(--muted)}
+    .drawer a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
+    .drawer a:hover{background:rgba(37,99,235,0.08);color:var(--accent)}
+    body.no-scroll{overflow:hidden}
     .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
     .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
     .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:#fff;font-size:13px;color:var(--muted)}
@@ -39,19 +52,29 @@
 <body>
   <header class="nav">
     <div class="bar">
-      <div class="logo">李哲翔 Bruce Li</div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button id="burger" class="burger" aria-label="打开菜单"><span></span></button>
+        <div class="logo">李哲骧 Bruce Li</div>
+      </div>
       <div class="links">
-        <a href="#qualifications">能力</a>
-        <a href="#education">教育</a>
-        <a href="#internship">实习</a>
-        <a href="#publications">论文</a>
-        <a href="#projects">项目</a>
-        <a href="#business">商业</a>
         <a href="index.html" title="English">EN</a>
-        <a href="cv_zh.html" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">个人简历</a>
+        <a href="cv_zh.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">个人简历</a>
+        <a href="https://github.com/BruceLZX" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a>
       </div>
     </div>
   </header>
+  <div id="overlay" class="overlay"></div>
+  <aside id="drawer" class="drawer" aria-label="栏目菜单">
+    <h3>页面栏目</h3>
+    <a href="#qualifications">能力</a>
+    <a href="#education">教育</a>
+    <a href="#internship">实习</a>
+    <a href="#publications">论文</a>
+    <a href="#projects">项目</a>
+    <a href="#activities">活动与竞赛</a>
+    <a href="#business">商业/商学院</a>
+  </aside>
 
   <main>
   <div class="hero">
@@ -135,13 +158,15 @@
 
   <script>
     (function(){
-      const links = document.querySelectorAll('.links a[href^="#"]');
-      links.forEach(a=>{
-        a.addEventListener('click',e=>{
-          const el=document.querySelector(a.getAttribute('href'));
-          if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
-        });
-      });
+      function smoothTo(sel,e){const el=document.querySelector(sel);if(el){e&&e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}
+      document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{smoothTo(a.getAttribute('href'),e)}));
+      const burger=document.getElementById('burger');
+      const drawer=document.getElementById('drawer');
+      const overlay=document.getElementById('overlay');
+      function openDrawer(state){drawer.classList.toggle('open',state);overlay.classList.toggle('open',state);document.body.classList.toggle('no-scroll',state)}
+      if(burger){burger.addEventListener('click',()=>openDrawer(true));}
+      if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
+      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
     })();
   </script>
 </body>
