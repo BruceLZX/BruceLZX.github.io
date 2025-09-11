@@ -38,6 +38,11 @@
     .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
     .tile strong{display:block;margin-bottom:6px;font-weight:600}
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    .table-wrap{overflow:auto}
+    .tbl{width:100%;border-collapse:collapse;font-size:14px}
+    .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
+    .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
+    .tbl tr:last-child td{border-bottom:none}
     /* 教育卡片 */
     .edu-list{display:flex;flex-direction:column;gap:12px}
     .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
@@ -91,7 +96,25 @@
       <div class="tile"><strong>编程语言</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>技术</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
       <div class="tile"><strong>标准化考试</strong><p>GRE: 162 · 170 · 4.0（2025-06-03）</p></div>
-      <div class="tile"><strong>主修课程</strong><p>算法与计算理论（CSCI‑270）；数据结构与面向对象（CSCI‑104L）；概率与统计（EE‑364）；线性代数与微分方程（MATH‑225）；人工智能（CSCI‑360）；机器学习（CSCI‑467）；软件工程（CSCI‑310）；嵌入式系统（EE‑109L）；软件开发原理（CSCI‑201）；高等微积分（MATH‑226g）</p></div>
+      <div class="tile"><strong>主修课程</strong>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>课程代码</th><th>课程名称</th><th>学期</th></tr></thead>
+            <tbody>
+              <tr><td>CSCI‑270</td><td>算法与计算理论</td><td>2024 秋</td></tr>
+              <tr><td>CSCI‑104L</td><td>数据结构与面向对象设计</td><td>2024 春</td></tr>
+              <tr><td>EE‑364</td><td>电类概率与统计导论</td><td>2024 秋</td></tr>
+              <tr><td>MATH‑225</td><td>线性代数与微分方程</td><td>2024 春</td></tr>
+              <tr><td>CSCI‑360</td><td>人工智能导论</td><td>2025 春</td></tr>
+              <tr><td>CSCI‑467</td><td>机器学习导论</td><td>2025 春</td></tr>
+              <tr><td>CSCI‑310</td><td>软件工程</td><td>2025 春</td></tr>
+              <tr><td>EE‑109L</td><td>嵌入式系统导论</td><td>2024 春</td></tr>
+              <tr><td>CSCI‑201</td><td>软件开发原理</td><td>2024 秋</td></tr>
+              <tr><td>MATH‑226g</td><td>高等微积分（Calculus III）</td><td>2023 秋</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 

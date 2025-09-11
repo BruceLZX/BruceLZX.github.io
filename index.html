@@ -56,6 +56,11 @@
     .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
     .tile strong{display:block;margin-bottom:6px;font-weight:600}
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    .table-wrap{overflow:auto}
+    .tbl{width:100%;border-collapse:collapse;font-size:14px}
+    .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
+    .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
+    .tbl tr:last-child td{border-bottom:none}
 
     /* Education list (clean cards) */
     .edu-list{display:flex;flex-direction:column;gap:12px}
@@ -117,7 +122,25 @@
       <div class="tile"><strong>Languages</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>Technologies</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
       <div class="tile"><strong>Standardized Tests</strong><p>GRE: 162 · 170 · 4.0 (June 3, 2025)</p></div>
-      <div class="tile"><strong>Selected Coursework</strong><p>Algorithms & Theory (CSCI‑270); Data Structures & OOD (CSCI‑104L); Probability & Statistics for EECS (EE‑364); Linear Algebra & Diff Eq (MATH‑225); Artificial Intelligence (CSCI‑360); Machine Learning (CSCI‑467); Software Engineering (CSCI‑310); Embedded Systems (EE‑109L); Principles of Software Development (CSCI‑201); Calculus III (MATH‑226g)</p></div>
+      <div class="tile"><strong>Selected Coursework</strong>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Code</th><th>Course</th><th>Term</th></tr></thead>
+            <tbody>
+              <tr><td>CSCI‑270</td><td>Introduction to Algorithms and Theory of Computing</td><td>Fall 2024</td></tr>
+              <tr><td>CSCI‑104L</td><td>Data Structures and Object Oriented Design</td><td>Spring 2024</td></tr>
+              <tr><td>EE‑364</td><td>Probability and Statistics for EECS</td><td>Fall 2024</td></tr>
+              <tr><td>MATH‑225</td><td>Linear Algebra and Linear Differential Equations</td><td>Spring 2024</td></tr>
+              <tr><td>CSCI‑360</td><td>Introduction to Artificial Intelligence</td><td>Spring 2025</td></tr>
+              <tr><td>CSCI‑467</td><td>Introduction to Machine Learning</td><td>Spring 2025</td></tr>
+              <tr><td>CSCI‑310</td><td>Software Engineering</td><td>Spring 2025</td></tr>
+              <tr><td>EE‑109L</td><td>Introduction to Embedded Systems</td><td>Spring 2024</td></tr>
+              <tr><td>CSCI‑201</td><td>Principles of Software Development</td><td>Fall 2024</td></tr>
+              <tr><td>MATH‑226g</td><td>Calculus III</td><td>Fall 2023</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 
