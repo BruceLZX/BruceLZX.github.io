@@ -41,6 +41,18 @@
     .tile strong{display:block;margin-bottom:6px;font-weight:600}
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
 
+    /* Education timeline */
+    .timeline{position:relative;padding-left:26px}
+    .timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--stroke)}
+    .tl-item{position:relative;margin:18px 0}
+    .tl-item:before{content:"";position:absolute;left:6px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+    .tl-row{display:flex;align-items:center;gap:10px;margin-left:16px}
+    .tl-year{color:var(--muted);font-size:13px;min-width:84px}
+    .tl-hline{flex:0 0 48px;height:2px;background:var(--stroke)}
+    .tl-label{font-weight:600}
+
+    footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
+
     @media(max-width:768px){
       .headline{font-size:32px}
     }
@@ -57,6 +69,8 @@
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
         <a href="cv.html" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">CV (PDF)</a>
+        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </header>
@@ -65,7 +79,8 @@
     <img src="se.jpg" alt="Bruce Li portrait" />
     <h1 class="headline">Zhexiang (Bruce) Li</h1>
     <div class="pill">USC · Computer Science</div>
-    <div class="sub">CS student passionate about efficient Transformers, ML systems, and backend engineering.</div>
+    <div class="sub">CS student strong in programming and machine learning, passionate about integrating AI into modern industries. I enjoy investing and business management, and I plan to pursue a master's degree focusing on efficient Transformers, ML systems, and production‑grade backend engineering.</div>
+    <div class="pill" style="margin-top:14px">Contact: brucel@USC dot edu · <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
 
   <section id="qualifications">
@@ -78,12 +93,26 @@
 
   <section id="education">
     <h2>Education</h2>
-    <div class="grid">
-      <div class="tile"><strong>University of Southern California (USC)</strong><div class="meta">B.S. in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div></div>
-      <div class="tile"><strong>University of California, Santa Cruz (UCSC)</strong><div class="meta">B.S. in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div></div>
-      <div class="tile"><strong>GRE</strong><div class="meta">162 · 170 · 4.0 · June 3, 2025</div></div>
-      <div class="tile"><strong>Dulwich International High School Suzhou</strong><div class="meta">Secondary Education · Grades 10–11</div></div>
-      <div class="tile"><strong>American Heritage School (Boca/Delray, FL)</strong><div class="meta">Secondary Education · Grades 11–12</div></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-row"><div class="tl-year">Aug 2023 – May 2026</div><div class="tl-hline"></div><div class="tl-label">University of Southern California (USC)</div></div>
+        <div class="meta" style="margin-left:116px">B.S. in Computer Science · GPA 3.62/4</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-row"><div class="tl-year">Sept 2021 – Jun 2023</div><div class="tl-hline"></div><div class="tl-label">University of California, Santa Cruz (UCSC)</div></div>
+        <div class="meta" style="margin-left:116px">B.S. in Computer Engineering · GPA 3.97/4</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-row"><div class="tl-year">G11 – G12</div><div class="tl-hline"></div><div class="tl-label">American Heritage School (Boca Delray, FL)</div></div>
+        <div class="meta" style="margin-left:116px">Secondary Education</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-row"><div class="tl-year">G10 – G11</div><div class="tl-hline"></div><div class="tl-label">Dulwich International High School Suzhou</div></div>
+        <div class="meta" style="margin-left:116px">Secondary Education</div>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:18px">
+      <div class="tile"><strong>Standardized Tests</strong><div class="meta">GRE 162 · 170 · 4.0 · June 3, 2025</div></div>
     </div>
   </section>
 
@@ -101,7 +130,7 @@
     <h2>Activities & Competitions</h2>
     <div class="grid">
       <div class="tile"><strong>USC Badminton Club</strong><div class="meta">Member · Academic Year 2024–2025</div><p>Participated regularly through junior year.</p></div>
-      <div class="tile"><strong>TIE Hub Startup Workshop</strong><div class="meta">Participant · Sep 2025</div><p>Competed in startup workshop; collaborated on venture design and pitch.</p></div>
+      <div class="tile"><strong>TIE Hub Startup Hackathon (5‑day workshop)</strong><div class="meta">Participant · Sep 2025</div><p>Ideated a startup concept over five days and built a working demo; collaborated on venture design and pitch.</p></div>
     </div>
   </section>
 
@@ -118,6 +147,7 @@
     <div class="grid">
       <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">Competitor · 2015</div></div>
       <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">Competitor · 2017</div></div>
+      <div class="tile"><strong>Viterbi Dean’s List</strong><div class="meta">Fall 2024 – Present</div></div>
     </div>
   </section>
 
@@ -125,7 +155,7 @@
     <h2>Publications</h2>
     <div class="grid">
       <div class="tile"><strong>Game theory in companies: A program‑approach to find all Nash equilibria in games with two players</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div><p><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank">DOI</a></p></div>
-      <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div><p>Research on speeding up Transformers with HyperAttention & LevAttention; explored CNNs, DNNs, GANs, distributed big data.</p><div class="meta">Tech: HyperAttention, LevAttention, Transformers, PyTorch, Triton, Hugging Face, Google Cloud</div></div>
+      <div class="tile"><strong>PreScored HyperAttention</strong><div class="meta">Oct 2024 – May 2025 · Target conference: NeurIPS</div><p>Proposes pre‑scoring of key intervals and a selective attention mechanism to reduce attention complexity, inspired by HyperAttention and LevAttention, while maintaining accuracy. Conducted under the guidance of Prof. David P. Woodruff (CMU).</p><p><a href="https://github.com/BruceLZX/prescored-transformer" target="_blank" rel="noopener">Code: prescored-transformer</a></p><div class="meta">Tech: Transformers, PyTorch, Triton, CUDA, Hugging Face, Google Cloud</div></div>
     </div>
   </section>
 
@@ -134,6 +164,8 @@
     <div class="grid">
       <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">Feb 2025 – Apr 2025</div><p>Model accuracy reached 99% on Kaggle dataset <code>xhlulu/140k-real-and-fake-faces</code>.</p><div class="meta">Tech: PyTorch, Python Notebook, CUDA, TensorFlow, Keras</div></div>
       <div class="tile"><strong>TradeViewer</strong><div class="meta">Oct 2024 – Dec 2024</div><p>Led a team of 8; integrated React frontend with Java backend to build a deployable transaction visualization system.</p><div class="meta">Tech: Jira, Scrum, Spring Boot, Maven, React, Servlet, Chart.js, Vite, Lottie React, Docker</div></div>
+      <div class="tile"><strong>transparentWindow</strong><div class="meta">Open‑source utility</div><p>Make web pages transparent on demand; simple and fun to try. <a href="https://github.com/BruceLZX/transparentWindow" target="_blank" rel="noopener">Try it on GitHub</a></p></div>
+      <div class="tile"><strong>miniQUANT</strong><div class="meta">Personal quantitative trading practice</div><p>Exploratory repo for strategies and backtesting in quant trading. <a href="https://github.com/BruceLZX/miniQUANT" target="_blank" rel="noopener">Repo</a></p></div>
     </div>
   </section>
 
