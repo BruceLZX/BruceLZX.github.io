@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>个人简历 — 李哲骧（Bruce）</title>
+  <title>学术履历 — 李哲骧（Bruce）</title>
   <style>
     :root{ --ink:#0f172a; --muted:#475569; --accent:#2563eb; }
     *{ box-sizing:border-box; }
@@ -23,7 +23,8 @@
     li{ margin:3px 0; font-size:12.5px; }
     .links a{ color:var(--accent); text-decoration:none; }
     .links a:hover{ text-decoration:underline; }
-    @media print{ .print-btn{ display:none } .page{ padding:24px } @page{ size:A4; margin:12mm } }
+    .print-hidden{ display:inline-block; margin-left:8px }
+    @media print{ .print-btn, .print-hidden{ display:none } .page{ padding:24px } @page{ size:A4; margin:12mm } }
   </style>
 </head>
 <body>
@@ -32,9 +33,16 @@
       <div>
         <h1>李哲骧（Bruce）</h1>
         <div class="tag">USC · 计算机科学</div>
-        <div class="tag">brucel@USC dot edu · 8312392728 · <span class="links"><a href="https://brucelzx.github.io/" target="_blank">网站</a> · <a href="https://github.com/BruceLZX" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a></span></div>
+        <div class="tag">邮箱：brucel@USC dot edu</div>
+        <div class="tag">电话：8312392728</div>
+        <div class="tag">网站：<a href="https://brucelzx.github.io/" target="_blank">https://brucelzx.github.io/</a></div>
+        <div class="tag">GitHub：<a href="https://github.com/BruceLZX" target="_blank">https://github.com/BruceLZX</a></div>
+        <div class="tag">LinkedIn：<a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">https://www.linkedin.com/in/zhexiang-li-4a41b0237/</a></div>
       </div>
-      <a class="print-btn" href="#" onclick="window.print();return false;">下载 PDF</a>
+      <div>
+        <a class="print-btn" href="#" onclick="window.print();return false;">下载 PDF</a>
+        <a class="print-hidden" href="cv.html">EN</a>
+      </div>
     </header>
 
     <section>
