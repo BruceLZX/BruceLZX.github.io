@@ -18,7 +18,7 @@
       --tl-dot-x:16px;          /* x of vertical line */
       --tl-left-pad:28px;       /* padding from line to content */
       --tl-year-w:210px;        /* width of year column */
-      --tl-hline-w:200px;       /* width of connector line */
+      --tl-hline-w:320px;       /* width of connector line */
       --tl-gap:18px;            /* gap between columns */
     }
     html{scroll-behavior:smooth}
@@ -57,7 +57,8 @@
     .tl-item:before{content:"";position:absolute;left:calc(var(--tl-dot-x) - 6px);top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
     .tl-row{position:relative;display:grid;grid-template-columns:var(--tl-year-w) var(--tl-hline-w) 1fr;column-gap:var(--tl-gap);align-items:center;margin-left:var(--tl-left-pad)}
     .tl-row:before{content:"";position:absolute;left:calc(-1 * var(--tl-left-pad));top:50%;transform:translateY(-50%);width:var(--tl-left-pad);height:2px;background:var(--stroke)}
-    .tl-year{color:var(--muted);font-size:16px;font-weight:700;white-space:nowrap;letter-spacing:.1px}
+    .tl-year{color:var(--muted);font-size:16px;font-weight:700;white-space:nowrap;letter-spacing:.1px;position:relative}
+    .tl-year:before{content:"";position:absolute;left:-24px;top:50%;transform:translateY(-50%);width:24px;height:2px;background:var(--stroke)}
     .tl-hline{height:2px;background:var(--stroke)}
     .tl-label{font-weight:700;font-size:17px}
     .tl-sub{margin-left:calc(var(--tl-left-pad) + var(--tl-year-w) + var(--tl-gap) + var(--tl-hline-w) + var(--tl-gap))}
@@ -211,17 +212,17 @@
       const cv = document.getElementById('cv-link');
       if (cv) {
         cv.addEventListener('click', async (e) => {
-          const primary = cv.getAttribute('href') || '/assets/pdf/Zhexiang(Bruce) Li - CV.pdf';
-          const fallback1 = '/assets/pdf/cv.pdf';
-          const encodedPrimary = encodeURI(primary);
+          const base = cv.getAttribute('href') || '/assets/pdf/Zhexiang(Bruce) Li - CV.pdf';
+          const primary = encodeURI(base) + '?v=' + Date.now();
+          const fallback1 = '/assets/pdf/cv.pdf?v=' + Date.now();
           try {
             e.preventDefault();
             const ctrl = new AbortController();
             const t = setTimeout(() => ctrl.abort(), 1800);
-            const res = await fetch(encodedPrimary, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
+            const res = await fetch(primary, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
             clearTimeout(t);
             if (res.ok) {
-              window.location.href = encodedPrimary;
+              window.location.href = primary;
             } else {
               // Try legacy filename
               const res2 = await fetch(fallback1, { method: 'HEAD', cache: 'no-store' });
