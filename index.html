@@ -23,9 +23,9 @@
       background:var(--bg);
       color:var(--ink);
       line-height:1.6;
-      display:flex;flex-direction:column;min-height:100vh
+      display:flex;flex-direction:column;min-height:100vh;padding-top:58px
     }
-    header.nav{position:sticky;top:0;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
     .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
     .logo{font-weight:700}
     .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
@@ -48,7 +48,7 @@
     .timeline{position:relative;padding-left:36px}
     .timeline:before{content:"";position:absolute;left:16px;top:0;bottom:0;width:2px;background:var(--stroke)}
     .tl-item{position:relative;margin:34px 0}
-    .tl-item:before{content:"";position:absolute;left:6px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+    .tl-item:before{content:"";position:absolute;left:6px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
     .tl-row{display:flex;align-items:center;gap:14px;margin-left:16px}
     .tl-year{color:var(--muted);font-size:16px;font-weight:700;min-width:160px;white-space:nowrap;letter-spacing:.1px}
     .tl-hline{flex:0 0 72px;height:2px;background:var(--stroke)}
@@ -115,12 +115,12 @@
         <div class="meta" style="margin-left:116px">Secondary Education · Grades 10–11</div>
       </div>
       <div class="tl-item">
-        <div class="tl-row"><div class="tl-year">G7 – G9</div><div class="tl-hline"></div><div class="tl-label">Liangzhu Anjilu Experimental Middle School</div></div>
-        <div class="meta" style="margin-left:116px">Middle School</div>
+        <div class="tl-row"><div class="tl-year">2015 – 2018</div><div class="tl-hline"></div><div class="tl-label">Liangzhu Anjilu Experimental Middle School</div></div>
+        <div class="meta" style="margin-left:116px">Middle School · Grades 7–9</div>
       </div>
       <div class="tl-item">
-        <div class="tl-row"><div class="tl-year">G1 – G6</div><div class="tl-hline"></div><div class="tl-label">Zhejiang University Affiliated Primary School</div></div>
-        <div class="meta" style="margin-left:116px">Primary School</div>
+        <div class="tl-row"><div class="tl-year">2009 – 2015</div><div class="tl-hline"></div><div class="tl-label">Zhejiang University Affiliated Primary School</div></div>
+        <div class="meta" style="margin-left:116px">Primary School · Grades 1–6</div>
       </div>
     </div>
     
@@ -129,7 +129,7 @@
   <section id="internship">
     <h2>Internship</h2>
     <div class="grid">
-      <div class="tile"><strong>AI Intern — PiazoLab</strong><div class="meta">Jun 2025 – Jul 2025</div><p>Used AI tools to analyze medical malpractice databases and perform competitive analysis; deployed AI utilities and assisted with testing experimental materials.</p></div>
+      <div class="tile"><strong>AI Intern — Piezolabs</strong><div class="meta">Jun 2025 – Jul 2025</div><p>Used AI tools to analyze medical malpractice databases and perform competitive analysis; deployed AI utilities and assisted with testing experimental materials.</p></div>
       <div class="tile"><strong>Assistant to CEO — Haoan Health</strong><div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div><p>Rotated across departments; helped build internal platform on NetEase Codewave; recruited engineers; drafted program structure & interfaces.</p></div>
       <div class="tile"><strong>Investment Decision‑making — GUDU MEDICAL</strong><div class="meta">Singapore · 2021 – 2025</div><p>Visited 10+ med‑tech startups (Zhejiang, Irvine, Silicon Valley); interviewed executives; voted on investment decisions; analyzed CN/US digital‑health & diagnostics trends.</p></div>
       <div class="tile"><strong>Application Engineer Intern — Synaptics</strong><div class="meta">San Jose · Jun 2023 – Aug 2023</div><p>Tested product firmware; used ESP32 with Ali Cloud to convert and transmit multi‑protocol data (I²C etc.).</p><div class="meta">Tech: Ali Cloud, MQTT, Python, MicroPython, C, ESP32, Bluetooth LE, Firmware, Visual Studio</div></div>
@@ -155,8 +155,8 @@
   <section id="awards">
     <h2>Awards</h2>
     <div class="grid">
-      <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">Competitor · 2015</div></div>
-      <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">Competitor · 2017</div></div>
+      <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">Middle School Division · 2015</div></div>
+      <div class="tile"><strong>VEX Robotics Asia‑Pacific Championship — Champion</strong><div class="meta">High School Division · 2017</div></div>
       <div class="tile"><strong>Viterbi Dean’s List</strong><div class="meta">Fall 2024 – Present</div></div>
     </div>
   </section>
