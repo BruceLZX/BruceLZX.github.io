@@ -34,6 +34,8 @@ jobs:
       - name: Commit PDF if changed
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'assets/pdf/Zhexiang(Bruce) Li - CV.pdf'
-          message: 'chore: auto-generate cv.pdf from cv.html'
+          add: |
+            assets/pdf/Zhexiang(Bruce) Li - CV.pdf
+            assets/pdf/cv.pdf
+          message: 'chore: auto-generate CV PDFs from cv.html'
           default_author: github_actions

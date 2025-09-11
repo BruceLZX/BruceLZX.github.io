@@ -200,22 +200,29 @@
         });
       });
 
-      // CV link: try PDF first; if missing, fall back to HTML.
+      // CV link: try PDF(s) first; if missing, fall back to HTML.
       const cv = document.getElementById('cv-link');
       if (cv) {
         cv.addEventListener('click', async (e) => {
-          const pdfPath = cv.getAttribute('href') || '/assets/pdf/Zhexiang(Bruce) Li - CV.pdf';
-          const encoded = encodeURI(pdfPath);
+          const primary = cv.getAttribute('href') || '/assets/pdf/Zhexiang(Bruce) Li - CV.pdf';
+          const fallback1 = '/assets/pdf/cv.pdf';
+          const encodedPrimary = encodeURI(primary);
           try {
             e.preventDefault();
             const ctrl = new AbortController();
             const t = setTimeout(() => ctrl.abort(), 1800);
-            const res = await fetch(encoded, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
+            const res = await fetch(encodedPrimary, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
             clearTimeout(t);
             if (res.ok) {
-              window.location.href = encoded;
+              window.location.href = encodedPrimary;
             } else {
-              window.location.href = 'cv.html';
+              // Try legacy filename
+              const res2 = await fetch(fallback1, { method: 'HEAD', cache: 'no-store' });
+              if (res2.ok) {
+                window.location.href = fallback1;
+              } else {
+                window.location.href = 'cv.html';
+              }
             }
           } catch (err) {
             window.location.href = 'cv.html';
