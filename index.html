@@ -15,12 +15,15 @@
       --shadow:0 4px 12px rgba(2,6,23,0.06);
       --radius:12px;
     }
+    html{scroll-behavior:smooth}
     *{box-sizing:border-box;margin:0;padding:0}
+    html, body{height:100%}
     body{
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:var(--bg);
       color:var(--ink);
       line-height:1.6;
+      display:flex;flex-direction:column;min-height:100vh
     }
     header.nav{position:sticky;top:0;z-index:20;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
     .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
@@ -34,7 +37,7 @@
     .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .sub{font-size:16px;color:var(--muted)}
 
-    section{max-width:1000px;margin:40px auto;padding:0 20px}
+    section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
     h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
     .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
@@ -46,11 +49,12 @@
     .timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:var(--stroke)}
     .tl-item{position:relative;margin:18px 0}
     .tl-item:before{content:"";position:absolute;left:6px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--accent)}
-    .tl-row{display:flex;align-items:center;gap:10px;margin-left:16px}
-    .tl-year{color:var(--muted);font-size:13px;min-width:84px}
-    .tl-hline{flex:0 0 48px;height:2px;background:var(--stroke)}
+    .tl-row{display:flex;align-items:center;gap:10px;margin-left:16px;position:relative}
+    .tl-year{color:var(--muted);font-size:12px;position:absolute;left:16px;top:-12px;width:48px;text-align:center}
+    .tl-hline{flex:0 0 48px;height:2px;background:var(--stroke);position:relative}
     .tl-label{font-weight:600}
 
+    main{flex:1}
     footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
 
     @media(max-width:768px){
@@ -68,13 +72,14 @@
         <a href="#internship">Internship</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
-        <a href="cv.html" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">CV (PDF)</a>
+        <a href="cv.pdf" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae (PDF)</a>
         <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
   </header>
 
+  <main>
   <div class="hero">
     <img src="se.jpg" alt="Bruce Li portrait" />
     <h1 class="headline">Zhexiang (Bruce) Li</h1>
@@ -169,6 +174,26 @@
     </div>
   </section>
 
+  </main>
+
   <footer>© 2025 Zhexiang (Bruce) Li — Built on GitHub Pages</footer>
+  <script>
+    // Enhance internal anchor links with smooth scrolling (cross-browser) and header offset.
+    (function(){
+      const links = document.querySelectorAll('.links a[href^="#"]');
+      links.forEach(a => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href');
+          if (href && href.length > 1) {
+            const el = document.querySelector(href);
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
