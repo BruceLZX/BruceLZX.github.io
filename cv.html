@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV — Zhexiang (Bruce) Li</title>
+  <style>
+    :root{ --ink:#0f172a; --muted:#475569; --accent:#2563eb; }
+    *{ box-sizing:border-box; }
+    body{ font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); margin:0; }
+    .page{ max-width:900px; margin:0 auto; padding:32px 28px; }
+    header{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:18px; }
+    h1{ font-size:32px; margin:0; font-weight:800; }
+    .tag{ color:var(--muted); margin-top:4px; }
+    .print-btn{ border:1px solid #e5e7eb; padding:6px 10px; border-radius:8px; background:#fff; color:var(--accent); font-weight:600; text-decoration:none; }
+    h2{ font-size:16px; margin:20px 0 8px; text-transform:uppercase; letter-spacing:.08em; color:#111827; }
+    .item{ margin:6px 0 10px; }
+    .role{ font-weight:700; }
+    .meta{ color:var(--muted); font-size:13px; }
+    ul{ margin:6px 0 0 18px; }
+    li{ margin:3px 0; }
+    .cols{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+    @media print{
+      .print-btn{ display:none; }
+      body{ color:#000; }
+      .page{ padding:0 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div>
+        <h1>Zhexiang (Bruce) Li</h1>
+        <div class="tag">USC · Computer Science</div>
+      </div>
+      <a class="print-btn" href="#" onclick="window.print();return false;">Download PDF</a>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="item"><div class="role">University of Southern California (USC)</div><div class="meta">B.S. in Computer Science · GPA 3.62/4 · Aug 2023 – May 2026</div></div>
+      <div class="item"><div class="role">University of California, Santa Cruz (UCSC)</div><div class="meta">B.S. in Computer Engineering · GPA 3.97/4 · Sept 2021 – Jun 2023</div></div>
+      <div class="item"><div class="role">Dulwich International High School Suzhou</div><div class="meta">Secondary Education · Grades 10–11</div></div>
+      <div class="item"><div class="role">American Heritage School (Boca/Delray, FL)</div><div class="meta">Secondary Education · Grades 11–12</div></div>
+      <div class="item"><div class="role">GRE</div><div class="meta">162 · 170 · 4.0 · June 3, 2025</div></div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="item">
+        <div class="role">AI Intern — PiazoLab</div>
+        <div class="meta">Jun 2025 – Jul 2025</div>
+        <ul>
+          <li>Used AI to analyze medical malpractice databases and conduct competitive analysis.</li>
+          <li>Deployed AI utilities and assisted with testing experimental materials.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="role">Assistant to CEO — Haoan Health</div>
+        <div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div>
+        <ul>
+          <li>Rotated across departments; helped build internal platform on NetEase Codewave.</li>
+          <li>Recruited engineers; drafted program structure and interfaces.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="role">Investment Decision‑making — GUDU MEDICAL</div>
+        <div class="meta">Singapore · 2021 – 2025</div>
+        <ul>
+          <li>Visited 10+ med‑tech startups; interviewed executives; voted on investment decisions.</li>
+          <li>Analyzed China/US trends in digital health and diagnostics.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="role">Application Engineer Intern — Synaptics</div>
+        <div class="meta">San Jose · Jun 2023 – Aug 2023</div>
+        <ul>
+          <li>Tested product firmware; built ESP32 + Ali Cloud pipeline for multi‑protocol data.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cols">
+      <div>
+        <h2>Activities</h2>
+        <div class="item"><div class="role">USC Badminton Club</div><div class="meta">Member · Academic Year 2024–2025</div></div>
+        <div class="item"><div class="role">TIE Hub Startup Workshop</div><div class="meta">Participant · Sep 2025</div></div>
+
+        <h2>Teaching & Mentorship</h2>
+        <div class="item"><div class="role">Teaching Assistant — Intro to Machine Learning (UCSC)</div><div class="meta">Spring 2023 · Prof. Lise Getoor</div></div>
+        <div class="item"><div class="role">Assistant Coach — VEX Robotics & Olympiad in Informatics</div><div class="meta">Shanghai Bosidi Education · 2014 – 2018</div></div>
+
+        <h2>Awards</h2>
+        <div class="item"><div class="role">VEX Robotics Asia‑Pacific Championship — Champion</div><div class="meta">Competitor · 2015</div></div>
+        <div class="item"><div class="role">VEX Robotics Asia‑Pacific Championship — Champion</div><div class="meta">Competitor · 2017</div></div>
+      </div>
+      <div>
+        <h2>Skills</h2>
+        <div class="item"><div class="role">Languages</div><div class="meta">Python, Java, C++, JavaScript</div></div>
+        <div class="item"><div class="role">Technologies</div><div class="meta">Docker, PyTorch, MySQL, GCP, AWS, Transformers</div></div>
+
+        <h2>Projects</h2>
+        <div class="item"><div class="role">CNN Deep Fake Face Detection</div><div class="meta">Feb 2025 – Apr 2025 · Accuracy 99%</div></div>
+        <div class="item"><div class="role">TradeViewer</div><div class="meta">Oct 2024 – Dec 2024 · Team lead</div></div>
+        <div class="item"><div class="meta">Details on homepage</div></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Auto-open print dialog for quick PDF export.
+    window.addEventListener('load', () => setTimeout(() => window.print(), 400));
+  </script>
+</body>
+</html>
+
