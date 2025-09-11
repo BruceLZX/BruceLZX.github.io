@@ -72,7 +72,7 @@
         <a href="#internship">Internship</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
-        <a id="cv-link" href="/assets/pdf/cv.pdf" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
+        <a id="cv-link" href="/assets/pdf/Zhexiang(Bruce) Li - CV.pdf" style="margin-left:28px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
       </div>
     </div>
   </header>
@@ -203,15 +203,16 @@
       const cv = document.getElementById('cv-link');
       if (cv) {
         cv.addEventListener('click', async (e) => {
-          const pdfPath = cv.getAttribute('href') || '/assets/pdf/cv.pdf';
+          const pdfPath = cv.getAttribute('href') || '/assets/pdf/Zhexiang(Bruce) Li - CV.pdf';
+          const encoded = encodeURI(pdfPath);
           try {
             e.preventDefault();
             const ctrl = new AbortController();
             const t = setTimeout(() => ctrl.abort(), 1800);
-            const res = await fetch(pdfPath, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
+            const res = await fetch(encoded, { method: 'HEAD', cache: 'no-store', signal: ctrl.signal });
             clearTimeout(t);
             if (res.ok) {
-              window.location.href = pdfPath;
+              window.location.href = encoded;
             } else {
               window.location.href = 'cv.html';
             }

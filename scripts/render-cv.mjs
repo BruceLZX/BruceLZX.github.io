@@ -6,7 +6,7 @@ async function main() {
   const root = process.cwd();
   const input = path.join(root, 'cv.html');
   const outDir = path.join(root, 'assets', 'pdf');
-  const output = path.join(outDir, 'cv.pdf');
+  const output = path.join(outDir, 'Zhexiang(Bruce) Li - CV.pdf');
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
@@ -28,4 +28,3 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
-
