@@ -6,13 +6,14 @@
   <title>Bruce Li — USC · Computer Science</title>
   <style>
     :root{
-      --accent:#2563eb;
-      --accent-2:#7c3aed;
-      --ink:#0f172a;
-      --muted:#475569;
-      --bg:#f6f9fc;
-      --stroke:rgba(15,23,42,0.08);
-      --shadow:0 4px 12px rgba(2,6,23,0.06);
+      --accent:#22d3ee;           /* cyan */
+      --accent-2:#a78bfa;         /* purple for gradients */
+      --ink:#e5e7eb;              /* primary text on dark */
+      --muted:#94a3b8;            /* secondary text */
+      --bg:#0b0f19;               /* near-black background */
+      --panel:#111827;            /* card/nav panels */
+      --stroke:rgba(148,163,184,0.14);
+      --shadow:0 10px 30px rgba(0,0,0,0.45);
       --radius:12px;
     }
     html{scroll-behavior:smooth}
@@ -25,35 +26,36 @@
       line-height:1.6;
       display:flex;flex-direction:column;min-height:100vh;padding-top:58px
     }
-    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(246,249,252,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--stroke)}
+    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(17,24,39,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke);box-shadow:0 8px 20px rgba(0,0,0,.35)}
     .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
     .logo{font-weight:700}
-    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
+    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s ease}
     .links a:hover{color:var(--accent)}
     /* Hamburger + drawer */
     .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:#fff;cursor:pointer;margin-right:10px}
     .burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
     .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
     .burger span:before{top:-6px}.burger span:after{top:6px}
-    .overlay{position:fixed;inset:0;background:rgba(15,23,42,0.35);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
+    .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.55);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
     .overlay.open{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:#fff;border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
+    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:var(--panel);border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
     .drawer.open{left:0}
     .drawer h3{margin:6px 0 10px;font-size:14px;color:var(--muted)}
     .drawer a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
-    .drawer a:hover{background:rgba(37,99,235,0.08);color:var(--accent)}
+    .drawer a:hover{background:rgba(34,211,238,0.10);color:var(--accent)}
     body.no-scroll{overflow:hidden}
 
     .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,0.15);margin-bottom:16px}
-    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:#fff;font-size:13px;color:var(--muted)}
-    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,var(--ink),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px rgba(34,211,238,0.25),0 12px 30px rgba(0,0,0,0.6);margin-bottom:16px}
+    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
+    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,#fff,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .sub{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
 
     section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
     h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-    .tile{background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+    .tile{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,0.55)}
     .tile strong{display:block;margin-bottom:6px;font-weight:600}
     .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
     .tile ul{margin:8px 0 0 0;padding-left:22px;list-style:disc outside}
@@ -68,7 +70,7 @@
 
     /* Education list (clean cards) */
     .edu-list{display:flex;flex-direction:column;gap:12px}
-    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
     .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
     .edu-meta{color:var(--muted);font-size:14px}
     .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
@@ -93,7 +95,7 @@
         <a href="index-zh.html" title="中文">中文</a>
         <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
-        <a id="cv-link" href="cv.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">Curriculum Vitae</a>
+        <a id="cv-link" href="cv.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-weight:600">Curriculum Vitae</a>
       </div>
     </div>
   </header>
