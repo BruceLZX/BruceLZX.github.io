@@ -15,9 +15,9 @@
     .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
     .links a:hover{color:var(--accent)}
     /* 汉堡与侧栏 */
-    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:#fff;cursor:pointer;margin-right:10px}
-    .burger span{display:block;width:18px;height:2px;background:var(--ink);position:relative}
-    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:rgba(255,255,255,0.04);cursor:pointer;margin-right:10px}
+    .burger span{display:block;width:18px;height:2px;background:var(--muted);position:relative}
+    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--muted)}
     .burger span:before{top:-6px}.burger span:after{top:6px}
     .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.55);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
     .overlay.open{opacity:1;pointer-events:auto}
@@ -70,7 +70,7 @@
         <a href="index.html" title="English">EN</a>
         <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="cv_zh.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">学术履历</a>
+        <a href="cv_zh.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-weight:600">学术履历</a>
       </div>
     </div>
   </header>
