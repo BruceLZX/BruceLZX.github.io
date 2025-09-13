@@ -67,10 +67,16 @@
     .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
     .tbl td:nth-child(2){white-space:normal}
     .tbl tr:last-child td{border-bottom:none}
+    /* Zoomable coursework */
+    .zoomable{position:relative}
+    .zoom-btn{position:absolute;top:8px;right:8px;padding:2px 8px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-size:12px;cursor:pointer}
+    .zoom-body{transform:scale(.92);transform-origin:top left;max-height:240px;overflow:auto;transition:transform .2s ease,max-height .2s ease}
+    .tile.expanded .zoom-body{transform:scale(1);max-height:1000px}
+    .tile.expanded .zoom-btn{background:var(--accent);color:#0b0f19;border-color:var(--accent)}
 
     /* Education list (clean cards) */
     .edu-list{display:flex;flex-direction:column;gap:12px}
-    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel)!important;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
     .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
     .edu-meta{color:var(--muted);font-size:14px}
     .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
@@ -128,9 +134,11 @@
       <div class="tile"><strong>Languages</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>Technologies</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
       <div class="tile"><strong>Standardized Tests</strong><p>GRE: 162 · 170 · 4.0 (June 3, 2025)</p></div>
-      <div class="tile wide"><strong>Selected Coursework</strong>
-        <div class="table-wrap">
-          <table class="tbl">
+      <div class="tile wide zoomable"><strong>Selected Coursework</strong>
+        <button class="zoom-btn" type="button" aria-label="Expand coursework">Zoom</button>
+        <div class="zoom-body">
+          <div class="table-wrap">
+            <table class="tbl">
             <thead><tr><th>Code</th><th>Course</th><th>Term</th></tr></thead>
             <tbody>
               <tr><td>CSCI‑270</td><td>Introduction to Algorithms and Theory of Computing</td><td>Fall 2024</td></tr>
@@ -144,7 +152,8 @@
               <tr><td>CSCI‑201</td><td>Principles of Software Development</td><td>Fall 2024</td></tr>
               <tr><td>MATH‑226g</td><td>Calculus III</td><td>Fall 2023</td></tr>
             </tbody>
-          </table>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -282,6 +291,14 @@
       if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
       drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
+
+      // Zoom buttons for coursework
+      document.querySelectorAll('.zoom-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const tile=btn.closest('.tile');
+          if(tile){ tile.classList.toggle('expanded'); }
+        });
+      });
     })();
   </script>
 </body>

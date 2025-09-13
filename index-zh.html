@@ -48,6 +48,12 @@
     .tbl td:nth-child(2){white-space:normal}
     .tbl tr:last-child td{border-bottom:none}
     .tile.wide{grid-column:span 2}
+    /* 可缩放课程卡片 */
+    .zoomable{position:relative}
+    .zoom-btn{position:absolute;top:8px;right:8px;padding:2px 8px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-size:12px;cursor:pointer}
+    .zoom-body{transform:scale(.92);transform-origin:top left;max-height:240px;overflow:auto;transition:transform .2s ease,max-height .2s ease}
+    .tile.expanded .zoom-body{transform:scale(1);max-height:1000px}
+    .tile.expanded .zoom-btn{background:var(--accent);color:#0b0f19;border-color:var(--accent)}
     /* 教育卡片 */
     .edu-list{display:flex;flex-direction:column;gap:12px}
     .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
@@ -101,9 +107,11 @@
       <div class="tile"><strong>编程语言</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>技术</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
       <div class="tile"><strong>标准化考试</strong><p>GRE: 162 · 170 · 4.0（2025-06-03）</p></div>
-      <div class="tile wide"><strong>主修课程</strong>
-        <div class="table-wrap">
-          <table class="tbl">
+      <div class="tile wide zoomable"><strong>主修课程</strong>
+        <button class="zoom-btn" type="button" aria-label="缩放课程表">缩放</button>
+        <div class="zoom-body">
+          <div class="table-wrap">
+            <table class="tbl">
             <thead><tr><th>课程代码</th><th>课程名称</th><th>学期</th></tr></thead>
             <tbody>
               <tr><td>CSCI‑270</td><td>算法与计算理论</td><td>2024 秋</td></tr>
@@ -117,7 +125,8 @@
               <tr><td>CSCI‑201</td><td>软件开发原理</td><td>2024 秋</td></tr>
               <tr><td>MATH‑226g</td><td>高等微积分（Calculus III）</td><td>2023 秋</td></tr>
             </tbody>
-          </table>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -202,6 +211,14 @@
       if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
       drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
       document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
+
+      // 课程卡片缩放
+      document.querySelectorAll('.zoom-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const tile=btn.closest('.tile');
+          if(tile){ tile.classList.toggle('expanded'); }
+        });
+      });
     })();
   </script>
 </body>
