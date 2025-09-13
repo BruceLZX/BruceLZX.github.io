@@ -47,13 +47,16 @@
     .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
     .tbl td:nth-child(2){white-space:normal}
     .tbl tr:last-child td{border-bottom:none}
-    .tile.wide{grid-column:span 2}
+    .tile.expanded{grid-column:span 2}
     /* 可缩放课程卡片 */
     .zoomable{position:relative}
-    .zoom-btn{position:absolute;top:8px;right:8px;padding:2px 8px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-size:12px;cursor:pointer}
+    .zoom-btn{position:absolute;top:8px;right:8px;width:24px;height:24px;border:1px solid var(--accent);border-radius:6px;background:transparent;color:var(--accent);cursor:pointer}
+    .zoom-btn:before,.zoom-btn:after{content:"";position:absolute;width:9px;height:9px}
+    .zoom-btn:before{top:4px;right:4px;border-top:2px solid var(--accent);border-right:2px solid var(--accent)}
+    .zoom-btn:after{bottom:4px;left:4px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent)}
     .zoom-body{transform:scale(.92);transform-origin:top left;max-height:240px;overflow:auto;transition:transform .2s ease,max-height .2s ease}
     .tile.expanded .zoom-body{transform:scale(1);max-height:1000px}
-    .tile.expanded .zoom-btn{background:var(--accent);color:#0b0f19;border-color:var(--accent)}
+    .tile.expanded .zoom-btn{background:transparent;border-color:var(--accent);transform:rotate(180deg)}
     /* 教育卡片 */
     .edu-list{display:flex;flex-direction:column;gap:12px}
     .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:#fff;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
@@ -107,7 +110,7 @@
       <div class="tile"><strong>编程语言</strong><p>Python, Java, C++, JavaScript</p></div>
       <div class="tile"><strong>技术</strong><p>Docker, PyTorch, MySQL, GCP, AWS, Transformers</p></div>
       <div class="tile"><strong>标准化考试</strong><p>GRE: 162 · 170 · 4.0（2025-06-03）</p></div>
-      <div class="tile wide zoomable"><strong>主修课程</strong>
+      <div class="tile zoomable"><strong>主修课程</strong>
         <button class="zoom-btn" type="button" aria-label="缩放课程表">缩放</button>
         <div class="zoom-body">
           <div class="table-wrap">
