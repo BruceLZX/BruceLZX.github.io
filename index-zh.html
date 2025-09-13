@@ -42,6 +42,7 @@
     .tbl{width:100%;border-collapse:collapse;font-size:14px}
     .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
     .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
+    .tbl td:nth-child(2){white-space:normal}
     .tbl tr:last-child td{border-bottom:none}
     /* 教育卡片 */
     .edu-list{display:flex;flex-direction:column;gap:12px}
@@ -58,19 +59,19 @@
   <header class="nav">
     <div class="bar">
       <div style="display:flex;align-items:center;gap:10px">
-        <button id="burger" class="burger" aria-label="打开菜单"><span></span></button>
+        <button id="burger" class="burger" aria-label="打开菜单" aria-controls="drawer" aria-expanded="false"><span></span></button>
         <div class="logo">李哲骧 Bruce Li</div>
       </div>
       <div class="links">
         <a href="index.html" title="English">EN</a>
-        <a href="https://github.com/BruceLZX" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="cv_zh.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--stroke);border-radius:8px;background:#fff;color:var(--accent);font-weight:600">学术履历</a>
       </div>
     </div>
   </header>
   <div id="overlay" class="overlay"></div>
-  <aside id="drawer" class="drawer" aria-label="栏目菜单">
+  <aside id="drawer" class="drawer" aria-label="栏目菜单" role="dialog" aria-modal="true" aria-hidden="true">
     <h3>页面栏目</h3>
     <a href="#qualifications">能力</a>
     <a href="#education">教育</a>
@@ -87,7 +88,7 @@
     <h1 class="headline">李哲骧（Bruce）</h1>
     <div class="pill">南加州大学 · 计算机科学</div>
     <div class="sub">你好，我是李哲骧。喜欢把想法快速做成可用的小产品，再把它们打磨成可靠的系统。最近在折腾高效 Transformer 和机器学习系统，也在关注如何把 AI 真正落地到业务场景里。平时会研究市场与商业案例，未来计划读硕士，做更有影响力、能被真实用户使用的技术与产品。</div>
-    <div class="pill" style="margin:14px auto 0">联系方式：brucel@USC dot edu · 8312392728 · <a href="https://github.com/BruceLZX" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank">LinkedIn</a></div>
+    <div class="pill" style="margin:14px auto 0">联系方式：brucel@USC dot edu · 8312392728 · <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
 
   <section id="qualifications">
@@ -133,10 +134,10 @@
   <section id="internship">
     <h2>实习</h2>
     <div class="grid">
-      <div class="tile"><strong>AI 实习生 — Piezolabs</strong><div class="meta">尔湾, 美国加州 · 2025-06 – 2025-07</div><p>利用 AI 工具分析医疗事故数据库与竞品；部署 AI 工具并协助测试实验材料。</p></div>
-      <div class="tile"><strong>CEO 助理 — 好安科技有限公司</strong><div class="meta">杭州, 中国 · 2024-06 – 2024-08</div><p>跨部门轮岗；在网易低代码平台搭建内部系统；协助招募工程师与梳理接口/结构。</p></div>
-      <div class="tile"><strong>应用工程师实习 — Synaptics</strong><div class="meta">圣何塞, 美国加州 · 2023-06 – 2023-08</div><p>为公司最新一代内部产品验证技术路线；测试固件；基于 ESP32 与阿里云完成多协议数据（含 I²C）转换与传输。</p><div class="meta">Ali Cloud, MQTT, Python/MicroPython, C, ESP32, BLE, Firmware</div></div>
-      <div class="tile"><strong>投资决策 — GUDU MEDICAL</strong><div class="meta">新加坡 · 2021 – 2025</div><p>调研 10+ 医疗科技企业、拜访高管，参与投决并分析中美数字医疗/诊断趋势。</p></div>
+      <div class="tile"><strong>AI 实习生 — Piezolabs</strong><div class="meta">尔湾, 美国加州 · 2025-06 – 2025-07</div><p><em>职责：</em> 医疗风控与竞品情报的 AI 工具落地。</p><ul><li>搭建 LLM 辅助的数据处理流程，解析医疗事故数据并产出事件聚类与 KPI 报告。</li><li>部署/测试智能体与工作流工具，制定实验检查清单与验收标准。</li></ul></div>
+      <div class="tile"><strong>CEO 助理 — 好安科技有限公司</strong><div class="meta">杭州, 中国 · 2024-06 – 2024-08</div><p><em>职责：</em> 内部平台建设与运营支持。</p><ul><li>在网易低代码平台原型化模块，定义数据模型与接口，供 3 个部门复用。</li><li>对接工程招聘流程，撰写岗位说明与面试评估表，提升筛选效率。</li></ul></div>
+      <div class="tile"><strong>应用工程师实习 — Synaptics</strong><div class="meta">圣何塞, 美国加州 · 2023-06 – 2023-08</div><p><em>职责：</em> 固件验证与物联数据路由原型。</p><ul><li>实现 ESP32 + 阿里云遥测桥接，规范化 I²C/UART 数据并以 MQTT 主题上报。</li><li>撰写测试计划并自动化冒烟测试，验证公司新一代内部产品技术路线。</li></ul><div class="meta">Ali Cloud, MQTT, Python/MicroPython, C, ESP32, BLE, Firmware</div></div>
+      <div class="tile"><strong>风投实习生 — GUDU Medical Venture Fund</strong><div class="meta">新加坡, 新加坡 · 2021 – 2025</div><p><em>职责：</em> 项目挖掘与行业研究（诊断/数字医疗）。</p><ul><li>初筛项目，整理商业进展、技术/合规风险与竞品格局，支持 IC 评审。</li><li>绘制市场地图，建立 TAM/SAM/SOM 模型，撰写尽调与对标分析。</li></ul></div>
     </div>
   </section>
 
@@ -151,10 +152,10 @@
   <section id="projects">
     <h2>项目</h2>
     <div class="grid">
-      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">2025-02 – 2025-04</div><p>人脸深伪检测，精度 99%（Kaggle <code>xhlulu/140k-real-and-fake-faces</code>）。<a href="https://github.com/BruceLZX/ai_face_detection" target="_blank">代码</a></p></div>
-      <div class="tile"><strong>TradeViewer</strong><div class="meta">2024-10 – 2024-12</div><p>团队 8 人，React + Spring Boot 的交易可视化系统。<a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank">代码</a></p></div>
-      <div class="tile"><strong>transparentWindow</strong><div class="meta">开源小工具</div><p>一键让网页背景透明，用于视觉特效与演示。<a href="https://github.com/BruceLZX/transparentWindow" target="_blank">代码</a></p></div>
-      <div class="tile"><strong>miniQUANT</strong><div class="meta">个人量化练习</div><p>量化策略探索与回测仓库。<a href="https://github.com/BruceLZX/miniQUANT" target="_blank">代码</a></p></div>
+      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">2025-02 – 2025-04</div><p>人脸深伪检测，精度 99%（Kaggle <code>xhlulu/140k-real-and-fake-faces</code>）。<a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">代码</a></p></div>
+      <div class="tile"><strong>TradeViewer</strong><div class="meta">2024-10 – 2024-12</div><p>团队 8 人，React + Spring Boot 的交易可视化系统。<a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">代码</a></p></div>
+      <div class="tile"><strong>transparentWindow</strong><div class="meta">开源小工具</div><p>一键让网页背景透明，用于视觉特效与演示。<a href="https://github.com/BruceLZX/transparentWindow" target="_blank" rel="noopener">代码</a></p></div>
+      <div class="tile"><strong>miniQUANT</strong><div class="meta">个人量化练习</div><p>量化策略探索与回测仓库。<a href="https://github.com/BruceLZX/miniQUANT" target="_blank" rel="noopener">代码</a></p></div>
     </div>
   </section>
 
@@ -186,10 +187,17 @@
       const burger=document.getElementById('burger');
       const drawer=document.getElementById('drawer');
       const overlay=document.getElementById('overlay');
-      function openDrawer(state){drawer.classList.toggle('open',state);overlay.classList.toggle('open',state);document.body.classList.toggle('no-scroll',state)}
+      function openDrawer(state){
+        drawer.classList.toggle('open',state);
+        overlay.classList.toggle('open',state);
+        document.body.classList.toggle('no-scroll',state);
+        drawer.setAttribute('aria-hidden', String(!state));
+        if(burger) burger.setAttribute('aria-expanded', String(state));
+      }
       if(burger){burger.addEventListener('click',()=>openDrawer(true));}
       if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
       drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
     })();
   </script>
 </body>

@@ -60,6 +60,7 @@
     .tbl{width:100%;border-collapse:collapse;font-size:14px}
     .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
     .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
+    .tbl td:nth-child(2){white-space:normal}
     .tbl tr:last-child td{border-bottom:none}
 
     /* Education list (clean cards) */
@@ -82,7 +83,7 @@
   <header class="nav">
     <div class="bar">
       <div style="display:flex;align-items:center;gap:10px">
-        <button id="burger" class="burger" aria-label="Open menu"><span></span></button>
+        <button id="burger" class="burger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span></button>
         <div class="logo">Bruce Li</div>
       </div>
       <div class="links">
@@ -94,7 +95,7 @@
     </div>
   </header>
   <div id="overlay" class="overlay"></div>
-  <aside id="drawer" class="drawer" aria-label="Section menu">
+  <aside id="drawer" class="drawer" aria-label="Section menu" role="dialog" aria-modal="true" aria-hidden="true">
     <h3>Sections</h3>
     <a href="#qualifications">Qualifications</a>
     <a href="#education">Education</a>
@@ -195,10 +196,10 @@
   <section id="internship">
     <h2>Internship</h2>
     <div class="grid">
-      <div class="tile"><strong>AI Intern — Piezolabs</strong><div class="meta">Irvine, CA · Jun 2025 – Jul 2025</div><p>Used AI tools to analyze medical malpractice databases and perform competitive analysis; deployed AI utilities and assisted with testing experimental materials.</p></div>
-      <div class="tile"><strong>Assistant to CEO — Haoan Health</strong><div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div><p>Rotated across departments; helped build internal platform on NetEase Codewave; recruited engineers; drafted program structure & interfaces.</p></div>
-      <div class="tile"><strong>Investment Decision‑making — GUDU MEDICAL</strong><div class="meta">Singapore · 2021 – 2025</div><p>Visited 10+ med‑tech startups (Zhejiang, Irvine, Silicon Valley); interviewed executives; voted on investment decisions; analyzed CN/US digital‑health & diagnostics trends.</p></div>
-      <div class="tile"><strong>Application Engineer Intern — Synaptics</strong><div class="meta">San Jose, CA · Jun 2023 – Aug 2023</div><p>Validated the technical approach for the latest‑generation internal product; tested product firmware; used ESP32 with Ali Cloud to convert and transmit multi‑protocol data (I²C etc.).</p><div class="meta">Tech: Ali Cloud, MQTT, Python, MicroPython, C, ESP32, Bluetooth LE, Firmware, Visual Studio</div></div>
+      <div class="tile"><strong>AI Intern — Piezolabs</strong><div class="meta">Irvine, CA · Jun 2025 – Jul 2025</div><p><em>Assigned:</em> AI tooling for healthcare risk and competitive intelligence.</p><ul><li>Built an LLM‑assisted pipeline to parse malpractice datasets and surface incident clusters/KPIs for internal reviews.</li><li>Deployed and tested agent/workflow tools; created experiment checklists and acceptance tests for lab materials.</li></ul></div>
+      <div class="tile"><strong>Assistant to CEO — Haoan Health</strong><div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div><p><em>Assigned:</em> Internal platform build and operations.</p><ul><li>Prototyped low‑code modules on NetEase Codewave; defined data models and REST interfaces adopted by 3 departments.</li><li>Coordinated engineering hiring pipeline; drafted role specs and interview rubrics to speed up screening.</li></ul></div>
+      <div class="tile"><strong>Venture Fund Intern — GUDU Medical</strong><div class="meta">Singapore, Singapore · 2021 – 2025</div><p><em>Assigned:</em> Deal‑flow support and market research for diagnostics/digital‑health.</p><ul><li>Screened inbound opportunities; summarized traction, technical/regulatory risks, and competitive landscape for IC review.</li><li>Built market maps and TAM/SAM/SOM models; compiled diligence notes and benchmarks to support investment memos.</li></ul></div>
+      <div class="tile"><strong>Application Engineer Intern — Synaptics</strong><div class="meta">San Jose, CA · Jun 2023 – Aug 2023</div><p><em>Assigned:</em> Firmware validation and IoT data routing prototype.</p><ul><li>Implemented an ESP32 + Ali Cloud telemetry bridge; normalized I²C/UART payloads to MQTT topics for dashboards.</li><li>Authored test plans and automated smoke tests; validated the technical approach for a next‑gen internal product.</li></ul><div class="meta">Tech: Ali Cloud, MQTT, Python, MicroPython, C, ESP32, Bluetooth LE, Firmware, Visual Studio</div></div>
     </div>
   </section>
 
@@ -261,16 +262,21 @@
     // Enhance internal anchor links with smooth scrolling (cross-browser) and header offset.
     (function(){
       function smoothTo(sel,e){const el=document.querySelector(sel);if(el){e&&e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}
-      // Smooth scroll for drawer items
       document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{smoothTo(a.getAttribute('href'),e)}));
-      // Drawer interactions
       const burger=document.getElementById('burger');
       const drawer=document.getElementById('drawer');
       const overlay=document.getElementById('overlay');
-      function openDrawer(state){drawer.classList.toggle('open',state);overlay.classList.toggle('open',state);document.body.classList.toggle('no-scroll',state)}
+      function openDrawer(state){
+        drawer.classList.toggle('open',state);
+        overlay.classList.toggle('open',state);
+        document.body.classList.toggle('no-scroll',state);
+        drawer.setAttribute('aria-hidden', String(!state));
+        if(burger) burger.setAttribute('aria-expanded', String(state));
+      }
       if(burger){burger.addEventListener('click',()=>openDrawer(true));}
       if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
       drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
     })();
   </script>
 </body>
