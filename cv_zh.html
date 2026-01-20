@@ -58,6 +58,13 @@
     <section>
       <h2>经历</h2>
       <div class="item">
+        <div class="row"><div class="role">联合创始人 & CTO — CrAIg Capital（洛杉矶, 美国加州）</div><div class="when">2025 – 至今</div></div>
+        <ul>
+          <li>负责 AI 房屋债务催收的端到端产品与工程，从数据管线到工作流自动化。</li>
+          <li>制定技术栈与运营节奏：产品路线、招聘与交付标准。</li>
+        </ul>
+      </div>
+      <div class="item">
         <div class="row"><div class="role">AI 开发实习生 — Piezolabs Medical（Lake Forest, 美国加州）</div><div class="when">2025-06 – 2025-08</div></div>
         <ul>
           <li>搭建内部 LLM 辅助流程，清洗与聚类 5000+ 医疗事故病例文档，提炼重复模式支持质控复盘。</li>
@@ -97,7 +104,7 @@
 
     <section>
       <h2>论文</h2>
-      <div class="item"><div class="row"><div class="role">Efficient Attention via Pre‑Scoring: Prioritizing Informative Keys in Transformers</div><div class="when">2024-10 – 2025-05</div></div><div class="meta">提出预评分机制，先选择信息量高的 key 区间再进行注意力计算，以降低计算与显存开销。</div><ul><li>在 HyperAttention 上加入 k‑means/核 k‑means、k‑median、leverage score 预评分以优先筛选关键 token。</li><li>ChatGLM2 131k 长上下文困惑度从 12 降至 8.3；在 ViT 上精度与 LevAttention 相当或更优，组合方法相对 FlashAttention 最高可提速 20×。</li><li>实现 Triton 内核，并与 HyperAttention、LevAttention 对比，精度可比且开销显著降低。</li><li>第一作者；ICLR 审稿中（rebuttal）；导师：CMU David P. Woodruff 教授。<a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li></ul></div>
+      <div class="item"><div class="row"><div class="role">Efficient Attention via Pre‑Scoring: Prioritizing Informative Keys in Transformers</div><div class="when">2024-10 – 2025-05</div></div><div class="meta">在 HyperAttention 前加入预评分机制，优先筛选关键 key 并替换均匀残差采样。</div><ul><li>预评分方法包括 k‑means/核 k‑means、k‑median 与 leverage score 排序。</li><li>ChatGLM2（131k 长上下文）困惑度从 12 降至 8.3；在 ViT 上精度与 LevAttention 相当或可更优，组合方法相对 FlashAttention 最高可提速 20×。</li><li>论文链接：<a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li></ul></div>
       <div class="item"><div class="row"><div class="role">Game theory in companies: A program approach to find all Nash equilibria in games with two players</div><div class="when">2022 – 2023</div></div><div class="meta">Li, S., Li, Z., & Liu, Z. (2023) · Advances in Economics, Management and Political Sciences, 16(1)</div><ul><li>2021–2022 跟随 UC Berkeley Ming Gu 教授学习与研究，将发布时间、预告片与平台选择建模为收益矩阵。</li><li>基于 Python + Gambit 构建求解管线枚举全部纳什均衡，形成数据驱动的发行策略。</li><li>团队负责人。<a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">DOI 10.54254/2754-1169/16/20231043</a></li></ul></div>
     </section>
 

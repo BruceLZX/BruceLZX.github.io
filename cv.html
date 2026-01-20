@@ -63,6 +63,13 @@
     <section>
       <h2>Experiences</h2>
       <div class="item">
+        <div class="row"><div class="role">Co‑Founder & CTO — CrAIg Capital (Los Angeles, CA)</div><div class="when">2025 – Present</div></div>
+        <ul>
+          <li>Own end-to-end product and engineering for AI housing debt collection, from data pipelines to workflow automation.</li>
+          <li>Set the tech stack and operating cadence: roadmap, hiring, and delivery standards.</li>
+        </ul>
+      </div>
+      <div class="item">
         <div class="row"><div class="role">AI Development Intern — Piezolabs Medical (Lake Forest, CA)</div><div class="when">Jun 2025 – Aug 2025</div></div>
         <ul>
           <li>Built an internal LLM‑assisted pipeline to ingest, clean, and cluster 5,000+ malpractice case documents for quality‑of‑care reviews.</li>
@@ -114,10 +121,9 @@
       <div class="item">
         <div class="row"><div class="role">Efficient Attention via Pre‑Scoring: Prioritizing Informative Keys in Transformers</div><div class="when">Oct 2024 – May 2025</div></div>
         <ul>
-          <li>Proposed a pre‑scoring mechanism that selects informative key intervals before attention to reduce compute and memory usage.</li>
-          <li>Pre‑scores keys (k‑means/kernel k‑means, k‑median, leverage scores) to prioritize informative tokens; ChatGLM2 (131k context) perplexity drops from 12 to 8.3 and ViT accuracy matches or surpasses LevAttention.</li>
-          <li>Implemented Triton kernels and benchmarked against HyperAttention and LevAttention with comparable accuracy and lower overhead.</li>
-          <li>First author; under review at ICLR (rebuttal stage); advised by Prof. David P. Woodruff (CMU). <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
+          <li>Adds a pre‑scoring step before HyperAttention to prioritize significant keys and replace uniform residual sampling.</li>
+          <li>Scoring methods include k‑means/kernel k‑means, k‑median, and leverage‑score ranking; ChatGLM2 (131k context) perplexity drops from 12 to 8.3, ViT accuracy matches or can surpass LevAttention, and the combined method reaches up to 20× speed‑up vs FlashAttention.</li>
+          <li>Manuscript: <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
         </ul>
       </div>
       <div class="item">

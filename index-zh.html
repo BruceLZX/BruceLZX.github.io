@@ -150,6 +150,7 @@
   <section id="experiences">
     <h2>经历</h2>
     <div class="grid">
+      <div class="tile"><strong>联合创始人 & CTO — CrAIg Capital</strong><div class="meta">洛杉矶, 美国加州 · 2025 – 至今</div><p><em>业务：</em> AI 驱动的房屋债务催收。</p><ul><li>负责端到端产品与工程，从数据管线到工作流自动化。</li><li>制定技术栈与运营节奏：产品路线、招聘与交付标准。</li></ul></div>
       <div class="tile"><strong>AI 开发实习生 — Piezolabs Medical</strong><div class="meta">Lake Forest, 美国加州 · 2025-06 – 2025-08</div><p><em>职责：</em> 血管护理质控相关的 AI 工具落地。</p><ul><li>搭建内部 LLM 辅助流程，清洗与聚类 5000+ 医疗事故病例文档，提炼重复模式支持质控复盘。</li><li>部署智能体/工作流工具，撰写实验检查清单与验收测试。</li></ul></div>
       <div class="tile"><strong>业务发展实习生 — 好安健康</strong><div class="meta">中国杭州 · 2024-06 – 2024-08</div><p><em>职责：</em> 部门轮转与内部平台建设支持。</p><ul><li>轮转核心部门，系统了解公司运营流程与业务协同。</li><li>参与基于网易 Codewave 的内部平台建设，汇总需求并完善程序结构与界面；协助工程师招募与推进。</li></ul></div>
       <div class="tile"><strong>投资分析实习生 — GUDU Medical</strong><div class="meta">远程 · 2021-01 – 至今</div><p><em>职责：</em> 医疗科技项目挖掘、市场分析与尽调支持。</p><ul><li>负责早期项目挖掘与行业研究，参与尽调流程并整理关键信息。</li><li>开展财务模型与估值分析，形成投资建议框架与备忘录输入。</li></ul></div>
@@ -160,7 +161,7 @@
   <section id="publications">
     <h2>论文</h2>
     <div class="grid">
-      <div class="tile"><strong>Efficient Attention via Pre‑Scoring: Prioritizing Informative Keys in Transformers</strong><div class="meta">2024-10 – 2025-05 · ICLR 审稿中（rebuttal）</div><p>提出预评分机制，先选择信息量高的 key 区间再进行注意力计算，降低长序列计算与显存开销。ChatGLM2 的 131k 长上下文下困惑度从 12 降至 8.3；在 ViT 上精度与 LevAttention 相当或更优，同时组合方法相对 FlashAttention 最高可提速 20×。</p><ul><li>实现 Triton 内核，并与 HyperAttention、LevAttention 对比，精度可比且开销显著降低。</li><li>第一作者；导师：CMU David P. Woodruff 教授。</li></ul><p><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></p></div>
+      <div class="tile"><strong>Efficient Attention via Pre‑Scoring: Prioritizing Informative Keys in Transformers</strong><div class="meta">2024-10 – 2025-05</div><p>在 HyperAttention 前加入预评分机制，优先筛选关键 key 并替换均匀残差采样。预评分方法包括 k‑means/核 k‑means、k‑median 与 leverage score 排序。ChatGLM2（131k 长上下文）困惑度从 12 降至 8.3；在 ViT 上精度与 LevAttention 相当或可更优，组合方法相对 FlashAttention 最高可提速 20×。</p><p><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></p></div>
       <div class="tile"><strong>Game theory in companies: A program approach to find all Nash equilibria in games with two players</strong><div class="meta">Li, S., Li, Z., & Liu, Z. (2023)</div><p>2021–2022 跟随 UC Berkeley Ming Gu 教授学习与研究，将发布时间、预告片与平台选择建模为收益矩阵；基于 Python + Gambit 构建求解管线枚举全部纳什均衡，形成数据驱动的发行策略。</p><ul><li>团队负责人；导师：UC Berkeley Ming Gu 教授。</li></ul><p><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">DOI 10.54254/2754-1169/16/20231043</a></p></div>
     </div>
   </section>
