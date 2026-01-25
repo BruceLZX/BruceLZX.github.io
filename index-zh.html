@@ -62,6 +62,8 @@
     .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
     .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
     .edu-meta{color:var(--muted);font-size:14px}
+    .edu-left ul{margin:8px 0 0 18px;padding:0;list-style:disc}
+    .edu-left li{margin:6px 0}
     .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
     @media(max-width:640px){.edu-item{flex-direction:column}.edu-when{text-align:left}}
     main{flex:1}
@@ -169,10 +171,44 @@
 
   <section id="projects">
     <h2>项目</h2>
-    <div class="grid">
-      <div class="tile"><strong>BusinessCardAIAssistant（AI 名片助手）</strong><div class="meta">2026-01 – 至今</div><p>AI 驱动的 iOS 名片中枢，将名片与宣传册转成“可生长档案”（人物、公司、标签、链接）；以视觉解析优先、OCR 兜底，并提供透明的 AI 增强/审阅流程。</p><ul><li>构建“可生长档案”：联系人与公司为一等实体，People ↔ Company 关系长期可追溯。</li><li>支持多照片采集（正反面/角度/宣传册）与提取流程（视觉解析优先，OCR 兜底增强鲁棒性）。</li><li>设计可信 AI 复核闭环：字段级高亮、原值 vs. 新值对比、单字段一键撤销。</li><li>为大规模数据提供快速导航（目录 + 搜索/筛选 + A–Z 索引）。</li><li>支持语言感知展示（EN/中文），按系统语言显示名称并保留原文。</li></ul><p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">代码</a></p></div>
-      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">2025-02 – 2025-04</div><p>使用 10k+ 真实/生成（GAN）人脸数据集与数据增强进行训练。</p><ul><li>在 Keras 中实现三层 Conv2D–MaxPooling（32/64/128 filters, 3×3 kernels）+ 0.5 dropout + 512 全连接层，用于真假分类。</li></ul><p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">代码</a></p></div>
-      <div class="tile"><strong>TradeViewer</strong><div class="meta">2024-10 – 2024-12</div><p>带领 8 人团队：设定目标、分配任务、解决冲突并跟踪项目进度。</p><ul><li>集成 React 前端与 Java 后端，构建生产级交易数据可视化系统。</li></ul><p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">代码</a></p></div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>BusinessCardAIAssistant（AI 名片助手）</strong>
+          <div class="edu-meta">AI 驱动的 iOS 名片中枢，将名片与宣传册转成“可生长档案”（人物、公司、标签、链接）；以视觉解析优先、OCR 兜底，并提供透明的 AI 增强/审阅流程。</div>
+          <ul>
+            <li>构建“可生长档案”：联系人与公司为一等实体，People ↔ Company 关系长期可追溯。</li>
+            <li>支持多照片采集（正反面/角度/宣传册）与提取流程（视觉解析优先，OCR 兜底增强鲁棒性）。</li>
+            <li>设计可信 AI 复核闭环：字段级高亮、原值 vs. 新值对比、单字段一键撤销。</li>
+            <li>为大规模数据提供快速导航（目录 + 搜索/筛选 + A–Z 索引）。</li>
+            <li>支持语言感知展示（EN/中文），按系统语言显示名称并保留原文。</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">代码</a></p>
+        </div>
+        <div class="edu-when">2026-01 – 至今</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>CNN Deep Fake Face Detection</strong>
+          <div class="edu-meta">使用 10k+ 真实/生成（GAN）人脸数据集与数据增强进行训练。</div>
+          <ul>
+            <li>在 Keras 中实现三层 Conv2D–MaxPooling（32/64/128 filters, 3×3 kernels）+ 0.5 dropout + 512 全连接层，用于真假分类。</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">代码</a></p>
+        </div>
+        <div class="edu-when">2025-02 – 2025-04</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>TradeViewer</strong>
+          <div class="edu-meta">带领 8 人团队：设定目标、分配任务、解决冲突并跟踪项目进度。</div>
+          <ul>
+            <li>集成 React 前端与 Java 后端，构建生产级交易数据可视化系统。</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">代码</a></p>
+        </div>
+        <div class="edu-when">2024-10 – 2024-12</div>
+      </div>
     </div>
   </section>
 

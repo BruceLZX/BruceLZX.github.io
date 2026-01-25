@@ -82,6 +82,8 @@
     .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel)!important;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
     .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
     .edu-meta{color:var(--muted);font-size:14px}
+    .edu-left ul{margin:8px 0 0 18px;padding:0;list-style:disc}
+    .edu-left li{margin:6px 0}
     .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
     @media(max-width:640px){.edu-item{flex-direction:column}.edu-when{text-align:left}}
 
@@ -117,9 +119,9 @@
     <a href="#publications">Publications</a>
     <a href="#projects">Projects</a>
     <a href="#activities">Activities & Competitions</a>
-    <a href="#teaching">Teaching & Mentorship</a>
     <a href="#awards">Awards</a>
     <a href="#business">Business</a>
+    <a href="#teaching">Teaching & Mentorship</a>
   </aside>
 
   <main>
@@ -199,6 +201,79 @@
     </div>
   </section>
 
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>Efficient Attention via Pre‑Scoring</strong>
+          <div class="edu-meta">Advised by Prof. David P. Woodruff (CMU)</div>
+          <ul>
+            <li>Proposed a pre‑scoring mechanism that selects informative key intervals before attention, reducing computation and memory usage for long‑sequence Transformers.</li>
+            <li>Implemented Triton kernels and conducted extensive comparisons against HyperAttention and LevAttention, demonstrating comparable accuracy with significantly lower overhead.</li>
+            <li>First author; under review at ICLR (rebuttal stage). <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
+          </ul>
+        </div>
+        <div class="edu-when">Oct 2024 – May 2025</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>Game Theory in Companies</strong>
+          <div class="edu-meta">Advised by Prof. Ming Gu (UC Berkeley)</div>
+          <ul>
+            <li>Team leader; modeled game‑release decisions as two‑player normal‑form games and implemented a Python + Gambit pipeline to enumerate all Nash equilibria.</li>
+            <li>First author, Li, S., Li, Z., & Liu, Z. (2023). Game theory in companies: A program approach to find all Nash equilibria in games with two players. Advances in Economics, Management and Political Sciences, 16(1), 357–366.</li>
+            <li><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">https://doi.org/10.54254/2754-1169/16/20231043</a></li>
+          </ul>
+        </div>
+        <div class="edu-when">2022 – 2023</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>BusinessCardAIAssistant (AI Business Card Hub)</strong>
+          <div class="edu-meta">An AI‑powered iOS business card hub that turns business cards & brochures into “living profiles” (people, companies, tags, links), with vision‑first parsing + OCR fallback and a transparent AI enrichment/review workflow.</div>
+          <ul>
+            <li>Built “living profiles” where contacts and companies are first‑class records with persistent People ↔ Company links.</li>
+            <li>Implemented multi‑photo capture (front/back/angles/brochures) and extraction workflow (vision parsing first; OCR fallback for robustness).</li>
+            <li>Designed a trust‑centric AI review loop: field‑level highlights, original vs. new values, and one‑tap undo per field.</li>
+            <li>Added fast navigation for large datasets (directory + search/filters + A–Z indexing).</li>
+            <li>Added language‑aware display (EN/中文) to show the right name by system language while preserving originals.</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">Code</a></p>
+        </div>
+        <div class="edu-when">Jan 2026 – Present</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>CNN Deep Fake Face Detection</strong>
+          <div class="edu-meta">Trained on a 10k+ image dataset of real vs. GAN‑generated faces with data augmentation.</div>
+          <ul>
+            <li>Implemented a CNN with three Conv2D–MaxPooling blocks (32/64/128 filters, 3×3 kernels), 0.5 dropout, and a 512‑unit dense layer in Keras to classify real vs. fake faces.</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></p>
+        </div>
+        <div class="edu-when">Feb 2025 – Apr 2025</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-left">
+          <strong>TradeViewer</strong>
+          <div class="edu-meta">Led a team of 8: set objectives, distributed tasks, resolved conflicts, and monitored project progress.</div>
+          <ul>
+            <li>Integrated a React frontend with a Java backend to build a production‑ready transaction data visualization system.</li>
+          </ul>
+          <p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">Code</a></p>
+        </div>
+        <div class="edu-when">Oct 2024 – Dec 2024</div>
+      </div>
+    </div>
+  </section>
+
   <section id="activities">
     <h2>Activities & Competitions</h2>
     <div class="edu-list">
@@ -240,22 +315,6 @@
     </div>
   </section>
 
-  <section id="business">
-    <h2>Business</h2>
-    <div class="grid">
-      <div class="tile"><strong>Noah Business School (Noah Holdings)</strong><div class="meta">Entrepreneurship & executive program</div><p>Participated in modules on venture building, financing, and company visits; engaged with mentors and alumni network.</p></div>
-      <div class="tile"><strong>Zhijiang Business School</strong><div class="meta">Entrepreneurship and leadership program</div><p>Joined sessions focused on strategy, operations, and founder leadership for growing companies.</p></div>
-    </div>
-  </section>
-
-  <section id="teaching">
-    <h2>Teaching & Mentorship</h2>
-    <div class="grid">
-      <div class="tile"><strong>Tutor — Introduction to Machine Learning (UCSC)</strong><div class="meta">Spring 2023 · Prof. Lise Getoor</div><p>Held weekly office hours and discussion sessions for students, clarifying ML concepts (logistic regression, SVMs, tree‑based models, etc.). Co‑designed Jupyter Notebook–based assignments and contributed to the auto‑grader for coding questions.</p></div>
-      <div class="tile"><strong>Assistant Coach — VEX Robotics & Olympiad in Informatics</strong><div class="meta">Shanghai Bosidi Education · 2014 – 2018</div><p>Assisted coaching and organizing training for VEX Robotics and competitive programming (OI) teams.</p></div>
-    </div>
-  </section>
-
   <section id="awards">
     <h2>Awards</h2>
     <div class="edu-list">
@@ -283,36 +342,19 @@
     </div>
   </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
+  <section id="business">
+    <h2>Business</h2>
     <div class="grid">
-      <div class="tile">
-        <strong>Efficient Attention via Pre‑Scoring</strong>
-        <div class="meta">Advised by Prof. David P. Woodruff (CMU) · Oct 2024 – May 2025</div>
-        <ul>
-          <li>Proposed a pre‑scoring mechanism that selects informative key intervals before attention, reducing computation and memory usage for long‑sequence Transformers.</li>
-          <li>Implemented Triton kernels and conducted extensive comparisons against HyperAttention and LevAttention, demonstrating comparable accuracy with significantly lower overhead.</li>
-          <li>First author; under review at ICLR (rebuttal stage). <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
-        </ul>
-      </div>
-      <div class="tile">
-        <strong>Game Theory in Companies</strong>
-        <div class="meta">Advised by Prof. Ming Gu (UC Berkeley) · 2022 – 2023</div>
-        <ul>
-          <li>Team leader; modeled game‑release decisions as two‑player normal‑form games and implemented a Python + Gambit pipeline to enumerate all Nash equilibria.</li>
-          <li>First author, Li, S., Li, Z., & Liu, Z. (2023). Game theory in companies: A program approach to find all Nash equilibria in games with two players. Advances in Economics, Management and Political Sciences, 16(1), 357–366.</li>
-          <li><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">https://doi.org/10.54254/2754-1169/16/20231043</a></li>
-        </ul>
-      </div>
+      <div class="tile"><strong>Noah Business School (Noah Holdings)</strong><div class="meta">Entrepreneurship & executive program</div><p>Participated in modules on venture building, financing, and company visits; engaged with mentors and alumni network.</p></div>
+      <div class="tile"><strong>Zhijiang Business School</strong><div class="meta">Entrepreneurship and leadership program</div><p>Joined sessions focused on strategy, operations, and founder leadership for growing companies.</p></div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
+  <section id="teaching">
+    <h2>Teaching & Mentorship</h2>
     <div class="grid">
-      <div class="tile"><strong>BusinessCardAIAssistant (AI Business Card Hub)</strong><div class="meta">Jan 2026 – Present</div><p>An AI‑powered iOS business card hub that turns business cards & brochures into “living profiles” (people, companies, tags, links), with vision‑first parsing + OCR fallback and a transparent AI enrichment/review workflow.</p><ul><li>Built “living profiles” where contacts and companies are first‑class records with persistent People ↔ Company links.</li><li>Implemented multi‑photo capture (front/back/angles/brochures) and extraction workflow (vision parsing first; OCR fallback for robustness).</li><li>Designed a trust‑centric AI review loop: field‑level highlights, original vs. new values, and one‑tap undo per field.</li><li>Added fast navigation for large datasets (directory + search/filters + A–Z indexing).</li><li>Added language‑aware display (EN/中文) to show the right name by system language while preserving originals.</li></ul><p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">Code</a></p></div>
-      <div class="tile"><strong>CNN Deep Fake Face Detection</strong><div class="meta">Feb 2025 – Apr 2025</div><p>Trained on a 10k+ image dataset of real vs. GAN‑generated faces with data augmentation.</p><ul><li>Implemented a CNN with three Conv2D–MaxPooling blocks (32/64/128 filters, 3×3 kernels), 0.5 dropout, and a 512‑unit dense layer in Keras to classify real vs. fake faces.</li></ul><p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></p></div>
-      <div class="tile"><strong>TradeViewer</strong><div class="meta">Oct 2024 – Dec 2024</div><p>Led a team of 8: set objectives, distributed tasks, resolved conflicts, and monitored project progress.</p><ul><li>Integrated a React frontend with a Java backend to build a production‑ready transaction data visualization system.</li></ul><p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">Code</a></p></div>
+      <div class="tile"><strong>Tutor — Introduction to Machine Learning (UCSC)</strong><div class="meta">Spring 2023 · Prof. Lise Getoor</div><p>Held weekly office hours and discussion sessions for students, clarifying ML concepts (logistic regression, SVMs, tree‑based models, etc.). Co‑designed Jupyter Notebook–based assignments and contributed to the auto‑grader for coding questions.</p></div>
+      <div class="tile"><strong>Assistant Coach — VEX Robotics & Olympiad in Informatics</strong><div class="meta">Shanghai Bosidi Education · 2014 – 2018</div><p>Assisted coaching and organizing training for VEX Robotics and competitive programming (OI) teams.</p></div>
     </div>
   </section>
 
