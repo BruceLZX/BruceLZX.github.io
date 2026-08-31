@@ -172,33 +172,6 @@ if (motionSections.length && !prefersReducedMotion.matches) {
   motionSections.forEach((section) => section.classList.add("is-visible"));
 }
 
-const reactiveRows = [...document.querySelectorAll(".workstream, .paper-entry, .project-list article, .experience-list article")];
-if (reactiveRows.length && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches) {
-  reactiveRows.forEach((row) => {
-    let rowRect;
-    let rowFrame = 0;
-    let clientX = 0;
-    let clientY = 0;
-    row.addEventListener("pointerenter", () => { rowRect = row.getBoundingClientRect(); });
-    row.addEventListener("pointermove", (event) => {
-      clientX = event.clientX;
-      clientY = event.clientY;
-      if (rowFrame) return;
-      rowFrame = requestAnimationFrame(() => {
-        if (!rowRect) rowRect = row.getBoundingClientRect();
-        row.style.setProperty("--pointer-x", `${clientX - rowRect.left}px`);
-        row.style.setProperty("--pointer-y", `${clientY - rowRect.top}px`);
-        rowFrame = 0;
-      });
-    }, { passive: true });
-    row.addEventListener("pointerleave", () => {
-      rowRect = undefined;
-      row.style.removeProperty("--pointer-x");
-      row.style.removeProperty("--pointer-y");
-    });
-  });
-}
-
 const portrait = document.querySelector(".portrait-wrap");
 if (portrait && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion.matches) {
   let portraitRect;

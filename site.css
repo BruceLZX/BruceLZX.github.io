@@ -914,6 +914,109 @@ img { max-width: 100%; }
   .home-page .content-section { padding: 41px 0 47px; }
 }
 
+/* One motion language: network node → section node → entry node. */
+.home-page .main-nav a,
+.home-page .header-actions a,
+.home-page .identity-links a,
+.home-page .identity-copy a,
+.home-page .route-nav a { font-size: 11px; }
+.home-page .section-kicker,
+.home-page .domain-line span,
+.home-page .section-heading > time,
+.home-page .section-heading > span,
+.home-page .section-heading > a,
+.home-page .stream-code,
+.home-page .entry-meta,
+.home-page .text-link,
+.home-page .quiet-link,
+.home-page .experience-list time,
+.home-page .experience-list h3 span { font-size: 11px; }
+.home-page .evidence-strip dt { font-size: 10px; }
+.home-page .evidence-strip dd { font-size: 12px; }
+.home-page .experience-list p { font-size: 14px; }
+.home-page .project-index { font-size: 11px; }
+.home-page .portrait-wrap::before { display: none; }
+.home-page .portrait-wrap::after { font-size: 10px; opacity: .88; }
+
+.home-page .workstream,
+.home-page .paper-entry,
+.home-page .project-list article,
+.home-page .experience-list article {
+  position: relative;
+  overflow: visible;
+  transform: translateX(0);
+  transition: transform 260ms var(--ease-standard);
+}
+.home-page .workstream::before { display: none; }
+.home-page .workstream::after,
+.home-page .paper-entry::after,
+.home-page .project-list article::after,
+.home-page .experience-list article::after {
+  content: "";
+  position: absolute;
+  inset: 27px auto auto -14px;
+  z-index: 3;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--paper);
+  opacity: .5;
+  transform: scale(.72);
+  transition: opacity 180ms ease-out, transform 240ms var(--ease-standard), border-color 180ms ease-out, background-color 180ms ease-out, box-shadow 240ms ease-out;
+  pointer-events: none;
+}
+.home-page .workstream:hover::after,
+.home-page .workstream:focus-within::after,
+.home-page .paper-entry:hover::after,
+.home-page .paper-entry:focus-within::after,
+.home-page .project-list article:hover::after,
+.home-page .project-list article:focus-within::after,
+.home-page .experience-list article:hover::after,
+.home-page .experience-list article:focus-within::after {
+  border-color: var(--blue);
+  background: var(--blue);
+  box-shadow: 0 0 0 5px rgba(39,116,174,.12);
+  opacity: 1;
+  transform: scale(1);
+}
+.home-page .workstream:hover,
+.home-page .workstream:focus-within,
+.home-page .paper-entry:hover,
+.home-page .paper-entry:focus-within,
+.home-page .project-list article:hover,
+.home-page .project-list article:focus-within,
+.home-page .experience-list article:hover,
+.home-page .experience-list article:focus-within,
+html.motion-ready .home-page .content-section.is-visible .workstream:hover,
+html.motion-ready .home-page .content-section.is-visible .paper-entry:hover,
+html.motion-ready .home-page .content-section.is-visible .project-list article:hover,
+html.motion-ready .home-page .content-section.is-visible .experience-list article:hover { transform: translateX(4px); }
+.home-page .workstream:hover h3,
+.home-page .paper-entry:hover h3 { transform: none; }
+.home-page .workstream:hover .evidence-strip dd { transform: none; }
+.home-page .workstream::after,
+.home-page .paper-entry::after,
+.home-page .project-list article::after,
+.home-page .experience-list article::after { background-image: none; }
+.home-page .project-list article:hover .project-index {
+  background: var(--blue);
+  color: #fff;
+  transform: scale(1.06);
+}
+.home-page .paper-entry:hover .review-watermark {
+  opacity: .18;
+  transform: rotate(-4deg);
+}
+
+.site-footer .shell { font-size: 10px; }
+.archive-hero .folio,
+.archive-nav a,
+.record time,
+.record a { font-size: 10px; }
+.record .meta,
+.record li { font-size: 14px; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
