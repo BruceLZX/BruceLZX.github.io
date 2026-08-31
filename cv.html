@@ -1,199 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Zhexiang (Bruce) Li</title>
-  <style>
-    :root{ --ink:#0f172a; --muted:#475569; --accent:#2563eb; }
-    *{ box-sizing:border-box; }
-    body{ font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); margin:0; }
-    .page{ max-width:820px; margin:0 auto; padding:32px 28px; }
-    header{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px; }
-    h1{ font-size:28px; margin:0; font-weight:800; letter-spacing:.2px; }
-    .tag{ color:var(--muted); margin-top:3px; font-size:13px; }
-    .print-btn{ border:1px solid #e5e7eb; padding:6px 10px; border-radius:8px; background:#fff; color:var(--accent); font-weight:600; text-decoration:none; font-size:12px; height:32px; }
-    .print-hidden{ display:inline-block; margin-left:8px; }
-    h2{ font-size:14px; margin:18px 0 8px; text-transform:uppercase; letter-spacing:.12em; color:#111827; border-bottom:1px solid #e5e7eb; padding-bottom:4px; }
-    .item{ margin:8px 0 10px; }
-    .role{ font-weight:700; font-size:13.5px; }
-    .meta{ color:var(--muted); font-size:12.5px; }
-    .row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-    .when{ color:#111827; font-size:12.5px; font-weight:600; white-space:nowrap; }
-    ul{ margin:6px 0 0 18px; }
-    li{ margin:3px 0; font-size:12.5px; }
-    .links a{ color:var(--accent); text-decoration:none; }
-    .links a:hover{ text-decoration:underline; }
-
-    @media print{
-      .print-btn, .print-hidden{ display:none; }
-      body{ color:#000; }
-      .page{ padding:24px; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zhexiang (Bruce) Li, incoming UCLA computer science master's student and AI engineer.">
+  <title>CV | Zhexiang (Bruce) Li</title>
+  <link rel="stylesheet" href="cv.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
-  <div class="page">
-    <header>
+  <main class="page">
+    <header class="cv-header">
       <div>
-        <h1>Zhexiang (Bruce) Li</h1>
-        <div class="tag">UCLA · M.S. Computer Science</div>
-        <div class="tag">He/Him</div>
-        <div class="tag">Email: bruceli@ucla.edu</div>
-        <div class="tag">Phone: +1 831-239-2728</div>
-        <div class="tag">GitHub: <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">https://github.com/BruceLZX</a></div>
-        <div class="tag">LinkedIn: <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">https://www.linkedin.com/in/zhexiang-li-4a41b0237/</a></div>
+        <h1>Zhexiang <span>(Bruce)</span> Li</h1>
+        <p class="headline">Incoming UCLA M.S. student in Computer Science | AI / ML Engineer</p>
+        <p class="contact"><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" href="#">bruceli [at] ucla [dot] edu</a><a href="tel:+18312392728">+1 831-239-2728</a><span>Los Angeles, CA</span><a href="https://github.com/BruceLZX">GitHub</a><a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/">LinkedIn</a></p>
       </div>
-      <div>
-        <a class="print-btn" href="#" onclick="window.print();return false;">Download PDF</a>
-        <a class="print-hidden" href="cv_zh.html">中文</a>
-      </div>
+      <nav class="cv-actions"><a href="cv_zh.html">中文</a><button type="button" onclick="window.print()">Save PDF</button></nav>
     </header>
+
+    <section><h2>Profile</h2><p class="summary">Computer science graduate entering UCLA in Fall 2026. Research and engineering experience across efficient and multimodal machine learning, recommendation systems, constrained edge targets, and user-facing products.</p></section>
 
     <section>
       <h2>Education</h2>
-      <div class="item"><div class="row"><div class="role">University of California, Los Angeles (UCLA)</div><div class="when">Expected Fall 2026</div></div><div class="meta">M.S. in Computer Science · Incoming</div></div>
-      <div class="item"><div class="row"><div class="role">University of Southern California (USC)</div><div class="when">2026</div></div><div class="meta">B.S. in Computer Science · Graduated · Cumulative GPA 3.76/4</div></div>
-      <div class="item"><div class="role">Standardized Tests</div><div class="meta">GRE 162 · 170 · 4.0 · Jan 3, 2025</div></div>
-      <div class="item"><div class="role">Selected Coursework</div><div class="meta">Algorithms & Theory (CSCI‑270); Data Structures & OOD (CSCI‑104L); Probability & Statistics for EECS (EE‑364); Linear Algebra & Diff Eq (MATH‑225); Artificial Intelligence (CSCI‑360); Machine Learning (CSCI‑467); Software Engineering (CSCI‑310); Embedded Systems (EE‑109L)</div></div>
+      <article class="entry compact"><div class="entry-head"><h3>University of California, Los Angeles</h3><time>Fall 2026 -</time></div><p>M.S. in Computer Science | Incoming student</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>University of Southern California</h3><time>2023 - 2026</time></div><p>B.S. in Computer Science | GPA 3.76 / 4.00 | Viterbi Dean's List, Fall 2024-Spring 2026</p></article>
     </section>
 
     <section>
-      <h2>Experiences</h2>
-      <div class="item">
-        <div class="row"><div class="role">Co‑Founder & CTO — CrAIg Capital (Los Angeles, CA)</div><div class="when">2025 – Mar 2026</div></div>
-        <ul>
-          <li>Owned end-to-end product and engineering for AI housing debt collection, from data pipelines to workflow automation.</li>
-          <li>Set the tech stack and operating cadence: roadmap, hiring, and delivery standards.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Full-Stack Engineer — Terlingua Threads (Remote)</div><div class="when">Jan 2026 – May 2026</div></div>
-        <ul>
-          <li>Built and optimized public web pages opened through Shopify, improving content structure, responsive behavior, and maintainability.</li>
-          <li>Developed Google Maps features and improved ADA accessibility and SEO across customer-facing pages.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">AI Engineer Intern — Piezolab Medical (Lake Forest, CA)</div><div class="when">Jun 2025 – Aug 2025</div></div>
-        <ul>
-          <li>Built an internal LLM‑assisted pipeline to ingest, clean, and cluster 5,000+ medical malpractice case documents, surfacing recurring patterns to support quality‑of‑care reviews.</li>
-          <li>Deployed agent/workflow tools and authored experiment checklists and acceptance tests for lab materials.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">BD Intern — Haoan Health (Hangzhou, China)</div><div class="when">Jun 2024 – Aug 2024</div></div>
-        <ul>
-          <li>Rotated through major departments to gain a comprehensive understanding of company operations.</li>
-          <li>Participated in the firm's internal platform construction based on NetEase Codewave, and recruited engineers for the task.</li>
-          <li>Helped compile requirements and build program structure and interface.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Investment Analyst Intern — GUDU MEDICAL (Remote)</div><div class="when">Jan 2021 – Present</div></div>
-        <ul>
-          <li>Focus on initial deal flow and market analysis, and participate in the due diligence process.</li>
-          <li>Conduct financial modeling and valuation analysis, and provide an investment proposal framework.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Application Engineer Intern — Synaptics (San Jose, CA)</div><div class="when">Jun 2023 – Aug 2023</div></div>
-        <ul>
-          <li>Tested firmware for an internal product and validated basic functionality.</li>
-          <li>Used an ESP32 microcontroller with Alibaba Cloud to convert I²C and other sensor data into MQTT topics for internal dashboards.</li>
-        </ul>
-      </div>
-    </section>
-    <section>
-      <h2>Publications</h2>
-      <div class="item">
-        <div class="row"><div class="role">Efficient Attention via Pre‑Scoring</div><div class="when">Oct 2024 – May 2025</div></div>
-        <div class="meta">Advised by Prof. David P. Woodruff (CMU)</div>
-        <ul>
-          <li>Proposed a pre‑scoring mechanism that selects informative key intervals before attention, reducing computation and memory usage for long‑sequence Transformers.</li>
-          <li>Implemented Triton kernels and conducted extensive comparisons against HyperAttention and LevAttention, demonstrating comparable accuracy with significantly lower overhead.</li>
-          <li>First author; manuscript available on arXiv. <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Game Theory in Companies</div><div class="when">2022 – 2023</div></div>
-        <div class="meta">Advised by Prof. Ming Gu (UC Berkeley)</div>
-        <ul>
-          <li>Team leader; modeled game‑release decisions as two‑player normal‑form games and implemented a Python + Gambit pipeline to enumerate all Nash equilibria.</li>
-          <li>First author: Li, S., Li, Z., & Liu, Z. (2023). Game theory in companies: A program approach to find all Nash equilibria in games with two players. Advances in Economics, Management and Political Sciences, 16(1), 357–366.</li>
-          <li><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">https://doi.org/10.54254/2754-1169/16/20231043</a></li>
-        </ul>
-      </div>
+      <h2>Technical skills</h2>
+      <div class="skills"><p><b>Languages</b> Python, C/C++, Java, JavaScript/TypeScript, SQL</p><p><b>ML and systems</b> PyTorch, TensorFlow, Triton, CUDA, recommender systems, multimodal ML, LLM workflows</p><p><b>Product engineering</b> FastAPI, React, Next.js, Supabase, PostgreSQL, Docker, Git, Linux, AWS, GCP, MQTT</p></div>
     </section>
 
     <section>
-      <h2>Projects</h2>
-      <div class="item">
-        <div class="row"><div class="role">USC Drug Discovery Research</div><div class="when">Spring 2026</div></div>
-        <ul>
-          <li>Worked with a PhD student in Prof. Yan Liu's group on ML for SARS‑CoV‑2 antiviral drug discovery.</li>
-          <li>Built a benchmark pipeline across 7 TDC datasets for RDKit descriptor baselines, Chemprop, and Chemprop + RDKit; Extra Trees reached AUROC 90.0 +/- 6.4 on <code>SARSCoV2_3CLPro_Diamond</code>.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Fridge Manager</div><div class="when">2026</div></div>
-        <ul>
-          <li>Built an AI-assisted kitchen planning web app for inventory tracking, meal planning, and grocery decisions.</li>
-          <li>Combines inventory, leftovers, recipes, preferences, and time constraints in a mobile-friendly Next.js + Supabase product.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">AI Doctor WeChat</div><div class="when">2026</div></div>
-        <ul>
-          <li>Built an internal TCM clinical and teaching assistant across WeChat Mini Program, Web dashboard, and FastAPI backend.</li>
-          <li>Supports clinical capture, case organization, knowledge retrieval, and teaching workflows for doctors, assistants, and students.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">BusinessCardAIAssistant (AI Business Card Hub)</div><div class="when">Jan 2026 – Present</div></div>
-        <ul>
-          <li>Built an AI-powered iOS business card organizer with vision-first parsing, OCR fallback, and structured people/company records.</li>
-          <li>Added multi-photo capture, AI review, search/navigation, and bilingual display. <a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">Code</a></li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">CNN Deep Fake Face Detection</div><div class="when">Feb 2025 – Apr 2025</div></div>
-        <ul>
-          <li>Trained on a 10k+ image dataset of real vs. GAN‑generated faces with data augmentation.</li>
-          <li>Implemented a CNN with three Conv2D–MaxPooling blocks (32/64/128 filters, 3×3 kernels), 0.5 dropout, and a 512‑unit dense layer in Keras to classify real vs. fake faces. <a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></li>
-        </ul>
-      </div>
+      <h2>Experience</h2>
+      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | PMAOS / Next Big Seek</h3><time>Jul - Aug 2026</time></div><ul><li>Implemented interest diversity and bidirectional user-video propagation for a feature-phone short-video recommender; recorded 629 passing tests, strict Mypy across 438 source files, and 34 contract checks.</li><li>Developed an 11-language audio-visual affect pipeline with speech PAD, fusion, and a Q15 decision layer; passed 139 Python tests and C build gates for Cortex-M3 and ARM926EJ-S.</li><li>Screened sub-10 mm untethered piezoelectric robot architectures and specified a gated PZT-steel cantilever experiment for a 9 mm candidate.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>Co-Founder and CTO | CrAIg Capital</h3><time>2025 - Mar 2026</time></div><ul><li>Led product and engineering for an AI-assisted housing debt-collection platform, from data pipelines and workflow automation to technical roadmap and delivery standards.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>Full-Stack Engineer | Terlingua Threads</h3><time>Jan - May 2026</time></div><ul><li>Built Shopify-connected pages and Google Maps features; improved responsive behavior, ADA accessibility, SEO, and maintainability.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | Piezolab Medical</h3><time>Jun - Aug 2025</time></div><ul><li>Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice case documents, surfacing recurring patterns for quality-of-care review.</li><li>Deployed agent workflows and wrote experiment checklists and acceptance tests for laboratory materials.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>Application Engineer Intern | Synaptics</h3><time>Jun - Aug 2023</time></div><ul><li>Validated product firmware and built an ESP32-to-Alibaba Cloud pipeline that published I2C sensor data as MQTT topics for internal dashboards.</li></ul></article>
     </section>
 
     <section>
-      <h2>Awards</h2>
-      <div class="item"><div class="row"><div class="role">Viterbi Dean’s List</div><div class="when">Fall 2024 – Spring 2026</div></div></div>
-      <div class="item"><div class="row"><div class="role">VEX Robotics Asia‑Pacific Championship — Champion (Middle School Division)</div><div class="when">2015</div></div></div>
-      <div class="item"><div class="row"><div class="role">VEX Robotics Asia‑Pacific Championship — Champion (High School Division)</div><div class="when">2017</div></div></div>
+      <h2>Research and publications</h2>
+      <article class="entry compact"><div class="entry-head"><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><time>Summer 2026</time></div><p>Lesion-aware token routing under fixed budgets with mask supervision and lesion-retention audits. Submitted to AAAI 2027; preprint forthcoming.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><time>Summer 2026</time></div><p>Sparse fragment-pair evidence tokens for spectrum reranking, evaluated with hard negatives and witness-removal audits. Submitted to AAAI 2027; preprint forthcoming.</p></article>
+      <article class="entry"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring | First author</h3><time>2024 - 2025</time></div><p class="subline">Advised by Prof. David P. Woodruff, Carnegie Mellon University | <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p><ul><li>Proposed pre-scoring to select informative key intervals before attention, reducing compute and memory for long-sequence Transformers; implemented Triton kernels and benchmarked against HyperAttention and LevAttention.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>Machine Learning for Antiviral Drug Discovery | USC</h3><time>Spring 2026</time></div><ul><li>Built a seven-dataset TDC benchmark across RDKit baselines and Chemprop variants; Extra Trees reached AUROC 90.0 +/- 6.4 on SARSCoV2_3CLPro_Diamond.</li></ul></article>
+      <article class="entry compact"><div class="entry-head"><h3>Game Theory in Companies | First author</h3><time>2023</time></div><p>Modeled two-player release decisions and built a Python + Gambit pipeline to enumerate Nash equilibria. <a href="https://doi.org/10.54254/2754-1169/16/20231043">DOI</a></p></article>
     </section>
-
-    
 
     <section>
-      <h2>Teaching & Mentorship</h2>
-      <div class="item">
-        <div class="row"><div class="role">Tutor — Introduction to Machine Learning (UCSC)</div><div class="when">Spring 2023</div></div>
-        <div class="meta">Prof. Lise Getoor</div>
-        <ul>
-          <li>Held weekly office hours and discussion sessions for students, clarifying ML concepts (logistic regression, SVMs, tree‑based models, etc.).</li>
-          <li>Co‑designed Jupyter Notebook–based assignments and contributed to the auto‑grader for coding questions.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="row"><div class="role">Assistant Coach — VEX Robotics & Olympiad in Informatics</div><div class="when">2014 – 2018</div></div>
-        <div class="meta">Shanghai Bosidi Education</div>
-        <ul>
-          <li>Helped train competitive teams on robotics design and algorithmic problem‑solving; assisted with scrimmages and event prep.</li>
-        </ul>
-      </div>
+      <h2>Selected products</h2>
+      <article class="entry compact"><div class="entry-head"><h3>Fridge Manager</h3><time>2026</time></div><p>Mobile-first Next.js and Supabase app combining inventory, leftovers, recipes, preferences, and time constraints for meal and grocery planning.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>AI Business Card Hub</h3><time>2026 - Present</time></div><p>iOS organizer with vision-first parsing, OCR fallback, multi-photo review, structured records, search, and bilingual display. <a href="https://github.com/BruceLZX/Business-Card-AI-organzier">Code</a></p></article>
     </section>
-  </div>
 
-  <!-- Print dialog only via the button; no auto-open. -->
+    <footer>Complete experience and project record: <a href="archive.html">brucelzx.github.io/archive.html</a></footer>
+  </main>
 </body>
 </html>

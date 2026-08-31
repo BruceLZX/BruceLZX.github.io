@@ -3,429 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bruce Li — UCLA MSCS</title>
-  <style>
-    :root{
-      --accent:#22d3ee;           /* cyan */
-      --accent-2:#a78bfa;         /* purple for gradients */
-      --ink:#e5e7eb;              /* primary text on dark */
-      --muted:#94a3b8;            /* secondary text */
-      --bg:#0b0f19;               /* near-black background */
-      --panel:#111827;            /* card/nav panels */
-      --stroke:rgba(148,163,184,0.14);
-      --shadow:0 10px 30px rgba(0,0,0,0.45);
-      --radius:12px;
-    }
-    html{scroll-behavior:smooth}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html, body{height:100%}
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:linear-gradient(180deg,#0b0f19 0%, #0d1324 60%, #0b0f19 100%);
-      color:var(--ink);
-      line-height:1.6;
-      display:flex;flex-direction:column;min-height:100vh;padding-top:58px
-    }
-    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(17,24,39,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke);box-shadow:0 8px 20px rgba(0,0,0,.35)}
-    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:14px 20px}
-    .logo{font-weight:700;color:var(--ink)}
-    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s ease}
-    .links a:hover{color:var(--accent)}
-    /* Hamburger + drawer */
-    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:rgba(255,255,255,0.04);cursor:pointer;margin-right:10px}
-    .burger span{display:block;width:18px;height:2px;background:var(--muted);position:relative}
-    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--muted)}
-    .burger span:before{top:-6px}.burger span:after{top:6px}
-    .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.55);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
-    .overlay.open{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:var(--panel);border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
-    .drawer.open{left:0}
-    .drawer h3{margin:6px 0 10px;font-size:14px;color:var(--muted)}
-    .drawer a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
-    .drawer a:hover{background:rgba(34,211,238,0.10);color:var(--accent)}
-    body.no-scroll{overflow:hidden}
-
-    .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px rgba(34,211,238,0.25),0 12px 30px rgba(0,0,0,0.6);margin-bottom:16px}
-    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
-    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .sub{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
-
-    section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
-    h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-    .tile{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease}
-    .tile:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,0.55)}
-    .tile strong{display:block;margin-bottom:6px;font-weight:600}
-    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
-    .tile ul{margin:8px 0 0 0;padding-left:22px;list-style:disc outside}
-    .tile li{margin:6px 0}
-    .tile.expanded{grid-column:span 2}
-    .table-wrap{overflow:auto}
-    .tbl{width:100%;border-collapse:collapse;font-size:14px}
-    .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
-    .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
-    .tbl td:nth-child(2){white-space:normal}
-    .tbl tr:last-child td{border-bottom:none}
-    /* Zoomable coursework */
-    .zoomable{position:relative}
-    .zoom-btn{position:absolute;top:8px;right:8px;width:22px;height:22px;border:none;background:transparent;color:var(--accent);cursor:pointer}
-    .zoom-btn:before,.zoom-btn:after{content:"";position:absolute;width:7px;height:7px}
-    .zoom-btn:before{top:4px;right:4px;border-top:2px solid var(--accent);border-right:2px solid var(--accent)}
-    .zoom-btn:after{bottom:4px;left:4px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent)}
-    .zoom-body{transform:scale(.92);transform-origin:top left;max-height:240px;overflow:auto;transition:transform .2s ease,max-height .2s ease}
-    .tile.expanded .zoom-body{transform:scale(1);max-height:1000px}
-    .tile.expanded .zoom-btn{background:transparent;border-color:var(--accent);transform:rotate(180deg)}
-
-    /* Education list (clean cards) */
-    .edu-list{display:flex;flex-direction:column;gap:12px}
-    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel)!important;border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
-    .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
-    .edu-meta{color:var(--muted);font-size:14px}
-    .edu-left ul{margin:8px 0 0 18px;padding:0;list-style:disc}
-    .edu-left li{margin:6px 0}
-    .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
-    @media(max-width:640px){.edu-item{flex-direction:column}.edu-when{text-align:left}}
-
-    main{flex:1}
-    footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
-
-    @media(max-width:768px){
-      .headline{font-size:32px}
-    }
-  </style>
+  <meta name="description" content="Zhexiang (Bruce) Li is an incoming UCLA computer science master's student working across machine learning research, edge systems, and product engineering." />
+  <title>Zhexiang (Bruce) Li</title>
+  <link rel="stylesheet" href="site.css" />
+  <script src="site.js" defer></script>
 </head>
-<body>
-  <header class="nav">
-    <div class="bar">
-      <div style="display:flex;align-items:center;gap:10px">
-        <button id="burger" class="burger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span></button>
-        <div class="logo">Bruce Li</div>
-      </div>
-      <div class="links">
-        <a href="index-zh.html" title="中文">中文</a>
-        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
-        <a id="cv-link" href="cv.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-weight:600">Curriculum Vitae</a>
-      </div>
+<body class="home-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#top">Zhexiang Li</a>
+      <nav class="main-nav" aria-label="Primary navigation"><a href="#work">Work</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="archive.html">Archive</a></nav>
+      <div class="header-actions"><a href="index-zh.html" lang="zh-CN">中文</a><a href="cv.html">CV</a></div>
     </div>
   </header>
-  <div id="overlay" class="overlay"></div>
-  <aside id="drawer" class="drawer" aria-label="Section menu" role="dialog" aria-modal="true" aria-hidden="true">
-    <h3>Sections</h3>
-    <a href="#qualifications">Qualifications</a>
-    <a href="#education">Education</a>
-    <a href="#experiences">Experiences</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
-    <a href="#activities">Activities</a>
-    <a href="#competitions">Competitions</a>
-    <a href="#awards">Awards</a>
-    <a href="#business">Business</a>
-    <a href="#teaching">Teaching & Mentorship</a>
-  </aside>
 
-  <main>
-  <div class="hero">
-    <img src="profile picture.png" alt="Bruce Li portrait" />
-    <h1 class="headline">Zhexiang (Bruce) Li</h1>
-    <div class="pill">UCLA MSCS</div>
-    <div class="sub">Hi, I’m Bruce Li, an incoming UCLA M.S. in Computer Science student and USC CS graduate. Recently, I have been working on applied AI across medical research and product engineering, including drug discovery and MedTokenBudget, a lesion-preserving token routing project for efficient medical vision models. I also build practical user-facing tools such as Fridge Manager, with a focus on turning solid technical ideas into reliable software people actually use.</div>
-    <div class="pill" style="margin:14px auto 0">Contact: bruceli@UCLA dot edu · +1 831-239-2728 · <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a></div>
-  </div>
+  <main id="main" class="shell profile-layout">
+    <aside class="identity" id="top">
+      <img class="profile-photo" src="profile picture.png" alt="Portrait of Zhexiang (Bruce) Li" width="844" height="1018" />
+      <div class="identity-copy">
+        <p class="availability">Incoming UCLA M.S. student, Fall 2026</p>
+        <p>Los Angeles, California</p>
+        <p><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" href="#contact">bruceli [at] ucla [dot] edu</a></p>
+        <p><a href="tel:+18312392728">+1 831-239-2728</a></p>
+      </div>
+      <div class="identity-links" id="contact"><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" data-label="Email" href="#contact">Email</a><a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a><a href="cv.html">CV</a></div>
+      <nav class="route-nav" aria-label="Page route"><a href="#about" class="is-active">About</a><a href="#work">PMAOS</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#background">Background</a></nav>
+    </aside>
 
-  <section id="qualifications">
-    <h2>Qualifications</h2>
-    <div class="grid">
-      <div class="tile"><strong>Bilingual (fluent)</strong><p>Mandarin, English</p></div>
-      <div class="tile"><strong>Tech</strong><p>PyTorch, TensorFlow, CUDA, Triton, Docker, Git, Linux, GCP, AWS, MQTT</p></div>
-      <div class="tile"><strong>Product Engineering</strong><p>Full-stack web development, AI workflows, accessibility, and SEO</p></div>
+    <div class="profile-content">
+      <span class="route-signal" aria-hidden="true"></span>
+      <section id="about" class="intro" aria-labelledby="intro-title">
+        <canvas class="system-field" aria-hidden="true"></canvas>
+        <h1 id="intro-title">Zhexiang <span>(Bruce)</span> Li</h1>
+        <p class="intro-lede">I work across machine-learning research, systems, and product engineering, with a bias toward ideas that survive real data and hardware constraints.</p>
+        <p>I graduated from USC in computer science and will begin the UCLA M.S. in Computer Science in Fall 2026. This summer, I completed two research submissions and an AI engineering internship at PMAOS / Next Big Seek.</p>
+      </section>
+
+      <section id="work" class="content-section">
+        <h2>Recent work</h2>
+        <article class="feature-entry">
+          <div class="entry-heading"><div><h3>AI Engineer Intern</h3><p class="organization">PMAOS / Next Big Seek · Edge AI for constrained devices</p></div><time>Jul - Aug 2026</time></div>
+          <p class="role-summary">My internship covered three separate workstreams, from production-oriented recommendation infrastructure to research and validation for new device concepts.</p>
+          <div class="workstream-list">
+            <article><h4>Recommendation systems</h4><p>Implemented interest diversity and bidirectional user-video propagation for a feature-phone short-video backend. The design separates learning, retrieval, scoring, and diversity tags, with session, bridge, and long-term budgets plus fatigue controls. The recorded validation covered 629 tests, strict Mypy across 438 source files, and 34 contract checks.</p></article>
+            <article><h4>Multimodal edge perception</h4><p>Developed an 11-language audio-visual affect pipeline with timed frame capture, A/V offset rejection, speech PAD, fusion, and a Q15 decision layer that can abstain or flag conflicting evidence. It passed 139 Python tests and C build gates for Cortex-M3 and ARM926EJ-S.</p></article>
+            <article><h4>Millirobot research planning</h4><p>Screened sub-10 mm untethered piezoelectric robot architectures, narrowed the work to a 9 mm four-channel candidate, and specified a PZT-steel cantilever bench experiment with hard pass/fail gates. The internship ended at experiment design and procurement planning; no physical prototype was built.</p></article>
+          </div>
+        </article>
+      </section>
+
+      <section id="research" class="content-section">
+        <h2>Research</h2>
+        <article class="text-entry featured-paper"><div class="entry-heading"><div><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><p class="organization">AAAI 2027 submission · preprint forthcoming</p></div><time>Summer 2026</time></div><p>A supervised post-backbone router that keeps lesion evidence under tight token budgets. The method combines lesion-aware scoring, budget curriculum learning, diversity regularization, and lesion-retention audits on ISIC 2019.</p></article>
+        <article class="text-entry featured-paper"><div class="entry-heading"><div><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><p class="organization">AAAI 2027 submission · preprint forthcoming</p></div><time>Summer 2026</time></div><p>A spectrum-retrieval approach built around sparse fragment-pair tokens that expose mass-conservation evidence before ranking, with hard-negative tests and witness-removal audits.</p></article>
+        <article class="text-entry"><div class="entry-heading"><div><h3>Efficient Attention via Pre-Scoring</h3><p class="organization">First author · advised by David P. Woodruff</p></div><time>2024 - 2025</time></div><p>Selected informative key intervals before attention, implemented the method in Triton, and compared it with HyperAttention and LevAttention.</p><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040</a></article>
+        <article class="text-entry"><div class="entry-heading"><div><h3>Machine Learning for Antiviral Drug Discovery</h3><p class="organization">USC Yan Liu group</p></div><time>Spring 2026</time></div><p>Built reproducible RDKit, Chemprop, and hybrid-model benchmarks across seven Therapeutics Data Commons datasets, followed by feature-importance and SHAP analysis.</p></article>
+      </section>
+
+      <section id="projects" class="content-section">
+        <h2>Selected projects</h2>
+        <div class="project-grid">
+          <article><h3>Fridge Manager</h3><p>A mobile-first Next.js and Supabase product that combines inventory, leftovers, recipes, preferences, and time constraints for meal and grocery planning.</p><a href="https://howtoeat.food" target="_blank" rel="noopener">Live site</a></article>
+          <article><h3>AI Doctor WeChat</h3><p>A multi-role clinical and teaching workflow spanning a WeChat Mini Program, web workspace, knowledge retrieval, and FastAPI services.</p></article>
+          <article><h3>AI Business Card Hub</h3><p>An iOS organizer with vision-first parsing, OCR fallback, multi-photo review, bilingual records, structured profiles, and search.</p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">Source code</a></article>
+        </div>
+      </section>
+
+      <section id="experience" class="content-section">
+        <h2>Earlier experience</h2>
+        <div class="compact-list">
+          <article><time>2025 - Mar 2026</time><div><h3>CrAIg Capital</h3><p><b>Co-Founder and CTO.</b> Led an AI-assisted housing debt-collection product, including data pipelines, workflow automation, roadmap, and engineering delivery.</p></div></article>
+          <article><time>Jan - May 2026</time><div><h3>Terlingua Threads</h3><p><b>Full-Stack Engineer.</b> Built Shopify-connected pages and Google Maps features; improved responsive behavior, ADA accessibility, SEO, and maintainability.</p></div></article>
+          <article><time>Jun - Aug 2025</time><div><h3>Piezolab Medical</h3><p><b>AI Engineer Intern.</b> Built an LLM-assisted analysis pipeline for 5,000+ medical-malpractice documents and wrote lab workflow checks.</p></div></article>
+          <article><time>Jun - Aug 2024</time><div><h3>Haoan Health</h3><p><b>Business Development Intern.</b> Gathered requirements for an internal medical-device platform and helped structure the program and hiring needs.</p></div></article>
+          <article><time>Jan 2021 - present</time><div><h3>GUDU Medical</h3><p><b>Investment Analyst Intern.</b> Supported MedTech deal screening, market research, due diligence, financial modeling, and valuation.</p></div></article>
+          <article><time>Jun - Aug 2023</time><div><h3>Synaptics</h3><p><b>Application Engineer Intern.</b> Validated firmware and prototyped an ESP32-to-cloud I²C/MQTT telemetry path.</p></div></article>
+        </div>
+      </section>
+
+      <section id="background" class="content-section about-section">
+        <h2>Background</h2>
+        <div class="background-grid">
+          <div><h3>Education</h3><p><strong>UCLA</strong><br />M.S. Computer Science, starting Fall 2026</p><p><strong>USC</strong><br />B.S. Computer Science, 2026<br />GPA 3.76/4.00 · Viterbi Dean's List</p></div>
+          <div><h3>Working toolkit</h3><p><strong>ML &amp; systems</strong><br />Python, C/C++, CUDA, Triton, PyTorch, TensorFlow</p><p><strong>Product engineering</strong><br />FastAPI, PostgreSQL, TypeScript, React, Next.js, Docker, Linux, cloud and MQTT workflows</p></div>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>University of California, Los Angeles (UCLA)</strong>
-          <div class="edu-meta">M.S. in Computer Science · Incoming</div>
-        </div>
-        <div class="edu-when">Expected Fall 2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>University of Southern California (USC)</strong>
-          <div class="edu-meta">B.S. in Computer Science · Graduated · Cumulative GPA 3.76/4</div>
-        </div>
-        <div class="edu-when">Aug 2023 – May 2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>University of California, Santa Cruz (UCSC)</strong>
-          <div class="edu-meta">B.S. in Computer Engineering · Transferred · GPA 3.97/4</div>
-        </div>
-        <div class="edu-when">Sept 2021 – Jun 2023</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>American Heritage School (Boca Delray, FL)</strong>
-          <div class="edu-meta">Secondary Education · Grades 11–12</div>
-        </div>
-        <div class="edu-when">2019 – 2021</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Dulwich International High School Suzhou</strong>
-          <div class="edu-meta">Secondary Education · Grades 10–11</div>
-        </div>
-        <div class="edu-when">2017 – 2019</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Liangzhu Anjilu Experimental Middle School</strong>
-          <div class="edu-meta">Middle School · Grades 7–9</div>
-        </div>
-        <div class="edu-when">2014 – 2017</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Zhejiang University Affiliated Primary School</strong>
-          <div class="edu-meta">Primary School · Grades 1–6</div>
-        </div>
-        <div class="edu-when">2008 – 2014</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experiences">
-    <h2>Experiences</h2>
-    <div class="grid">
-      <div class="tile"><strong>Co‑Founder & CTO — CrAIg Capital</strong><div class="meta">Los Angeles, CA · 2025 – Mar 2026</div><p><em>Focus:</em> AI housing debt collection.</p><ul><li>Owned end-to-end product and engineering, from data pipelines to workflow automation.</li><li>Set the tech stack and operating cadence: roadmap, hiring, and delivery standards.</li></ul></div>
-      <div class="tile"><strong>Full-Stack Engineer — Terlingua Threads</strong><div class="meta">Remote · Jan 2026 – May 2026</div><p><em>Focus:</em> Web development and storefront optimization.</p><ul><li>Built and optimized public web pages opened through Shopify, improving content structure, responsive behavior, and maintainability.</li><li>Developed Google Maps features and improved ADA accessibility and SEO across customer-facing pages.</li></ul></div>
-      <div class="tile"><strong>AI Engineer Intern — Piezolab Medical</strong><div class="meta">Lake Forest, CA · Jun 2025 – Aug 2025</div><p><em>Focus:</em> Developing novel solutions for vascular care.</p><ul><li>Built an internal LLM‑assisted pipeline to ingest, clean, and cluster 5,000+ medical malpractice case documents, surfacing recurring patterns to support quality‑of‑care reviews.</li><li>Deployed agent/workflow tools and authored experiment checklists and acceptance tests for lab materials.</li></ul></div>
-      <div class="tile"><strong>BD Intern — Haoan Health</strong><div class="meta">Hangzhou, China · Jun 2024 – Aug 2024</div><p><em>Focus:</em> Major medical devices wholesaler in the Eastern China market.</p><ul><li>Rotated through major departments to gain a comprehensive understanding of company operations.</li><li>Participated in the firm's internal platform construction based on NetEase Codewave, and recruited engineers for the task.</li><li>Helped compile requirements and build program structure and interface.</li></ul></div>
-      <div class="tile"><strong>Investment Analyst Intern — GUDU MEDICAL</strong><div class="meta">Remote · Jan 2021 – Present</div><p><em>Focus:</em> MedTech VC backing clinical breakthroughs.</p><ul><li>Focus on initial deal flow and market analysis, and participate in the due diligence process.</li><li>Conduct financial modeling and valuation analysis, and provide an investment proposal framework.</li></ul></div>
-      <div class="tile"><strong>Application Engineer Intern — Synaptics</strong><div class="meta">San Jose, CA · Jun 2023 – Aug 2023</div><p><em>Focus:</em> Firmware validation and IoT telemetry prototype.</p><ul><li>Tested firmware for an internal product and validated basic functionality.</li><li>Used an ESP32 microcontroller with Alibaba Cloud to convert I²C and other sensor data into MQTT topics for internal dashboards.</li></ul></div>
-    </div>
-  </section>
-
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Efficient Attention via Pre‑Scoring</strong>
-          <div class="edu-meta">Advised by Prof. David P. Woodruff (CMU)</div>
-          <ul>
-            <li>Proposed a pre‑scoring mechanism that selects informative key intervals before attention, reducing computation and memory usage for long‑sequence Transformers.</li>
-            <li>Implemented Triton kernels and conducted extensive comparisons against HyperAttention and LevAttention, demonstrating comparable accuracy with significantly lower overhead.</li>
-            <li>First author; manuscript available on arXiv. <a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">Oct 2024 – May 2025</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Game Theory in Companies</strong>
-          <div class="edu-meta">Advised by Prof. Ming Gu (UC Berkeley)</div>
-          <ul>
-            <li>Team leader; modeled game‑release decisions as two‑player normal‑form games and implemented a Python + Gambit pipeline to enumerate all Nash equilibria.</li>
-            <li>First author, Li, S., Li, Z., & Liu, Z. (2023). Game theory in companies: A program approach to find all Nash equilibria in games with two players. Advances in Economics, Management and Political Sciences, 16(1), 357–366.</li>
-            <li><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">https://doi.org/10.54254/2754-1169/16/20231043</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2022 – 2023</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>USC Drug Discovery Research</strong>
-          <div class="edu-meta">SARS‑CoV‑2 antiviral drug discovery with USC Prof. Yan Liu's group</div>
-          <ul>
-            <li>Built a reproducible benchmark pipeline across 7 TDC datasets to compare RDKit descriptor baselines, Chemprop, and Chemprop + RDKit under scaffold-based splits.</li>
-            <li>Ran interpretability analysis with RDKit importance and SHAP; on <code>SARSCoV2_3CLPro_Diamond</code>, Extra Trees reached AUROC 90.0 +/- 6.4. <a href="assets/pdf/ZhexiangLi_DrugDis_Poster.pptx.pdf" target="_blank" rel="noopener">Poster PDF</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">Spring 2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Fridge Manager</strong>
-          <div class="edu-meta">AI-assisted kitchen planning web app for inventory, meal planning, and grocery decisions.</div>
-          <ul>
-            <li>Combines fridge inventory, leftovers, recipes, preferences, and time constraints to help users decide what to cook next.</li>
-            <li>Built as a mobile-friendly Next.js + Supabase product; public-facing and open for others to try. <a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>AI Doctor WeChat</strong>
-          <div class="edu-meta">TCM clinical and teaching assistant spanning WeChat Mini Program, Web dashboard, and FastAPI backend.</div>
-          <ul>
-            <li>Supports clinical capture, case organization, knowledge-base retrieval, and teaching workflows for doctors, assistants, and students.</li>
-            <li>Built around multi-role workflows for doctors, assistants, students, and patient-side intake.</li>
-          </ul>
-        </div>
-        <div class="edu-when">2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>BusinessCardAIAssistant (AI Business Card Hub)</strong>
-          <div class="edu-meta">AI‑powered iOS business card organizer with vision-first parsing, OCR fallback, and structured contact/company profiles.</div>
-          <ul>
-            <li>Converts business cards and brochures into structured people/company records with AI-assisted extraction and review.</li>
-            <li>Includes multi-photo capture, search/navigation, and bilingual display. <a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">Code</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">Jan 2026 – Present</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>CNN Deep Fake Face Detection</strong>
-          <div class="edu-meta">Trained on a 10k+ image dataset of real vs. GAN‑generated faces with data augmentation.</div>
-          <ul>
-            <li>Implemented a CNN with three Conv2D–MaxPooling blocks (32/64/128 filters, 3×3 kernels), 0.5 dropout, and a 512‑unit dense layer in Keras to classify real vs. fake faces.</li>
-          </ul>
-          <p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">Code</a></p>
-        </div>
-        <div class="edu-when">Feb 2025 – Apr 2025</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TradeViewer</strong>
-          <div class="edu-meta">Led a team of 8: set objectives, distributed tasks, resolved conflicts, and monitored project progress.</div>
-          <ul>
-            <li>Integrated a React frontend with a Java backend to build a production‑ready transaction data visualization system.</li>
-          </ul>
-          <p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">Code</a></p>
-        </div>
-        <div class="edu-when">Oct 2024 – Dec 2024</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="activities">
-    <h2>Activities</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Silicon Valley Company Tour — Noah</strong>
-          <div class="edu-meta">Visited tech companies and met founders/investors during a program organized by Noah Business School.</div>
-        </div>
-        <div class="edu-when">Oct 16–21, 2025</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TIE Hub Co‑Founder Speed Date — Volunteer</strong>
-          <div class="edu-meta">Helped organize the co‑founder matching event: venue setup, check‑in and guidance, timekeeping, and process coordination.</div>
-        </div>
-        <div class="edu-when">Sep 19, 2025</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>USC Badminton Club</strong>
-          <div class="edu-meta">Member · Participated regularly through junior year.</div>
-        </div>
-        <div class="edu-when">2024–2025</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="competitions">
-    <h2>Competitions</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TIE Hub Startup Hackathon (5‑day workshop)</strong>
-          <div class="edu-meta">Ideated a startup concept over five days and built a working demo; collaborated on venture design and pitch.</div>
-        </div>
-        <div class="edu-when">Sep 2025</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="awards">
-    <h2>Awards</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Viterbi Dean’s List</strong>
-          <div class="edu-meta">USC</div>
-        </div>
-        <div class="edu-when">Fall 2024 – Spring 2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>VEX Robotics Asia‑Pacific Championship — Champion</strong>
-          <div class="edu-meta">High School Division</div>
-        </div>
-        <div class="edu-when">2017</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>VEX Robotics Asia‑Pacific Championship — Champion</strong>
-          <div class="edu-meta">Middle School Division</div>
-        </div>
-        <div class="edu-when">2015</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="business">
-    <h2>Business</h2>
-    <div class="grid">
-      <div class="tile"><strong>Noah Business School (Noah Holdings)</strong><div class="meta">Entrepreneurship & executive program</div><p>Participated in modules on venture building, financing, and company visits; engaged with mentors and alumni network.</p></div>
-      <div class="tile"><strong>Zhijiang Business School</strong><div class="meta">Entrepreneurship and leadership program</div><p>Joined sessions focused on strategy, operations, and founder leadership for growing companies.</p></div>
-    </div>
-  </section>
-
-  <section id="teaching">
-    <h2>Teaching & Mentorship</h2>
-    <div class="grid">
-      <div class="tile"><strong>Tutor — Introduction to Machine Learning (UCSC)</strong><div class="meta">Spring 2023 · Prof. Lise Getoor</div><p>Held weekly office hours and discussion sessions for students, clarifying ML concepts (logistic regression, SVMs, tree‑based models, etc.). Co‑designed Jupyter Notebook–based assignments and contributed to the auto‑grader for coding questions.</p></div>
-      <div class="tile"><strong>Assistant Coach — VEX Robotics & Olympiad in Informatics</strong><div class="meta">Shanghai Bosidi Education · 2014 – 2018</div><p>Assisted coaching and organizing training for VEX Robotics and competitive programming (OI) teams.</p></div>
-    </div>
-  </section>
-
   </main>
-
-  <footer>© 2026 Zhexiang (Bruce) Li — Built on GitHub Pages</footer>
-  <script>
-    // Enhance internal anchor links with smooth scrolling (cross-browser) and header offset.
-    (function(){
-      function smoothTo(sel,e){const el=document.querySelector(sel);if(el){e&&e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}
-      document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{smoothTo(a.getAttribute('href'),e)}));
-      const burger=document.getElementById('burger');
-      const drawer=document.getElementById('drawer');
-      const overlay=document.getElementById('overlay');
-      function openDrawer(state){
-        drawer.classList.toggle('open',state);
-        overlay.classList.toggle('open',state);
-        document.body.classList.toggle('no-scroll',state);
-        drawer.setAttribute('aria-hidden', String(!state));
-        if(burger) burger.setAttribute('aria-expanded', String(state));
-      }
-      if(burger){burger.addEventListener('click',()=>openDrawer(true));}
-      if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
-      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
-
-      // Zoom buttons for coursework
-      document.querySelectorAll('.zoom-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-          const tile=btn.closest('.tile');
-          if(tile){ tile.classList.toggle('expanded'); }
-        });
-      });
-    })();
-  </script>
+  <footer class="site-footer"><div class="shell"><span>Last updated August 2026</span><span>Zhexiang (Bruce) Li</span></div></footer>
 </body>
 </html>

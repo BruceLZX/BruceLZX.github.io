@@ -3,362 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>李哲骧（Bruce）— UCLA MSCS</title>
-  <style>
-    :root{--accent:#22d3ee;--ink:#e5e7eb;--muted:#94a3b8;--bg:#0b0f19;--panel:#111827;--stroke:rgba(148,163,184,0.14);--shadow:0 10px 30px rgba(0,0,0,0.45);--radius:12px}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;background:linear-gradient(180deg,#0b0f19 0%, #0d1324 60%, #0b0f19 100%);color:var(--ink);line-height:1.6;display:flex;flex-direction:column;min-height:100vh;padding-top:58px}
-    header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(17,24,39,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke);box-shadow:0 8px 20px rgba(0,0,0,.35)}
-    .nav .bar{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:12px 16px}
-    .logo{font-weight:700}
-    .links a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:14px}
-    .links a:hover{color:var(--accent)}
-    /* 汉堡与侧栏 */
-    .burger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:30px;border:1px solid var(--stroke);border-radius:8px;background:rgba(255,255,255,0.04);cursor:pointer;margin-right:10px}
-    .burger span{display:block;width:18px;height:2px;background:var(--muted);position:relative}
-    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--muted)}
-    .burger span:before{top:-6px}.burger span:after{top:6px}
-    .overlay{position:fixed;inset:0;background:rgba(2,6,23,0.55);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1050}
-    .overlay.open{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;left:-260px;width:260px;height:100%;background:var(--panel);border-right:1px solid var(--stroke);box-shadow:var(--shadow);padding:16px;z-index:1100;transition:left .25s ease}
-    .drawer.open{left:0}
-    .drawer h3{margin:6px 0 10px;font-size:14px;color:var(--muted)}
-    .drawer a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
-    .drawer a:hover{background:rgba(34,211,238,0.10);color:var(--accent)}
-    body.no-scroll{overflow:hidden}
-    .hero{padding:60px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
-    .hero img{width:140px;height:140px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px rgba(34,211,238,0.25),0 12px 30px rgba(0,0,0,0.6);margin-bottom:16px}
-    .pill{margin-top:8px;margin-bottom:10px;display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
-    .headline{font-size:42px;font-weight:800;line-height:1.2;margin:8px 0 14px;background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .sub{font-size:17px;color:var(--muted);max-width:620px;margin:0 auto}
-    section{max-width:1000px;margin:40px auto;padding:0 20px;scroll-margin-top:86px}
-    h2{font-size:20px;font-weight:600;color:var(--accent);margin-bottom:20px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-    .tile{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .18s ease, box-shadow .18s ease}
-    .tile:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,0.55)}
-    .tile strong{display:block;margin-bottom:6px;font-weight:600}
-    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
-    .tile ul{margin:8px 0 0 0;padding-left:22px;list-style:disc outside}
-    .tile li{margin:6px 0}
-    .table-wrap{overflow:auto}
-    .tbl{width:100%;border-collapse:collapse;font-size:14px}
-    .tbl th{color:var(--muted);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--stroke);white-space:nowrap}
-    .tbl td{padding:8px 10px;border-bottom:1px solid var(--stroke);vertical-align:top;white-space:nowrap}
-    .tbl td:nth-child(2){white-space:normal}
-    .tbl tr:last-child td{border-bottom:none}
-    .tile.expanded{grid-column:span 2}
-    /* 可缩放课程卡片 */
-    .zoomable{position:relative}
-    .zoom-btn{position:absolute;top:8px;right:8px;width:22px;height:22px;border:none;background:transparent;color:var(--accent);cursor:pointer}
-    .zoom-btn:before,.zoom-btn:after{content:"";position:absolute;width:7px;height:7px}
-    .zoom-btn:before{top:4px;right:4px;border-top:2px solid var(--accent);border-right:2px solid var(--accent)}
-    .zoom-btn:after{bottom:4px;left:4px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent)}
-    .zoom-body{transform:scale(.92);transform-origin:top left;max-height:240px;overflow:auto;transition:transform .2s ease,max-height .2s ease}
-    .tile.expanded .zoom-body{transform:scale(1);max-height:1000px}
-    .tile.expanded .zoom-btn{background:transparent;border-color:var(--accent);transform:rotate(180deg)}
-    /* 教育卡片 */
-    .edu-list{display:flex;flex-direction:column;gap:12px}
-    .edu-item{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
-    .edu-left strong{font-weight:700;font-size:17px;display:block;margin-bottom:4px}
-    .edu-meta{color:var(--muted);font-size:14px}
-    .edu-left ul{margin:8px 0 0 18px;padding:0;list-style:disc}
-    .edu-left li{margin:6px 0}
-    .edu-when{color:var(--muted);font-size:14px;white-space:nowrap;min-width:160px;text-align:right}
-    @media(max-width:640px){.edu-item{flex-direction:column}.edu-when{text-align:left}}
-    main{flex:1}
-    footer{margin-top:40px;text-align:center;color:var(--muted);padding:20px 0}
-  </style>
+  <meta name="description" content="李哲骧（Bruce Li）即将入读 UCLA 计算机科学硕士，研究与实践涉及机器学习、端侧系统和产品工程。" />
+  <title>李哲骧（Bruce Li）</title>
+  <link rel="stylesheet" href="site.css" />
+  <script src="site.js" defer></script>
 </head>
-<body>
-  <header class="nav">
-    <div class="bar">
-      <div style="display:flex;align-items:center;gap:10px">
-        <button id="burger" class="burger" aria-label="打开菜单" aria-controls="drawer" aria-expanded="false"><span></span></button>
-        <div class="logo">李哲骧 Bruce Li</div>
-      </div>
-      <div class="links">
-        <a href="index.html" title="English">EN</a>
-        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="cv_zh.html" style="margin-left:12px;padding:6px 10px;border:1px solid var(--accent);border-radius:8px;background:transparent;color:var(--accent);font-weight:600">学术履历</a>
-      </div>
+<body class="home-page zh-page">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#top">李哲骧</a>
+      <nav class="main-nav" aria-label="主导航"><a href="#work">工作</a><a href="#research">研究</a><a href="#projects">项目</a><a href="archive-zh.html">档案</a></nav>
+      <div class="header-actions"><a href="index.html" lang="en">EN</a><a href="cv_zh.html">履历</a></div>
     </div>
   </header>
-  <div id="overlay" class="overlay"></div>
-  <aside id="drawer" class="drawer" aria-label="栏目菜单" role="dialog" aria-modal="true" aria-hidden="true">
-    <h3>页面栏目</h3>
-    <a href="#qualifications">能力</a>
-    <a href="#education">教育</a>
-    <a href="#experiences">经历</a>
-    <a href="#publications">论文</a>
-    <a href="#projects">项目</a>
-    <a href="#activities">活动</a>
-    <a href="#competitions">竞赛</a>
-    <a href="#awards">奖项</a>
-    <a href="#business">商业/商学院</a>
-    <a href="#teaching">教学/指导</a>
-  </aside>
 
-  <main>
-  <div class="hero">
-    <img src="profile picture.png" alt="Bruce Li" />
-    <h1 class="headline">李哲骧（Bruce）</h1>
-    <div class="pill">UCLA MSCS</div>
-    <div class="sub">你好，我是李哲骧（Bruce）。我是即将进入 UCLA 攻读计算机科学硕士的学生，也是 USC 计算机科学本科毕业生。最近我主要在做医疗研究和产品工程方向的 AI 工作，包括药物发现，以及 MedTokenBudget 这类面向高效医疗视觉模型的 lesion-preserving token routing 研究。我也会做像 Fridge Manager 这样的用户产品，重点始终是把技术上成立的想法做成可靠、实用、真正有人用的软件。</div>
-    <div class="pill" style="margin:14px auto 0">联系方式：bruceli@UCLA dot edu · +1 831-239-2728（优先） · +86 187 5815 1112 · <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a></div>
-  </div>
+  <main id="main" class="shell profile-layout">
+    <aside class="identity" id="top">
+      <img class="profile-photo" src="profile picture.png" alt="李哲骧（Bruce Li）的彩色肖像" width="844" height="1018" />
+      <div class="identity-copy">
+        <p class="availability">2026 年秋季入读 UCLA 计算机科学硕士</p>
+        <p>美国洛杉矶</p>
+        <p><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" href="#contact">bruceli [at] ucla [dot] edu</a></p>
+        <p><a href="tel:+18312392728">+1 831-239-2728</a></p>
+      </div>
+      <div class="identity-links" id="contact"><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" data-label="邮箱" href="#contact">邮箱</a><a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/zhexiang-li-4a41b0237/" target="_blank" rel="noopener">LinkedIn</a><a href="cv_zh.html">履历</a></div>
+      <nav class="route-nav" aria-label="页面路线"><a href="#about" class="is-active">关于</a><a href="#work">未来求索</a><a href="#research">研究</a><a href="#projects">项目</a><a href="#experience">经历</a><a href="#background">背景</a></nav>
+    </aside>
 
-  <section id="qualifications">
-    <h2>能力</h2>
-    <div class="grid">
-      <div class="tile"><strong>双语（流利）</strong><p>中文、英文</p></div>
-      <div class="tile"><strong>技术</strong><p>PyTorch, TensorFlow, CUDA, Triton, Docker, Git, Linux, GCP, AWS, MQTT</p></div>
-      <div class="tile"><strong>产品工程</strong><p>全栈网页开发、AI 工作流、可访问性与 SEO</p></div>
+    <div class="profile-content">
+      <span class="route-signal" aria-hidden="true"></span>
+      <section id="about" class="intro" aria-labelledby="intro-title">
+        <canvas class="system-field" aria-hidden="true"></canvas>
+        <h1 id="intro-title">李哲骧 <span>Bruce Li</span></h1>
+        <p class="intro-lede">我做机器学习研究，也做系统和产品。比起只在实验里成立的想法，我更关心它能否经得住真实数据、硬件条件和使用场景。</p>
+        <p>我本科毕业于 USC，将于 2026 年秋季入读 UCLA 计算机科学硕士。今年夏天，我完成了两篇论文投稿，也在未来求索（PMAOS）做了一段 AI 工程实习。</p>
+      </section>
+
+      <section id="work" class="content-section">
+        <h2>最近的工作</h2>
+        <article class="feature-entry">
+          <div class="entry-heading"><div><h3>AI 工程师实习生</h3><p class="organization">未来求索（PMAOS）· 面向资源受限设备的端侧 AI</p></div><time>2026.07 - 2026.08</time></div>
+          <p class="role-summary">实习期间我同时推进三条工作线：推荐系统、端侧多模态感知和毫米机器人前期研究。除了写代码，我也负责测试、契约检查，并把尚未验证的结论和已经完成的工作分开记录。</p>
+          <div class="workstream-list">
+            <article><h4>推荐系统</h4><p>为功能机短视频后端实现兴趣多样性和用户、视频之间的双向兴趣传播。系统把学习、召回、打分和多样性标签分开管理，并加入会话期、过渡期和长期兴趣预算，以及轮换和疲劳控制。留档验证包括 629 项测试、438 个源文件的严格 Mypy 检查和 34 项契约检查。</p></article>
+            <article><h4>端侧多模态感知</h4><p>开发 11 语种音视情感感知链路，包括定时取帧、音画偏移拒绝、语音 PAD、音视融合，以及支持弃权和冲突检测的 Q15 决策层。项目通过 139 项 Python 测试，并完成 Cortex-M3、ARM926EJ-S 的 C 编译门禁。</p></article>
+            <article><h4>毫米机器人前期研究</h4><p>筛选 10 mm 以下无缆压电机器人方案，将方向收敛到 9 mm 四通道候选，并为 PZT-钢悬臂台架实验写出材料、驱动范围和通过条件。这部分工作完成到实验设计和采购准备，尚未制作机器人实物。</p></article>
+          </div>
+        </article>
+      </section>
+
+      <section id="research" class="content-section">
+        <h2>研究</h2>
+        <article class="text-entry featured-paper"><div class="entry-heading"><div><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><p class="organization">已投稿 AAAI 2027 · arXiv 版本待上传</p></div><time>2026 夏</time></div><p>针对皮肤镜图像分类设计 token 路由器：在压缩视觉 token 的同时，尽量保留病灶区域证据。训练中使用病灶监督、预算课程学习和多样性约束，并在 ISIC 2019 上直接检查病灶保留率。</p></article>
+        <article class="text-entry featured-paper"><div class="entry-heading"><div><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><p class="organization">已投稿 AAAI 2027 · arXiv 版本待上传</p></div><time>2026 夏</time></div><p>把质谱碎片对表示成显式的质量守恒 token，再用于候选谱图排序。除了常规指标，实验还加入难负样本和 witness removal，用来检查模型依赖的质量守恒证据是否真的影响结果。</p></article>
+        <article class="text-entry"><div class="entry-heading"><div><h3>Efficient Attention via Pre-Scoring</h3><p class="organization">第一作者 · David P. Woodruff 教授指导</p></div><time>2024 - 2025</time></div><p>在进入注意力计算前先筛选信息量较高的 key 区间。我负责 Triton 实现，并与 HyperAttention、LevAttention 做了系统比较。</p><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040</a></article>
+        <article class="text-entry"><div class="entry-heading"><div><h3>抗病毒药物发现中的机器学习</h3><p class="organization">USC Yan Liu 教授组</p></div><time>2026 春</time></div><p>围绕七个 Therapeutics Data Commons 数据集搭建 RDKit、Chemprop 和混合模型基准，随后完成特征重要性与 SHAP 分析。</p></article>
+      </section>
+
+      <section id="projects" class="content-section">
+        <h2>部分项目</h2>
+        <div class="project-grid">
+          <article><h3>Fridge Manager</h3><p>一款面向手机端的饮食规划产品。它把冰箱库存、剩菜、菜谱、饮食偏好和时间安排放在一起，生成下一餐与采购建议，使用 Next.js 和 Supabase 开发。</p><a href="https://howtoeat.food" target="_blank" rel="noopener">查看网站</a></article>
+          <article><h3>AI Doctor WeChat</h3><p>连接微信小程序、Web 工作台、知识检索与 FastAPI 服务的中医临床和教学系统，分别支持医生、助理、学生和患者录入流程。</p></article>
+          <article><h3>AI 名片助手</h3><p>一款 iOS 名片整理工具，支持视觉模型解析、OCR 兜底、多图复核、双语资料、结构化人物与公司档案，以及搜索。</p><a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">源代码</a></article>
+        </div>
+      </section>
+
+      <section id="experience" class="content-section">
+        <h2>此前经历</h2>
+        <div class="compact-list">
+          <article><time>2025 - 2026.03</time><div><h3>CrAIg Capital</h3><p><b>联合创始人兼 CTO。</b>负责 AI 辅助住房债务处理产品的数据管线、工作流自动化、技术路线和工程交付。</p></div></article>
+          <article><time>2026.01 - 2026.05</time><div><h3>Terlingua Threads</h3><p><b>全栈工程师。</b>开发 Shopify 关联页面和 Google Maps 功能，并改进移动端适配、无障碍、SEO 与可维护性。</p></div></article>
+          <article><time>2025.06 - 2025.08</time><div><h3>Piezolab Medical</h3><p><b>AI 工程师实习生。</b>为 5,000 多份医疗事故文档搭建 LLM 辅助分析管线，并参与实验流程与验收检查。</p></div></article>
+          <article><time>2024.06 - 2024.08</time><div><h3>好安健康</h3><p><b>业务发展实习生。</b>参与医疗器械企业内部平台的需求梳理、程序结构设计和工程招聘。</p></div></article>
+          <article><time>2021.01 - 至今</time><div><h3>GUDU Medical</h3><p><b>投资分析实习生。</b>参与医疗科技项目初筛、市场研究、尽调、财务建模和估值。</p></div></article>
+          <article><time>2023.06 - 2023.08</time><div><h3>Synaptics</h3><p><b>应用工程师实习生。</b>验证产品固件，并用 ESP32、I²C、MQTT 和阿里云搭建传感器遥测原型。</p></div></article>
+        </div>
+      </section>
+
+      <section id="background" class="content-section about-section">
+        <h2>背景</h2>
+        <div class="background-grid">
+          <div><h3>教育</h3><p><strong>UCLA</strong><br />计算机科学硕士，2026 年秋季入学</p><p><strong>USC</strong><br />计算机科学学士，2026<br />GPA 3.76/4.00 · Viterbi Dean's List</p></div>
+          <div><h3>常用技术</h3><p><strong>机器学习与系统</strong><br />Python、C/C++、CUDA、Triton、PyTorch、TensorFlow</p><p><strong>产品工程</strong><br />FastAPI、PostgreSQL、TypeScript、React、Next.js、Docker、Linux、云服务与 MQTT</p></div>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <section id="education">
-    <h2>教育</h2>
-    <div class="edu-list">
-      <div class="edu-item"><div class="edu-left"><strong>加州大学洛杉矶分校（UCLA）</strong><div class="edu-meta">计算机科学 硕士 · 即将入学</div></div><div class="edu-when">预计 2026 秋</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>南加州大学（USC）</strong><div class="edu-meta">计算机科学 学士 · 已毕业 · 累计 GPA 3.76/4</div></div><div class="edu-when">2023-08 – 2026-05</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>加州大学圣克鲁兹（UCSC）</strong><div class="edu-meta">计算机工程 学士 · 转学 · GPA 3.97/4</div></div><div class="edu-when">2021-09 – 2023-06</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>American Heritage School（Boca Delray, FL）</strong><div class="edu-meta">高中 · G11–G12</div></div><div class="edu-when">2019 – 2021</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>苏州德威国际高中</strong><div class="edu-meta">高中 · G10–G11</div></div><div class="edu-when">2017 – 2019</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>良渚安吉路实验中学</strong><div class="edu-meta">初中 · G7–G9</div></div><div class="edu-when">2014 – 2017</div></div>
-      <div class="edu-item"><div class="edu-left"><strong>浙江大学附属小学</strong><div class="edu-meta">小学 · G1–G6</div></div><div class="edu-when">2008 – 2014</div></div>
-    </div>
-  </section>
-
-  <section id="experiences">
-    <h2>经历</h2>
-    <div class="grid">
-      <div class="tile"><strong>联合创始人 & CTO — CrAIg Capital</strong><div class="meta">洛杉矶, 美国加州 · 2025 – 2026-03</div><p><em>业务：</em> AI 驱动的房屋债务催收。</p><ul><li>负责端到端产品与工程，从数据管线到工作流自动化。</li><li>制定技术栈与运营节奏：产品路线、招聘与交付标准。</li></ul></div>
-      <div class="tile"><strong>全栈工程师 — Terlingua Threads</strong><div class="meta">远程 · 2026-01 – 2026-05</div><p><em>职责：</em> 网页开发与电商页面优化。</p><ul><li>搭建并优化通过 Shopify 开放的网页，改进内容结构、响应式体验与可维护性。</li><li>开发 Google Maps 相关功能，并优化用户页面的 ADA 可访问性与 SEO。</li></ul></div>
-      <div class="tile"><strong>AI 工程师实习生 — Piezolab Medical</strong><div class="meta">Lake Forest, 美国加州 · 2025-06 – 2025-08</div><p><em>职责：</em> 血管护理相关解决方案开发。</p><ul><li>搭建内部 LLM 辅助流程，清洗与聚类 5000+ 医疗事故案例，提炼重复模式支持血管护理质控复盘。</li><li>部署智能体/工作流工具，撰写实验检查清单与验收测试。</li></ul></div>
-      <div class="tile"><strong>业务发展实习生 — 好安健康</strong><div class="meta">中国杭州 · 2024-06 – 2024-08</div><p><em>职责：</em> 华东市场大型医疗器械经销商。</p><ul><li>轮转主要部门，全面了解公司运营。</li><li>参与基于网易 Codewave 的内部平台建设，并为项目招募工程师。</li><li>协助汇总需求，搭建程序结构与界面。</li></ul></div>
-      <div class="tile"><strong>投资分析实习生 — GUDU MEDICAL</strong><div class="meta">远程 · 2021-01 – 至今</div><p><em>职责：</em> 关注医疗科技项目与临床突破。</p><ul><li>关注初始项目筛选与市场分析，参与尽调流程。</li><li>开展财务建模与估值分析，形成投资建议框架。</li></ul></div>
-      <div class="tile"><strong>应用工程师实习 — Synaptics</strong><div class="meta">圣何塞, 美国加州 · 2023-06 – 2023-08</div><p><em>职责：</em> 固件验证与物联数据路由原型。</p><ul><li>测试内部产品固件并验证基础功能。</li><li>使用 ESP32 微控制器与阿里云将 I²C 等传感器数据转换为 MQTT 主题，用于内部看板。</li></ul></div>
-    </div>
-  </section>
-
-  <section id="publications">
-    <h2>论文</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Efficient Attention via Pre‑Scoring</strong>
-          <div class="edu-meta">导师：CMU David P. Woodruff 教授</div>
-          <ul>
-            <li>提出预评分机制，在注意力前选取信息量高的 key 区间，降低长序列 Transformer 的计算与显存开销。</li>
-            <li>实现 Triton 内核，并与 HyperAttention、LevAttention 对比，精度相当且开销显著降低。</li>
-            <li>第一作者；论文已公开于 arXiv。<a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv: 2505.11040</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2024-10 – 2025-05</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Game Theory in Companies</strong>
-          <div class="edu-meta">导师：UC Berkeley Ming Gu 教授</div>
-          <ul>
-            <li>团队负责人；将发行决策建模为两人常规形式博弈，基于 Python + Gambit 构建管线枚举全部纳什均衡。</li>
-            <li>第一作者：Li, S., Li, Z., & Liu, Z. (2023). Game theory in companies: A program approach to find all Nash equilibria in games with two players. Advances in Economics, Management and Political Sciences, 16(1), 357–366.</li>
-            <li><a href="https://doi.org/10.54254/2754-1169/16/20231043" target="_blank" rel="noopener">https://doi.org/10.54254/2754-1169/16/20231043</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2022 – 2023</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>项目</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>USC 药物发现研究</strong>
-          <div class="edu-meta">跟随 USC Yan Liu 教授组开展 SARS‑CoV‑2 抗病毒药物发现研究</div>
-          <ul>
-            <li>搭建可复现基准流程，在 7 个 TDC 数据集上比较 RDKit 描述符基线、Chemprop 与 Chemprop + RDKit 的 scaffold-based split 表现。</li>
-            <li>完成 RDKit 特征重要性与 SHAP 分析；在 <code>SARSCoV2_3CLPro_Diamond</code> 上 Extra Trees 达到 AUROC 90.0 +/- 6.4。<a href="assets/pdf/ZhexiangLi_DrugDis_Poster.pptx.pdf" target="_blank" rel="noopener">Poster PDF</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2026 春</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Fridge Manager</strong>
-          <div class="edu-meta">AI 辅助厨房规划 Web App，覆盖库存管理、饮食计划与购物决策。</div>
-          <ul>
-            <li>把冰箱库存、剩菜、菜谱、用户偏好和时间限制整合起来，帮助用户决定下一顿做什么。</li>
-            <li>基于 Next.js + Supabase 构建，面向真实用户使用，欢迎大家试用。<a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>AI Doctor WeChat</strong>
-          <div class="edu-meta">中医临床与教学辅助系统，覆盖微信小程序、Web 工作台和 FastAPI 后端。</div>
-          <ul>
-            <li>支持临床采集、医案整理、知识库检索和教学研究工作流，服务医生、助理和学生角色。</li>
-            <li>围绕医生、助理、学生与患者资料采集等多角色工作流设计。</li>
-          </ul>
-        </div>
-        <div class="edu-when">2026</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>BusinessCardAIAssistant（AI 名片助手）</strong>
-          <div class="edu-meta">AI 驱动的 iOS 名片整理工具，支持视觉优先解析、OCR 兜底和结构化联系人/公司档案。</div>
-          <ul>
-            <li>将名片和宣传册转换为结构化的人物/公司记录，并提供 AI 辅助提取与复核。</li>
-            <li>支持多照片采集、搜索导航和中英文双语显示。<a href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">代码</a></li>
-          </ul>
-        </div>
-        <div class="edu-when">2026-01 – 至今</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>CNN Deep Fake Face Detection</strong>
-          <div class="edu-meta">使用 10k+ 真实/生成（GAN）人脸数据集与数据增强进行训练。</div>
-          <ul>
-            <li>在 Keras 中实现三层 Conv2D–MaxPooling（32/64/128 filters, 3×3 kernels）+ 0.5 dropout + 512 全连接层，用于真假分类。</li>
-          </ul>
-          <p><a href="https://github.com/BruceLZX/ai_face_detection" target="_blank" rel="noopener">代码</a></p>
-        </div>
-        <div class="edu-when">2025-02 – 2025-04</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TradeViewer</strong>
-          <div class="edu-meta">带领 8 人团队：设定目标、分配任务、解决冲突并跟踪项目进度。</div>
-          <ul>
-            <li>集成 React 前端与 Java 后端，构建生产级交易数据可视化系统。</li>
-          </ul>
-          <p><a href="https://github.com/BruceLZX/TradeViewerUSC201" target="_blank" rel="noopener">代码</a></p>
-        </div>
-        <div class="edu-when">2024-10 – 2024-12</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="activities">
-    <h2>活动</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>硅谷公司游学（诺亚主办）</strong>
-          <div class="edu-meta">参访多家科技公司，与创始人/投资人交流。</div>
-        </div>
-        <div class="edu-when">2025-10-16 – 2025-10-21</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TIE Hub 联合创始人 Speed Date — 志愿者</strong>
-          <div class="edu-meta">协助组织联合创始人配对活动：场地布置、签到引导、时间控制与流程协调，保障活动顺利进行。</div>
-        </div>
-        <div class="edu-when">2025-09-19</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>USC 羽毛球俱乐部</strong>
-          <div class="edu-meta">成员 · 日常参与训练与活动。</div>
-        </div>
-        <div class="edu-when">2024–2025 学年</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="competitions">
-    <h2>竞赛</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>TIE Hub 创业黑客松（5 天）</strong>
-          <div class="edu-meta">5 天内完成创意、Demo 与路演。</div>
-        </div>
-        <div class="edu-when">2025-09</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="awards">
-    <h2>奖项</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>Viterbi Dean’s List</strong>
-          <div class="edu-meta">USC</div>
-        </div>
-        <div class="edu-when">2024 秋 – 2026 春</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>VEX 机器人亚太赛 — 冠军（高中组）</strong>
-          <div class="edu-meta">VEX Robotics Asia‑Pacific Championship — Champion</div>
-        </div>
-        <div class="edu-when">2017</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-left">
-          <strong>VEX 机器人亚太赛 — 冠军（初中组）</strong>
-          <div class="edu-meta">VEX Robotics Asia‑Pacific Championship — Champion</div>
-        </div>
-        <div class="edu-when">2015</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="business">
-    <h2>商学院/商业</h2>
-    <div class="grid">
-      <div class="tile"><strong>诺亚商学院（Noah Business School, Noah Holdings）</strong><div class="meta">创业者与企业家课程</div><p>参与企业参访、融资/运营等模块，与校友导师交流。</p></div>
-      <div class="tile"><strong>之江商学院</strong><div class="meta">创业与领导力课程</div><p>围绕战略、运营与团队领导力的系统学习。</p></div>
-    </div>
-  </section>
-
-  <section id="teaching">
-    <h2>教学/指导</h2>
-    <div class="grid">
-      <div class="tile"><strong>课程导师 — 机器学习导论（UCSC）</strong><div class="meta">2023 春 · Lise Getoor 教授</div><p>每周答疑与讨论课，为学生澄清机器学习概念（逻辑回归、SVM、树模型等）。共同设计基于 Jupyter Notebook 的作业，并参与编码题自动评分器开发。</p></div>
-      <div class="tile"><strong>助教 — VEX 机器人 / 信息学竞赛</strong><div class="meta">上海伯思地教育 · 2014 – 2018</div><p>协助队伍训练机器人设计与算法解题能力，支持模拟赛与赛事筹备。</p></div>
-    </div>
-  </section>
-
   </main>
-
-  <footer>© 2026 李哲骧（Bruce） — 构建于 GitHub Pages</footer>
-
-  <script>
-    (function(){
-      function smoothTo(sel,e){const el=document.querySelector(sel);if(el){e&&e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}
-      document.querySelectorAll('#drawer a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{smoothTo(a.getAttribute('href'),e)}));
-      const burger=document.getElementById('burger');
-      const drawer=document.getElementById('drawer');
-      const overlay=document.getElementById('overlay');
-      function openDrawer(state){
-        drawer.classList.toggle('open',state);
-        overlay.classList.toggle('open',state);
-        document.body.classList.toggle('no-scroll',state);
-        drawer.setAttribute('aria-hidden', String(!state));
-        if(burger) burger.setAttribute('aria-expanded', String(state));
-      }
-      if(burger){burger.addEventListener('click',()=>openDrawer(true));}
-      if(overlay){overlay.addEventListener('click',()=>openDrawer(false));}
-      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>openDrawer(false)));
-      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ openDrawer(false); }});
-
-      // 课程卡片缩放
-      document.querySelectorAll('.zoom-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-          const tile=btn.closest('.tile');
-          if(tile){ tile.classList.toggle('expanded'); }
-        });
-      });
-    })();
-  </script>
+  <footer class="site-footer"><div class="shell"><span>最后更新于 2026 年 8 月</span><span>李哲骧（Bruce Li）</span></div></footer>
 </body>
 </html>
