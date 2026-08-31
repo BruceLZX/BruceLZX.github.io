@@ -916,22 +916,34 @@ img { max-width: 100%; }
 
 /* One motion language: network node → section node → entry node. */
 .home-page .main-nav a,
-.home-page .header-actions a,
+.home-page .header-actions a { font-size: 11px; }
 .home-page .identity-links a,
 .home-page .identity-copy a,
-.home-page .route-nav a { font-size: 11px; }
+.home-page .route-nav a {
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: .015em;
+}
+.home-page .status-line { font-size: 15px; line-height: 1.5; }
+.home-page .identity-copy a { color: var(--muted); }
+.home-page .route-nav a { padding-block: 7px; color: var(--muted); }
+.home-page .route-nav a.is-active { color: var(--blue-deep); }
 .home-page .section-kicker,
+.home-page .stream-code,
+.home-page .entry-meta,
+.home-page .experience-list h3 span {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .055em;
+}
 .home-page .domain-line span,
 .home-page .section-heading > time,
 .home-page .section-heading > span,
 .home-page .section-heading > a,
-.home-page .stream-code,
-.home-page .entry-meta,
 .home-page .text-link,
 .home-page .quiet-link,
-.home-page .experience-list time,
-.home-page .experience-list h3 span { font-size: 11px; }
-.home-page .evidence-strip dt { font-size: 10px; }
+.home-page .experience-list time { font-size: 11px; }
+.home-page .evidence-strip dt { font-size: 11px; font-weight: 600; }
 .home-page .evidence-strip dd { font-size: 12px; }
 .home-page .experience-list p { font-size: 14px; }
 .home-page .project-index { font-size: 11px; }
@@ -1016,6 +1028,10 @@ html.motion-ready .home-page .content-section.is-visible .experience-list articl
 .record a { font-size: 10px; }
 .record .meta,
 .record li { font-size: 14px; }
+
+@media (max-width: 650px) {
+  .home-page .route-nav a { padding-block: 2px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
