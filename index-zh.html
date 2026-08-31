@@ -39,11 +39,11 @@
       </section>
 
       <section id="work" class="content-section observed-section" data-scene="work" aria-labelledby="work-title">
-        <header class="section-heading"><div><p class="section-kicker">近期工作</p><h2 id="work-title">未来求索 / PMAOS</h2></div><time datetime="2026-08">2026.07–08</time></header>
-        <p class="section-lede"><strong>AI 工程实习生。</strong>2026 年七月至八月，我在未来求索做了三类工作：功能机短视频推荐、端侧音视频感知，以及毫米机器人的方案调研。实习于八月底结束。</p>
+        <header class="section-heading"><div><p class="section-kicker">算法实习</p><h2 id="work-title">未来求索 / PMAOS</h2></div><time datetime="2026-08">2026.07–08</time></header>
+        <p class="section-lede"><strong>AI 工程实习生。</strong>这段实习的重点是受限设备上的推荐与多模态算法：双向兴趣传播、多时间尺度的多样性控制、证据感知融合，以及允许弃权的定点决策。毫米机器人部分是规模较小的方案筛选与实验设计。</p>
         <div class="workstream-list">
-          <article class="workstream" data-stream="recommendation"><header><span class="stream-code">REC</span><h3>推荐系统</h3></header><p>我负责功能机短视频后端的一部分推荐逻辑，包括兴趣多样性和用户、视频之间的双向传播。系统把学习、召回、评分和多样性标签分开处理，并用会话、桥接和长期兴趣预算控制内容分配与疲劳度。</p><dl class="evidence-strip"><div><dt>测试</dt><dd>629</dd></div><div><dt>严格类型检查</dt><dd>438 个文件</dd></div><div><dt>契约检查</dt><dd>34</dd></div></dl></article>
-          <article class="workstream" data-stream="edge"><header><span class="stream-code">EDGE</span><h3>端侧多模态感知</h3></header><p>另一部分工作是支持 11 种语言的音视频情绪识别。链路包括定时取帧、音画偏移拒绝、语音 PAD 和多模态融合；最后的 Q15 决策层可以弃权，也会标出互相冲突的证据。</p><dl class="evidence-strip"><div><dt>语言</dt><dd>11</dd></div><div><dt>Python 测试</dt><dd>139</dd></div><div><dt>C 端目标</dt><dd>M3 · ARM9</dd></div></dl></article>
+          <article class="workstream" data-stream="recommendation"><header><span class="stream-code">REC</span><h3>多样性推荐与兴趣传播</h3></header><p>我设计了用户与视频之间双向传播偏好信号的推荐逻辑。系统将学习得到的兴趣、召回分数和多样性标记分开处理，再通过会话、桥接和长期三档兴趣预算分配曝光；疲劳控制用于减少重复，同时保留探索空间。</p><dl class="evidence-strip"><div><dt>兴趣尺度</dt><dd>三档预算</dd></div><div><dt>信号方向</dt><dd>用户 ↔ 视频</dd></div><div><dt>验证</dt><dd>629 项测试</dd></div></dl></article>
+          <article class="workstream" data-stream="edge"><header><span class="stream-code">EDGE</span><h3>证据感知的多模态推理</h3></header><p>我设计了支持 11 种语言的音视频情绪识别链路：拒绝不同步的音画片段，执行语音 PAD，再融合有效证据并交给量化的 Q15 决策层。最终结果可以弃权，也可以显式标出模态之间的冲突，而不是强行给出标签。</p><dl class="evidence-strip"><div><dt>语言</dt><dd>11 种</dd></div><div><dt>融合</dt><dd>音频 + 视觉</dd></div><div><dt>决策</dt><dd>Q15 · 可弃权</dd></div></dl></article>
           <article class="workstream" data-stream="robotics"><header><span class="stream-code">ROBOT</span><h3>毫米机器人研究规划</h3></header><p>我还调研了 10 mm 以下的无缆压电机器人，最后选出一个 9 mm 四通道候选方案，并设计了 PZT 与钢片组成的悬臂梁台架实验。这项工作停在实验设计和采购阶段，没有制作实体原型。</p></article>
         </div>
       </section>
