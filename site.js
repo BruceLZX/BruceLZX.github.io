@@ -23,14 +23,12 @@ const traceCopy = isChinese ? {
   research: ["研究", "两篇投稿 · 两项既有研究"],
   projects: ["项目", "从模型到可用产品"],
   experience: ["经历", "2021 → 2026"],
-  background: ["背景", "教育 × 技术栈"],
 } : {
   about: ["About", "Research × systems × product"],
   work: ["PMAOS", "Recommendation / edge / robotics"],
   research: ["Research", "Two submissions · two prior studies"],
   projects: ["Projects", "From model to usable product"],
   experience: ["Experience", "2021 → 2026"],
-  background: ["Background", "Education × working toolkit"],
 };
 
 let activeScene = "";
