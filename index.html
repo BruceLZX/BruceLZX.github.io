@@ -29,8 +29,20 @@
     </aside>
 
     <div class="journal">
-      <section id="about" class="intro observed-section" data-scene="about" aria-labelledby="intro-title">
-        <canvas class="system-field" aria-hidden="true"></canvas>
+      <aside class="parallax-pad" aria-label="Interactive page map">
+          <div class="pad-shadow"></div>
+          <div class="pad-sheet pad-sheet-back"></div>
+          <div class="pad-sheet pad-sheet-mid"></div>
+          <div class="pad-body">
+            <span class="pad-binding" aria-hidden="true"></span><span class="pad-binding" aria-hidden="true"></span><span class="pad-binding" aria-hidden="true"></span><span class="pad-binding" aria-hidden="true"></span>
+            <div class="pad-head"><span>ZL / PAGE MAP</span><span data-pad-index>01/05</span></div>
+            <canvas class="system-field" aria-hidden="true"></canvas>
+            <div class="pad-detail" aria-live="polite"><span data-pad-overline>CURRENT PAGE</span><strong data-pad-title>About</strong><p data-pad-copy>Machine learning, engineering, and investment.</p></div>
+            <div class="pad-readout"><span data-pad-scene>ABOUT</span><strong>INTERACTIVE SECTION MAP</strong></div>
+            <nav class="pad-axis" aria-label="Jump to a page section"><a href="#about" data-pad-target="about"><i></i><span>01</span></a><a href="#work" data-pad-target="work"><i></i><span>02</span></a><a href="#research" data-pad-target="research"><i></i><span>03</span></a><a href="#projects" data-pad-target="projects"><i></i><span>04</span></a><a href="#experience" data-pad-target="experience"><i></i><span>05</span></a></nav>
+          </div>
+      </aside>
+      <section id="about" class="intro observed-section" data-scene="about" data-order="01" aria-labelledby="intro-title">
         <p class="section-kicker">About</p>
         <h1 id="intro-title">Zhexiang <span>(Bruce)</span> Li</h1>
         <p class="intro-lede">I work on machine learning and systems, and I like turning research prototypes into usable products.</p>
@@ -38,27 +50,27 @@
         <div class="domain-line" aria-label="Focus areas"><span>ML research</span><span>systems</span><span>product engineering</span></div>
       </section>
 
-      <section id="work" class="content-section observed-section" data-scene="work" aria-labelledby="work-title">
-        <header class="section-heading"><div><p class="section-kicker">Applied ML internship</p><h2 id="work-title">PMAOS / Next Big Seek</h2></div><time datetime="2026-08">Jul–Aug 2026</time></header>
+      <section id="work" class="content-section observed-section" data-scene="work" data-order="02" aria-labelledby="work-title">
+        <header class="section-heading"><div><p class="section-kicker">Applied ML internship</p><h2 id="work-title">PMAOS / Next Big Seek</h2></div><time datetime="2026-08">Jul-Aug 2026</time></header>
         <p class="section-lede"><strong>AI Engineer Intern.</strong> My main work was algorithm design for recommendation and multimodal inference under tight device constraints: structured interest propagation, multi-horizon diversity control, evidence-aware fusion, and fixed-point decisions that can abstain. A smaller research track covered millirobot screening and experiment design.</p>
         <div class="workstream-list">
           <article class="workstream" data-stream="recommendation"><header><span class="stream-code">REC</span><h3>Diversity-aware recommendation</h3></header><p>I designed recommendation logic that propagates preference signals in both directions between users and videos. The system keeps learned preference, retrieval scores, and diversity annotations separate, then allocates exposure across session, bridge, and long-term interest budgets. Fatigue controls reduce repetition without removing exploration.</p><dl class="evidence-strip"><div><dt>Interest scales</dt><dd>3 horizons</dd></div><div><dt>Signal flow</dt><dd>User ↔ video</dd></div><div><dt>Validation</dt><dd>629 tests</dd></div></dl></article>
-          <article class="workstream" data-stream="edge"><header><span class="stream-code">EDGE</span><h3>Evidence-aware multimodal inference</h3></header><p>I designed an audio-visual affect pipeline for 11 languages. It rejects misaligned audio–video pairs, applies speech PAD, and fuses the remaining evidence before a quantized Q15 decision layer. The final decision can abstain or expose conflicting modalities instead of forcing a label.</p><dl class="evidence-strip"><div><dt>Languages</dt><dd>11</dd></div><div><dt>Fusion</dt><dd>Audio + vision</dd></div><div><dt>Decision</dt><dd>Q15 · abstains</dd></div></dl></article>
-          <article class="workstream" data-stream="robotics"><header><span class="stream-code">ROBOT</span><h3>Millirobot research planning</h3></header><p>I compared untethered piezoelectric robot designs under 10 mm and selected a 9 mm four-channel candidate for further testing. I then designed a PZT–steel cantilever bench experiment with pass/fail criteria. The internship ended before procurement or prototype fabrication.</p></article>
+          <article class="workstream" data-stream="edge"><header><span class="stream-code">EDGE</span><h3>Evidence-aware multimodal inference</h3></header><p>I designed an audio-visual affect pipeline for 11 languages. It rejects misaligned audio-video pairs, applies speech PAD, and fuses the remaining evidence before a quantized Q15 decision layer. The final decision can abstain or expose conflicting modalities instead of forcing a label.</p><dl class="evidence-strip"><div><dt>Languages</dt><dd>11</dd></div><div><dt>Fusion</dt><dd>Audio + vision</dd></div><div><dt>Decision</dt><dd>Q15 · abstains</dd></div></dl></article>
+          <article class="workstream" data-stream="robotics"><header><span class="stream-code">ROBOT</span><h3>Millirobot research planning</h3></header><p>I compared untethered piezoelectric robot designs under 10 mm and selected a 9 mm four-channel candidate for further testing. I then designed a PZT-steel cantilever bench experiment with pass/fail criteria. The internship ended before procurement or prototype fabrication.</p></article>
         </div>
       </section>
 
-      <section id="research" class="content-section observed-section" data-scene="research" aria-labelledby="research-title">
-        <header class="section-heading"><div><p class="section-kicker">Papers and lab work</p><h2 id="research-title">Research</h2></div><span>2024–26</span></header>
+      <section id="research" class="content-section observed-section" data-scene="research" data-order="03" aria-labelledby="research-title">
+        <header class="section-heading"><div><p class="section-kicker">Papers and lab work</p><h2 id="research-title">Research</h2></div><span>2024-26</span></header>
         <div class="paper-list">
           <article class="paper-entry under-review"><span class="review-watermark" aria-hidden="true">UNDER REVIEW · AAAI 2027</span><div class="entry-meta"><time>Summer 2026</time><span>Submission · preprint forthcoming</span></div><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><p>The paper adds a supervised router after the vision backbone to classify skin lesions with fewer tokens. Training constrains lesion retention, token budget, and routing diversity; the evaluation checks which lesion evidence remains on ISIC 2019.</p></article>
           <article class="paper-entry under-review"><span class="review-watermark" aria-hidden="true">UNDER REVIEW · AAAI 2027</span><div class="entry-meta"><time>Summer 2026</time><span>Submission · preprint forthcoming</span></div><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><p>The method encodes mass-conserving fragment pairs as sparse tokens before spectrum retrieval. Hard negatives and witness-removal tests check whether the exported evidence changes the ranking.</p></article>
-          <article class="paper-entry"><div class="entry-meta"><time>2024–25</time><span>First author · David P. Woodruff</span></div><h3>Efficient Attention via Pre-Scoring</h3><p>Selected informative key intervals before attention, implemented the method in Triton, and benchmarked it against HyperAttention and LevAttention.</p><a class="text-link" href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 <span>↗</span></a></article>
+          <article class="paper-entry"><div class="entry-meta"><time>2024-25</time><span>First author · David P. Woodruff</span></div><h3>Efficient Attention via Pre-Scoring</h3><p>Selected informative key intervals before attention, implemented the method in Triton, and benchmarked it against HyperAttention and LevAttention.</p><a class="text-link" href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 <span>↗</span></a></article>
           <article class="paper-entry"><div class="entry-meta"><time>Spring 2026</time><span>USC Yan Liu group</span></div><h3>Machine Learning for Antiviral Drug Discovery</h3><p>Built reproducible RDKit, Chemprop, and hybrid-model benchmarks across seven Therapeutics Data Commons datasets, followed by feature-importance and SHAP analysis.</p></article>
         </div>
       </section>
 
-      <section id="projects" class="content-section observed-section" data-scene="projects" aria-labelledby="projects-title">
+      <section id="projects" class="content-section observed-section" data-scene="projects" data-order="04" aria-labelledby="projects-title">
         <header class="section-heading"><div><p class="section-kicker">Personal projects</p><h2 id="projects-title">Selected projects</h2></div><span>Product engineering</span></header>
         <div class="project-list">
           <article><div class="project-index">A</div><div><h3>Fridge Manager</h3><p>I built Fridge Manager with Next.js and Supabase. It uses current inventory, leftovers, recipes, dietary preferences, and available time to plan meals and grocery purchases.</p><a class="text-link" href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food <span>↗</span></a></div></article>
@@ -67,15 +79,15 @@
         </div>
       </section>
 
-      <section id="experience" class="content-section observed-section" data-scene="experience" aria-labelledby="experience-title">
+      <section id="experience" class="content-section observed-section" data-scene="experience" data-order="05" aria-labelledby="experience-title">
         <header class="section-heading"><div><p class="section-kicker">Previous roles</p><h2 id="experience-title">Experience</h2></div><a class="quiet-link" href="archive.html#experience">Full record</a></header>
         <div class="experience-list">
-          <article><time>2025–Mar 2026</time><div><h3>CrAIg Capital <span>Co-Founder &amp; CTO</span></h3><p>Led an AI-assisted housing debt-collection product, including data pipelines, workflow automation, product roadmap, and engineering delivery.</p></div></article>
-          <article><time>Jan–May 2026</time><div><h3>Terlingua Threads <span>Full-Stack Engineer</span></h3><p>Built Shopify-connected pages and Google Maps features; improved responsive behavior, ADA accessibility, SEO, and maintainability.</p></div></article>
-          <article><time>Jun–Aug 2025</time><div><h3>Piezolab Medical <span>AI Engineer Intern</span></h3><p>Built an LLM-assisted analysis pipeline for 5,000+ medical-malpractice documents and wrote laboratory workflow checks.</p></div></article>
-          <article><time>Jun–Aug 2024</time><div><h3>Hangzhou Haoan Jianke Technology Co., Ltd. <span>Business Development Intern</span></h3><p>Gathered requirements for an internal medical-device platform and helped structure the program and hiring needs.</p></div></article>
-          <article><time>Jan 2021–present</time><div><h3>GUDU Medical <span>Investment Analyst Intern</span></h3><p>Support MedTech deal screening, market research, due diligence, financial modeling, and valuation.</p></div></article>
-          <article><time>Jun–Aug 2023</time><div><h3>Synaptics <span>Application Engineer Intern</span></h3><p>Validated firmware and prototyped an ESP32-to-cloud I²C/MQTT telemetry path.</p></div></article>
+          <article><time>2025-Mar 2026</time><div><h3>CrAIg Capital <span>Co-Founder &amp; CTO</span></h3><p>Led an AI-assisted housing debt-collection product, including data pipelines, workflow automation, product roadmap, and engineering delivery.</p></div></article>
+          <article><time>Jan-May 2026</time><div><h3>Terlingua Threads <span>Full-Stack Engineer</span></h3><p>Built Shopify-connected pages and Google Maps features; improved responsive behavior, ADA accessibility, SEO, and maintainability.</p></div></article>
+          <article><time>Jun-Aug 2025</time><div><h3>Piezolab Medical <span>AI Engineer Intern</span></h3><p>Built an LLM-assisted analysis pipeline for 5,000+ medical-malpractice documents and wrote laboratory workflow checks.</p></div></article>
+          <article><time>Jun-Aug 2024</time><div><h3>Hangzhou Haoan Jianke Technology Co., Ltd. <span>Business Development Intern</span></h3><p>Gathered requirements for an internal medical-device platform and helped structure the program and hiring needs.</p></div></article>
+          <article><time>Jan 2021-present</time><div><h3>GUDU Medical <span>Investment Analyst Intern</span></h3><p>Support MedTech deal screening, market research, due diligence, financial modeling, and valuation.</p></div></article>
+          <article><time>Jun-Aug 2023</time><div><h3>Synaptics <span>Application Engineer Intern</span></h3><p>Validated firmware and prototyped an ESP32-to-cloud I²C/MQTT telemetry path.</p></div></article>
         </div>
       </section>
 

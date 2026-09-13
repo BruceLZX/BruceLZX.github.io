@@ -16,6 +16,14 @@ const tracePanel = document.querySelector(".trace-panel");
 const routeNav = document.querySelector(".route-nav");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const isChinese = document.documentElement.lang.toLowerCase().startsWith("zh");
+const parallaxPad = document.querySelector(".parallax-pad");
+const padScene = document.querySelector("[data-pad-scene]");
+const padIndex = document.querySelector("[data-pad-index]");
+const padDetail = document.querySelector(".pad-detail");
+const padOverline = document.querySelector("[data-pad-overline]");
+const padTitle = document.querySelector("[data-pad-title]");
+const padCopy = document.querySelector("[data-pad-copy]");
+const padLinks = [...document.querySelectorAll("[data-pad-target]")];
 
 const traceCopy = isChinese ? {
   about: ["简介", "研究 × 系统 × 产品"],
@@ -30,11 +38,44 @@ const traceCopy = isChinese ? {
   projects: ["Projects", "From model to usable product"],
   experience: ["Experience", "2021 → 2026"],
 };
+const sceneIndex = { about: "01/05", work: "02/05", research: "03/05", projects: "04/05", experience: "05/05" };
+const sceneOrder = { about: 0, work: 1, research: 2, projects: 3, experience: 4 };
+const sceneDetails = isChinese ? {
+  about: ["当前页面", "关于我", "机器学习、工程实践与医疗投资。"],
+  work: ["当前页面", "未来求索 / PMAOS", "推荐算法、多模态端侧推理与毫米机器人方案。"],
+  research: ["当前页面", "研究", "两篇在投稿工作，以及注意力与药物发现研究。"],
+  projects: ["当前页面", "代表项目", "把模型与数据管线做成能实际使用的产品。"],
+  experience: ["当前页面", "经历", "技术、创业、医疗器械与投资分析。"],
+} : {
+  about: ["Current page", "About", "Machine learning, engineering, and investment."],
+  work: ["Current page", "PMAOS / Next Big Seek", "Recommendation, multimodal edge inference, and millirobot planning."],
+  research: ["Current page", "Research", "Two submissions plus prior work in attention and drug discovery."],
+  projects: ["Current page", "Selected projects", "Turning models and data pipelines into products people can use."],
+  experience: ["Current page", "Experience", "Engineering, venture building, medical devices, and investment analysis."],
+};
+
+let padCopyTimer = 0;
+let padLockedToItem = false;
+const renderPadDetail = ([overline, title, copy]) => {
+  if (!padOverline || !padTitle || !padCopy) return;
+  window.clearTimeout(padCopyTimer);
+  if (padDetail && !prefersReducedMotion.matches) padDetail.classList.add("is-changing");
+  padCopyTimer = window.setTimeout(() => {
+    padOverline.textContent = overline;
+    padTitle.textContent = title;
+    padCopy.textContent = copy;
+    if (padDetail) padDetail.classList.remove("is-changing");
+  }, prefersReducedMotion.matches ? 0 : 90);
+};
 
 let activeScene = "";
 const setActiveScene = (scene) => {
   if (!scene || scene === activeScene) return;
   activeScene = scene;
+  if (parallaxPad) {
+    parallaxPad.dataset.activeScene = scene;
+    parallaxPad.dataset.activeIndex = sceneOrder[scene] ?? 0;
+  }
 
   routeLinks.forEach((link) => {
     const active = link.dataset.sceneLink === scene;
@@ -48,6 +89,15 @@ const setActiveScene = (scene) => {
   const copy = traceCopy[scene];
   if (copy && traceTitle) traceTitle.textContent = copy[0];
   if (copy && traceNote) traceNote.textContent = copy[1];
+  if (copy && padScene) padScene.textContent = copy[0];
+  if (padIndex) padIndex.textContent = sceneIndex[scene] || "01/05";
+  padLinks.forEach((link) => {
+    const active = link.dataset.padTarget === scene;
+    link.classList.toggle("is-active", active);
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+  if (!padLockedToItem && sceneDetails[scene]) renderPadDetail(sceneDetails[scene]);
 
   if (routeNav && window.matchMedia("(max-width: 680px)").matches) {
     const activeLink = routeLinks.find((link) => link.dataset.sceneLink === scene);
@@ -59,33 +109,40 @@ const setActiveScene = (scene) => {
 };
 
 if (sections.length) {
-  let scrollFrame = 0;
-  const syncPageState = () => {
-    const marker = window.innerHeight * .34;
-    let current = sections[0];
-    sections.forEach((section) => {
-      if (section.getBoundingClientRect().top <= marker) current = section;
-    });
-    setActiveScene(current.dataset.scene);
-
-    if (!CSS.supports("animation-timeline: scroll()")) {
-      const root = document.documentElement;
-      const scrollable = Math.max(1, root.scrollHeight - window.innerHeight);
-      root.style.setProperty("--scroll-progress", Math.min(1, window.scrollY / scrollable).toFixed(4));
-    }
-    scrollFrame = 0;
-  };
-
-  const scheduleSync = () => {
-    if (scrollFrame) return;
-    scrollFrame = requestAnimationFrame(syncPageState);
-  };
-
-  window.addEventListener("scroll", scheduleSync, { passive: true });
-  window.addEventListener("resize", scheduleSync, { passive: true });
+  const sceneObserver = new IntersectionObserver((entries) => {
+    const current = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => Math.abs(a.boundingClientRect.top - window.innerHeight * .34) - Math.abs(b.boundingClientRect.top - window.innerHeight * .34))[0];
+    if (current) setActiveScene(current.target.dataset.scene);
+  }, { rootMargin: "-28% 0px -58%", threshold: 0 });
+  sections.forEach((section) => sceneObserver.observe(section));
   routeLinks.forEach((link) => link.addEventListener("click", () => setActiveScene(link.dataset.sceneLink)));
-  syncPageState();
+  padLinks.forEach((link) => link.addEventListener("click", () => setActiveScene(link.dataset.padTarget)));
+  setActiveScene(sections[0].dataset.scene);
 }
+
+const padItems = [...document.querySelectorAll(".workstream, .paper-entry, .project-list > article, .experience-list > article")];
+const showItemOnPad = (item) => {
+  const scene = item.closest("[data-scene]")?.dataset.scene || activeScene;
+  const marker = item.querySelector(".stream-code, .entry-meta time, .project-index, time")?.textContent?.trim();
+  const heading = item.querySelector("h3")?.childNodes?.[0]?.textContent?.trim() || item.querySelector("h3")?.textContent?.trim();
+  const summary = item.querySelector("p")?.textContent?.trim();
+  if (!heading || !summary) return;
+  padLockedToItem = true;
+  renderPadDetail([marker || traceCopy[scene]?.[0] || "", heading, summary]);
+};
+const restorePadScene = () => {
+  padLockedToItem = false;
+  if (sceneDetails[activeScene]) renderPadDetail(sceneDetails[activeScene]);
+};
+padItems.forEach((item) => {
+  item.addEventListener("pointerenter", () => showItemOnPad(item));
+  item.addEventListener("pointerleave", restorePadScene);
+  item.addEventListener("focusin", () => showItemOnPad(item));
+  item.addEventListener("focusout", (event) => {
+    if (!item.contains(event.relatedTarget)) restorePadScene();
+  });
+});
 
 const traceMap = document.querySelector(".trace-map");
 const traceCollections = [
@@ -195,6 +252,109 @@ if (portrait && window.matchMedia("(pointer: fine)").matches && !prefersReducedM
     portrait.style.setProperty("--photo-x", "0px");
     portrait.style.setProperty("--photo-y", "0px");
   });
+}
+
+const parallaxHero = document.querySelector(".intro");
+if (parallaxPad && parallaxHero && !prefersReducedMotion.matches) {
+  let pointerFrame = 0;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  if (finePointer) {
+    parallaxHero.addEventListener("pointermove", (event) => {
+      if (pointerFrame) return;
+      pointerFrame = requestAnimationFrame(() => {
+        const rect = parallaxHero.getBoundingClientRect();
+        const x = Math.max(-.5, Math.min(.5, (event.clientX - rect.left) / rect.width - .5));
+        const y = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5));
+        parallaxPad.style.setProperty("--pad-tilt-x", `${(-y * 4.5).toFixed(2)}deg`);
+        parallaxPad.style.setProperty("--pad-tilt-y", `${(x * 6).toFixed(2)}deg`);
+        pointerFrame = 0;
+      });
+    }, { passive: true });
+    parallaxHero.addEventListener("pointerleave", () => {
+      parallaxPad.style.setProperty("--pad-tilt-x", "0deg");
+      parallaxPad.style.setProperty("--pad-tilt-y", "0deg");
+    });
+  }
+
+  const values = {
+    scroll: 0,
+    x: 0,
+    roll: 1.5,
+    scale: 1,
+    back: 0,
+    mid: 0,
+    screen: 0,
+    body: 0,
+    detail: 0,
+    head: 0,
+    readout: 0,
+    backRoll: -4,
+    midRoll: -1.4,
+  };
+  const target = { ...values };
+  let scrollFrame = 0;
+
+  const setTargetsFromScroll = () => {
+    const limit = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, window.scrollY / limit));
+    const scene = sceneOrder[activeScene] ?? 0;
+
+    target.scroll = 0;
+    target.x = 0;
+    target.roll = 0;
+    target.scale = 1;
+    target.back = 0;
+    target.mid = 0;
+    target.screen = 76 - progress * 152;
+    target.body = 0;
+    target.detail = 34 - progress * 68;
+    target.head = -8 + progress * 16;
+    target.readout = 8 - progress * 16;
+    target.backRoll = 0;
+    target.midRoll = 0;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const centerDelta = (window.innerHeight * .5 - (rect.top + rect.height * .5)) / window.innerHeight;
+      const depth = Math.max(-1.2, Math.min(1.2, centerDelta));
+      section.style.setProperty("--section-parallax", `${(depth * 62).toFixed(2)}px`);
+    });
+  };
+
+  const paintParallax = () => {
+    let unsettled = false;
+    Object.keys(values).forEach((key) => {
+      const delta = target[key] - values[key];
+      values[key] += delta * .14;
+      if (Math.abs(delta) > .02) unsettled = true;
+    });
+
+    parallaxPad.style.setProperty("--pad-scroll", `${values.scroll.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-scroll-x", `${values.x.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-roll", `${values.roll.toFixed(2)}deg`);
+    parallaxPad.style.setProperty("--pad-scale", values.scale.toFixed(4));
+    parallaxPad.style.setProperty("--pad-layer-back", `${values.back.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-layer-mid", `${values.mid.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-layer-screen", `${values.screen.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-body-y", `${values.body.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-detail-y", `${values.detail.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-head-y", `${values.head.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-readout-y", `${values.readout.toFixed(2)}px`);
+    parallaxPad.style.setProperty("--pad-back-roll", `${values.backRoll.toFixed(2)}deg`);
+    parallaxPad.style.setProperty("--pad-mid-roll", `${values.midRoll.toFixed(2)}deg`);
+
+    scrollFrame = unsettled ? requestAnimationFrame(paintParallax) : 0;
+  };
+
+  const updateParallax = () => {
+    setTargetsFromScroll();
+    if (!scrollFrame) scrollFrame = requestAnimationFrame(paintParallax);
+  };
+
+  updateParallax();
+  window.addEventListener("scroll", updateParallax, { passive: true });
+  window.addEventListener("resize", updateParallax, { passive: true });
 }
 
 const initSystemField = (canvas) => {
