@@ -1,0 +1,56 @@
+/* Shared motion grammar: hold, recede, hand off. Native scrolling throughout. */
+.site-nav{height:72px}
+.intro-sequence{position:relative;view-timeline:--intro block}
+.hero{min-height:calc(100svh - 72px);padding-block:64px 90px}
+.focus-section{margin:0;position:relative;border-radius:28px 28px 0 0;overflow:clip}
+.focus-stage{gap:60px}.focus-note{box-shadow:none}
+.research-section{padding-top:100px;position:relative}
+.research-section>.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:70px;align-items:start}
+.research-section .section-intro{position:sticky;top:150px}
+.research-section .section-intro h2{font-size:48px}
+.papers{display:block;position:relative;padding-bottom:80px}
+.paper{margin-bottom:70px;padding:44px;min-height:360px;border:1px solid var(--line);box-shadow:0 -12px 35px color-mix(in srgb,var(--surface) 80%,transparent);transform-origin:50% 0}
+.paper h3{font-size:clamp(23px,2.4vw,32px);max-width:25ch}.paper:hover{transform:none}
+.paper .paper-meta{font-size:14px;margin-bottom:30px}.paper-summary{font-size:18px}.paper-status{font-size:13px}
+.projects-section{gap:75px;position:relative;padding-block:120px}
+.project{padding:45px 0;min-height:350px;align-content:center;view-timeline:--project block}
+.project h3{font-size:30px}.project p{font-size:18px}.project-heading{top:180px}.project-mark{width:64px;height:64px}
+.experience-section{display:grid;grid-template-columns:260px minmax(0,1fr);gap:70px;padding-block:110px;view-timeline:--experience block;align-items:start}
+.experience-section>.section-intro{position:sticky;top:150px}
+.experience-section .section-intro h2{font-size:48px}.experience-columns{display:block}.experience-columns>div+div{margin-top:70px}.group-title{font-size:18px}
+.role{padding:18px 0 34px;margin-bottom:26px;view-timeline:--role block}
+.role h3{font-size:26px}.role p{font-size:17px;max-width:58ch}.role h3 span{font-size:16px}.role>time{font-size:15px}
+.pmaos-details{padding-top:30px}.pmaos-details .work-entry{padding-bottom:24px;margin-bottom:24px}.pmaos-details h3{font-size:20px}.pmaos-details p{font-size:16px}
+details summary span{transform:none}details[open]>summary span{transform:rotate(45deg)}
+.contact{view-timeline:--contact block;padding-block:100px 30px}.contact h2{font-size:clamp(48px,6vw,80px)}
+@media(min-width:801px) and (prefers-reduced-motion:no-preference){
+  @supports(animation-timeline:view()){
+    .intro-sequence{height:140svh;min-height:900px}
+    .hero{position:sticky;top:72px;animation:intro-recede linear both;animation-timeline:--intro;animation-range:contain 0% contain 100%;transform-origin:50% 35%}
+    .hero-copy,.hero .photo-window{animation:none}
+    .hero .portrait{animation:portrait-drift linear both;animation-timeline:--intro;animation-range:contain 0% contain 100%}
+    .focus-section{view-timeline:--focus block;min-height:125svh}
+    .focus-stage{position:sticky;top:85px;min-height:calc(100svh - 100px);padding-block:70px}
+    .focus-word{animation:topic-depth linear both;animation-timeline:--focus;animation-range:entry 0% exit 100%}
+    .focus-note{animation:note-depth linear both;animation-timeline:--focus;animation-range:entry 0% exit 100%}
+    .paper{position:sticky;top:calc(125px + var(--card-index)*16px)}
+    .papers:has(details[open]) .paper{position:relative;top:auto}
+    .project>div{animation:project-depth linear both;animation-timeline:--project;animation-range:entry 0% entry 100%}
+    .project-mark{animation:mark-depth linear both;animation-timeline:--project;animation-range:entry 0% exit 100%}
+    .role{animation:role-depth linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+    .contact h2,.contact-links{animation:contact-depth linear both;animation-timeline:--contact;animation-range:entry 0% entry 100%}
+    @keyframes intro-recede{from{transform:scale(1)}to{transform:scale(.88) translateY(-65px)}}
+    @keyframes portrait-drift{from{transform:translateY(0)}to{transform:translateY(110px)}}
+    @keyframes topic-depth{from{transform:translate(0,-70px) scale(1.12)}to{transform:translate(-100px,120px) scale(.9)}}
+    @keyframes note-depth{from{transform:translateY(120px)}to{transform:translateY(-90px)}}
+    @keyframes project-depth{from{transform:translateY(100px);opacity:.45}to{transform:translateY(0);opacity:1}}
+    @keyframes mark-depth{from{transform:translateY(-45px) scale(1.2)}to{transform:translateY(60px) scale(.9)}}
+    @keyframes role-depth{from{transform:translateY(65px);opacity:.3}to{transform:translateY(0);opacity:1}}
+    @keyframes contact-depth{from{transform:translateY(80px)}to{transform:translateY(0)}}
+  }
+}
+@media(max-width:1100px){.research-section>.wrap,.experience-section{grid-template-columns:200px minmax(0,1fr);gap:40px}.paper{padding:32px}.paper h3{font-size:25px}.research-section .section-intro h2,.experience-section .section-intro h2{font-size:38px}}
+@media(max-width:800px){.hero{min-height:0}.research-section>.wrap,.experience-section{display:block}.research-section .section-intro,.experience-section>.section-intro{position:static}.papers{padding-bottom:0}.paper{min-height:0;margin-bottom:24px}.project{min-height:0}.projects-section{padding-block:70px}.experience-section{padding-block:70px}.role{padding-bottom:20px}.focus-stage{min-height:0}.contact{padding-top:65px}}
+@media(max-width:600px){.site-nav{height:auto}.hero{padding-block:50px 70px}.paper{padding:28px 24px}.paper h3{font-size:24px}.paper .paper-meta{font-size:13px}.projects-section .project h3{font-size:25px}.project p{font-size:17px}.role h3{font-size:24px}.focus-stage{gap:40px}.contact h2{font-size:48px}}
+@media(prefers-reduced-motion:reduce){.intro-sequence,.focus-section{height:auto;min-height:0}.hero,.focus-stage,.paper{position:relative;top:auto;transform:none}.hero{min-height:0}.focus-word,.focus-note{transform:none}}
+@media print{.intro-sequence,.focus-section{height:auto;min-height:0}.hero,.focus-stage,.paper,.project-heading,.section-intro{position:static!important;transform:none!important}.hero{min-height:0}.research-section>.wrap,.experience-section{display:block}.paper{min-height:0;margin-bottom:20px;box-shadow:none}}
