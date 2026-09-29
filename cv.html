@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Zhexiang (Bruce) Li, UCLA computer science master's student working across machine learning research and engineering.">
   <title>CV | Zhexiang (Bruce) Li</title>
-  <link rel="stylesheet" href="cv.css">
+  <link rel="stylesheet" href="cv.css?v=20260928">
   <script src="site.js" defer></script>
 </head>
 <body>
@@ -26,35 +26,32 @@
     </section>
 
     <section>
-      <h2>Technical skills</h2>
-      <div class="skills"><p><b>Languages</b> Python, C/C++, JavaScript/TypeScript, SQL</p><p><b>ML and scientific computing</b> PyTorch, TensorFlow, Triton, CUDA, RDKit, Chemprop, recommender systems, multimodal inference</p><p><b>Software and data</b> FastAPI, React, Next.js, PostgreSQL, Supabase, Docker, Linux</p></div>
+      <h2>Skills</h2>
+      <div class="skills"><p><b>Languages</b> Python, C/C++, JavaScript/TypeScript, SQL</p><p><b>Machine learning</b> PyTorch, Triton, RDKit, Chemprop</p><p><b>Development</b> FastAPI, Next.js, Supabase, Linux</p></div>
     </section>
 
     <section>
       <h2>Experience</h2>
       <article class="entry compact"><div class="entry-head"><h3>Health Intelligence Lab (HAIL) | UCLA</h3><time>Current</time></div><p class="subline">Research with Prof. Yuzhe Yang</p><p>Working on foundation models for type 1 diabetes (T1D).</p></article>
-      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | PMAOS / Next Big Seek</h3><time>Jul - Aug 2026</time></div><ul><li>Designed a short-video recommender with bidirectional user-video interest propagation and separate session, bridge, and long-term exposure budgets. Added fatigue controls that cap repeated topics while reserving traffic for new interests.</li><li>Built 11-language audio-visual affect inference with synchronization checks, presentation-attack detection, evidence fusion, and a fixed-point Q15 decision layer that can abstain or flag modality conflicts.</li><li>Validated the recommendation logic with 629 tests and the multimodal pipeline with 139 Python tests, type and contract checks, and cross-compilation for Cortex-M3 and ARM926EJ-S.</li><li>Evaluated a 9 mm piezoelectric millirobot concept and designed a PZT-steel cantilever experiment with acceptance criteria; work remained at the experimental planning stage.</li></ul></article>
-      <article class="entry"><div class="entry-head"><h3>Machine Learning for Antiviral Drug Discovery | USC</h3><time>Spring 2026</time></div><p class="subline">Research with Prof. Yan Liu's group</p><ul><li>Benchmarked RDKit, Chemprop, and hybrid models on seven TDC datasets with scaffold splits; ran feature-importance and SHAP analyses.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | PMAOS / Next Big Seek</h3><time>Jul - Aug 2026</time></div><ul><li>Designed bidirectional user-video interest propagation for short-video recommendation, with multi-timescale exposure budgets and fatigue controls to balance personalization with exploration.</li><li>Developed audio-visual affect inference for 11 languages, combining evidence from both modalities with a fixed-point decision layer that abstains when evidence conflicts.</li><li>Evaluated a 9 mm piezoelectric millirobot design and specified a PZT-steel cantilever experiment and acceptance criteria; experimental planning only.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>Full-Stack Engineer | Terlingua Threads</h3><time>Jan - May 2026</time></div><ul><li>Built Shopify-integrated pages and Google Maps features; improved responsive layouts, accessibility, and SEO.</li></ul></article>
-      <article class="entry"><div class="entry-head"><h3>Co-Founder and CTO | CrAIg Capital</h3><time>2025 - Mar 2026</time></div><ul><li>Built the data and workflow architecture for an AI-assisted housing debt-collection platform; set technical priorities and delivery standards.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>Co-Founder and CTO | CrAIg Capital</h3><time>2025 - Mar 2026</time></div><ul><li>Built data pipelines and automated workflows for an AI-assisted housing debt-collection platform; led technical planning.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | Piezolab Medical</h3><time>Jun - Aug 2025</time></div><ul><li>Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice documents for quality-of-care review.</li><li>Wrote experiment checklists and acceptance tests for vascular-care laboratory workflows.</li></ul></article>
-      <article class="entry"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring | First author</h3><time>2024 - 2025</time></div><p class="subline">Advised by Prof. David P. Woodruff, Carnegie Mellon University | <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p><ul><li>Proposed pre-scoring to select informative key intervals before attention; implemented Triton kernels and benchmarked against HyperAttention and LevAttention.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>Application Engineer Intern | Synaptics</h3><time>Jun - Aug 2023</time></div><ul><li>Validated product firmware and built an ESP32-to-Alibaba Cloud pipeline that published I2C sensor data as MQTT topics for internal dashboards.</li></ul></article>
-      <article class="entry"><div class="entry-head"><h3>Investment Analyst Intern | GUDU Medical</h3><time>Jan 2021 - Present</time></div><ul><li>Screen MedTech opportunities and support market research, due diligence, financial modeling, and valuation.</li></ul></article>
     </section>
 
-    <section>
+    <section class="publications">
       <h2>Publications</h2>
-      <article class="entry compact"><div class="entry-head"><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><time>Summer 2026</time></div><p>Lesion-aware token routing under fixed budgets, trained with mask supervision and evaluated for lesion retention on ISIC 2019. Preprint; <a href="https://arxiv.org/abs/2609.30613">arXiv:2609.30613</a>.</p></article>
-      <article class="entry compact"><div class="entry-head"><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><time>Summer 2026</time></div><p>Encoded mass-conserving fragment pairs as sparse tokens for spectrum reranking; tested ranking dependence with hard negatives and token-removal experiments. Submitted to AAAI 2027; preprint forthcoming.</p></article>
-      <article class="entry compact"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring</h3><time>2025</time></div><p>First author; preprint. <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p></article>
-      <article class="entry compact"><div class="entry-head"><h3>Game Theory in Companies</h3><time>2023</time></div><p>Modeled two-player release decisions and built a Python + Gambit pipeline to enumerate Nash equilibria. <a href="https://doi.org/10.54254/2754-1169/16/20231043">DOI</a></p></article>
+      <article class="entry compact"><div class="entry-head"><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><time>2026</time></div><p class="subline">Zhexiang Li. Preprint · <a href="https://arxiv.org/abs/2609.30613">arXiv:2609.30613</a></p><p>Developed lesion-supervised token routing and evaluated retained lesion evidence on ISIC 2019 under fixed token budgets.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><time>2026</time></div><p class="subline">Manuscript submitted to AAAI 2027</p><p>Encoded mass-conserving fragment pairs for spectrum reranking; evaluated ranking changes with hard negatives and token-removal experiments.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring: Prioritizing Informative Keys in Transformers</h3><time>2025</time></div><p class="subline">Zhexiang Li, Haoyu Wang, Yutong Bao, David Woodruff. Preprint · <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p><p>Proposed key pre-scoring and implemented Triton kernels. On ChatGLM with 131k-token contexts, pre-scoring reduced perplexity from 12.0 to 9.5 at a fixed interaction budget.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>Game Theory in Companies</h3><time>2023</time></div><p class="subline">S. Li, Z. Li, Z. Liu. Advances in Economics, Management and Political Sciences, 16(1), 357-366. <a href="https://doi.org/10.54254/2754-1169/16/20231043">DOI</a></p><p>Modeled game-release decisions and enumerated Nash equilibria using Python and Gambit.</p></article>
     </section>
 
     <section>
       <h2>Selected projects</h2>
-      <article class="entry compact"><div class="entry-head"><h3>Fridge Manager</h3><time>2026</time></div><p>Built a Next.js and Supabase meal planner that uses inventory, leftovers, recipes, dietary preferences, and available time to produce meal and grocery plans.</p></article>
-      <article class="entry compact"><div class="entry-head"><h3>AI Business Card Hub</h3><time>2026 - Present</time></div><p>Built an iOS organizer with vision parsing, OCR fallback, multi-photo review, structured people and company records, search, and bilingual display. <a href="https://github.com/BruceLZX/Business-Card-AI-organzier">Code</a></p></article>
+      <article class="entry compact"><div class="entry-head"><h3>Fridge Manager</h3><time>2026</time></div><p>Built a meal planner with Next.js and Supabase that generates meal and shopping plans from available ingredients, dietary preferences, and cooking time.</p></article>
+      <article class="entry compact"><div class="entry-head"><h3>AI Business Card Hub</h3><time>2026 - Present</time></div><p>Built an iOS business-card organizer with image parsing and OCR fallback, multi-photo review, and searchable contact and company records. <a href="https://github.com/BruceLZX/Business-Card-AI-organzier">Code</a></p></article>
     </section>
 
   </main>
