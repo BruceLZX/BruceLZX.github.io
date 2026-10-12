@@ -5,56 +5,56 @@
 \englishheader
 
 \section{Education}
-\entry{University of California, Los Angeles}{Sep 2026 - Jun 2028 (expected)}
+\entry{University of California, Los Angeles}{Expected Jun 2028}
 M.S. in Computer Science
 \entry{University of Southern California}{May 2026}
 B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
 
 \section{Technical Skills}
 \textbf{Languages:} Python, C/C++, JavaScript/TypeScript, SQL\\
-\textbf{AI/ML:} PyTorch, Triton, LLM workflows, retrieval, multimodal inference, recommendation systems\\
-\textbf{Development:} FastAPI, Next.js, Supabase, Linux; automated testing and static type checking
+\textbf{AI/ML:} PyTorch, Triton; multimodal inference, recommendation, LLM workflows, knowledge retrieval\\
+\textbf{Applications:} FastAPI, Next.js, Supabase, Linux
 
-\section{Experience}
+\section{Engineering \& Research Experience}
 \entry{Graduate Researcher | Health Intelligence Lab, UCLA}{Aug 2026 - Present}
 \begin{itemize}
-\item Built patient-disjoint MetaboNet benchmarks and data audits for multimodal diabetes models; compared glucose forecasts at 30/60/120-minute horizons with Prof. Yuzhe Yang.
+\item Built patient-disjoint benchmarks and data audits for multimodal glucose forecasting with Prof. Yuzhe Yang, enabling model comparisons at 30-, 60-, and 120-minute horizons.
+\item Evaluated GluFormer, T1DFormer, and custom predictive-state and Transformer models for research combining CGM with insulin, meals, activity, and patient context.
 \end{itemize}
 \entry{AI Engineer Intern | PMAOS / Next Big Seek}{Jul - Aug 2026}
 \begin{itemize}
-\item Designed user-video interest propagation, multi-timescale exposure budgets, and fatigue controls; validated with \textbf{629 tests}, \textbf{34 contract checks}, and strict Mypy across 438 source files.
-\item Built \textbf{11-language} audio-visual inference with conflict-aware abstention; passed 139 Python tests and C build gates for Cortex-M3 and ARM926EJ-S.
+\item Designed short-video recommendation using bidirectional user-video interest propagation, exposure budgets across multiple timescales, and fatigue controls to manage repeated recommendations.
+\item Developed audio-visual affect inference supporting \textbf{11 languages}, with evidence fusion and a decision layer that can abstain or flag conflicting modalities.
 \end{itemize}
 \entry{Full-Stack Engineer | Terlingua Threads (Remote)}{Jan - May 2026}
 \begin{itemize}
-\item Integrated Shopify pages and Google Maps features; improved responsive behavior, accessibility, SEO, and maintainable content structures.
+\item Built Shopify-integrated pages and Google Maps features, with responsive layouts, accessibility improvements, and maintainable content structures.
 \end{itemize}
 \entry{AI Engineer Intern | Piezolab Medical, Lake Forest, CA}{Jun - Aug 2025}
 \begin{itemize}
-\item Built LLM-assisted ingestion, cleaning, and clustering for \textbf{5,000+ medical documents}; developed agent workflows and acceptance tests for quality-of-care and vascular-care research.
-\end{itemize}
-\entry{Application Engineer Intern | Synaptics, San Jose, CA}{Jun - Aug 2023}
-\begin{itemize}
-\item Validated product firmware and connected ESP32 I2C sensors to Alibaba Cloud using MQTT, supplying sensor data to internal dashboards.
+\item Built an LLM-assisted pipeline to ingest, clean, and cluster \textbf{5,000+ medical-malpractice documents} for quality-of-care review.
+\item Developed agent workflows and acceptance tests for vascular-care research.
 \end{itemize}
 
-\section{Selected Projects}
+\section{Selected AI Projects}
 \entry{AI Doctor WeChat | FastAPI, knowledge retrieval}{2026}
 \begin{itemize}
-\item Integrated WeChat and web workspaces with FastAPI and knowledge retrieval for clinical teaching, clinician/assistant collaboration, and patient intake.
+\item Built a clinical teaching and collaboration application connecting WeChat and web workspaces to a FastAPI backend with knowledge retrieval and patient-intake workflows.
 \end{itemize}
-\entry{Fridge Manager | Next.js, Supabase}{2026}
+\entry{AI Business Card Hub | iOS, vision parsing, OCR}{Jan 2026 - Present}
 \begin{itemize}
-\item Built meal and grocery planning from inventory, leftovers, dietary preferences, and cooking time; published the application at \link{https://howtoeat.food}{howtoeat.food}.
-\end{itemize}
-\entry{AI Business Card Hub | iOS, vision parsing, OCR}{2026 - Present}
-\begin{itemize}
-\item Built vision-first contact extraction with OCR fallback, multi-photo review, bilingual records, and people/company search. \link{https://github.com/BruceLZX/Business-Card-AI-organzier}{Code}
+\item Built a photo-to-contact workflow combining vision parsing and OCR fallback to create searchable contact and company records; added multi-photo review and bilingual verification. \link{https://github.com/BruceLZX/Business-Card-AI-organzier}{Code}
 \end{itemize}
 
 \section{Selected ML Research}
+\entry{Efficient Attention via Pre-Scoring | First author}{2025}
+\detail{Under review. \link{https://arxiv.org/abs/2505.11040}{Paper}}
 \begin{itemize}
-\item \textbf{Efficient Attention via Pre-Scoring} (first author; under review): implemented Triton key-selection kernels and compared with HyperAttention and LevAttention. \link{https://arxiv.org/abs/2505.11040}{Paper}
-\item \textbf{MedTokenBudget} (preprint): built lesion-supervised token routing with budget, diversity, and distillation objectives; evaluated lesion retention on ISIC 2019. \link{https://arxiv.org/abs/2609.30613}{Paper}
+\item Implemented informative-key selection in Triton; integrated with HyperAttention, pre-scoring reduced ChatGLM perplexity from \textbf{12.0 to 9.5} at 131k-token contexts under a fixed interaction budget.
+\end{itemize}
+\entry{MedTokenBudget | Sole author}{2026}
+\detail{Preprint. \link{https://arxiv.org/abs/2609.30613}{Paper}}
+\begin{itemize}
+\item Built lesion-supervised post-backbone token routing; achieved \textbf{80.38\%} mean accuracy on ISIC 2019 at a 30\% token budget versus 76.93\% for ToMe across three seeds.
 \end{itemize}
 \end{document}

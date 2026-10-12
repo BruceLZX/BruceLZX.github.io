@@ -9,6 +9,13 @@
   positions, each authored in English and Chinese. See [build and editorial
   instructions](resumes/README.md).
 
-After editing resume content, run `bash resumes/build.sh` and commit the PDFs
+After editing resume content, run `python resumes/build.py` and commit the PDFs
 alongside the LaTeX sources. Keep shared facts aligned across languages and
 documents while preserving the different editorial focus of each profile.
+
+To export the full web CVs, install `playwright` and `pypdf`, then run
+`python scripts/export_cv.py` with Chrome installed (or `--channel msedge`).
+The exporter uses the print styles in `cv.css`, checks page numbers and public
+links, and writes both PDFs to `output/pdf/`. Visually review exported pages
+after changing content or layout. See `resumes/README.md` for resume dependencies
+and the evidence supporting the research results.

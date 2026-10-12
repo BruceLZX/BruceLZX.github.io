@@ -5,55 +5,51 @@
 \englishheader
 
 \section{Education}
-\entry{University of California, Los Angeles}{Sep 2026 - Jun 2028 (expected)}
+\entry{University of California, Los Angeles}{Expected Jun 2028}
 M.S. in Computer Science
 \entry{University of Southern California}{May 2026}
 B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
 
 \section{Research Skills}
 \textbf{Methods:} multimodal learning, efficient attention, token routing, molecular property prediction\\
-\textbf{Tools:} Python, PyTorch, Triton, RDKit, Chemprop, C/C++, SQL, Linux\\
-\textbf{Evaluation:} patient-disjoint benchmarks, scaffold splits, hard negatives, ablation studies, SHAP
+\textbf{Tools:} Python, PyTorch, Triton, RDKit, Chemprop, C/C++, SQL, Linux
 
 \section{Research Experience}
 \entry{Graduate Researcher | Health Intelligence Lab, UCLA}{Aug 2026 - Present}
 \detail{Advisor: Prof. Yuzhe Yang}
 \begin{itemize}
-\item Investigate multimodal foundation models for diabetes, combining CGM with insulin, meals, activity, and patient context for glucose forecasting.
-\item Built MetaboNet benchmarking and audit pipelines with patient-disjoint splits; compared GluFormer, T1DFormer, predictive-state models, and Transformers at 30/60/120-minute horizons.
+\item Investigate multimodal glucose forecasting using CGM, insulin, meals, activity, and patient context.
+\item Built patient-disjoint MetaboNet benchmarks and data audits to compare GluFormer, T1DFormer, and custom models at 30-, 60-, and 120-minute horizons.
 \end{itemize}
 \entry{Drug Discovery Research | USC, Prof. Yan Liu's group}{Spring 2026}
+\detail{Research collaboration with a Ph.D. student in the group}
 \begin{itemize}
-\item Worked with a Ph.D. student on antiviral drug discovery; compared RDKit, Chemprop, and hybrid models across seven Therapeutics Data Commons datasets using scaffold splits.
-\item Analyzed RDKit descriptor importance and SHAP attributions to examine which molecular features influenced predicted antiviral activity.
+\item Benchmarked molecular descriptor-based models, Chemprop, and hybrid approaches across seven Therapeutics Data Commons datasets using scaffold splits.
+\item Analyzed descriptor importance and SHAP attributions to examine molecular features associated with predicted antiviral activity.
 \end{itemize}
 
-\section{Selected Papers}
+\section{Selected Papers \& Research Contributions}
 \entry{MedTokenBudget: Lesion-Preserving Token Routing}{2026}
-\detail{Zhexiang Li. Preprint. \link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
+\detail{Zhexiang Li (sole author). Preprint. \link{https://arxiv.org/abs/2609.30613}{Paper}}
 \begin{itemize}
-\item Developed a lesion-supervised router after the vision backbone, combining budget curriculum learning, diversity regularization, and attention distillation.
-\item Evaluated the fraction of annotated lesion evidence retained on ISIC 2019 under fixed token budgets.
+\item Developed lesion-supervised post-backbone token routing to retain diagnostic image regions under a limited token budget.
+\item At a 30\% token budget on ISIC 2019, achieved \textbf{80.38 $\pm$ 0.18\%} accuracy versus 76.93 $\pm$ 0.03\% for ToMe across three seeds; the frozen backbone remains unchanged.
 \end{itemize}
-\entry{Mass-Conservation Token Transformers for MS/MS Spectrum Retrieval}{2026}
+\entry{Mass-Conservation Token Transformers for MS/MS Retrieval}{2026}
 \detail{Manuscript submitted to AAAI 2027}
 \begin{itemize}
-\item Encoded mass-conserving fragment pairs as sparse tokens for spectrum retrieval; built closest-mass and overlap-hard negatives and tested ranking changes after removing evidence tokens.
+\item Encoded mass-conserving fragment pairs as sparse evidence tokens for spectrum retrieval; constructed mass- and overlap-based hard negatives and evaluated ranking changes after evidence removal.
 \end{itemize}
 \entry{Efficient Attention via Pre-Scoring}{2025}
-\detail{First author; with H. Wang, Y. Bao, D. Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
+\detail{Zhexiang Li, Haoyu Wang, Yutong Bao, David Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{Paper}}
 \begin{itemize}
-\item Proposed pre-scoring to select informative key intervals before attention; implemented the method in Triton.
-\item Benchmarked against HyperAttention and LevAttention to compare attention approximations.
+\item Proposed pre-scoring to prioritize informative keys before approximate attention; implemented key selection in Triton as first author, advised by Prof. David P. Woodruff (CMU).
+\item Integrated with HyperAttention, reduced ChatGLM perplexity from \textbf{12.0 to 9.5} at 131k-token contexts under a fixed interaction budget.
 \end{itemize}
 
-\section{Additional Experience}
-\entry{AI Engineer Intern | PMAOS / Next Big Seek}{Jul - Aug 2026}
-\begin{itemize}
-\item Designed diversity-aware recommendation with session, bridge, and long-term exposure budgets, plus 11-language audio-visual affect inference with abstention on conflicting evidence.
-\end{itemize}
+\section{Teaching}
 \entry{Machine Learning Tutor | UCSC}{Spring 2023}
 \begin{itemize}
-\item Led office hours on logistic regression, SVMs, and tree models; co-designed Jupyter assignments and contributed to the coding autograder for Prof. Lise Getoor's course.
+\item Led office hours and co-designed Jupyter assignments on logistic regression, SVMs, and tree models; contributed to the coding autograder for Prof. Lise Getoor's course.
 \end{itemize}
 \end{document}

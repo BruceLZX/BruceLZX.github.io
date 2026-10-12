@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Academic and professional CV of Zhexiang (Bruce) Li: research, publications, engineering, projects, and teaching.">
   <title>Curriculum Vitae | Zhexiang (Bruce) Li</title>
-  <link rel="stylesheet" href="cv.css?v=20261011">
+  <link rel="stylesheet" href="cv.css?v=20261011b">
   <script src="site.js" defer></script>
 </head>
 <body>
   <main class="page">
     <header class="cv-header">
-      <nav class="cv-actions" aria-label="CV navigation"><a href="index.html">Home</a><a href="cv_zh.html">中文</a><button type="button" onclick="window.print()">Save PDF</button></nav>
+      <nav class="cv-actions" aria-label="CV navigation"><a href="index.html">Home</a><a href="cv_zh.html">中文</a><a href="output/pdf/Zhexiang_Li_CV_EN.pdf" download>Download PDF</a><button type="button" onclick="window.print()">Print</button></nav>
       <h1>Zhexiang <span>(Bruce)</span> Li</h1>
       <p class="contact"><a class="js-email" data-local-rev="ilecurb" data-domain-rev="ude.alcu" href="#">bruceli [at] ucla [dot] edu</a><a href="tel:+18312392728">+1 (831) 239-2728</a><span>Los Angeles, CA</span><a href="https://brucelzx.github.io/">Website</a><a href="https://github.com/BruceLZX">GitHub</a><a href="https://www.linkedin.com/in/zhexiang-li/">LinkedIn</a></p>
     </header>
@@ -21,25 +21,26 @@
     <section id="education" aria-labelledby="education-title">
       <h2 id="education-title">Education</h2>
       <article class="entry"><div class="entry-head"><h3>University of California, Los Angeles</h3><time>Sep 2026 - Jun 2028 (expected)</time></div><p>M.S. in Computer Science</p></article>
-      <article class="entry"><div class="entry-head"><h3>University of Southern California</h3><time>May 2026</time></div><p>B.S. in Computer Science · GPA 3.76 / 4.00 · Viterbi Dean's List</p></article>
+      <article class="entry"><div class="entry-head"><h3>University of Southern California</h3><time>May 2026</time></div><p>B.S. in Computer Science · GPA 3.76 / 4.00</p></article>
     </section>
 
     <section id="research" aria-labelledby="research-title">
       <h2 id="research-title">Research Experience</h2>
       <article class="entry"><div class="entry-head"><h3>Graduate Researcher | Health Intelligence Lab (HAIL), UCLA</h3><time>Aug 2026 - Present</time></div><p class="subline">Advisor: Prof. Yuzhe Yang</p><ul><li>Investigate multimodal foundation models for diabetes, integrating continuous glucose monitoring with insulin, meals, activity, and patient context.</li><li>Built patient-disjoint MetaboNet benchmarking and audit pipelines. Evaluated GluFormer, T1DFormer, and custom predictive-state and Transformer architectures at 30/60/120-minute forecasting horizons.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>USC Drug Discovery Research</h3><time>Spring 2026</time></div><p class="subline">Research with a Ph.D. student in Prof. Yan Liu's group</p><ul><li>Studied SARS-CoV-2 antiviral discovery through reproducible benchmarks of molecular descriptor-based models, Chemprop, and hybrid approaches across seven Therapeutics Data Commons datasets, using scaffold splits.</li><li>Analyzed descriptor importance and SHAP attributions to examine molecular features associated with model predictions.</li></ul></article>
     </section>
 
     <section id="publications" aria-labelledby="publications-title">
       <h2 id="publications-title">Publications & Manuscripts</h2>
-      <article class="entry"><div class="entry-head"><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><time>2026</time></div><p class="subline">Zhexiang Li. Preprint · <a href="https://arxiv.org/abs/2609.30613">arXiv:2609.30613</a></p><p>Developed a lesion-supervised router after the vision backbone, with budget curriculum learning, diversity regularization, and attention distillation. Evaluated how much annotated lesion evidence remains after routing on ISIC 2019.</p></article>
+      <article class="entry"><div class="entry-head"><h3>MedTokenBudget: Lesion-Preserving Token Routing for Dermoscopic Image Classification</h3><time>2026</time></div><p class="subline"><strong>Zhexiang Li</strong> (sole author). Preprint · <a href="https://arxiv.org/abs/2609.30613">arXiv:2609.30613</a></p><p>Developed lesion-supervised post-backbone token routing. At a 30% token budget on ISIC 2019, achieved 80.38 ± 0.18% accuracy versus 76.93 ± 0.03% for ToMe across three seeds; the frozen backbone remains unchanged.</p></article>
       <article class="entry"><div class="entry-head"><h3>Mass-Conservation Token Transformers for Auditable MS/MS Spectrum Retrieval</h3><time>2026</time></div><p class="subline">Manuscript submitted to AAAI 2027</p><p>Represented mass-conserving fragment pairs as sparse evidence tokens for spectrum retrieval. Used closest-mass and overlap-hard negatives, alongside evidence-removal tests, to examine whether the exported evidence affects ranking.</p></article>
-      <article class="entry"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring: Prioritizing Informative Keys in Transformers</h3><time>2025</time></div><p class="subline">Zhexiang Li, Haoyu Wang, Yutong Bao, David Woodruff. Under review · <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p><p>First-author work advised by Prof. David P. Woodruff (CMU). Proposed selecting informative key intervals before attention computation; implemented Triton kernels and compared with HyperAttention and LevAttention.</p></article>
+      <article class="entry"><div class="entry-head"><h3>Efficient Attention via Pre-Scoring: Prioritizing Informative Keys in Transformers</h3><time>2025</time></div><p class="subline"><strong>Zhexiang Li</strong>, Haoyu Wang, Yutong Bao, David Woodruff. Under review · <a href="https://arxiv.org/abs/2505.11040">arXiv:2505.11040</a></p><p>First-author work advised by Prof. David P. Woodruff (CMU). Proposed pre-scoring and implemented informative-key selection in Triton. Integrated with HyperAttention, reduced ChatGLM perplexity from 12.0 to 9.5 at 131k-token contexts under a fixed interaction budget.</p></article>
       <article class="entry"><div class="entry-head"><h3>Game Theory in Companies</h3><time>2023</time></div><p class="subline">S. Li, Z. Li, Z. Liu. Advances in Economics, Management and Political Sciences, 16(1), 357-366. <a href="https://doi.org/10.54254/2754-1169/16/20231043">DOI</a></p><p>Advised by Prof. Ming Gu (UC Berkeley). Led a team modeling game-release decisions as two-player normal-form games and enumerating Nash equilibria with Python and Gambit.</p></article>
     </section>
 
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">Professional Experience</h2>
-      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | PMAOS / Next Big Seek</h3><time>Jul - Aug 2026</time></div><ul><li>Designed bidirectional user-video interest propagation for short-video recommendation. Separated learned preferences, retrieval scores, and diversity annotations, with session, bridge, and long-term exposure budgets and fatigue controls.</li><li>Developed 11-language audio-visual affect inference with evidence fusion and a fixed-point decision layer that can abstain or report conflicting modalities.</li><li>Validated recommendation logic with 629 tests, strict Mypy across 438 source files, and 34 contract checks; the multimodal pipeline passed 139 Python tests and C build gates for Cortex-M3 and ARM926EJ-S.</li><li>Screened sub-10 mm piezoelectric robot architectures and specified a PZT-steel cantilever experiment for a 9 mm candidate; work concluded at experiment and procurement planning.</li></ul></article>
+      <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | PMAOS / Next Big Seek</h3><time>Jul - Aug 2026</time></div><ul><li>Designed short-video recommendation using bidirectional user-video interest propagation, exposure budgets across multiple timescales, and fatigue controls to manage repeated recommendations.</li><li>Developed 11-language audio-visual affect inference with evidence fusion and a fixed-point decision layer that can abstain or report conflicting modalities.</li><li>Screened sub-10 mm piezoelectric robot architectures and specified a PZT-steel cantilever experiment for a 9 mm candidate; work concluded at experiment and procurement planning.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>Full-Stack Engineer | Terlingua Threads, Remote</h3><time>Jan - May 2026</time></div><ul><li>Built Shopify-integrated pages and Google Maps features; improved responsive layouts, accessibility, SEO, and maintainable content structures.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>Co-Founder & CTO | CrAIg Capital, Los Angeles, CA</h3><time>2025 - Mar 2026</time></div><ul><li>Led product and engineering for AI-assisted housing debt collection, including data pipelines and automated workflows.</li><li>Set technical direction, hiring priorities, and delivery standards during startup development.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>AI Engineer Intern | Piezolab Medical, Lake Forest, CA</h3><time>Jun - Aug 2025</time></div><ul><li>Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice documents for quality-of-care review.</li><li>Developed agent workflows, experiment checklists, and acceptance tests for vascular-care research.</li></ul></article>
@@ -50,9 +51,8 @@
 
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">Selected Projects</h2>
-      <article class="entry"><div class="entry-head"><h3>USC Drug Discovery Research</h3><time>Spring 2026</time></div><p class="subline">Research with a Ph.D. student in Prof. Yan Liu's group</p><ul><li>Studied SARS-CoV-2 antiviral discovery through reproducible RDKit, Chemprop, and hybrid-model benchmarks across seven Therapeutics Data Commons datasets, using scaffold splits.</li><li>Analyzed descriptor importance and SHAP attributions to examine molecular features associated with model predictions.</li></ul></article>
       <article class="entry"><div class="entry-head"><h3>Fridge Manager</h3><time>2026</time></div><p class="subline">Next.js · Supabase · <a href="https://howtoeat.food">howtoeat.food</a></p><p>Built meal and grocery planning around available ingredients, leftovers, recipes, dietary preferences, and cooking time.</p></article>
-      <article class="entry"><div class="entry-head"><h3>AI Doctor WeChat</h3><time>2026</time></div><p class="subline">FastAPI · Knowledge retrieval · WeChat Mini Program</p><p>Connected a WeChat Mini Program, a browser workspace, knowledge retrieval, and backend services for clinicians, assistants, students, and patient intake.</p></article>
+      <article class="entry"><div class="entry-head"><h3>AI Doctor WeChat</h3><time>2026</time></div><p class="subline">FastAPI · Knowledge retrieval · WeChat Mini Program</p><p>Built a clinical teaching and collaboration application connecting WeChat and web workspaces to a FastAPI backend with knowledge retrieval and patient-intake workflows.</p></article>
       <article class="entry"><div class="entry-head"><h3>AI Business Card Hub</h3><time>Jan 2026 - Present</time></div><p class="subline">iOS · Vision parsing · OCR · <a href="https://github.com/BruceLZX/Business-Card-AI-organzier">Source code</a></p><p>Built photo-to-contact extraction with OCR fallback, multi-photo review, bilingual records, and searchable people and company profiles.</p></article>
     </section>
 
@@ -63,12 +63,10 @@
     </section>
 
     <section id="service" aria-labelledby="service-title">
-      <h2 id="service-title">Honors & Activities</h2>
-      <article class="entry"><div class="entry-head"><h3>Viterbi Dean's List | University of Southern California</h3><time>Fall 2024 - Spring 2026</time></div><p>Academic honors.</p></article>
-      <article class="entry"><div class="entry-head"><h3>Volunteer | TIE Hub Co-Founder Speed Date</h3><time>Sep 19, 2025</time></div><p>Helped organize venue setup, check-in, participant guidance, timekeeping, and event flow.</p></article>
-      <article class="entry"><div class="entry-head"><h3>USC EVMA</h3><time></time></div><p class="subline">Member</p><p>Participated as a member of USC EVMA.</p></article>
-      <article class="entry"><div class="entry-head"><h3>TIE Hub Startup Hackathon</h3><time>Sep 2025</time></div><p>Participated in a five-day workshop spanning concept development, a working demo, venture design, and pitching.</p></article>
-      <article class="entry"><div class="entry-head"><h3>Noah Business School | Entrepreneurship Program</h3><time>2025</time></div><p>Studied venture building and financing; participated in Silicon Valley company visits and conversations with founders and investors.</p></article>
+      <h2 id="service-title">Honors &amp; Activities</h2>
+      <p><b>Viterbi Dean's List, University of Southern California:</b> Fall 2024 - Spring 2026.</p>
+      <p><b>TIE Hub:</b> Co-Founder Speed Date volunteer (Sep 19, 2025); five-day startup hackathon participant, including prototype development, venture design, and pitching (Sep 2025).</p>
+      <p><b>Noah Business School:</b> Entrepreneurship, financing, and Silicon Valley company visits (2025). <b>USC EVMA:</b> Member.</p>
     </section>
 
     <section id="skills" aria-labelledby="skills-title">
