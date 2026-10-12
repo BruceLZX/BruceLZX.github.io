@@ -30,6 +30,26 @@ identifiers are only used for source and intermediate files.
 - AI Doctor has no public link. Fridge Manager links to https://howtoeat.food.
 - Retain the internship window until the owner changes it.
 
+## Layout and writing references
+
+The current revision follows the useful conventions in
+[MIT's resume checklist](https://capd.mit.edu/resources/resume-checklist/),
+[MIT's accomplishment-statement guide](https://capd.mit.edu/resources/resumes-writing-about-your-skills/),
+and its [CS master's samples](https://capd.mit.edu/resources/sample-resumes/).
+[Stanford's resume handout](https://careered.stanford.edu/sites/g/files/sbiybj22801/files/media/file/developing_your_resume_handout.pdf)
+also informs the typography and emphasis.
+
+- Use a single text column, 11 pt body text, 0.55 inch side margins, and
+  0.5 inch top/bottom margins. Keep contact details on one line.
+- Keep most bullets within one or two lines: contribution, method, then
+  outcome or scope. Use only numbers already supported by the owner’s record.
+- Give more space to relevant research/engineering evidence; do not add
+  unrelated entries merely to fill the page.
+- Align dates, use reverse chronology within experience sections, and
+  reserve bold emphasis for headings and a few useful scale/validation figures.
+- Verify selectable text and reading order in the exported PDFs; this is not
+  a guarantee of compatibility with every applicant tracking system.
+
 ## Build
 
 Install TeX Live / MacTeX (XeLaTeX, latexmk, fontspec, xeCJK, enumitem,

@@ -22,34 +22,41 @@
 \detail{导师：Yuzhe Yang 教授}
 \begin{itemize}
 \item 围绕糖尿病血糖预测开展多模态基础模型研究，将连续血糖监测（CGM）与胰岛素、饮食、活动及患者背景信息结合。
-\item 搭建 MetaboNet 评估流程，按患者划分数据；比较 GluFormer、T1DFormer、自研预测状态模型和 Transformer 在未来 30、60、120 分钟的预测表现。
+\item 搭建 MetaboNet 基准与数据检查流程，按患者划分数据；比较 GluFormer、T1DFormer、自研预测状态模型和 Transformer 在未来 30、60、120 分钟的预测表现。
 \end{itemize}
 \entry{USC Yan Liu 教授课题组｜药物发现研究}{2026 年春}
 \begin{itemize}
 \item 跟随课题组博士生开展抗病毒药物发现研究，在七个 TDC 数据集上比较分子描述符模型、Chemprop 与混合模型，采用分子骨架划分检验泛化能力。
-\item 结合特征重要性与 SHAP 分析，考察模型预测所依据的分子特征。
+\item 分析 RDKit 描述符重要性和 SHAP 归因，考察模型对抗病毒活性的预测主要依据哪些分子特征。
 \end{itemize}
 
 \section{代表论文与研究}
 \entry{MedTokenBudget：保留病灶信息的视觉 token 路由}{2026}
 \detail{Zhexiang Li；预印本。\link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
 \begin{itemize}
-\item 用病灶标注监督 token 筛选，结合预算与多样性约束训练路由器；在 ISIC 2019 上检查固定预算下保留了多少病灶信息。
+\item 在视觉骨干网络后加入病灶监督路由器，结合预算课程学习、多样性约束和注意力蒸馏训练。
+\item 在 ISIC 2019 上统计固定 token 预算下的标注病灶保留比例，检查筛选过程是否丢失关键区域。
 \end{itemize}
 \entry{基于质量守恒证据的 MS/MS 谱图检索}{2026}
 \detail{稿件已投稿 AAAI 2027}
 \begin{itemize}
-\item 将满足质量守恒关系的碎片对编码为稀疏 token；通过难负样本和证据移除实验，检验这些证据是否实际影响检索排序。
+\item 将满足质量守恒关系的碎片对编码为稀疏 token；构建质量接近和谱峰重叠的难负样本，并通过证据移除实验检验检索排序的依据。
 \end{itemize}
 \entry{Efficient Attention via Pre-Scoring：注意力预评分}{2025}
 \detail{第一作者；与 H. Wang、Y. Bao、D. Woodruff 合作。审稿中。\link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
 \begin{itemize}
-\item 提出先筛选信息量较高的 key 区间、再计算注意力的方法；实现 Triton 内核，并与 HyperAttention、LevAttention 对比。
+\item 提出先对 key 区间进行预评分、再计算注意力的方法，并实现 Triton 内核。
+\item 与 HyperAttention、LevAttention 对比评估，考察不同注意力近似方法的表现。
 \end{itemize}
 
 \section{相关实践}
 \entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
-设计多时间尺度的推荐曝光分配，以及支持 11 种语言的音视频情绪识别；在模态证据冲突时暂不输出判断。
+\begin{itemize}
+\item 设计会话、桥接和长期三档推荐曝光预算；开发支持 11 种语言的音视频情绪识别，在模态证据冲突时暂不判断。
+\item 为算法实现建立验证依据：推荐部分完成 629 项测试，多模态部分通过 139 项 Python 测试。
+\end{itemize}
 \entry{UCSC 机器学习导论｜课程辅导员}{2023 年春}
-协助 Lise Getoor 教授开展答疑，设计 Jupyter 作业，并参与编程题自动评分器开发。
+\begin{itemize}
+\item 在 Lise Getoor 教授课程中讲解逻辑回归、SVM 和树模型，共同设计 Jupyter 作业，并参与编程题自动评分器开发。
+\end{itemize}
 \end{document}

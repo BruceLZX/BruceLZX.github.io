@@ -20,34 +20,40 @@ B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
 \detail{Advisor: Prof. Yuzhe Yang}
 \begin{itemize}
 \item Investigate multimodal foundation models for diabetes, combining CGM with insulin, meals, activity, and patient context for glucose forecasting.
-\item Built patient-disjoint MetaboNet benchmarks; evaluated GluFormer, T1DFormer, and custom predictive-state and Transformer models at 30/60/120-minute horizons.
+\item Built MetaboNet benchmarking and audit pipelines with patient-disjoint splits; compared GluFormer, T1DFormer, predictive-state models, and Transformers at 30/60/120-minute horizons.
 \end{itemize}
 \entry{Drug Discovery Research | USC, Prof. Yan Liu's group}{Spring 2026}
 \begin{itemize}
 \item Worked with a Ph.D. student on antiviral drug discovery; compared RDKit, Chemprop, and hybrid models across seven Therapeutics Data Commons datasets using scaffold splits.
-\item Analyzed descriptor importance and SHAP attributions to examine the molecular features behind model predictions.
+\item Analyzed RDKit descriptor importance and SHAP attributions to examine which molecular features influenced predicted antiviral activity.
 \end{itemize}
 
 \section{Selected Papers}
 \entry{MedTokenBudget: Lesion-Preserving Token Routing}{2026}
 \detail{Zhexiang Li. Preprint. \link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
 \begin{itemize}
-\item Developed lesion-supervised token routing with budget and diversity constraints; evaluated retained lesion evidence on ISIC 2019 under fixed token budgets.
+\item Developed a lesion-supervised router after the vision backbone, combining budget curriculum learning, diversity regularization, and attention distillation.
+\item Evaluated the fraction of annotated lesion evidence retained on ISIC 2019 under fixed token budgets.
 \end{itemize}
 \entry{Mass-Conservation Token Transformers for MS/MS Spectrum Retrieval}{2026}
 \detail{Manuscript submitted to AAAI 2027}
 \begin{itemize}
-\item Encoded mass-conserving fragment pairs as sparse evidence tokens; used hard negatives and token-removal experiments to test their contribution to spectrum rankings.
+\item Encoded mass-conserving fragment pairs as sparse tokens for spectrum retrieval; built closest-mass and overlap-hard negatives and tested ranking changes after removing evidence tokens.
 \end{itemize}
 \entry{Efficient Attention via Pre-Scoring}{2025}
 \detail{First author; with H. Wang, Y. Bao, D. Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
 \begin{itemize}
-\item Proposed pre-scoring to select informative key intervals before attention; implemented Triton kernels and benchmarked against HyperAttention and LevAttention.
+\item Proposed pre-scoring to select informative key intervals before attention; implemented the method in Triton.
+\item Benchmarked against HyperAttention and LevAttention to compare attention approximations.
 \end{itemize}
 
 \section{Additional Experience}
 \entry{AI Engineer Intern | PMAOS / Next Big Seek}{Jul - Aug 2026}
-Designed diversity-aware recommendation with multi-timescale exposure budgets and 11-language audio-visual affect inference that abstains when evidence conflicts.
+\begin{itemize}
+\item Designed diversity-aware recommendation with session, bridge, and long-term exposure budgets, plus 11-language audio-visual affect inference with abstention on conflicting evidence.
+\end{itemize}
 \entry{Machine Learning Tutor | UCSC}{Spring 2023}
-Supported Prof. Lise Getoor's course through office hours, Jupyter assignments, and coding-autograder development.
+\begin{itemize}
+\item Led office hours on logistic regression, SVMs, and tree models; co-designed Jupyter assignments and contributed to the coding autograder for Prof. Lise Getoor's course.
+\end{itemize}
 \end{document}

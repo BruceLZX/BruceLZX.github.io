@@ -18,14 +18,16 @@
 \textbf{工程工具：}FastAPI、Next.js、Supabase、Linux；自动化测试与静态类型检查
 
 \section{工作与科研经历}
-\entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
-\begin{itemize}
-\item 设计用户与视频之间的双向兴趣传播，结合曝光预算和疲劳控制减少重复推荐；完成 629 项测试及 438 个源文件的严格 Mypy 检查。
-\item 开发支持 11 种语言的音视频情绪识别，在证据冲突时保留不确定判断；通过 139 项 Python 测试及 Cortex-M3、ARM926EJ-S 平台的 C 编译检查。
-\end{itemize}
 \entry{UCLA HAIL｜研究生研究员}{2026.08 - 至今}
 \begin{itemize}
-\item 在 Yuzhe Yang 教授指导下搭建糖尿病多模态模型的 MetaboNet 基准与数据检查流程，按患者划分数据，评估 30、60、120 分钟血糖预测。
+\item 在 Yuzhe Yang 教授指导下搭建糖尿病多模态模型的 MetaboNet 基准与数据检查流程，按患者划分数据，比较 30、60、120 分钟血糖预测。
+\item 评估 GluFormer、T1DFormer、自研预测状态模型与 Transformer，研究 CGM 和胰岛素、饮食、活动信息的联合建模。
+\end{itemize}
+\entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
+\begin{itemize}
+\item 设计用户与视频双向兴趣传播、多时间尺度曝光预算和疲劳控制；完成 \textbf{629 项测试}、\textbf{34 项契约检查}及 438 个源文件的严格 Mypy 检查。
+\item 分别管理学习得到的兴趣、召回分数和多样性标记，用会话、桥接和长期预算安排推荐曝光。
+\item 开发支持 \textbf{11 种语言}的音视频情绪识别，证据冲突时暂不判断；通过 139 项 Python 测试及 Cortex-M3、ARM926EJ-S 平台的 C 编译检查。
 \end{itemize}
 \entry{Terlingua Threads（远程）｜全栈工程师}{2026.01 - 2026.05}
 \begin{itemize}
@@ -33,18 +35,30 @@
 \end{itemize}
 \entry{Piezolab Medical（加州 Lake Forest）｜AI 工程实习生}{2025.06 - 2025.08}
 \begin{itemize}
-\item 搭建大模型辅助文档处理流程，对 5,000 余份医疗事故资料进行导入、清洗和聚类；为实验室工作流程编写检查清单与验收测试。
+\item 对 \textbf{5,000 余份医疗事故资料}进行大模型辅助导入、清洗和聚类；开发智能体工作流程与验收测试，支持医疗质量分析和血管护理研究。
+\end{itemize}
+\entry{Synaptics（加州圣何塞）｜应用工程实习生}{2023.06 - 2023.08}
+\begin{itemize}
+\item 验证产品固件，通过 ESP32 和 MQTT 将 I2C 传感器数据接入阿里云，供内部看板使用。
 \end{itemize}
 
 \section{代表项目}
 \entry{AI Doctor WeChat｜FastAPI、知识检索}{2026}
-打通微信小程序、Web 工作台与 FastAPI 后端，支持医生、助理、学生的临床教学协作及患者信息采集。
+\begin{itemize}
+\item 整合微信小程序、Web 工作台、FastAPI 和知识检索，支持医生、助理、学生的临床教学协作及患者信息采集。
+\end{itemize}
 \entry{Fridge Manager｜Next.js、Supabase}{2026}
-整合现有食材、剩菜、饮食偏好及烹饪时间，生成用餐与采购计划。\link{https://howtoeat.food}{howtoeat.food}
+\begin{itemize}
+\item 根据库存、剩菜、饮食偏好与烹饪时间生成用餐和采购计划，完成部署并开放使用。\link{https://howtoeat.food}{howtoeat.food}
+\end{itemize}
 \entry{AI 名片助手｜iOS、视觉解析、OCR}{2026 - 至今}
-将名片照片整理为可检索的联系人和公司档案，支持 OCR 备用识别、多图核对及中英文信息复核。\link{https://github.com/BruceLZX/Business-Card-AI-organzier}{源代码}
+\begin{itemize}
+\item 用视觉解析将名片转为联系人和公司档案，支持 OCR 备用识别、多图核对、中英文复核与检索。\link{https://github.com/BruceLZX/Business-Card-AI-organzier}{源代码}
+\end{itemize}
 
 \section{算法研究}
-\textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：实现用于 key 区间筛选的 Triton 内核，与 HyperAttention、LevAttention 进行对比评估。\link{https://arxiv.org/abs/2505.11040}{论文}\\[3pt]
-\textbf{MedTokenBudget}（预印本）：实现病灶监督的 token 路由，检查固定 token 数量下的病灶信息保留情况。\link{https://arxiv.org/abs/2609.30613}{论文}
+\begin{itemize}
+\item \textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：实现 key 区间筛选的 Triton 内核，与 HyperAttention、LevAttention 对比评估。\link{https://arxiv.org/abs/2505.11040}{论文}
+\item \textbf{MedTokenBudget}（预印本）：实现病灶监督路由，结合预算、多样性和蒸馏目标训练，在 ISIC 2019 上检查病灶信息保留情况。\link{https://arxiv.org/abs/2609.30613}{论文}
+\end{itemize}
 \end{document}
