@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\usepackage{resume}
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf,Script=Default]
+\hypersetup{pdftitle={李哲骧 - 研究岗位简历},pdflang={zh-CN}}
+\begin{document}
+\chineseheader
+
+\section{教育背景}
+\entry{加州大学洛杉矶分校（UCLA）}{2026.09 - 2028.06（预计）}
+计算机科学硕士在读
+\entry{南加州大学（USC）}{2026.05 毕业}
+计算机科学学士；GPA：3.76/4.00；Viterbi Dean's List
+
+\section{研究技能}
+\textbf{研究方法：}多模态学习、高效注意力、视觉 token 筛选、分子性质预测\\
+\textbf{实验工具：}Python、PyTorch、Triton、RDKit、Chemprop、C/C++、SQL、Linux\\
+\textbf{评估方法：}患者级数据划分、分子骨架划分、难负样本构建、消融实验、SHAP 分析
+
+\section{科研经历}
+\entry{UCLA Health Intelligence Lab（HAIL）｜研究生研究员}{2026.08 - 至今}
+\detail{导师：Yuzhe Yang 教授}
+\begin{itemize}
+\item 围绕糖尿病血糖预测开展多模态基础模型研究，将连续血糖监测（CGM）与胰岛素、饮食、活动及患者背景信息结合。
+\item 搭建 MetaboNet 评估流程，按患者划分数据；比较 GluFormer、T1DFormer、自研预测状态模型和 Transformer 在未来 30、60、120 分钟的预测表现。
+\end{itemize}
+\entry{USC Yan Liu 教授课题组｜药物发现研究}{2026 年春}
+\begin{itemize}
+\item 跟随课题组博士生开展抗病毒药物发现研究，在七个 TDC 数据集上比较分子描述符模型、Chemprop 与混合模型，采用分子骨架划分检验泛化能力。
+\item 结合特征重要性与 SHAP 分析，考察模型预测所依据的分子特征。
+\end{itemize}
+
+\section{代表论文与研究}
+\entry{MedTokenBudget：保留病灶信息的视觉 token 路由}{2026}
+\detail{Zhexiang Li；预印本。\link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
+\begin{itemize}
+\item 用病灶标注监督 token 筛选，结合预算与多样性约束训练路由器；在 ISIC 2019 上检查固定预算下保留了多少病灶信息。
+\end{itemize}
+\entry{基于质量守恒证据的 MS/MS 谱图检索}{2026}
+\detail{稿件已投稿 AAAI 2027}
+\begin{itemize}
+\item 将满足质量守恒关系的碎片对编码为稀疏 token；通过难负样本和证据移除实验，检验这些证据是否实际影响检索排序。
+\end{itemize}
+\entry{Efficient Attention via Pre-Scoring：注意力预评分}{2025}
+\detail{第一作者；与 H. Wang、Y. Bao、D. Woodruff 合作。审稿中。\link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
+\begin{itemize}
+\item 提出先筛选信息量较高的 key 区间、再计算注意力的方法；实现 Triton 内核，并与 HyperAttention、LevAttention 对比。
+\end{itemize}
+
+\section{相关实践}
+\entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
+设计多时间尺度的推荐曝光分配，以及支持 11 种语言的音视频情绪识别；在模态证据冲突时暂不输出判断。
+\entry{UCSC 机器学习导论｜课程辅导员}{2023 年春}
+协助 Lise Getoor 教授开展答疑，设计 Jupyter 作业，并参与编程题自动评分器开发。
+\end{document}

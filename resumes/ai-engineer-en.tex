@@ -1,0 +1,48 @@
+\documentclass[10pt]{article}
+\usepackage{resume}
+\hypersetup{pdftitle={Zhexiang Li - AI Engineer Resume},pdflang={en-US}}
+\begin{document}
+\englishheader
+
+\section{Education}
+\entry{University of California, Los Angeles}{Sep 2026 - Jun 2028 (expected)}
+M.S. in Computer Science
+\entry{University of Southern California}{May 2026}
+B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
+
+\section{Technical Skills}
+\textbf{Languages:} Python, C/C++, JavaScript/TypeScript, SQL\\
+\textbf{AI/ML:} PyTorch, Triton, LLM workflows, retrieval, multimodal inference, recommendation systems\\
+\textbf{Development:} FastAPI, Next.js, Supabase, Linux; automated testing and static type checking
+
+\section{Experience}
+\entry{AI Engineer Intern | PMAOS / Next Big Seek}{Jul - Aug 2026}
+\begin{itemize}
+\item Designed bidirectional user-video interest propagation with exposure budgets and fatigue controls; validated recommendation logic with 629 tests and strict Mypy across 438 source files.
+\item Built 11-language audio-visual affect inference with conflict-aware abstention; validated with 139 Python tests and C build gates for Cortex-M3 and ARM926EJ-S.
+\end{itemize}
+\entry{Graduate Researcher | Health Intelligence Lab, UCLA}{Aug 2026 - Present}
+\begin{itemize}
+\item Built patient-disjoint MetaboNet benchmarking and audit pipelines for multimodal diabetes models; evaluated glucose forecasts at 30/60/120-minute horizons with Prof. Yuzhe Yang.
+\end{itemize}
+\entry{Full-Stack Engineer | Terlingua Threads (Remote)}{Jan - May 2026}
+\begin{itemize}
+\item Integrated Shopify pages and Google Maps features; improved responsive behavior, accessibility, SEO, and maintainable content structures.
+\end{itemize}
+\entry{AI Engineer Intern | Piezolab Medical, Lake Forest, CA}{Jun - Aug 2025}
+\begin{itemize}
+\item Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice documents for quality-of-care review; wrote laboratory workflow checklists and acceptance tests.
+\end{itemize}
+
+\section{Selected Projects}
+\entry{AI Doctor WeChat | FastAPI, knowledge retrieval}{2026}
+Connected a WeChat Mini Program and browser workspace to FastAPI services, supporting clinician, assistant, student, and patient-intake workflows.
+\entry{Fridge Manager | Next.js, Supabase}{2026}
+Built inventory-aware meal and grocery planning from ingredients, leftovers, dietary preferences, and time constraints. \link{https://howtoeat.food}{howtoeat.food}
+\entry{AI Business Card Hub | iOS, vision parsing, OCR}{2026 - Present}
+Built photo-to-contact extraction with OCR fallback, multi-photo review, bilingual records, and people/company search. \link{https://github.com/BruceLZX/Business-Card-AI-organzier}{Source code}
+
+\section{Selected ML Research}
+\textbf{Efficient Attention via Pre-Scoring} (first author; under review): implemented Triton kernels for informative-key selection and benchmarked against HyperAttention and LevAttention. \link{https://arxiv.org/abs/2505.11040}{Paper}\\[3pt]
+\textbf{MedTokenBudget} (preprint): implemented lesion-supervised token routing and evaluated evidence retention under fixed token budgets. \link{https://arxiv.org/abs/2609.30613}{Paper}
+\end{document}

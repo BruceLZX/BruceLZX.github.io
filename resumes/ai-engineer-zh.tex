@@ -1,0 +1,50 @@
+\documentclass[10pt]{article}
+\usepackage{resume}
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf,Script=Default]
+\hypersetup{pdftitle={李哲骧 - AI 工程岗位简历},pdflang={zh-CN}}
+\begin{document}
+\chineseheader
+
+\section{教育背景}
+\entry{加州大学洛杉矶分校（UCLA）}{2026.09 - 2028.06（预计）}
+计算机科学硕士在读
+\entry{南加州大学（USC）}{2026.05 毕业}
+计算机科学学士；GPA：3.76/4.00；Viterbi Dean's List
+
+\section{技术能力}
+\textbf{编程语言：}Python、C/C++、JavaScript/TypeScript、SQL\\
+\textbf{AI 开发：}PyTorch、Triton、大模型应用、知识检索、多模态推理、推荐系统\\
+\textbf{工程工具：}FastAPI、Next.js、Supabase、Linux；自动化测试与静态类型检查
+
+\section{工作与科研经历}
+\entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
+\begin{itemize}
+\item 设计用户与视频之间的双向兴趣传播，结合曝光预算和疲劳控制减少重复推荐；完成 629 项测试及 438 个源文件的严格 Mypy 检查。
+\item 开发支持 11 种语言的音视频情绪识别，在证据冲突时保留不确定判断；通过 139 项 Python 测试及 Cortex-M3、ARM926EJ-S 平台的 C 编译检查。
+\end{itemize}
+\entry{UCLA HAIL｜研究生研究员}{2026.08 - 至今}
+\begin{itemize}
+\item 在 Yuzhe Yang 教授指导下搭建糖尿病多模态模型的 MetaboNet 基准与数据检查流程，按患者划分数据，评估 30、60、120 分钟血糖预测。
+\end{itemize}
+\entry{Terlingua Threads（远程）｜全栈工程师}{2026.01 - 2026.05}
+\begin{itemize}
+\item 开发 Shopify 集成页面和 Google Maps 功能，优化移动端布局、无障碍访问、搜索引擎收录及内容维护。
+\end{itemize}
+\entry{Piezolab Medical（加州 Lake Forest）｜AI 工程实习生}{2025.06 - 2025.08}
+\begin{itemize}
+\item 搭建大模型辅助文档处理流程，对 5,000 余份医疗事故资料进行导入、清洗和聚类；为实验室工作流程编写检查清单与验收测试。
+\end{itemize}
+
+\section{代表项目}
+\entry{AI Doctor WeChat｜FastAPI、知识检索}{2026}
+打通微信小程序、Web 工作台与 FastAPI 后端，支持医生、助理、学生的临床教学协作及患者信息采集。
+\entry{Fridge Manager｜Next.js、Supabase}{2026}
+整合现有食材、剩菜、饮食偏好及烹饪时间，生成用餐与采购计划。\link{https://howtoeat.food}{howtoeat.food}
+\entry{AI 名片助手｜iOS、视觉解析、OCR}{2026 - 至今}
+将名片照片整理为可检索的联系人和公司档案，支持 OCR 备用识别、多图核对及中英文信息复核。\link{https://github.com/BruceLZX/Business-Card-AI-organzier}{源代码}
+
+\section{算法研究}
+\textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：实现用于 key 区间筛选的 Triton 内核，与 HyperAttention、LevAttention 进行对比评估。\link{https://arxiv.org/abs/2505.11040}{论文}\\[3pt]
+\textbf{MedTokenBudget}（预印本）：实现病灶监督的 token 路由，检查固定 token 数量下的病灶信息保留情况。\link{https://arxiv.org/abs/2609.30613}{论文}
+\end{document}

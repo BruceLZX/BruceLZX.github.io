@@ -1,0 +1,9 @@
+.resume-downloads{margin-top:24px;padding:16px 0;border-block:1px solid var(--line)}
+.resume-downloads summary{cursor:pointer;font-weight:600}
+.resume-downloads p{max-width:760px;font-size:14px}
+.resume-downloads ul{list-style:none;margin:16px 0 0;padding:0}
+.resume-downloads li{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin:12px 0;font-size:14px}
+.resume-downloads li strong{min-width:110px}
+.resume-downloads li span{color:var(--muted);flex:1 1 230px}
+.resume-downloads a:focus-visible,.resume-downloads summary:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+@media(max-width:600px){.resume-downloads li{gap:6px 16px;margin:18px 0}.resume-downloads li strong,.resume-downloads li span{flex-basis:100%}}

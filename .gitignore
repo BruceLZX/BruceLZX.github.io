@@ -1,1 +1,4 @@
 .DS_Store
+resumes/build/
+.playwright-cli/
+tmp/

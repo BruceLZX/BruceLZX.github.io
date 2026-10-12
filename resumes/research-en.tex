@@ -1,0 +1,53 @@
+\documentclass[10pt]{article}
+\usepackage{resume}
+\hypersetup{pdftitle={Zhexiang Li - Research Resume},pdflang={en-US}}
+\begin{document}
+\englishheader
+
+\section{Education}
+\entry{University of California, Los Angeles}{Sep 2026 - Jun 2028 (expected)}
+M.S. in Computer Science
+\entry{University of Southern California}{May 2026}
+B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
+
+\section{Research Skills}
+\textbf{Methods:} multimodal learning, efficient attention, token routing, molecular property prediction\\
+\textbf{Tools:} Python, PyTorch, Triton, RDKit, Chemprop, C/C++, SQL, Linux\\
+\textbf{Evaluation:} patient-disjoint benchmarks, scaffold splits, hard negatives, ablation studies, SHAP
+
+\section{Research Experience}
+\entry{Graduate Researcher | Health Intelligence Lab, UCLA}{Aug 2026 - Present}
+\detail{Advisor: Prof. Yuzhe Yang}
+\begin{itemize}
+\item Investigate multimodal foundation models for diabetes, combining CGM with insulin, meals, activity, and patient context for glucose forecasting.
+\item Built patient-disjoint MetaboNet benchmarks; evaluated GluFormer, T1DFormer, and custom predictive-state and Transformer models at 30/60/120-minute horizons.
+\end{itemize}
+\entry{Drug Discovery Research | USC, Prof. Yan Liu's group}{Spring 2026}
+\begin{itemize}
+\item Worked with a Ph.D. student on antiviral drug discovery; compared RDKit, Chemprop, and hybrid models across seven Therapeutics Data Commons datasets using scaffold splits.
+\item Analyzed descriptor importance and SHAP attributions to examine the molecular features behind model predictions.
+\end{itemize}
+
+\section{Selected Papers}
+\entry{MedTokenBudget: Lesion-Preserving Token Routing}{2026}
+\detail{Zhexiang Li. Preprint. \link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
+\begin{itemize}
+\item Developed lesion-supervised token routing with budget and diversity constraints; evaluated retained lesion evidence on ISIC 2019 under fixed token budgets.
+\end{itemize}
+\entry{Mass-Conservation Token Transformers for MS/MS Spectrum Retrieval}{2026}
+\detail{Manuscript submitted to AAAI 2027}
+\begin{itemize}
+\item Encoded mass-conserving fragment pairs as sparse evidence tokens; used hard negatives and token-removal experiments to test their contribution to spectrum rankings.
+\end{itemize}
+\entry{Efficient Attention via Pre-Scoring}{2025}
+\detail{First author; with H. Wang, Y. Bao, D. Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
+\begin{itemize}
+\item Proposed pre-scoring to select informative key intervals before attention; implemented Triton kernels and benchmarked against HyperAttention and LevAttention.
+\end{itemize}
+
+\section{Additional Experience}
+\entry{AI Engineer Intern | PMAOS / Next Big Seek}{Jul - Aug 2026}
+Designed diversity-aware recommendation with multi-timescale exposure budgets and 11-language audio-visual affect inference that abstains when evidence conflicts.
+\entry{Machine Learning Tutor | UCSC}{Spring 2023}
+Supported Prof. Lise Getoor's course through office hours, Jupyter assignments, and coding-autograder development.
+\end{document}
