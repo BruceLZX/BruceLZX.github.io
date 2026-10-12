@@ -26,5 +26,11 @@ for profile in research-en research-zh ai-engineer-en ai-engineer-zh; do
 done
 # Publish PDFs only after every language/profile passes the build checks.
 for profile in research-en research-zh ai-engineer-en ai-engineer-zh; do
-  cp "build/$profile.pdf" "pdf/$profile.pdf"
+  case "$profile" in
+    research-en) filename="Zhexiang_Li_Research_Resume.pdf" ;;
+    research-zh) filename="李哲骧_研究岗位简历.pdf" ;;
+    ai-engineer-en) filename="Zhexiang_Li_AI_Engineer_Resume.pdf" ;;
+    ai-engineer-zh) filename="李哲骧_AI工程师简历.pdf" ;;
+  esac
+  cp "build/$profile.pdf" "pdf/$filename"
 done

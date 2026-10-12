@@ -5,14 +5,17 @@ print styles or shortened exports of the web CV.
 
 | Profile | Source | Download |
 | --- | --- | --- |
-| Research, English | `research-en.tex` | `pdf/research-en.pdf` |
-| Research, 中文 | `research-zh.tex` | `pdf/research-zh.pdf` |
-| AI Engineer, English | `ai-engineer-en.tex` | `pdf/ai-engineer-en.pdf` |
-| AI Engineer, 中文 | `ai-engineer-zh.tex` | `pdf/ai-engineer-zh.pdf` |
+| Research, English | `research-en.tex` | `pdf/Zhexiang_Li_Research_Resume.pdf` |
+| Research, 中文 | `research-zh.tex` | `pdf/李哲骧_研究岗位简历.pdf` |
+| AI Engineer, English | `ai-engineer-en.tex` | `pdf/Zhexiang_Li_AI_Engineer_Resume.pdf` |
+| AI Engineer, 中文 | `ai-engineer-zh.tex` | `pdf/李哲骧_AI工程师简历.pdf` |
 
 The web CV lives in `../cv.html` and `../cv_zh.html`, with its own `../cv.css`.
 It retains the broader professional record and puts technical skills last.
 Resume downloads appear in the experience archive, not the homepage header.
+Public PDF filenames include the applicant's name and target role and are ready
+for submission. Keep these names stable when rebuilding; short language/profile
+identifiers are only used for source and intermediate files.
 
 ## Editorial rules
 
