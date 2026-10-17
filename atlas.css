@@ -148,14 +148,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   white-space: nowrap;
 }
 
-.brand-mark {
-  width: 6px;
-  height: 6px;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  transform: translateY(-2px);
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -915,6 +907,7 @@ html[lang="zh-CN"] .footer { font-size: 10px; }
   .entry { min-height: 0; break-inside: avoid; }
   .survey-stage { display: block; }
 }
+
 
 
 
