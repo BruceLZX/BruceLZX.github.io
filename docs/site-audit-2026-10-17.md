@@ -132,3 +132,22 @@ git status --short --branch
 python resumes/build.py
 python scripts/export_cv.py
 ```
+
+## 十六、修复记录（2026-10-17，随 Atlas 改版）
+
+| 编号 | 原问题 | 状态 | 处理 |
+| --- | --- | --- | --- |
+| P1 图片 | 首页 97% 字节来自 1.38 MB PNG | 已解决 | 首页改为 `assets/atlas.svg`（29 KB）等高线底图，不再加载头像；原 PNG 保留为源资产，页面不引用 |
+| P1 工具链 | `build.py` / `export_cv.py` 无法运行 | 已解决 | 已安装 `pypdf 6.21.1`、`playwright`；TeX Live 2024 与 `pdftotext` 原本可用，导入验证通过 |
+| P2 死代码 | `site.css` 1652 行 / 66 个未用类；`site.js` 557 行仅 8 行生效 | 已解决 | `site.css` 裁剪为 200 行（只保留 archive/shell）；删除 `site.js`，archive/CV 改用 8 行的 `email.js`；删除 `home.css`、`home.js`、`scroll.css` |
+| P2 日期口径 | 首页 Fall / CV Sep / 档案 Aug 三种写法 | 首页已解决 | 新首页统一写 `2026–2028`，不再出现月份；CV 中「科研 Aug 起、项目 Sep 起」是真实口径，保留 |
+| P3 暗色 | 样式存在但无入口 | 已解决 | 真正的主题切换：系统偏好 + `localStorage` + View Transition，archive 页面同步换色 |
+| P3 缓存 | 版本号不一致 | 已解决 | `atlas.css/js`、`site.css`、`cv.css`、`resume-downloads.css`、`email.js` 全部带 `?v=20261017` |
+| P3 自动化 | 无页面级检查、无 CI | 已解决 | 新增 `scripts/check_site.py`（id/锚点/资源/alt/元数据/缓存/遗留引用）与 `.github/workflows/site-check.yml` |
+| 附加身份 | git 提交邮箱仍是 USC | 已解决 | 仓库级 `user.email` 改为 `bruceli@ucla.edu`（不改写历史） |
+| 附加配色 | 首页蓝 / 档案蓝 / CV 棕三套色系 | 部分解决 | `site.css` token 切到和纸 + 竹绿，archive 与新首页同色系；CV 保留原有印刷风格，未重生成 PDF |
+
+**验证**：`python scripts/check_site.py` 通过（6 个页面）；首页与中文页在 1440×1000、390×844 两档截图复核；archive 裁剪样式后截图结构未变。
+
+**仍未做**：CV PDF 未重新导出（`cv.html` 内容未变）；`profile picture.png` 仍在仓库中但已不被任何页面引用；`site.css` 仍保留少量只服务旧结构的响应式选择器。
+
