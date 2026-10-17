@@ -1,4 +1,4 @@
-"""Generate a compact contour SVG for the atlas cover (1.35 ratio, tinted cores)."""
+"""Generate the six-station contour map used by the scrolling survey."""
 from pathlib import Path
 import numpy as np
 import matplotlib
@@ -10,21 +10,31 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "atlas.svg"
 W, H = 1400, 1037
 
-POINTS = [(0.28, 0.34), (0.55, 0.22), (0.74, 0.47), (0.41, 0.62), (0.67, 0.78)]
+# six stops, in reading order: paper, paper, product, product, role, role
+POINTS = [
+    (0.25, 0.32),
+    (0.33, 0.58),
+    (0.45, 0.28),
+    (0.57, 0.58),
+    (0.69, 0.30),
+    (0.75, 0.64),
+]
+WEIGHTS = [1.0, 1.05, 1.1, 1.0, 1.15, 1.2]
 
-gx = np.linspace(0, 1, 360)
-gy = np.linspace(0, 1, 250)
+gx = np.linspace(0, 1, 380)
+gy = np.linspace(0, 1, 270)
 X, Y = np.meshgrid(gx, gy)
 
 Z = np.zeros_like(X)
-for i, (px, py) in enumerate(POINTS):
-    sx = 0.085 + 0.012 * (i % 3)
-    sy = 0.075 + 0.01 * (i % 2)
-    Z += (0.75 + 0.18 * i) * np.exp(-(((X - px) ** 2) / (2 * sx**2) + ((Y - py) ** 2) / (2 * sy**2)))
+for (px, py), weight in zip(POINTS, WEIGHTS):
+    sx = 0.082 + 0.01 * weight
+    sy = 0.072 + 0.01 * weight
+    Z += weight * np.exp(-(((X - px) ** 2) / (2 * sx**2) + ((Y - py) ** 2) / (2 * sy**2)))
 
-Z += 0.42 * np.exp(-(((X - 0.45) ** 2) / 0.28 + ((Y - 0.45) ** 2) / 0.55))
-Z += 0.10 * np.sin(7.2 * X + 1.3) * np.cos(5.4 * Y + 0.7)
-Z += 0.06 * np.sin(13.0 * X - 3.1) * np.sin(9.0 * Y + 1.9)
+# shallow ridge through the survey route + low-frequency noise
+Z += 0.26 * np.exp(-(((X - 0.50) ** 2) / 0.30 + ((Y - 0.48) ** 2) / 0.42))
+Z += 0.09 * np.sin(7.2 * X + 1.2) * np.cos(5.3 * Y + 0.5)
+Z += 0.05 * np.sin(12.6 * X - 2.9) * np.sin(8.7 * Y + 1.6)
 
 levels = np.linspace(Z.min() + 0.02, Z.max() * 0.96, 21)
 
@@ -77,28 +87,17 @@ for x in range(100, W, 100):
     parts.append(f'<path d="M{x} 0V{H}" stroke="#b3bda6" stroke-width=".6" opacity=".3"/>')
 for y in range(100, H, 100):
     parts.append(f'<path d="M0 {y}H{W}" stroke="#b3bda6" stroke-width=".6" opacity=".3"/>')
-
-# tinted cores: closed inner contours get a bamboo wash
 for level_index, closed, d in paths:
-    if closed and level_index >= len(levels) - 9:
-        weight = (level_index - (len(levels) - 9)) / 9
+    if closed and level_index >= len(levels) - 8:
+        weight = (level_index - (len(levels) - 8)) / 8
         parts.append(
-            f'<path d="{d}" fill="#9fb894" fill-opacity="{0.05 + weight * 0.13:.3f}" '
-            'stroke="none"/>'
+            f'<path d="{d}" fill="#9fb894" fill-opacity="{0.05 + weight * 0.13:.3f}" stroke="none"/>'
         )
-
 for level_index, closed, d in paths:
     if level_index % 4 == 0:
         parts.append(f'<path d="{d}" stroke="#41603f" stroke-width="1.15" opacity=".74"/>')
     else:
         parts.append(f'<path d="{d}" stroke="#557452" stroke-width=".75" opacity=".56"/>')
-
-for x in range(200, W, 200):
-    for y in range(200, H, 200):
-        parts.append(
-            f'<path d="M{x-5} {y}H{x+5}M{x} {y-5}V{y+5}" stroke="#41603f" '
-            'stroke-width=".8" opacity=".5"/>'
-        )
 parts.append("</svg>")
 OUT.write_text("\n".join(parts), encoding="utf-8")
-print("paths", len(paths), "levels", len(levels), "bytes", OUT.stat().st_size // 1024, "KB")
+print("paths", len(paths), "bytes", OUT.stat().st_size // 1024, "KB")

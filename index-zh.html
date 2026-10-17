@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="李哲骧（Bruce Li）——UCLA 多模态血糖预测、高效注意力、分子模型，以及端到端做出来的产品。">
+  <meta name="description" content="李哲骧（Bruce Li）——多模态健康模型、高效注意力，以及它们周围必须落地的系统。精选论文、产品与经历。">
   <link rel="canonical" href="https://brucelzx.github.io/index-zh.html">
   <link rel="alternate" hreflang="en" href="https://brucelzx.github.io/">
   <link rel="alternate" hreflang="zh-CN" href="https://brucelzx.github.io/index-zh.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="李哲骧（Bruce Li）— 实践测绘">
-  <meta property="og:description" content="UCLA 多模态血糖预测、高效注意力、分子模型，以及端到端做出来的产品。">
+  <meta property="og:title" content="李哲骧 — 作品">
+  <meta property="og:description" content="多模态健康模型、高效注意力，以及它们周围必须落地的系统。">
   <meta property="og:url" content="https://brucelzx.github.io/index-zh.html">
   <meta property="og:locale" content="zh_CN">
   <meta name="theme-color" content="#f4f1e4">
-  <title>李哲骧（Bruce Li）— 实践测绘</title>
+  <title>李哲骧 — 作品</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300..600&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="atlas.css?v=20261017">
+  <link rel="stylesheet" href="atlas.css?v=20261018">
   <script>
     (function () {
       try {
@@ -28,7 +28,7 @@
       document.documentElement.classList.add('js');
     })();
   </script>
-  <script defer src="atlas.js?v=20261017"></script>
+  <script defer src="atlas.js?v=20261018"></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">跳至正文</a>
@@ -37,17 +37,12 @@
   <header class="nav" data-nav>
     <div class="wrap nav-inner">
       <a class="brand" href="#top">李哲骧 <span class="brand-mark" aria-hidden="true"></span></a>
-      <nav class="nav-links" aria-label="图版">
-        <a href="#research">研究</a>
-        <a href="#work">项目</a>
-        <a href="#measures">指标</a>
-        <a href="#route">经历</a>
+      <nav class="nav-links" aria-label="页面">
+        <a href="#selected">精选</a>
         <a href="#contact">联系</a>
+        <a href="archive-zh.html">档案 ↗</a>
       </nav>
       <div class="nav-tools">
-        <button class="index-btn" type="button" data-open-index aria-haspopup="dialog">
-          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span> 索引
-        </button>
         <a href="index.html" lang="en">EN</a>
         <button class="theme" type="button" data-theme-toggle aria-label="切换到深色主题" aria-pressed="false">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M18.8 5.2l-2.1 2.1M7.3 16.7l-2.1 2.1"/></svg>
@@ -59,344 +54,154 @@
   </header>
 
   <main id="main">
-    <section class="cover wrap" aria-labelledby="cover-title">
-      <div class="cover-meta">
-        <p class="mono">实践测绘 · 2026</p>
-        <p class="mono">洛杉矶 · 34.05°N 118.24°W</p>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <p class="eyebrow">Bruce Li · UCLA · 健康智能实验室</p>
+      <h1 id="hero-title">李哲骧</h1>
+      <p class="hero-lede">我做多模态健康模型、高效注意力，以及它们周围那些必须落地的系统。目前在 Health Intelligence Lab，受 Yuzhe Yang 教授指导。</p>
+      <div class="hero-links">
+        <a class="arrow-link" href="#selected">精选作品 <span aria-hidden="true">↓</span></a>
+        <a class="sweep" href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="sweep" href="https://www.linkedin.com/in/zhexiang-li/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="hero-meta">
         <p class="mono">计算机科学硕士 · 2026–2028</p>
-      </div>
-
-      <div class="cover-grid">
-        <div class="cover-copy">
-          <p class="eyebrow">UCLA · 健康智能实验室</p>
-          <h1 id="cover-title">李哲骧<em>Bruce Li</em></h1>
-          <p class="cover-lede">我在 UCLA 的 <a href="https://yang-ai-lab.github.io/">Health Intelligence Lab</a>，受 Yuzhe Yang 教授指导，研究多模态血糖预测——把连续血糖监测与胰岛素、饮食、活动及患者背景结合起来。</p>
-          <div class="cover-links">
-            <a class="arrow-link" href="#research">开始浏览 <span aria-hidden="true">↓</span></a>
-            <a class="sweep" href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub ↗</a>
-            <a class="sweep" href="https://www.linkedin.com/in/zhexiang-li/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="sweep" href="cv_zh.html">履历 ↗</a>
-          </div>
-          <div class="cover-facts" aria-label="概览">
-            <p><b>04</b><span class="mono">论文</span></p>
-            <p><b>03</b><span class="mono">产品</span></p>
-            <p><b>07</b><span class="mono">角色</span></p>
-            <p><b>01</b><span class="mono">实践</span></p>
-          </div>
-        </div>
-
-        <figure class="map" aria-label="测绘索引：五张图版">
-          <img src="assets/atlas.svg" alt="" width="1400" height="1037" fetchpriority="high">
-          <div class="map-title"><span>实践测绘</span><span>图幅 00 · 2026</span></div>
-          <div class="map-points">
-            <a class="point" href="#research" style="--x:28%;--y:34%"><span class="dot" aria-hidden="true"></span><span class="label">01 研究</span></a>
-            <a class="point" href="#work" style="--x:55%;--y:22%"><span class="dot" aria-hidden="true"></span><span class="label">02 项目</span></a>
-            <a class="point point--flip" href="#measures" style="--x:74%;--y:47%"><span class="dot" aria-hidden="true"></span><span class="label">03 指标</span></a>
-            <a class="point" href="#route" style="--x:41%;--y:62%"><span class="dot" aria-hidden="true"></span><span class="label">04 经历</span></a>
-            <a class="point point--flip" href="#contact" style="--x:67%;--y:78%"><span class="dot" aria-hidden="true"></span><span class="label">05 联系</span></a>
-          </div>
-          <figcaption class="map-caption">
-            <span>图版索引 · 05 幅</span>
-            <span class="scalebar">比例 1:1</span>
-          </figcaption>
-        </figure>
+        <p class="mono">洛杉矶</p>
+        <p class="mono">可实习：2027.06.13–09.17</p>
       </div>
     </section>
 
-    <section class="plate wrap" id="research" aria-labelledby="research-title">
-      <header class="plate-head">
-        <p class="plate-no">图版 01</p>
-        <div>
-          <h2 id="research-title">研究</h2>
-          <p class="plate-lede">四件工作，每件都给出方法与支持它的数字。细节只差一次点击。</p>
-        </div>
-        <p class="plate-meta">图幅 01 / 05<br>04 条目<br>数据 arXiv</p>
-      </header>
-
-      <div class="entries">
-        <article class="entry" data-reveal>
-          <div class="entry-aside"><span class="entry-code">R-01</span><span class="entry-year">2026</span></div>
-          <div class="entry-body">
-            <h3 class="entry-title"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">MedTokenBudget：面向皮肤镜图像分类的病灶保留 Token 路由</a></h3>
-            <p class="entry-meta">独立作者 · arXiv 预印本</p>
-            <p class="entry-summary">用更少的图像 Token，保留病灶证据。</p>
-            <details>
-              <summary>细节 <span aria-hidden="true">+</span></summary>
-              <p class="entry-detail">在冻结的视觉骨干网络之后做病灶监督的 Token 路由。ISIC 2019、30% Token 预算下，三个随机种子的准确率为 80.38 ± 0.18%，ToMe 为 76.93 ± 0.03%；骨干网络保持不变。</p>
-            </details>
-            <p class="entry-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></p>
+    <section class="section survey" id="selected" aria-labelledby="selected-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <h2 id="selected-title">精选作品</h2>
+            <p class="section-lede">两篇论文、两个产品、两段经历。向下滚动，地图会在六个点之间移动。</p>
           </div>
-          <span class="entry-arrow" aria-hidden="true">↗</span>
-        </article>
+          <a class="sweep section-link" href="archive-zh.html">完整档案 ↗</a>
+        </header>
 
-        <article class="entry" data-reveal>
-          <div class="entry-aside"><span class="entry-code">R-02</span><span class="entry-year">2026</span></div>
-          <div class="entry-body">
-            <h3 class="entry-title">Mass-Conservation Token Transformers：可审计的串联质谱检索</h3>
-            <p class="entry-meta">已投稿 AAAI 2027</p>
-            <p class="entry-summary">用质量守恒关系，为质谱检索提供可检查的证据。</p>
-            <details>
-              <summary>细节 <span aria-hidden="true">+</span></summary>
-              <p class="entry-detail">把满足质量守恒关系的碎片对编码为稀疏证据 Token，并构建质量接近与谱峰重叠的难负样本。通过移除证据前后排序的变化，检验导出的证据是否真的参与了判断。</p>
-            </details>
-          </div>
-          <span class="entry-arrow" aria-hidden="true">↗</span>
-        </article>
-
-        <article class="entry" data-reveal>
-          <div class="entry-aside"><span class="entry-code">R-03</span><span class="entry-year">2025</span></div>
-          <div class="entry-body">
-            <h3 class="entry-title"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">Efficient Attention via Pre-Scoring</a></h3>
-            <p class="entry-meta">第一作者 · 审稿中</p>
-            <p class="entry-summary">在注意力计算之前，先筛选信息量更高的键区间。</p>
-            <details>
-              <summary>细节 <span aria-hidden="true">+</span></summary>
-              <p class="entry-detail">在 CMU David P. Woodruff 教授指导下完成。用 Triton 实现预评分与关键键筛选，与 HyperAttention 结合后，在固定交互预算、131k token 上下文的 ChatGLM 实验中把困惑度从 12.0 降到 9.5。这不是实测加速比。</p>
-            </details>
-            <p class="entry-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></p>
-          </div>
-          <span class="entry-arrow" aria-hidden="true">↗</span>
-        </article>
-
-        <article class="entry" data-reveal>
-          <div class="entry-aside"><span class="entry-code">R-04</span><span class="entry-year">2026</span></div>
-          <div class="entry-body">
-            <h3 class="entry-title">面向抗病毒药物发现的机器学习</h3>
-            <p class="entry-meta">USC · Yan Liu 课题组 · 2026 春</p>
-            <p class="entry-summary">可复现的分子基准与模型解释。</p>
-            <details>
-              <summary>细节 <span aria-hidden="true">+</span></summary>
-              <p class="entry-detail">在七个 Therapeutics Data Commons 数据集上，用分子骨架划分比较描述符模型、Chemprop 与混合模型；结合描述符重要性与 SHAP 归因，考察与抗病毒活性预测相关的分子特征。</p>
-            </details>
-          </div>
-          <span class="entry-arrow" aria-hidden="true">↗</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="plate wrap" id="work" aria-labelledby="work-title">
-      <header class="plate-head">
-        <p class="plate-no">图版 02</p>
-        <div>
-          <h2 id="work-title">项目</h2>
-          <p class="plate-lede">三件真正变成软件的事——从规划、实现到上线。</p>
-        </div>
-        <p class="plate-meta">图幅 02 / 05<br>03 区域<br>产品</p>
-      </header>
-
-      <div class="regions" data-reveal>
-        <article class="region region--wide">
-          <p class="region-code">W-01 · 2026</p>
-          <h3>Fridge Manager</h3>
-          <p>围绕现有食材、剩菜、菜谱、饮食偏好和真正可用的时间，做用餐与采购规划。基于 Next.js 与 Supabase 的移动优先产品。</p>
-          <p class="region-quote">“从冰箱里已有的东西开始。”</p>
-          <div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">移动端</span></div>
-          <a class="arrow-link" href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="region region--small">
-          <p class="region-code">W-02 · 2026</p>
-          <h3>AI Doctor WeChat</h3>
-          <p>连接微信小程序、Web 工作台与 FastAPI 后端的临床教学与协作应用——知识检索、患者信息采集与共同复核。</p>
-          <div class="tags"><span class="tag">FastAPI</span><span class="tag">微信</span><span class="tag">RAG</span></div>
-        </article>
-        <article class="region region--small">
-          <p class="region-code">W-03 · 2026</p>
-          <h3>AI Business Card Hub</h3>
-          <p>以视觉解析为主、OCR 兜底的名片转联系人流程；支持多图核对、中英双语档案，以及可检索的人与公司资料。</p>
-          <div class="tags"><span class="tag">iOS</span><span class="tag">Vision</span><span class="tag">OCR</span></div>
-          <a class="arrow-link" href="https://github.com/BruceLZX/Business-Card-AI-organzier" target="_blank" rel="noopener">源代码 <span aria-hidden="true">↗</span></a>
-        </article>
-      </div>
-    </section>
-
-    <section class="plate wrap" id="measures" aria-labelledby="measures-title">
-      <header class="plate-head">
-        <p class="plate-no">图版 03</p>
-        <div>
-          <h2 id="measures-title">指标</h2>
-          <p class="plate-lede">四个经得起复核的数字。按已发表口径呈现，不做四舍五入。</p>
-        </div>
-        <p class="plate-meta">图幅 03 / 05<br>04 读数<br>按发表口径</p>
-      </header>
-
-      <div class="measures">
-        <div class="measure" data-reveal>
-          <span class="measure-value"><span data-count="80.38" data-decimals="2" data-suffix="%">80.38%</span>
-            <svg class="measure-circle" viewBox="0 0 200 120" aria-hidden="true"><path pathLength="1" d="M18 64C12 34 60 12 108 12c60 0 88 24 82 54-6 32-58 46-114 44C30 108 6 92 18 64Z"/></svg>
-          </span>
-          <p class="measure-label">ISIC 2019，30% Token 预算下的准确率 · 三个随机种子</p>
-        </div>
-        <div class="measure" data-reveal>
-          <span class="measure-value"><span data-count="76.93" data-decimals="2" data-suffix="%">76.93%</span></span>
-          <p class="measure-label">ToMe 在相同预算下的基线</p>
-        </div>
-        <div class="measure" data-reveal>
-          <span class="measure-value"><span data-count="5000" data-suffix="+" data-group="true">5,000+</span></span>
-          <p class="measure-label">在 Piezolab 聚类的医疗文档</p>
-        </div>
-        <div class="measure" data-reveal>
-          <span class="measure-value"><span data-count="11">11</span></span>
-          <p class="measure-label">音视频情绪识别链路支持的语言</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="plate wrap" id="route" aria-labelledby="route-title">
-      <header class="plate-head">
-        <p class="plate-no">图版 04</p>
-        <div>
-          <h2 id="route-title">经历</h2>
-          <p class="plate-lede">工程、一家公司，以及四年医疗科技投资工作——按时间倒序。</p>
-        </div>
-        <p class="plate-meta">图幅 04 / 05<br>07 个节点<br>2021 → 至今</p>
-      </header>
-
-      <div class="route" data-route>
-        <div class="route-line" aria-hidden="true"></div>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2026.07–08</p>
-          <div class="stop-body">
-            <h3 class="stop-role">AI 工程实习生</h3>
-            <p class="stop-org">未来求索 / PMAOS</p>
-            <p class="stop-desc">短视频推荐算法、支持 11 种语言的音视频情绪识别，以及毫米机器人实验规划。</p>
-            <details>
-              <summary>技术细节 <span aria-hidden="true">+</span></summary>
-              <div class="stop-detail-group">
-                <div><h4>多样性推荐与兴趣传播</h4><p>在用户与视频之间双向传播兴趣信号，为会话、桥接与长期发现分配不同预算；疲劳控制用于管理重复推荐。</p></div>
-                <div><h4>证据感知的多模态推理</h4><p>拒绝不同步的音画片段，执行语音 PAD，融合有效证据，并交给量化的 Q15 决策层；结果可以弃权或显式标出模态冲突。</p></div>
-                <div><h4>毫米机器人研究规划</h4><p>调研 10 mm 以下压电机器人方案，选出 9 mm 四通道候选，并设计 PZT–钢片悬臂梁实验；工作推进到采购准备阶段。</p></div>
+        <div class="survey-stage">
+          <div class="map-panel">
+            <div class="map-frame" data-map role="group" aria-label="精选作品地图">
+              <div class="map-world" data-world>
+                <img src="assets/atlas.svg" alt="" width="1400" height="1037">
+                <svg class="map-route" viewBox="0 0 1400 1037" preserveAspectRatio="none" aria-hidden="true">
+                  <path class="route-base" d="M350 332 L462 602 L630 290 L798 602 L966 311 L1050 664"/>
+                  <path class="route-seg" d="M350 332 L462 602"/>
+                  <path class="route-seg" d="M462 602 L630 290"/>
+                  <path class="route-seg" d="M630 290 L798 602"/>
+                  <path class="route-seg" d="M798 602 L966 311"/>
+                  <path class="route-seg" d="M966 311 L1050 664"/>
+                </svg>
+                <a class="stop" href="#stop-1" data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="论文 · 2026" style="--x:25%;--y:32%" aria-label="01 — MedTokenBudget"><span class="dot"></span><span class="num">01</span></a>
+                <a class="stop" href="#stop-2" data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="论文 · 2025" style="--x:33%;--y:58%" aria-label="02 — Efficient Attention via Pre-Scoring"><span class="dot"></span><span class="num">02</span></a>
+                <a class="stop" href="#stop-3" data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="产品 · 2026" style="--x:45%;--y:28%" aria-label="03 — Fridge Manager"><span class="dot"></span><span class="num">03</span></a>
+                <a class="stop" href="#stop-4" data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="产品 · 2026" style="--x:57%;--y:58%" aria-label="04 — AI Doctor WeChat"><span class="dot"></span><span class="num">04</span></a>
+                <a class="stop" href="#stop-5" data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="经历 · 2026.07–08" style="--x:69%;--y:30%" aria-label="05 — PMAOS"><span class="dot"></span><span class="num">05</span></a>
+                <a class="stop" href="#stop-6" data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="经历 · 2025–2026.03" style="--x:75%;--y:64%" aria-label="06 — CrAIg Capital"><span class="dot"></span><span class="num">06</span></a>
               </div>
-            </details>
+              <div class="map-top" aria-hidden="true"><span>精选作品</span><span>六个停靠点</span></div>
+              <div class="map-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="map-hud" aria-hidden="true">
+                <div>
+                  <p class="kicker" data-map-kicker>01 / 06 · 论文</p>
+                  <p class="title" data-map-title>MedTokenBudget</p>
+                </div>
+                <p class="count" data-map-count>01 / 06</p>
+              </div>
+            </div>
           </div>
-        </article>
 
-        <article class="stop" data-reveal>
-          <p class="stop-year">2026.01–05</p>
-          <div class="stop-body">
-            <h3 class="stop-role">全栈工程师</h3>
-            <p class="stop-org">Terlingua Threads</p>
-            <p class="stop-desc">Shopify 联动页面与 Google Maps 功能；响应式布局、无障碍访问、SEO 与可维护的内容结构。</p>
+          <div class="entries">
+            <article class="entry" id="stop-1" data-entry data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="论文 · 2026">
+              <p class="entry-kicker">论文 · 2026</p>
+              <h3>MedTokenBudget</h3>
+              <p class="entry-dek">用更少的图像 Token，保留病灶证据。</p>
+              <p class="entry-body">在冻结的视觉骨干网络之后做病灶监督的 Token 路由。ISIC 2019、30% Token 预算下，三个随机种子的准确率为 <strong>80.38 ± 0.18%</strong>，ToMe 为 <strong>76.93 ± 0.03%</strong>；骨干网络保持不变。</p>
+              <p class="entry-body">路由用 mask 监督、预算课程、多样性正则与注意力蒸馏训练；另有一套审计检查路由之后还保留了多少真实病灶证据。</p>
+              <p class="entry-note">独立作者 · arXiv 预印本</p>
+              <div class="entry-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
+            </article>
+
+            <article class="entry" id="stop-2" data-entry data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="论文 · 2025">
+              <p class="entry-kicker">论文 · 2025</p>
+              <h3>Efficient Attention via Pre-Scoring</h3>
+              <p class="entry-dek">在近似注意力之前，先筛选信息量更高的键区间。</p>
+              <p class="entry-body">用 Triton 实现，并与 HyperAttention 结合。131k token 上下文、固定交互预算下，ChatGLM 困惑度从 <strong>12.0 降到 9.5</strong>。这不是实测加速比。</p>
+              <p class="entry-body">与 HyperAttention、LevAttention 在长上下文语言建模上做了比较。</p>
+              <p class="entry-note">第一作者 · 审稿中</p>
+              <div class="entry-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
+            </article>
+
+            <article class="entry" id="stop-3" data-entry data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="产品 · 2026">
+              <p class="entry-kicker">产品 · 2026</p>
+              <h3>Fridge Manager</h3>
+              <p class="entry-dek">按现有食材做用餐与采购规划。</p>
+              <p class="entry-body">用 Next.js 和 Supabase 构建，从冰箱里已有的东西出发：剩菜、菜谱、饮食偏好，以及真正可用的时间。</p>
+              <p class="entry-note">Next.js · Supabase · 已上线</p>
+              <div class="entry-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
+            </article>
+
+            <article class="entry" id="stop-4" data-entry data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="产品 · 2026">
+              <p class="entry-kicker">产品 · 2026</p>
+              <h3>AI Doctor WeChat</h3>
+              <p class="entry-dek">连接微信与 Web 的临床教学与协作。</p>
+              <p class="entry-body">微信小程序、Web 工作台与 FastAPI 后端，支持知识检索与患者信息采集，服务医生、助理与学生。</p>
+              <p class="entry-note">微信 · FastAPI · 无公开链接</p>
+            </article>
+
+            <article class="entry" id="stop-5" data-entry data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="经历 · 2026.07–08">
+              <p class="entry-kicker">经历 · 2026.07–08</p>
+              <h3>PMAOS / Next Big Seek</h3>
+              <p class="entry-dek">推荐、多模态推理与机器人规划。</p>
+              <p class="entry-body">设计用户与视频之间的双向兴趣传播与曝光预算；搭建支持 <strong>11 种语言</strong>、可以弃权或标出模态冲突的音视频链路；参与毫米机器人实验规划。</p>
+              <p class="entry-body">决策层可以弃权或标出模态冲突，而不是强行给出标签；推荐侧把学习到的偏好、召回分数与多样性标注分开处理。</p>
+              <p class="entry-note">推荐 · 多模态 · 机器人</p>
+              <div class="entry-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+            </article>
+
+            <article class="entry" id="stop-6" data-entry data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="经历 · 2025–2026.03">
+              <p class="entry-kicker">经历 · 2025–2026.03</p>
+              <h3>CrAIg Capital</h3>
+              <p class="entry-dek">AI 辅助住房债务催收产品的联合创始人 / CTO。</p>
+              <p class="entry-body">负责产品与工程：数据管线、流程自动化、路线图与交付。</p>
+              <p class="entry-body">负责技术方向、招聘优先级与交付标准。</p>
+              <p class="entry-note">数据管线 · 流程自动化</p>
+              <div class="entry-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+            </article>
           </div>
-        </article>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2025–2026.03</p>
-          <div class="stop-body">
-            <h3 class="stop-role">联合创始人 &amp; CTO</h3>
-            <p class="stop-org">CrAIg Capital</p>
-            <p class="stop-desc">AI 辅助住房债务催收产品的产品与工程：数据管线、流程自动化、路线图与交付。</p>
-          </div>
-        </article>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2025.06–08</p>
-          <div class="stop-body">
-            <h3 class="stop-role">AI 工程实习生</h3>
-            <p class="stop-org">Piezolab Medical</p>
-            <p class="stop-desc">搭建大模型辅助流程，对 5,000 余份医疗事故资料进行导入、清洗与聚类，并为血管护理研究开发智能体工作流。</p>
-          </div>
-        </article>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2024.06–08</p>
-          <div class="stop-body">
-            <h3 class="stop-role">商务拓展实习生</h3>
-            <p class="stop-org">杭州好安健客科技有限公司</p>
-            <p class="stop-desc">梳理基于网易 CodeWave 的内部平台需求，参与工程师招聘与界面规划。</p>
-          </div>
-        </article>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2023.06–08</p>
-          <div class="stop-body">
-            <h3 class="stop-role">应用工程实习生</h3>
-            <p class="stop-org">Synaptics</p>
-            <p class="stop-desc">验证产品固件，并用 ESP32 → 阿里云 MQTT 链路把 I²C 传感器数据送入内部看板。</p>
-          </div>
-        </article>
-
-        <article class="stop" data-reveal>
-          <p class="stop-year">2021–至今</p>
-          <div class="stop-body">
-            <h3 class="stop-role">投资分析实习生</h3>
-            <p class="stop-org">古渡医疗</p>
-            <p class="stop-desc">参与医疗科技项目筛选、市场研究、尽调、财务建模与估值。</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="notes" id="background" style="margin-top: clamp(40px, 5.5vw, 64px);" data-reveal>
-        <div class="note-group">
-          <h3>教育背景</h3>
-          <div class="note-row"><div><h4>加州大学洛杉矶分校</h4><p>计算机科学硕士</p></div><time>2026–2028</time></div>
-          <div class="note-row"><div><h4>南加州大学</h4><p>计算机科学学士 · GPA 3.76/4.00</p></div><time>2026</time></div>
-          <div class="note-row"><div><h4>加州大学圣克鲁兹分校</h4><p>计算机工程 · 转学 · GPA 3.97/4.00</p></div><time>2021–2023</time></div>
         </div>
-        <div class="note-group">
-          <h3>工具</h3>
-          <dl>
-            <div class="skill-row"><dt>语言</dt><dd>Python、C/C++、JavaScript/TypeScript、SQL</dd></div>
-            <div class="skill-row"><dt>机器学习</dt><dd>PyTorch、Triton、RDKit、Chemprop；多模态建模、高效注意力</dd></div>
-            <div class="skill-row"><dt>工程</dt><dd>FastAPI、Next.js、Supabase、Linux；自动化测试、数据管线</dd></div>
-          </dl>
-        </div>
-        <div class="note-group">
-          <h3>教学</h3>
-          <div class="teaching"><strong>机器学习助教 · UCSC</strong>2023 春 · Lise Getoor 教授<br>答疑、讨论课、Jupyter 作业与自动评分。</div>
-          <div class="teaching"><strong>助理教练 · 上海博思迪</strong>2014–2018 · VEX 机器人 &amp; 信息学奥赛</div>
+
+        <div class="archive-strip">
+          <p>其余内容——奖项、教学、更早的经历——都在档案里。</p>
+          <nav aria-label="完整记录"><a class="sweep" href="archive-zh.html">档案 ↗</a><a class="sweep" href="cv_zh.html">完整履历 ↗</a><a class="sweep" href="archive-zh.html#resumes">简历 ↗</a></nav>
         </div>
       </div>
     </section>
 
     <section class="contact wrap" id="contact" aria-labelledby="contact-title">
-      <div class="contact-main">
-        <p class="plate-no">图版 05 · 测绘结束</p>
+      <div>
+        <p class="mono">联系</p>
         <h2 class="contact-title" id="contact-title">保持<em>联系。</em></h2>
-        <a class="contact-email" href="mailto:bruceli@ucla.edu" data-magnetic>bruceli@ucla.edu</a>
-        <p class="contact-coords mono"><span>洛杉矶 · 34.05°N 118.24°W</span><span>+1 831-239-2728</span></p>
-        <nav class="contact-links" aria-label="其他链接">
-          <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/zhexiang-li/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="cv_zh.html">完整履历 ↗</a>
-          <a href="archive-zh.html">完整档案 ↗</a>
-          <a href="archive-zh.html#resumes">简历 ↗</a>
-          <a href="#top">返回顶部 ↑</a>
-        </nav>
+        <a class="contact-email" href="mailto:bruceli@ucla.edu">bruceli@ucla.edu</a>
       </div>
-      <div class="contact-aside">
-        <div class="contact-map"><img src="assets/atlas.svg" alt="" loading="lazy"><span class="contact-map-label">细节 · 图幅 00</span></div>
-        <svg class="stamp" viewBox="0 0 132 132" aria-hidden="true">
-          <circle cx="66" cy="66" r="52" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/>
-          <circle cx="66" cy="66" r="36" fill="none" stroke="currentColor" stroke-width="1"/>
-          <text x="66" y="64" text-anchor="middle" fill="currentColor" font-family="Fraunces, serif" font-size="20">Z·L</text>
-          <text x="66" y="79" text-anchor="middle" fill="currentColor" font-family="IBM Plex Mono, monospace" font-size="5.6" letter-spacing="1.4">SURVEY · 2026</text>
-        </svg>
-      </div>
+      <nav class="contact-links" aria-label="其他链接">
+        <a href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/zhexiang-li/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="cv_zh.html">履历 ↗</a>
+        <a href="archive-zh.html">档案 ↗</a>
+      </nav>
     </section>
   </main>
 
-  <dialog class="map-dialog" id="index-dialog" aria-labelledby="index-title">
-    <div class="dialog-head">
-      <h2 id="index-title">图版索引</h2>
-      <button class="dialog-close" type="button" data-close-index>关闭 ×</button>
-    </div>
-    <nav class="plate-index" aria-label="图版">
-      <a href="#research"><span class="n">01</span><span class="t">研究</span><span class="m">04 篇论文</span></a>
-      <a href="#work"><span class="n">02</span><span class="t">项目</span><span class="m">03 个产品</span></a>
-      <a href="#measures"><span class="n">03</span><span class="t">指标</span><span class="m">04 个读数</span></a>
-      <a href="#route"><span class="n">04</span><span class="t">经历</span><span class="m">07 段 + 笔记</span></a>
-      <a href="#contact"><span class="n">05</span><span class="t">联系</span><span class="m">邮箱 · 链接</span></a>
-      <a href="archive-zh.html"><span class="n">↗</span><span class="t">完整档案</span><span class="m">全部记录</span></a>
-    </nav>
-    <p class="dialog-note">测绘图幅 00 · 索引 · 五张图版，一种实践</p>
-  </dialog>
-
   <footer class="footer wrap">
     <p>© 2026 李哲骧（Bruce Li）</p>
-    <nav aria-label="页脚"><a href="cv_zh.html">履历</a><a href="archive-zh.html">档案</a><a href="archive-zh.html#resumes">简历</a><a href="#top">顶部 ↑</a></nav>
+    <nav aria-label="页脚"><a href="archive-zh.html">档案</a><a href="cv_zh.html">履历</a><a href="archive-zh.html#resumes">简历</a><a href="#top">顶部 ↑</a></nav>
     <p>2026 年 10 月更新</p>
   </footer>
 </body>
 </html>
+
+
+
 

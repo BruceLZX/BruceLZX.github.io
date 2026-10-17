@@ -1,13 +1,14 @@
 # Zhexiang (Bruce) Li — personal website
 
-A static field-survey portfolio: warm paper, contour maps, and five "plates" that
-organise research, work, measures, route, and contact. No build step, no
-framework, deployed from the repository root by GitHub Pages.
+A static portfolio: warm paper, a contour field, and six selected works. A
+scroll-driven map pans between six stops — two papers, two products, two roles.
+No build step, no framework, deployed from the repository root by GitHub Pages.
 
 ## Pages
 
-- `index.html` / `index-zh.html`: Atlas homepage. A contour-map index links to
-  five plates; the same index is available as a dialog from the navigation.
+- `index.html` / `index-zh.html`: Selected work. A sticky contour map moves
+  between six stops as you scroll; clicking a stop jumps to that entry. The
+  archive and CV hold the full record.
 - `archive.html` / `archive-zh.html`: full experience archive, including the
   collapsible resume downloads. Uses `site.css` + `resume-downloads.css`.
 - `cv.html` / `cv_zh.html`: full academic and professional CVs. Skills appear
@@ -21,14 +22,17 @@ framework, deployed from the repository root by GitHub Pages.
 - `atlas.css`, `atlas.js`: the homepage. Vanilla CSS/JS, one accent
   (`#3f5c3f`), Fraunces + Inter + IBM Plex Mono, light and dark themes,
   `prefers-reduced-motion`, and cross-page View Transitions between EN/ZH.
-- `assets/atlas.svg`: the contour map. Regenerate with
+- The map camera is driven by scroll position. It translates and scales a
+  210%-wide contour field so the active stop sits near the frame centre; the
+  route line fills in one segment per stop. Desktop is a sticky split view;
+  mobile keeps the map as a 36vh sticky band above stacked entries.
+- `assets/atlas.svg`: the six-station contour map. Regenerate with
   `python scripts/make_atlas.py` (requires numpy and matplotlib). It writes the
   same file path and keeps the SVG under 30 KB.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
-- The new pages sit below a fixed 72px navigation; sections use 1px rules and a
-  12-column grid. Mobile collapses the map into a labelled index band and stacks
-  every plate.
+- The homepage sits below a fixed 68px navigation and uses 1px rules. There is
+  no separate Now/About section: current context lives in the hero and archive.
 
 ## Checks
 
@@ -57,4 +61,5 @@ and the evidence supporting the research results.
 
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
-JavaScript disabled; motion and the map index are enhancements only.
+JavaScript disabled; motion, the map camera, and the sticky panes are
+enhancements only.
