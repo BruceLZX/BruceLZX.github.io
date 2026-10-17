@@ -400,7 +400,7 @@ html[lang="zh-CN"] .section-head h2 {
 }
 
 .map-ready .map-world {
-  width: 210%;
+  width: 165%;
   height: auto;
   aspect-ratio: 1400 / 1037;
 }
@@ -443,11 +443,12 @@ html[lang="zh-CN"] .section-head h2 {
   stroke-width: 1.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0;
-  transition: opacity .45s var(--ease);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset .7s var(--ease);
 }
 
-.map-route .route-seg.is-done { opacity: 1; }
+.map-route .route-seg.is-done { stroke-dashoffset: 0; }
 
 .stop {
   position: absolute;
@@ -463,6 +464,27 @@ html[lang="zh-CN"] .section-head h2 {
   background: none;
   cursor: pointer;
   transform: translate(-50%, -50%);
+}
+
+.stop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 1px solid color-mix(in srgb, var(--clay) 55%, transparent);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stop.is-active::after { animation: stop-ring 2.8s var(--ease) infinite; }
+
+@keyframes stop-ring {
+  0% { transform: scale(.7); opacity: .55; }
+  75%, 100% { transform: scale(1.9); opacity: 0; }
 }
 
 .stop .dot {
@@ -491,16 +513,25 @@ html[lang="zh-CN"] .section-head h2 {
 }
 
 .stop:hover .dot,
-.stop:focus-visible .dot,
+.stop:focus-visible .dot {
+  background: var(--clay);
+  border-color: var(--clay);
+  transform: scale(1.2);
+}
+
 .stop.is-active .dot {
   background: var(--clay);
   border-color: var(--clay);
-  transform: scale(1.25);
+  transform: scale(1.9);
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--paper) 78%, transparent),
+    0 0 0 7px color-mix(in srgb, var(--clay) 55%, transparent);
 }
 
 .stop[data-type="role"]:hover .dot,
-.stop[data-type="role"]:focus-visible .dot,
-.stop[data-type="role"].is-active .dot { transform: rotate(45deg) scale(1.25); }
+.stop[data-type="role"]:focus-visible .dot { transform: rotate(45deg) scale(1.2); }
+
+.stop[data-type="role"].is-active .dot { transform: rotate(45deg) scale(1.9); }
 
 .stop.is-active .num { color: var(--clay); }
 
@@ -896,6 +927,8 @@ html[lang="zh-CN"] .footer { font-size: 10px; }
   .progress { animation: none; }
   .map-world { transition: none !important; }
   .map-route .route-seg { transition: none; }
+  .stop.is-active::after { animation: none; opacity: 0; }
+  .stop.is-active::after { animation: none; opacity: 0; }
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none; }
 }
@@ -907,6 +940,8 @@ html[lang="zh-CN"] .footer { font-size: 10px; }
   .entry { min-height: 0; break-inside: avoid; }
   .survey-stage { display: block; }
 }
+
+
 
 
 

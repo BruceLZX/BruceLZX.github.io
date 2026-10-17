@@ -22,10 +22,11 @@ No build step, no framework, deployed from the repository root by GitHub Pages.
 - `atlas.css`, `atlas.js`: the homepage. Vanilla CSS/JS, one accent
   (`#3f5c3f`), Fraunces + Inter + IBM Plex Mono, light and dark themes,
   `prefers-reduced-motion`, and cross-page View Transitions between EN/ZH.
-- The map camera is driven by scroll position. It translates and scales a
-  210%-wide contour field so the active stop sits near the frame centre; the
-  route line fills in one segment per stop. Desktop is a sticky split view;
-  mobile keeps the map as a 36vh sticky band above stacked entries.
+- The map camera is driven by scroll position. It pans a 165%-wide contour
+  field so the active stop sits near the frame centre while all six points stay
+  visible and clickable; the active point enlarges and the route draws in one
+  segment per stop. Desktop is a sticky split view; mobile keeps the map as a
+  36vh sticky band above stacked entries.
 - `assets/atlas.svg`: the six-station contour map. Regenerate with
   `python scripts/make_atlas.py` (requires numpy and matplotlib). It writes the
   same file path and keeps the SVG under 30 KB.
@@ -63,3 +64,4 @@ Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
 JavaScript disabled; motion, the map camera, and the sticky panes are
 enhancements only.
+

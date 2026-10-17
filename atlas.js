@@ -79,14 +79,29 @@
     const fh = frame.clientHeight;
     const ww = world.offsetWidth;
     const wh = world.offsetHeight;
-    const scale = 1.06;
-    const px = points[index].x * ww;
-    const py = points[index].y * wh;
-    return {
-      x: clamp(fw / 2 - px * scale, fw - ww * scale, 0),
-      y: clamp(fh / 2 - py * scale, fh - wh * scale, 0),
-      s: scale,
-    };
+    const scale = 1;
+    const padX = Math.max(16, fw * 0.04);
+    const padTop = 48;
+    const padBottom = 92;
+
+    const xs = points.map((point) => point.x * ww);
+    const ys = points.map((point) => point.y * wh);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+
+    const minTx = Math.max(padX - minX, fw - ww);
+    const maxTx = Math.min(fw - padX - maxX, 0);
+    const minTy = Math.max(padTop - minY, fh - wh);
+    const maxTy = Math.min(fh - padBottom - maxY, 0);
+
+    const px = xs[index];
+    const py = ys[index];
+    const tx = minTx <= maxTx ? clamp(fw / 2 - px, minTx, maxTx) : 0;
+    const ty = minTy <= maxTy ? clamp(fh / 2 - py, minTy, maxTy) : 0;
+
+    return { x: tx, y: ty, s: scale };
   };
 
   const applyCamera = () => {

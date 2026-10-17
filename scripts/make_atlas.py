@@ -12,12 +12,12 @@ W, H = 1400, 1037
 
 # six stops, in reading order: paper, paper, product, product, role, role
 POINTS = [
-    (0.25, 0.32),
-    (0.33, 0.58),
-    (0.45, 0.28),
-    (0.57, 0.58),
-    (0.69, 0.30),
-    (0.75, 0.64),
+    (0.22, 0.66),
+    (0.31, 0.50),
+    (0.42, 0.38),
+    (0.54, 0.34),
+    (0.66, 0.42),
+    (0.76, 0.58),
 ]
 WEIGHTS = [1.0, 1.05, 1.1, 1.0, 1.15, 1.2]
 
@@ -27,16 +27,16 @@ X, Y = np.meshgrid(gx, gy)
 
 Z = np.zeros_like(X)
 for (px, py), weight in zip(POINTS, WEIGHTS):
-    sx = 0.082 + 0.01 * weight
-    sy = 0.072 + 0.01 * weight
+    sx = 0.062 + 0.006 * weight
+    sy = 0.056 + 0.006 * weight
     Z += weight * np.exp(-(((X - px) ** 2) / (2 * sx**2) + ((Y - py) ** 2) / (2 * sy**2)))
 
 # shallow ridge through the survey route + low-frequency noise
-Z += 0.26 * np.exp(-(((X - 0.50) ** 2) / 0.30 + ((Y - 0.48) ** 2) / 0.42))
-Z += 0.09 * np.sin(7.2 * X + 1.2) * np.cos(5.3 * Y + 0.5)
+Z += 0.16 * np.exp(-(((X - 0.50) ** 2) / 0.30 + ((Y - 0.48) ** 2) / 0.42))
+Z += 0.12 * np.sin(7.2 * X + 1.2) * np.cos(5.3 * Y + 0.5)
 Z += 0.05 * np.sin(12.6 * X - 2.9) * np.sin(8.7 * Y + 1.6)
 
-levels = np.linspace(Z.min() + 0.02, Z.max() * 0.96, 21)
+levels = np.linspace(Z.min() + 0.015, Z.max() * 0.97, 28)
 
 fig, ax = plt.subplots(figsize=(W / 100, H / 100), dpi=100)
 cs = ax.contour(X, Y, Z, levels=levels, linewidths=0.7)
@@ -101,3 +101,4 @@ for level_index, closed, d in paths:
 parts.append("</svg>")
 OUT.write_text("\n".join(parts), encoding="utf-8")
 print("paths", len(paths), "bytes", OUT.stat().st_size // 1024, "KB")
+
