@@ -1,14 +1,14 @@
 # Zhexiang (Bruce) Li — personal website
 
-A static portfolio: warm paper, a blurred contour field, and six selected works
-— two papers, two products, two roles. No build step, no framework, deployed
-from the repository root by GitHub Pages.
+A static portfolio: warm paper, a clear contour field that pans with scroll,
+and six selected works — two papers, two products, two roles. No build step, no
+framework, deployed from the repository root by GitHub Pages.
 
 ## Pages
 
-- `index.html` / `index-zh.html`: Selected work. Six pieces in a single
-  editorial column beside a sticky index, over a fixed, blurred contour
-  backdrop. The archive and CV hold the full record.
+- `index.html` / `index-zh.html`: Selected work. Six full-height editorial
+  sections over a fixed contour map that pans to the matching point as you
+  scroll. The archive and CV hold the full record.
 - `archive.html` / `archive-zh.html`: full experience archive, including the
   collapsible resume downloads. Uses `site.css` + `resume-downloads.css`.
 - `cv.html` / `cv_zh.html`: full academic and professional CVs. Skills appear
@@ -22,18 +22,19 @@ from the repository root by GitHub Pages.
 - `atlas.css`, `atlas.js`: the homepage. Vanilla CSS/JS, one accent
   (`#3f5c3f`), Fraunces + Inter + IBM Plex Mono, light and dark themes,
   `prefers-reduced-motion`, and cross-page View Transitions between EN/ZH.
-- The contour field is a fixed, oversized backdrop: blurred and tinted. It
-  drifts on a 22-second cycle, scales and shifts with scroll, and follows the
-  pointer by a few pixels on desktop. It is decoration only — no map navigation,
-  no fake coordinates.
-- `assets/atlas.svg`: the organic contour field, generated from seeded random
-  peaks. Regenerate with `python scripts/make_atlas.py` (requires numpy and
+- The contour map is a fixed, oversized backdrop. Each work section owns one of
+  six map points; the camera interpolates between them as you scroll, so the
+  background moves continuously rather than jumping. The map is decoration — no
+  map navigation, no fake coordinates.
+- `assets/atlas.svg`: six seeded contour peaks with numbered markers and no
+  route line. Regenerate with `python scripts/make_atlas.py` (requires numpy and
   matplotlib). It writes the same file path and keeps the SVG under 50 KB.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
 - The homepage sits below a fixed 68px navigation and uses 1px rules. There is
   no separate Now/About section: current context lives in the hero and archive.
-  On mobile the sticky index is hidden, pieces stack, and the backdrop softens.
+  On mobile each section is 94svh, the text stacks full width, and the map sits
+  under a stronger paper veil.
 
 ## Checks
 
@@ -62,8 +63,8 @@ and the evidence supporting the research results.
 
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
-JavaScript disabled; motion, the sticky index, and the backdrop are
-enhancements only.
+JavaScript disabled; the scroll-driven map is an enhancement only.
+
 
 
 

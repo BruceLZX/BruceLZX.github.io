@@ -52,7 +52,7 @@
   const revealItems = [...document.querySelectorAll('[data-reveal]')];
 
   revealItems.forEach((item, index) => {
-    item.style.setProperty('--d', `${Math.min(index % 4, 3) * 70}ms`);
+    item.style.setProperty('--d', `${Math.min(index % 3, 2) * 80}ms`);
   });
 
   if (reduce.matches || !('IntersectionObserver' in window)) {
@@ -64,75 +64,82 @@
         entry.target.classList.add('is-in');
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8%', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -10%', threshold: 0.1 });
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  /* ---------- background drift ---------- */
-  const backdrop = document.querySelector('.atlas-bg');
-  let backdropFrame = 0;
+  /* ---------- scroll-driven map ---------- */
+  const map = document.querySelector('.atlas-map');
+  const pieces = [...document.querySelectorAll('.piece')];
+  const points = [
+    [0.36, 0.62],
+    [0.44, 0.30],
+    [0.52, 0.72],
+    [0.62, 0.42],
+    [0.72, 0.58],
+    [0.82, 0.26],
+  ];
+  let mapFrame = 0;
 
-  const paintBackdrop = () => {
-    backdropFrame = 0;
-    if (!backdrop) return;
-    if (reduce.matches) {
-      backdrop.style.setProperty('--bg-y', '0px');
-      backdrop.style.setProperty('--bg-scale', '1');
-      return;
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const paintMap = () => {
+    mapFrame = 0;
+    if (!map) return;
+
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const mw = map.offsetWidth;
+    const mh = map.offsetHeight;
+
+    let px = points[0][0];
+    let py = points[0][1];
+
+    if (!reduce.matches && pieces.length) {
+      const line = window.scrollY + vh * 0.5;
+      const centers = pieces.map((piece) => piece.offsetTop + piece.offsetHeight * 0.5);
+
+      if (line >= centers[centers.length - 1]) {
+        px = points[points.length - 1][0];
+        py = points[points.length - 1][1];
+      } else if (line > centers[0]) {
+        for (let index = 0; index < centers.length - 1; index += 1) {
+          if (line > centers[index + 1]) continue;
+          const t = (line - centers[index]) / (centers[index + 1] - centers[index]);
+          px = points[index][0] + (points[index + 1][0] - points[index][0]) * t;
+          py = points[index][1] + (points[index + 1][1] - points[index][1]) * t;
+          break;
+        }
+      }
     }
-    const offset = Math.max(-200, Math.min(0, -window.scrollY * 0.07));
-    const scale = 1 + Math.min(0.08, window.scrollY * 0.00005);
-    backdrop.style.setProperty('--bg-y', `${offset.toFixed(1)}px`);
-    backdrop.style.setProperty('--bg-scale', scale.toFixed(3));
+
+    const centerX = vw * (narrow.matches ? 0.5 : 0.64);
+    const centerY = vh * (narrow.matches ? 0.24 : 0.5);
+    const x = clamp(centerX - px * mw, vw - mw, vw * 0.12);
+    const y = clamp(centerY - py * mh, vh - mh, vh * 0.12);
+
+    map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
   };
 
   window.addEventListener('scroll', () => {
-    if (backdropFrame) return;
-    backdropFrame = requestAnimationFrame(paintBackdrop);
+    if (mapFrame) return;
+    mapFrame = requestAnimationFrame(paintMap);
   }, { passive: true });
-  paintBackdrop();
 
-  const backdropImage = document.querySelector('.atlas-bg img');
-  const finePointer = window.matchMedia('(pointer: fine)');
+  window.addEventListener('resize', () => {
+    if (mapFrame) return;
+    mapFrame = requestAnimationFrame(paintMap);
+  }, { passive: true });
 
-  if (backdropImage && finePointer.matches) {
-    window.addEventListener('pointermove', (event) => {
-      if (reduce.matches || narrow.matches) return;
-      const x = (event.clientX / window.innerWidth - 0.5) * 32;
-      const y = (event.clientY / window.innerHeight - 0.5) * 22;
-      backdropImage.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`;
-    }, { passive: true });
+  paintMap();
 
-    document.addEventListener('pointerleave', () => {
-      backdropImage.style.translate = '0px 0px';
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      if (!mapFrame) paintMap();
     });
   }
 
-  /* ---------- work index ---------- */
-  const pieces = [...document.querySelectorAll('.piece')];
-  const indexLinks = [...document.querySelectorAll('.work-index a')];
-  let indexFrame = 0;
-
-  const paintIndex = () => {
-    indexFrame = 0;
-    if (!pieces.length || !indexLinks.length) return;
-    const navHeight = nav ? nav.offsetHeight : 68;
-    const line = navHeight + window.innerHeight * 0.24;
-    let current = pieces[0];
-    pieces.forEach((piece) => {
-      if (piece.getBoundingClientRect().top <= line) current = piece;
-    });
-    indexLinks.forEach((link) => {
-      if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'true');
-      else link.removeAttribute('aria-current');
-    });
-  };
-
-  window.addEventListener('scroll', () => {
-    if (indexFrame) return;
-    indexFrame = requestAnimationFrame(paintIndex);
-  }, { passive: true });
-  paintIndex();
+  window.addEventListener('load', paintMap);
 
   /* ---------- nav spy ---------- */
   const sections = [...document.querySelectorAll('main section[id]')];
@@ -152,5 +159,6 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
 
 
