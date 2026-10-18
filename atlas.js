@@ -75,12 +75,15 @@
   const paintBackdrop = () => {
     backdropFrame = 0;
     if (!backdrop) return;
-    if (reduce.matches || narrow.matches) {
+    if (reduce.matches) {
       backdrop.style.setProperty('--bg-y', '0px');
+      backdrop.style.setProperty('--bg-scale', '1');
       return;
     }
-    const offset = Math.max(-90, Math.min(0, -window.scrollY * 0.035));
+    const offset = Math.max(-200, Math.min(0, -window.scrollY * 0.07));
+    const scale = 1 + Math.min(0.08, window.scrollY * 0.00005);
     backdrop.style.setProperty('--bg-y', `${offset.toFixed(1)}px`);
+    backdrop.style.setProperty('--bg-scale', scale.toFixed(3));
   };
 
   window.addEventListener('scroll', () => {
@@ -88,6 +91,48 @@
     backdropFrame = requestAnimationFrame(paintBackdrop);
   }, { passive: true });
   paintBackdrop();
+
+  const backdropImage = document.querySelector('.atlas-bg img');
+  const finePointer = window.matchMedia('(pointer: fine)');
+
+  if (backdropImage && finePointer.matches) {
+    window.addEventListener('pointermove', (event) => {
+      if (reduce.matches || narrow.matches) return;
+      const x = (event.clientX / window.innerWidth - 0.5) * 32;
+      const y = (event.clientY / window.innerHeight - 0.5) * 22;
+      backdropImage.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`;
+    }, { passive: true });
+
+    document.addEventListener('pointerleave', () => {
+      backdropImage.style.translate = '0px 0px';
+    });
+  }
+
+  /* ---------- work index ---------- */
+  const pieces = [...document.querySelectorAll('.piece')];
+  const indexLinks = [...document.querySelectorAll('.work-index a')];
+  let indexFrame = 0;
+
+  const paintIndex = () => {
+    indexFrame = 0;
+    if (!pieces.length || !indexLinks.length) return;
+    const navHeight = nav ? nav.offsetHeight : 68;
+    const line = navHeight + window.innerHeight * 0.24;
+    let current = pieces[0];
+    pieces.forEach((piece) => {
+      if (piece.getBoundingClientRect().top <= line) current = piece;
+    });
+    indexLinks.forEach((link) => {
+      if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  window.addEventListener('scroll', () => {
+    if (indexFrame) return;
+    indexFrame = requestAnimationFrame(paintIndex);
+  }, { passive: true });
+  paintIndex();
 
   /* ---------- nav spy ---------- */
   const sections = [...document.querySelectorAll('main section[id]')];
@@ -107,3 +152,5 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
+

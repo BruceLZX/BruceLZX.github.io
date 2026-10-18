@@ -6,9 +6,9 @@ from the repository root by GitHub Pages.
 
 ## Pages
 
-- `index.html` / `index-zh.html`: Selected work. Six pieces in a two-column
-  editorial grid over a fixed, blurred contour backdrop. The archive and CV hold
-  the full record.
+- `index.html` / `index-zh.html`: Selected work. Six pieces in a single
+  editorial column beside a sticky index, over a fixed, blurred contour
+  backdrop. The archive and CV hold the full record.
 - `archive.html` / `archive-zh.html`: full experience archive, including the
   collapsible resume downloads. Uses `site.css` + `resume-downloads.css`.
 - `cv.html` / `cv_zh.html`: full academic and professional CVs. Skills appear
@@ -22,19 +22,18 @@ from the repository root by GitHub Pages.
 - `atlas.css`, `atlas.js`: the homepage. Vanilla CSS/JS, one accent
   (`#3f5c3f`), Fraunces + Inter + IBM Plex Mono, light and dark themes,
   `prefers-reduced-motion`, and cross-page View Transitions between EN/ZH.
-- The map camera is driven by scroll position. It pans a 165%-wide contour
-  field so the active stop sits near the frame centre while all six points stay
-  visible and clickable; the active point enlarges and the route draws in one
-  segment per stop. Desktop is a sticky split view; mobile keeps the map as a
-  36vh sticky band above stacked entries.
-- `assets/atlas.svg`: the six-station contour map. Regenerate with
-  `python scripts/make_atlas.py` (requires numpy and matplotlib). It writes the
-  same file path and keeps the SVG under 30 KB.
+- The contour field is a fixed, oversized backdrop: blurred and tinted. It
+  drifts on a 22-second cycle, scales and shifts with scroll, and follows the
+  pointer by a few pixels on desktop. It is decoration only — no map navigation,
+  no fake coordinates.
+- `assets/atlas.svg`: the organic contour field, generated from seeded random
+  peaks. Regenerate with `python scripts/make_atlas.py` (requires numpy and
+  matplotlib). It writes the same file path and keeps the SVG under 50 KB.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
 - The homepage sits below a fixed 68px navigation and uses 1px rules. There is
   no separate Now/About section: current context lives in the hero and archive.
-  Mobile collapses the grid to one column and softens the backdrop further.
+  On mobile the sticky index is hidden, pieces stack, and the backdrop softens.
 
 ## Checks
 
@@ -63,7 +62,8 @@ and the evidence supporting the research results.
 
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
-JavaScript disabled; motion, the map camera, and the sticky panes are
+JavaScript disabled; motion, the sticky index, and the backdrop are
 enhancements only.
+
 
 
