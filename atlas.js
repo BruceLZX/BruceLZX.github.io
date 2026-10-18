@@ -70,6 +70,7 @@
 
   /* ---------- scroll-driven map ---------- */
   const map = document.querySelector('.atlas-map');
+  const focus = document.querySelector('.map-focus');
   const focusLabel = document.querySelector('.map-focus-label');
   const pieces = [...document.querySelectorAll('.piece')];
   const points = [
@@ -96,6 +97,7 @@
     let px = points[0][0];
     let py = points[0][1];
     let pointIndex = 0;
+    let progress = 0;
 
     if (!reduce.matches && pieces.length) {
       const line = window.scrollY + vh * 0.5;
@@ -103,6 +105,7 @@
 
       if (line >= centers[centers.length - 1]) {
         pointIndex = points.length - 1;
+        progress = 1;
         px = points[pointIndex][0];
         py = points[pointIndex][1];
       } else if (line > centers[0]) {
@@ -110,6 +113,7 @@
           if (line > centers[index + 1]) continue;
           const t = (line - centers[index]) / (centers[index + 1] - centers[index]);
           pointIndex = t < 0.5 ? index : index + 1;
+          progress = (index + t) / (centers.length - 1);
           px = points[index][0] + (points[index + 1][0] - points[index][0]) * t;
           py = points[index][1] + (points[index + 1][1] - points[index][1]) * t;
           break;
@@ -117,12 +121,20 @@
       }
     }
 
-    const centerX = vw * (narrow.matches ? 0.5 : 0.82);
-    const centerY = vh * (narrow.matches ? 0.24 : 0.46);
+    const centerX = vw * (narrow.matches ? 0.5 : 0.84 + 0.1 * progress);
+    const centerY = vh * (narrow.matches ? 0.24 : 0.3 + 0.3 * progress);
     const x = clamp(centerX - px * mw, vw - mw, vw * 0.3);
     const y = clamp(centerY - py * mh, vh - mh, vh * 0.12);
 
     map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+
+    if (focus) {
+      const fx = clamp(px * mw + x, 20, vw - 20);
+      const fy = clamp(py * mh + y, 20, vh - 20);
+      focus.style.left = `${fx.toFixed(1)}px`;
+      focus.style.top = `${fy.toFixed(1)}px`;
+      focus.style.opacity = "1";
+    }
     if (focusLabel) focusLabel.textContent = String(pointIndex + 1).padStart(2, '0');
   };
 
@@ -164,6 +176,9 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
+
+
 
 
 
