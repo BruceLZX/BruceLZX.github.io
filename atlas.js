@@ -70,6 +70,7 @@
 
   /* ---------- scroll-driven map ---------- */
   const map = document.querySelector('.atlas-map');
+  const focusLabel = document.querySelector('.map-focus-label');
   const pieces = [...document.querySelectorAll('.piece')];
   const points = [
     [0.36, 0.62],
@@ -94,18 +95,21 @@
 
     let px = points[0][0];
     let py = points[0][1];
+    let pointIndex = 0;
 
     if (!reduce.matches && pieces.length) {
       const line = window.scrollY + vh * 0.5;
       const centers = pieces.map((piece) => piece.offsetTop + piece.offsetHeight * 0.5);
 
       if (line >= centers[centers.length - 1]) {
-        px = points[points.length - 1][0];
-        py = points[points.length - 1][1];
+        pointIndex = points.length - 1;
+        px = points[pointIndex][0];
+        py = points[pointIndex][1];
       } else if (line > centers[0]) {
         for (let index = 0; index < centers.length - 1; index += 1) {
           if (line > centers[index + 1]) continue;
           const t = (line - centers[index]) / (centers[index + 1] - centers[index]);
+          pointIndex = t < 0.5 ? index : index + 1;
           px = points[index][0] + (points[index + 1][0] - points[index][0]) * t;
           py = points[index][1] + (points[index + 1][1] - points[index][1]) * t;
           break;
@@ -113,12 +117,13 @@
       }
     }
 
-    const centerX = vw * (narrow.matches ? 0.5 : 0.64);
-    const centerY = vh * (narrow.matches ? 0.24 : 0.5);
-    const x = clamp(centerX - px * mw, vw - mw, vw * 0.12);
+    const centerX = vw * (narrow.matches ? 0.5 : 0.82);
+    const centerY = vh * (narrow.matches ? 0.24 : 0.46);
+    const x = clamp(centerX - px * mw, vw - mw, vw * 0.3);
     const y = clamp(centerY - py * mh, vh - mh, vh * 0.12);
 
     map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+    if (focusLabel) focusLabel.textContent = String(pointIndex + 1).padStart(2, '0');
   };
 
   window.addEventListener('scroll', () => {
@@ -159,6 +164,8 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
+
 
 
 

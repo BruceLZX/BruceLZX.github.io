@@ -6,9 +6,10 @@ framework, deployed from the repository root by GitHub Pages.
 
 ## Pages
 
-- `index.html` / `index-zh.html`: Selected work. Six full-height editorial
-  sections over a fixed contour map that pans to the matching point as you
-  scroll. The archive and CV hold the full record.
+- `index.html` / `index-zh.html`: Selected work. Six full-height sections;
+  each pairs a two-column narrative with three hard facts, over a fixed contour
+  map that pans to the matching numbered point as you scroll. The archive and CV
+  hold the full record.
 - `archive.html` / `archive-zh.html`: full experience archive, including the
   collapsible resume downloads. Uses `site.css` + `resume-downloads.css`.
 - `cv.html` / `cv_zh.html`: full academic and professional CVs. Skills appear
@@ -26,15 +27,17 @@ framework, deployed from the repository root by GitHub Pages.
   six map points; the camera interpolates between them as you scroll, so the
   background moves continuously rather than jumping. The map is decoration — no
   map navigation, no fake coordinates.
-- `assets/atlas.svg`: six seeded contour peaks with numbered markers and no
-  route line. Regenerate with `python scripts/make_atlas.py` (requires numpy and
-  matplotlib). It writes the same file path and keeps the SVG under 50 KB.
+- `assets/atlas.svg`: six seeded contour peaks with no route line. The active
+  point is an HTML focus marker whose number follows the section. Regenerate
+  with `python scripts/make_atlas.py` (requires numpy and matplotlib). It writes
+  the same file path and keeps the SVG under 50 KB.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
 - The homepage sits below a fixed 68px navigation and uses 1px rules. There is
   no separate Now/About section: current context lives in the hero and archive.
-  On mobile each section is 94svh, the text stacks full width, and the map sits
-  under a stronger paper veil.
+  Desktop sections are 100svh with a 1000px content grid. On mobile the narrative
+  stacks, facts wrap to two columns, sections take their content height, and the
+  focus marker is hidden.
 
 ## Checks
 
@@ -64,6 +67,8 @@ and the evidence supporting the research results.
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
 JavaScript disabled; the scroll-driven map is an enhancement only.
+
+
 
 
 

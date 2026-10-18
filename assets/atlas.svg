@@ -105,22 +105,4 @@
 <path d="M825 646L842 648L859 648L875 646L891 642L909 634L918 628L926 620L936 605L940 590L940 572L939 565L934 551L926 541L919 537L912 535L899 534L875 538L865 541L841 551L829 558L811 572L795 594L791 603L790 617L795 630L800 635L811 642L823 645Z" stroke="#3f5c3f" stroke-width="1.35" opacity=".58"/>
 <path d="M839 638L855 640L869 639L886 635L902 628L916 617L919 613L923 607L928 593L928 579L926 569L916 555L909 551L899 548L879 548L865 551L847 558L825 572L812 586L804 603L805 617L809 624L815 630L824 635L837 638Z" stroke="#5e7b59" stroke-width=".8" opacity=".4"/>
 <path d="M852 614L859 616L875 614L882 611L893 600L894 597L893 586L886 579L879 577L869 577L860 579L855 581L845 589L842 593L840 603L842 608L850 614Z" stroke="#5e7b59" stroke-width=".8" opacity=".4"/>
-<circle cx="504" cy="643" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="504" cy="643" r="3.2" fill="#9a5b3b"/>
-<text x="521" y="647" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">01</text>
-<circle cx="616" cy="311" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="616" cy="311" r="3.2" fill="#9a5b3b"/>
-<text x="633" y="315" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">02</text>
-<circle cx="728" cy="747" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="728" cy="747" r="3.2" fill="#9a5b3b"/>
-<text x="745" y="751" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">03</text>
-<circle cx="868" cy="436" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="868" cy="436" r="3.2" fill="#9a5b3b"/>
-<text x="885" y="440" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">04</text>
-<circle cx="1008" cy="601" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="1008" cy="601" r="3.2" fill="#9a5b3b"/>
-<text x="1025" y="605" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">05</text>
-<circle cx="1148" cy="270" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>
-<circle cx="1148" cy="270" r="3.2" fill="#9a5b3b"/>
-<text x="1165" y="274" fill="#3f5c3f" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">06</text>
 </svg>

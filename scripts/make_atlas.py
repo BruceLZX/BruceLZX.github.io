@@ -96,16 +96,6 @@ for level_index, closed, d in paths:
     else:
         parts.append(f'<path d="{d}" stroke="#5e7b59" stroke-width=".8" opacity=".4"/>')
 
-for index, (px, py) in enumerate(POINTS, 1):
-    x, y = px * W, py * H
-    parts.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="11" fill="#f4f1e4" stroke="#9a5b3b" stroke-width="2.4"/>')
-    parts.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="3.2" fill="#9a5b3b"/>')
-    parts.append(
-        f'<text x="{x + 17:.0f}" y="{y + 4:.0f}" fill="#3f5c3f" '
-        'font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="1">'
-        f'{index:02d}</text>'
-    )
-
 parts.append("</svg>")
 OUT.write_text("\n".join(parts), encoding="utf-8")
 print("paths", len(paths), "bytes", OUT.stat().st_size // 1024, "KB")
