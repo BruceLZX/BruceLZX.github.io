@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="atlas.css?v=20261019">
+  <link rel="stylesheet" href="atlas.css?v=20261022">
   <script>
     (function () {
       try {
@@ -28,14 +28,14 @@
       document.documentElement.classList.add('js');
     })();
   </script>
-  <script defer src="atlas.js?v=20261019"></script>
+  <script defer src="atlas.js?v=20261022"></script>
 </head>
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
-  <div class="atlas-bg" aria-hidden="true"><div class="atlas-map"><img src="assets/atlas.svg" alt="" width="1400" height="1037"></div><div class="map-focus" aria-hidden="true"><span class="map-focus-dot"></span><span class="map-focus-label">01</span></div></div>
+  <div class="atlas-bg" aria-hidden="true" data-intro="fade"><div class="atlas-map"><img src="assets/atlas.svg" alt="" width="1400" height="1037"></div><div class="map-pins" aria-hidden="true"><span class="map-pin is-active" style="left:36%;top:62%"><span class="map-pin-head">01</span></span><span class="map-pin" style="left:44%;top:30%"><span class="map-pin-head">02</span></span><span class="map-pin" style="left:52%;top:62%"><span class="map-pin-head">03</span></span><span class="map-pin" style="left:62%;top:42%"><span class="map-pin-head">04</span></span><span class="map-pin" style="left:72%;top:58%"><span class="map-pin-head">05</span></span><span class="map-pin" style="left:82%;top:26%"><span class="map-pin-head">06</span></span></div></div>
 
-  <header class="nav" data-nav>
+  <header class="nav" data-nav data-intro="fade">
     <div class="wrap nav-inner">
       <a class="brand" href="#top">Zhexiang Li</a>
       <nav class="nav-links" aria-label="Sections">
@@ -56,15 +56,15 @@
 
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
-      <p class="eyebrow">Bruce Li · UCLA · Health Intelligence Lab</p>
-      <h1 id="hero-title">Zhexiang Li</h1>
-      <p class="hero-lede">I build auditable models and the efficient attention systems underneath them — from mass spectra to medical images. Currently at UCLA's Health Intelligence Lab, advised by Yuzhe Yang.</p>
-      <div class="hero-links">
+      <p class="eyebrow" data-intro style="--d:90ms">Bruce Li · UCLA · Health Intelligence Lab</p>
+      <h1 id="hero-title" data-intro style="--d:150ms">Zhexiang Li</h1>
+      <p class="hero-lede" data-intro style="--d:230ms">I build auditable models and the efficient attention systems underneath them — from mass spectra to medical images. Currently at UCLA's Health Intelligence Lab, advised by Yuzhe Yang.</p>
+      <div class="hero-links" data-intro style="--d:310ms">
         <a class="arrow-link" href="#selected">Selected work <span aria-hidden="true">↓</span></a>
         <a class="sweep" href="https://github.com/BruceLZX" target="_blank" rel="noopener">GitHub ↗</a>
         <a class="sweep" href="https://www.linkedin.com/in/zhexiang-li/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
-      <div class="hero-meta">
+      <div class="hero-meta" data-intro style="--d:390ms">
         <p class="mono">M.S. Computer Science · 2026–2028</p>
         <p class="mono">Los Angeles, CA</p>
         <p class="mono">Available Jun 13 – Sep 17, 2027</p>
@@ -75,7 +75,7 @@
       <div class="wrap">
         <div class="work-list">
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro style="--d:480ms">
               <div class="piece-rail">
                 <span class="piece-index">01</span>
                 <span class="piece-type">Paper · 2026</span>
@@ -93,7 +93,7 @@
           </article>
 
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro>
               <div class="piece-rail">
                 <span class="piece-index">02</span>
                 <span class="piece-type">Paper · 2025</span>
@@ -111,7 +111,7 @@
           </article>
 
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro>
               <div class="piece-rail">
                 <span class="piece-index">03</span>
                 <span class="piece-type">Product · 2026</span>
@@ -129,7 +129,7 @@
           </article>
 
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro>
               <div class="piece-rail">
                 <span class="piece-index">04</span>
                 <span class="piece-type">Product · 2026</span>
@@ -147,7 +147,7 @@
           </article>
 
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro>
               <div class="piece-rail">
                 <span class="piece-index">05</span>
                 <span class="piece-type">Role · Jul–Aug 2026</span>
@@ -165,7 +165,7 @@
           </article>
 
           <article class="piece" data-reveal>
-            <div class="piece-main">
+            <div class="piece-main" data-intro>
               <div class="piece-rail">
                 <span class="piece-index">06</span>
                 <span class="piece-type">Role · 2025–Mar 2026</span>
@@ -183,13 +183,13 @@
           </article>
         </div>
 
-        <div class="archive-strip">
+        <div class="archive-strip" data-intro>
           <p>The rest — awards, teaching, earlier roles — is in the archive.</p>
           <nav aria-label="Full record"><a class="sweep" href="archive.html">Archive ↗</a><a class="sweep" href="cv.html">Full CV ↗</a><a class="sweep" href="archive.html#resumes">Résumés ↗</a></nav>
         </div>
       </div>
     </section>
-    <section class="contact wrap" id="contact" aria-labelledby="contact-title">
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title" data-intro>
       <div>
         <p class="mono">Contact</p>
         <h2 class="contact-title" id="contact-title">Let’s <em>talk.</em></h2>
@@ -204,13 +204,18 @@
     </section>
   </main>
 
-  <footer class="footer wrap">
+  <footer class="footer wrap" data-intro>
     <p>© 2026 Zhexiang (Bruce) Li</p>
     <nav aria-label="Footer"><a href="archive.html">Archive</a><a href="cv.html">CV</a><a href="archive.html#resumes">Résumés</a><a href="#top">Top ↑</a></nav>
     <p>Updated October 2026</p>
   </footer>
 </body>
 </html>
+
+
+
+
+
 
 
 

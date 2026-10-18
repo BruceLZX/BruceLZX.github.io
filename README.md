@@ -27,17 +27,21 @@ framework, deployed from the repository root by GitHub Pages.
   six map points; the camera interpolates between them as you scroll, so the
   background moves continuously rather than jumping. The map is decoration — no
   map navigation, no fake coordinates.
-- `assets/atlas.svg`: six seeded contour peaks with no route line. An HTML
-  focus marker travels with the active point; its number follows the section. It
-  is hidden below 1000px. Regenerate with `python scripts/make_atlas.py`
-  (requires numpy and matplotlib). The SVG stays under 50 KB.
+- `assets/atlas.svg`: six seeded contour peaks with no route line. Six small dots
+  are baked into the contour field; an HTML pin marks the active section, and the
+  camera centres it at 92% / 46% so scrolling to a section positions the map on
+  that pin. Pins are hidden on mobile. Regenerate with
+  `python scripts/make_atlas.py` (requires numpy and matplotlib). The SVG stays
+  under 50 KB.
+- On load, the navigation, hero, map, section blocks, contact, and footer run a
+  staggered entrance animation; the map fades in behind them.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
 - The homepage sits below a fixed 68px navigation and uses 1px rules. There is
   no separate Now/About section: current context lives in the hero and archive.
   Desktop sections are 88svh with a number rail and a 760px copy column. On
   mobile the rail becomes a row, the copy stacks, sections take their content
-  height, and the focus marker is hidden.
+  height, and the map pins are hidden.
 
 ## Checks
 
@@ -67,6 +71,8 @@ and the evidence supporting the research results.
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
 JavaScript disabled; the scroll-driven map is an enhancement only.
+
+
 
 
 

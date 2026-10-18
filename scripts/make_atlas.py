@@ -13,7 +13,7 @@ W, H = 1400, 1037
 POINTS = [
     (0.36, 0.62),
     (0.44, 0.30),
-    (0.52, 0.72),
+    (0.52, 0.62),
     (0.62, 0.42),
     (0.72, 0.58),
     (0.82, 0.26),
@@ -96,7 +96,13 @@ for level_index, closed, d in paths:
     else:
         parts.append(f'<path d="{d}" stroke="#5e7b59" stroke-width=".8" opacity=".4"/>')
 
+for px, py in POINTS:
+    parts.append(
+        f'<circle cx="{px * W:.0f}" cy="{py * H:.0f}" r="7" fill="#9a5b3b" opacity=".5"/>'
+    )
+
 parts.append("</svg>")
 OUT.write_text("\n".join(parts), encoding="utf-8")
 print("paths", len(paths), "bytes", OUT.stat().st_size // 1024, "KB")
+
 

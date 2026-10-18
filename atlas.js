@@ -70,13 +70,12 @@
 
   /* ---------- scroll-driven map ---------- */
   const map = document.querySelector('.atlas-map');
-  const focus = document.querySelector('.map-focus');
-  const focusLabel = document.querySelector('.map-focus-label');
+  const pins = [...document.querySelectorAll('.map-pin')];
   const pieces = [...document.querySelectorAll('.piece')];
   const points = [
     [0.36, 0.62],
     [0.44, 0.30],
-    [0.52, 0.72],
+    [0.52, 0.62],
     [0.62, 0.42],
     [0.72, 0.58],
     [0.82, 0.26],
@@ -97,7 +96,6 @@
     let px = points[0][0];
     let py = points[0][1];
     let pointIndex = 0;
-    let progress = 0;
 
     if (!reduce.matches && pieces.length) {
       const line = window.scrollY + vh * 0.5;
@@ -105,7 +103,6 @@
 
       if (line >= centers[centers.length - 1]) {
         pointIndex = points.length - 1;
-        progress = 1;
         px = points[pointIndex][0];
         py = points[pointIndex][1];
       } else if (line > centers[0]) {
@@ -113,7 +110,6 @@
           if (line > centers[index + 1]) continue;
           const t = (line - centers[index]) / (centers[index + 1] - centers[index]);
           pointIndex = t < 0.5 ? index : index + 1;
-          progress = (index + t) / (centers.length - 1);
           px = points[index][0] + (points[index + 1][0] - points[index][0]) * t;
           py = points[index][1] + (points[index + 1][1] - points[index][1]) * t;
           break;
@@ -121,21 +117,20 @@
       }
     }
 
-    const centerX = vw * (narrow.matches ? 0.5 : 0.92 + 0.02 * progress);
-    const centerY = vh * (narrow.matches ? 0.24 : 0.3 + 0.3 * progress);
+    const centerX = vw * (narrow.matches ? 0.5 : 0.92);
+    const centerY = vh * (narrow.matches ? 0.24 : 0.46);
     const x = clamp(centerX - px * mw, vw - mw, vw * 0.4);
     const y = clamp(centerY - py * mh, vh - mh, vh * 0.12);
 
     map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
 
-    if (focus) {
-      const fx = clamp(px * mw + x, 20, vw - 20);
-      const fy = clamp(py * mh + y, 20, vh - 20);
-      focus.style.left = `${fx.toFixed(1)}px`;
-      focus.style.top = `${fy.toFixed(1)}px`;
-      focus.style.opacity = "1";
-    }
-    if (focusLabel) focusLabel.textContent = String(pointIndex + 1).padStart(2, '0');
+    pins.forEach((pin, index) => {
+      const left = points[index][0] * mw + x;
+      const top = points[index][1] * mh + y;
+      pin.style.left = `${left.toFixed(1)}px`;
+      pin.style.top = `${top.toFixed(1)}px`;
+      pin.classList.toggle('is-active', index === pointIndex);
+    });
   };
 
   window.addEventListener('scroll', () => {
@@ -176,6 +171,7 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
 
 
 
