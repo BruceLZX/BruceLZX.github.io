@@ -33,6 +33,7 @@
 <body id="top">
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
+  <div class="atlas-bg" aria-hidden="true"><img src="assets/atlas.svg" alt="" width="1400" height="1037"></div>
 
   <header class="nav" data-nav>
     <div class="wrap nav-inner">
@@ -70,106 +71,73 @@
       </div>
     </section>
 
-    <section class="section survey" id="selected" aria-labelledby="selected-title">
+    <section class="section" id="selected" aria-labelledby="selected-title">
       <div class="wrap">
         <header class="section-head">
           <div>
             <h2 id="selected-title">Selected work</h2>
-            <p class="section-lede">Two papers, two products, two roles. Scroll to move across the map.</p>
+            <p class="section-lede">Two papers, two products, two roles.</p>
           </div>
           <a class="sweep section-link" href="archive.html">Full archive ↗</a>
         </header>
 
-        <div class="survey-stage">
-          <div class="map-panel">
-            <div class="map-frame" data-map role="group" aria-label="Selected work map">
-              <div class="map-world" data-world>
-                <img src="assets/atlas.svg" alt="" width="1400" height="1037">
-                <svg class="map-route" viewBox="0 0 1400 1037" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="route-base" d="M308 684 L434 519 L588 394 L756 353 L924 436 L1064 602"/>
-                  <path class="route-seg" pathLength="1" d="M308 684 L434 519"/>
-                  <path class="route-seg" pathLength="1" d="M434 519 L588 394"/>
-                  <path class="route-seg" pathLength="1" d="M588 394 L756 353"/>
-                  <path class="route-seg" pathLength="1" d="M756 353 L924 436"/>
-                  <path class="route-seg" pathLength="1" d="M924 436 L1064 602"/>
-                </svg>
-                <a class="stop" href="#stop-1" data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="Paper · 2026" style="--x:22%;--y:66%" aria-label="01 — MedTokenBudget"><span class="dot"></span><span class="num">01</span></a>
-                <a class="stop" href="#stop-2" data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="Paper · 2025" style="--x:31%;--y:50%" aria-label="02 — Efficient Attention via Pre-Scoring"><span class="dot"></span><span class="num">02</span></a>
-                <a class="stop" href="#stop-3" data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="Product · 2026" style="--x:42%;--y:38%" aria-label="03 — Fridge Manager"><span class="dot"></span><span class="num">03</span></a>
-                <a class="stop" href="#stop-4" data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="Product · 2026" style="--x:54%;--y:34%" aria-label="04 — AI Doctor WeChat"><span class="dot"></span><span class="num">04</span></a>
-                <a class="stop" href="#stop-5" data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="Role · Jul–Aug 2026" style="--x:66%;--y:42%" aria-label="05 — PMAOS"><span class="dot"></span><span class="num">05</span></a>
-                <a class="stop" href="#stop-6" data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="Role · 2025–Mar 2026" style="--x:76%;--y:58%" aria-label="06 — CrAIg Capital"><span class="dot"></span><span class="num">06</span></a>
-              </div>
-              <div class="map-top" aria-hidden="true"><span>Selected work</span><span>Six stops</span></div>
-              <div class="map-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="map-hud" aria-hidden="true">
-                <div>
-                  <p class="kicker" data-map-kicker>01 / 06 · Paper</p>
-                  <p class="title" data-map-title>MedTokenBudget</p>
-                </div>
-                <p class="count" data-map-count>01 / 06</p>
-              </div>
-            </div>
-          </div>
+        <div class="work-grid">
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">01</span><span>Paper · 2026</span></p>
+            <h3>MedTokenBudget</h3>
+            <p class="piece-dek">Keeping lesion evidence while using fewer image tokens.</p>
+            <p class="piece-body">Lesion-supervised token routing after a frozen vision backbone. At a 30% token budget on ISIC 2019: <strong>80.38 ± 0.18%</strong> versus <strong>76.93 ± 0.03%</strong> for ToMe across three seeds. The backbone is unchanged.</p>
+            <p class="piece-body">The router is trained with mask supervision, a budget curriculum, diversity regularization, and attention distillation; a separate audit asks how much ground-truth lesion evidence remains after routing.</p>
+            <p class="piece-note">Sole author · arXiv preprint</p>
+            <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
+          </article>
 
-          <div class="entries">
-            <article class="entry" id="stop-1" data-entry data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="Paper · 2026">
-              <p class="entry-kicker">Paper · 2026</p>
-              <h3>MedTokenBudget</h3>
-              <p class="entry-dek">Keeping lesion evidence while using fewer image tokens.</p>
-              <p class="entry-body">Lesion-supervised token routing after a frozen vision backbone. At a 30% token budget on ISIC 2019: <strong>80.38 ± 0.18%</strong> versus <strong>76.93 ± 0.03%</strong> for ToMe across three seeds. The backbone is unchanged.</p>
-              <p class="entry-body">The router is trained with mask supervision, a budget curriculum, diversity regularization, and attention distillation; a separate audit asks how much ground-truth lesion evidence remains after routing.</p>
-              <p class="entry-note">Sole author · arXiv preprint</p>
-              <div class="entry-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">02</span><span>Paper · 2025</span></p>
+            <h3>Efficient Attention via Pre-Scoring</h3>
+            <p class="piece-dek">Selecting informative key intervals before approximate attention.</p>
+            <p class="piece-body">Implemented in Triton and integrated with HyperAttention. At 131k-token contexts under a fixed interaction budget, ChatGLM perplexity fell from <strong>12.0 to 9.5</strong>. This is not a measured speedup.</p>
+            <p class="piece-body">Compared with HyperAttention and LevAttention on long-context language modeling.</p>
+            <p class="piece-note">First author · under review</p>
+            <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-2" data-entry data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="Paper · 2025">
-              <p class="entry-kicker">Paper · 2025</p>
-              <h3>Efficient Attention via Pre-Scoring</h3>
-              <p class="entry-dek">Selecting informative key intervals before approximate attention.</p>
-              <p class="entry-body">Implemented in Triton and integrated with HyperAttention. At 131k-token contexts under a fixed interaction budget, ChatGLM perplexity fell from <strong>12.0 to 9.5</strong>. This is not a measured speedup.</p>
-              <p class="entry-body">Compared with HyperAttention and LevAttention on long-context language modeling.</p>
-              <p class="entry-note">First author · under review</p>
-              <div class="entry-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">03</span><span>Product · 2026</span></p>
+            <h3>Fridge Manager</h3>
+            <p class="piece-dek">Inventory-aware meal and grocery planning.</p>
+            <p class="piece-body">Built with Next.js and Supabase around what is already in the fridge: leftovers, recipes, dietary preferences, and the time someone actually has.</p>
+            <p class="piece-note">Next.js · Supabase · live</p>
+            <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-3" data-entry data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="Product · 2026">
-              <p class="entry-kicker">Product · 2026</p>
-              <h3>Fridge Manager</h3>
-              <p class="entry-dek">Inventory-aware meal and grocery planning.</p>
-              <p class="entry-body">Built with Next.js and Supabase around what is already in the fridge: leftovers, recipes, dietary preferences, and the time someone actually has.</p>
-              <p class="entry-note">Next.js · Supabase · live</p>
-              <div class="entry-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">04</span><span>Product · 2026</span></p>
+            <h3>AI Doctor WeChat</h3>
+            <p class="piece-dek">Clinical teaching and collaboration across WeChat and the web.</p>
+            <p class="piece-body">A WeChat Mini Program, a web workspace, and a FastAPI backend with knowledge retrieval and patient intake for clinicians, assistants, and students.</p>
+            <p class="piece-note">WeChat · FastAPI · no public link</p>
+          </article>
 
-            <article class="entry" id="stop-4" data-entry data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="Product · 2026">
-              <p class="entry-kicker">Product · 2026</p>
-              <h3>AI Doctor WeChat</h3>
-              <p class="entry-dek">Clinical teaching and collaboration across WeChat and the web.</p>
-              <p class="entry-body">A WeChat Mini Program, a web workspace, and a FastAPI backend with knowledge retrieval and patient intake for clinicians, assistants, and students.</p>
-              <p class="entry-note">WeChat · FastAPI · no public link</p>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">05</span><span>Role · Jul–Aug 2026</span></p>
+            <h3>PMAOS / Next Big Seek</h3>
+            <p class="piece-dek">Recommendation, multimodal inference, and robot planning.</p>
+            <p class="piece-body">Designed bidirectional user–video interest propagation with exposure budgets; built an <strong>11-language</strong> audio-visual pipeline that can abstain or flag conflicting modalities; planned millirobot experiments.</p>
+            <p class="piece-body">The decision layer can abstain or report conflicting modalities instead of forcing a label; recommendation separates learned preference, retrieval scores, and diversity annotations.</p>
+            <p class="piece-note">Recommendation · multimodal · robotics</p>
+            <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-5" data-entry data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="Role · Jul–Aug 2026">
-              <p class="entry-kicker">Role · Jul–Aug 2026</p>
-              <h3>PMAOS / Next Big Seek</h3>
-              <p class="entry-dek">Recommendation, multimodal inference, and robot planning.</p>
-              <p class="entry-body">Designed bidirectional user–video interest propagation with exposure budgets; built an <strong>11-language</strong> audio-visual pipeline that can abstain or flag conflicting modalities; planned millirobot experiments.</p>
-              <p class="entry-body">The decision layer can abstain or report conflicting modalities instead of forcing a label; recommendation separates learned preference, retrieval scores, and diversity annotations.</p>
-              <p class="entry-note">Recommendation · multimodal · robotics</p>
-              <div class="entry-links"><a href="archive.html">More in the archive ↗</a></div>
-            </article>
-
-            <article class="entry" id="stop-6" data-entry data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="Role · 2025–Mar 2026">
-              <p class="entry-kicker">Role · 2025–Mar 2026</p>
-              <h3>CrAIg Capital</h3>
-              <p class="entry-dek">Co-founder and CTO of an AI-assisted housing debt-collection product.</p>
-              <p class="entry-body">Led product and engineering: data pipelines, workflow automation, roadmap, and delivery.</p>
-              <p class="entry-body">Set technical direction, hiring priorities, and delivery standards.</p>
-              <p class="entry-note">Data pipelines · automation</p>
-              <div class="entry-links"><a href="archive.html">More in the archive ↗</a></div>
-            </article>
-          </div>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">06</span><span>Role · 2025–Mar 2026</span></p>
+            <h3>CrAIg Capital</h3>
+            <p class="piece-dek">Co-founder and CTO of an AI-assisted housing debt-collection product.</p>
+            <p class="piece-body">Led product and engineering: data pipelines, workflow automation, roadmap, and delivery.</p>
+            <p class="piece-body">Set technical direction, hiring priorities, and delivery standards.</p>
+            <p class="piece-note">Data pipelines · automation</p>
+            <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
+          </article>
         </div>
 
         <div class="archive-strip">
@@ -178,7 +146,6 @@
         </div>
       </div>
     </section>
-
     <section class="contact wrap" id="contact" aria-labelledby="contact-title">
       <div>
         <p class="mono">Contact</p>

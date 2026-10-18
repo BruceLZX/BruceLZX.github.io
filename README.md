@@ -1,14 +1,14 @@
 # Zhexiang (Bruce) Li — personal website
 
-A static portfolio: warm paper, a contour field, and six selected works. A
-scroll-driven map pans between six stops — two papers, two products, two roles.
-No build step, no framework, deployed from the repository root by GitHub Pages.
+A static portfolio: warm paper, a blurred contour field, and six selected works
+— two papers, two products, two roles. No build step, no framework, deployed
+from the repository root by GitHub Pages.
 
 ## Pages
 
-- `index.html` / `index-zh.html`: Selected work. A sticky contour map moves
-  between six stops as you scroll; clicking a stop jumps to that entry. The
-  archive and CV hold the full record.
+- `index.html` / `index-zh.html`: Selected work. Six pieces in a two-column
+  editorial grid over a fixed, blurred contour backdrop. The archive and CV hold
+  the full record.
 - `archive.html` / `archive-zh.html`: full experience archive, including the
   collapsible resume downloads. Uses `site.css` + `resume-downloads.css`.
 - `cv.html` / `cv_zh.html`: full academic and professional CVs. Skills appear
@@ -34,6 +34,7 @@ No build step, no framework, deployed from the repository root by GitHub Pages.
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
 - The homepage sits below a fixed 68px navigation and uses 1px rules. There is
   no separate Now/About section: current context lives in the hero and archive.
+  Mobile collapses the grid to one column and softens the backdrop further.
 
 ## Checks
 
@@ -64,4 +65,5 @@ Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
 JavaScript disabled; motion, the map camera, and the sticky panes are
 enhancements only.
+
 

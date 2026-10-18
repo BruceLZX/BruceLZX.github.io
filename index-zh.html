@@ -33,6 +33,7 @@
 <body id="top">
   <a class="skip" href="#main">跳至正文</a>
   <div class="progress" aria-hidden="true"></div>
+  <div class="atlas-bg" aria-hidden="true"><img src="assets/atlas.svg" alt="" width="1400" height="1037"></div>
 
   <header class="nav" data-nav>
     <div class="wrap nav-inner">
@@ -70,106 +71,73 @@
       </div>
     </section>
 
-    <section class="section survey" id="selected" aria-labelledby="selected-title">
+    <section class="section" id="selected" aria-labelledby="selected-title">
       <div class="wrap">
         <header class="section-head">
           <div>
             <h2 id="selected-title">精选作品</h2>
-            <p class="section-lede">两篇论文、两个产品、两段经历。向下滚动，地图会在六个点之间移动。</p>
+            <p class="section-lede">两篇论文、两个产品、两段经历。</p>
           </div>
           <a class="sweep section-link" href="archive-zh.html">完整档案 ↗</a>
         </header>
 
-        <div class="survey-stage">
-          <div class="map-panel">
-            <div class="map-frame" data-map role="group" aria-label="精选作品地图">
-              <div class="map-world" data-world>
-                <img src="assets/atlas.svg" alt="" width="1400" height="1037">
-                <svg class="map-route" viewBox="0 0 1400 1037" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="route-base" d="M308 684 L434 519 L588 394 L756 353 L924 436 L1064 602"/>
-                  <path class="route-seg" pathLength="1" d="M308 684 L434 519"/>
-                  <path class="route-seg" pathLength="1" d="M434 519 L588 394"/>
-                  <path class="route-seg" pathLength="1" d="M588 394 L756 353"/>
-                  <path class="route-seg" pathLength="1" d="M756 353 L924 436"/>
-                  <path class="route-seg" pathLength="1" d="M924 436 L1064 602"/>
-                </svg>
-                <a class="stop" href="#stop-1" data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="论文 · 2026" style="--x:22%;--y:66%" aria-label="01 — MedTokenBudget"><span class="dot"></span><span class="num">01</span></a>
-                <a class="stop" href="#stop-2" data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="论文 · 2025" style="--x:31%;--y:50%" aria-label="02 — Efficient Attention via Pre-Scoring"><span class="dot"></span><span class="num">02</span></a>
-                <a class="stop" href="#stop-3" data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="产品 · 2026" style="--x:42%;--y:38%" aria-label="03 — Fridge Manager"><span class="dot"></span><span class="num">03</span></a>
-                <a class="stop" href="#stop-4" data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="产品 · 2026" style="--x:54%;--y:34%" aria-label="04 — AI Doctor WeChat"><span class="dot"></span><span class="num">04</span></a>
-                <a class="stop" href="#stop-5" data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="经历 · 2026.07–08" style="--x:66%;--y:42%" aria-label="05 — PMAOS"><span class="dot"></span><span class="num">05</span></a>
-                <a class="stop" href="#stop-6" data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="经历 · 2025–2026.03" style="--x:76%;--y:58%" aria-label="06 — CrAIg Capital"><span class="dot"></span><span class="num">06</span></a>
-              </div>
-              <div class="map-top" aria-hidden="true"><span>精选作品</span><span>六个停靠点</span></div>
-              <div class="map-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="map-hud" aria-hidden="true">
-                <div>
-                  <p class="kicker" data-map-kicker>01 / 06 · 论文</p>
-                  <p class="title" data-map-title>MedTokenBudget</p>
-                </div>
-                <p class="count" data-map-count>01 / 06</p>
-              </div>
-            </div>
-          </div>
+        <div class="work-grid">
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">01</span><span>论文 · 2026</span></p>
+            <h3>MedTokenBudget</h3>
+            <p class="piece-dek">用更少的图像 Token，保留病灶证据。</p>
+            <p class="piece-body">在冻结的视觉骨干网络之后做病灶监督的 Token 路由。ISIC 2019、30% Token 预算下，三个随机种子的准确率为 <strong>80.38 ± 0.18%</strong>，ToMe 为 <strong>76.93 ± 0.03%</strong>；骨干网络保持不变。</p>
+            <p class="piece-body">路由用 mask 监督、预算课程、多样性正则与注意力蒸馏训练；另有一套审计检查路由之后还保留了多少真实病灶证据。</p>
+            <p class="piece-note">独立作者 · arXiv 预印本</p>
+            <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
+          </article>
 
-          <div class="entries">
-            <article class="entry" id="stop-1" data-entry data-index="0" data-type="paper" data-title="MedTokenBudget" data-kicker="论文 · 2026">
-              <p class="entry-kicker">论文 · 2026</p>
-              <h3>MedTokenBudget</h3>
-              <p class="entry-dek">用更少的图像 Token，保留病灶证据。</p>
-              <p class="entry-body">在冻结的视觉骨干网络之后做病灶监督的 Token 路由。ISIC 2019、30% Token 预算下，三个随机种子的准确率为 <strong>80.38 ± 0.18%</strong>，ToMe 为 <strong>76.93 ± 0.03%</strong>；骨干网络保持不变。</p>
-              <p class="entry-body">路由用 mask 监督、预算课程、多样性正则与注意力蒸馏训练；另有一套审计检查路由之后还保留了多少真实病灶证据。</p>
-              <p class="entry-note">独立作者 · arXiv 预印本</p>
-              <div class="entry-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">02</span><span>论文 · 2025</span></p>
+            <h3>Efficient Attention via Pre-Scoring</h3>
+            <p class="piece-dek">在近似注意力之前，先筛选信息量更高的键区间。</p>
+            <p class="piece-body">用 Triton 实现，并与 HyperAttention 结合。131k token 上下文、固定交互预算下，ChatGLM 困惑度从 <strong>12.0 降到 9.5</strong>。这不是实测加速比。</p>
+            <p class="piece-body">与 HyperAttention、LevAttention 在长上下文语言建模上做了比较。</p>
+            <p class="piece-note">第一作者 · 审稿中</p>
+            <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-2" data-entry data-index="1" data-type="paper" data-title="Efficient Attention via Pre-Scoring" data-kicker="论文 · 2025">
-              <p class="entry-kicker">论文 · 2025</p>
-              <h3>Efficient Attention via Pre-Scoring</h3>
-              <p class="entry-dek">在近似注意力之前，先筛选信息量更高的键区间。</p>
-              <p class="entry-body">用 Triton 实现，并与 HyperAttention 结合。131k token 上下文、固定交互预算下，ChatGLM 困惑度从 <strong>12.0 降到 9.5</strong>。这不是实测加速比。</p>
-              <p class="entry-body">与 HyperAttention、LevAttention 在长上下文语言建模上做了比较。</p>
-              <p class="entry-note">第一作者 · 审稿中</p>
-              <div class="entry-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">03</span><span>产品 · 2026</span></p>
+            <h3>Fridge Manager</h3>
+            <p class="piece-dek">按现有食材做用餐与采购规划。</p>
+            <p class="piece-body">用 Next.js 和 Supabase 构建，从冰箱里已有的东西出发：剩菜、菜谱、饮食偏好，以及真正可用的时间。</p>
+            <p class="piece-note">Next.js · Supabase · 已上线</p>
+            <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-3" data-entry data-index="2" data-type="product" data-title="Fridge Manager" data-kicker="产品 · 2026">
-              <p class="entry-kicker">产品 · 2026</p>
-              <h3>Fridge Manager</h3>
-              <p class="entry-dek">按现有食材做用餐与采购规划。</p>
-              <p class="entry-body">用 Next.js 和 Supabase 构建，从冰箱里已有的东西出发：剩菜、菜谱、饮食偏好，以及真正可用的时间。</p>
-              <p class="entry-note">Next.js · Supabase · 已上线</p>
-              <div class="entry-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">04</span><span>产品 · 2026</span></p>
+            <h3>AI Doctor WeChat</h3>
+            <p class="piece-dek">连接微信与 Web 的临床教学与协作。</p>
+            <p class="piece-body">微信小程序、Web 工作台与 FastAPI 后端，支持知识检索与患者信息采集，服务医生、助理与学生。</p>
+            <p class="piece-note">微信 · FastAPI · 无公开链接</p>
+          </article>
 
-            <article class="entry" id="stop-4" data-entry data-index="3" data-type="product" data-title="AI Doctor WeChat" data-kicker="产品 · 2026">
-              <p class="entry-kicker">产品 · 2026</p>
-              <h3>AI Doctor WeChat</h3>
-              <p class="entry-dek">连接微信与 Web 的临床教学与协作。</p>
-              <p class="entry-body">微信小程序、Web 工作台与 FastAPI 后端，支持知识检索与患者信息采集，服务医生、助理与学生。</p>
-              <p class="entry-note">微信 · FastAPI · 无公开链接</p>
-            </article>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">05</span><span>经历 · 2026.07–08</span></p>
+            <h3>PMAOS / Next Big Seek</h3>
+            <p class="piece-dek">推荐、多模态推理与机器人规划。</p>
+            <p class="piece-body">设计用户与视频之间的双向兴趣传播与曝光预算；搭建支持 <strong>11 种语言</strong>、可以弃权或标出模态冲突的音视频链路；参与毫米机器人实验规划。</p>
+            <p class="piece-body">决策层可以弃权或标出模态冲突，而不是强行给出标签；推荐侧把学习到的偏好、召回分数与多样性标注分开处理。</p>
+            <p class="piece-note">推荐 · 多模态 · 机器人</p>
+            <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+          </article>
 
-            <article class="entry" id="stop-5" data-entry data-index="4" data-type="role" data-title="PMAOS / Next Big Seek" data-kicker="经历 · 2026.07–08">
-              <p class="entry-kicker">经历 · 2026.07–08</p>
-              <h3>PMAOS / Next Big Seek</h3>
-              <p class="entry-dek">推荐、多模态推理与机器人规划。</p>
-              <p class="entry-body">设计用户与视频之间的双向兴趣传播与曝光预算；搭建支持 <strong>11 种语言</strong>、可以弃权或标出模态冲突的音视频链路；参与毫米机器人实验规划。</p>
-              <p class="entry-body">决策层可以弃权或标出模态冲突，而不是强行给出标签；推荐侧把学习到的偏好、召回分数与多样性标注分开处理。</p>
-              <p class="entry-note">推荐 · 多模态 · 机器人</p>
-              <div class="entry-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
-            </article>
-
-            <article class="entry" id="stop-6" data-entry data-index="5" data-type="role" data-title="CrAIg Capital" data-kicker="经历 · 2025–2026.03">
-              <p class="entry-kicker">经历 · 2025–2026.03</p>
-              <h3>CrAIg Capital</h3>
-              <p class="entry-dek">AI 辅助住房债务催收产品的联合创始人 / CTO。</p>
-              <p class="entry-body">负责产品与工程：数据管线、流程自动化、路线图与交付。</p>
-              <p class="entry-body">负责技术方向、招聘优先级与交付标准。</p>
-              <p class="entry-note">数据管线 · 流程自动化</p>
-              <div class="entry-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
-            </article>
-          </div>
+          <article class="piece" data-reveal>
+            <p class="piece-meta"><span class="piece-index">06</span><span>经历 · 2025–2026.03</span></p>
+            <h3>CrAIg Capital</h3>
+            <p class="piece-dek">AI 辅助住房债务催收产品的联合创始人 / CTO。</p>
+            <p class="piece-body">负责产品与工程：数据管线、流程自动化、路线图与交付。</p>
+            <p class="piece-body">负责技术方向、招聘优先级与交付标准。</p>
+            <p class="piece-note">数据管线 · 流程自动化</p>
+            <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+          </article>
         </div>
 
         <div class="archive-strip">
@@ -178,7 +146,6 @@
         </div>
       </div>
     </section>
-
     <section class="contact wrap" id="contact" aria-labelledby="contact-title">
       <div>
         <p class="mono">联系</p>
