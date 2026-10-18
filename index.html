@@ -75,164 +75,110 @@
       <div class="wrap">
         <div class="work-list">
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">01</span><span>Paper · 2026</span></p>
-              <h3>MedTokenBudget</h3>
-              <p class="piece-dek">A lesion-aware router that keeps diagnostic evidence when a frozen backbone is forced to read fewer tokens.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">Approach</p>
-                <p class="piece-body">Medical images spend most of their tokens on background. I train a lightweight router after a frozen vision backbone to keep lesion evidence under a fixed token budget, using mask supervision, a budget curriculum, and attention distillation.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">01</span>
+                <span class="piece-type">Paper · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Evidence</p>
-                <p class="piece-body">On ISIC 2019 at a 30% budget, three seeds average <strong>80.38 ± 0.18%</strong> versus <strong>76.93 ± 0.03%</strong> for ToMe. The backbone is untouched, so the gain comes from what the model is allowed to see.</p>
+              <div class="piece-copy">
+                <h3>MedTokenBudget</h3>
+                <p class="piece-dek">Keep the lesion, spend a third of the tokens.</p>
+                <p class="piece-body">A mask-supervised router after a frozen vision backbone. On ISIC 2019 at 30% tokens, three seeds average 80.38% against 76.93% for ToMe.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">Sole author · arXiv preprint</p>
+                  <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Accuracy</dt><dd>80.38%<span>at 30% tokens</span></dd></div>
-              <div><dt>Gain</dt><dd>+3.45<span>points over ToMe</span></dd></div>
-              <div><dt>Runs</dt><dd>3 seeds<span>frozen backbone</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">Sole author · arXiv preprint</p>
-              <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">02</span><span>Paper · 2025</span></p>
-              <h3>Efficient Attention via Pre-Scoring</h3>
-              <p class="piece-dek">A cheap pre-scoring pass that picks the key intervals worth attending to at 131k tokens.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">Method</p>
-                <p class="piece-body">Approximate attention usually decides which blocks matter after the fact. I score key intervals before attention, then spend a fixed interaction budget only on the intervals that carry signal — implemented in Triton and integrated with HyperAttention.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">02</span>
+                <span class="piece-type">Paper · 2025</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Result</p>
-                <p class="piece-body">At 131k-token contexts, ChatGLM perplexity falls from <strong>12.0 to 9.5</strong> against HyperAttention and LevAttention. This is a quality result, not a measured wall-clock speedup.</p>
+              <div class="piece-copy">
+                <h3>Efficient Attention via Pre-Scoring</h3>
+                <p class="piece-dek">Pick the key intervals before attention.</p>
+                <p class="piece-body">A pre-scoring pass that spends a fixed interaction budget only where the signal is. At 131k tokens, ChatGLM perplexity falls from 12.0 to 9.5; this is quality, not a measured speedup.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">First author · under review</p>
+                  <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Perplexity</dt><dd>12.0 → 9.5<span>ChatGLM, 131k</span></dd></div>
-              <div><dt>Comparison</dt><dd>2 baselines<span>HyperAttention, LevAttention</span></dd></div>
-              <div><dt>Implementation</dt><dd>Triton<span>fixed budget</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">First author · under review</p>
-              <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">03</span><span>Product · 2026</span></p>
-              <h3>Fridge Manager</h3>
-              <p class="piece-dek">A live meal planner that starts from what is already in the fridge, not from a recipe you have to shop for.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">Product</p>
-                <p class="piece-body">Most planners assume an empty kitchen. Fridge Manager treats inventory, leftovers, dietary constraints, and the time someone actually has as one planning problem rather than separate filters.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">03</span>
+                <span class="piece-type">Product · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Build</p>
-                <p class="piece-body">Built with Next.js and Supabase and deployed as a live product. The scope is deliberately small: one household, one week, one workable plan.</p>
+              <div class="piece-copy">
+                <h3>Fridge Manager</h3>
+                <p class="piece-dek">Dinner from what is already in the fridge.</p>
+                <p class="piece-body">Inventory, leftovers, dietary constraints, and time treated as one planning problem. Built with Next.js and Supabase; live at howtoeat.food.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">Product · 2026</p>
+                  <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Status</dt><dd>Live<span>howtoeat.food</span></dd></div>
-              <div><dt>Stack</dt><dd>Next.js<span>Supabase</span></dd></div>
-              <div><dt>Scope</dt><dd>Inventory-first<span>household planning</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">Product · 2026</p>
-              <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">04</span><span>Product · 2026</span></p>
-              <h3>AI Doctor WeChat</h3>
-              <p class="piece-dek">A clinical teaching workspace that meets clinicians in WeChat instead of asking them to learn another inbox.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">Design</p>
-                <p class="piece-body">A WeChat Mini Program for intake and quick reference, a web workspace for deeper review, and a FastAPI backend with retrieval over teaching material, serving clinicians, assistants, and students.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">04</span>
+                <span class="piece-type">Product · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Constraint</p>
-                <p class="piece-body">The hard part is not the model; it is keeping intake, retrieval, and permissions coherent across three surfaces. The product has no public link.</p>
+              <div class="piece-copy">
+                <h3>AI Doctor WeChat</h3>
+                <p class="piece-dek">Clinical teaching, inside WeChat.</p>
+                <p class="piece-body">A Mini Program for intake, a web workspace for review, and a FastAPI retrieval backend — three surfaces serving clinicians, assistants, and students.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">WeChat · FastAPI · clinical teaching</p>
+                  <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Surfaces</dt><dd>3<span>WeChat, web, API</span></dd></div>
-              <div><dt>Backend</dt><dd>FastAPI<span>retrieval over teaching notes</span></dd></div>
-              <div><dt>Access</dt><dd>Private<span>no public link</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">WeChat · FastAPI · clinical teaching</p>
-              <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">05</span><span>Role · Jul–Aug 2026</span></p>
-              <h3>PMAOS / Next Big Seek</h3>
-              <p class="piece-dek">Recommendation and multimodal inference for a robotics lab — from interest propagation to abstention.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">System</p>
-                <p class="piece-body">Designed bidirectional user–video interest propagation with exposure budgets, so a feed does not collapse into the same popular videos. Built an <strong>11-language</strong> audio-visual pipeline that can abstain or flag conflicting modalities instead of forcing a label.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">05</span>
+                <span class="piece-type">Role · Jul–Aug 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Decision</p>
-                <p class="piece-body">Also planned millirobot experiments. Recommendation and robot decision-making share the same abstention logic: report uncertainty rather than inventing a label.</p>
+              <div class="piece-copy">
+                <h3>PMAOS / Next Big Seek</h3>
+                <p class="piece-dek">Recommendation that knows when to abstain.</p>
+                <p class="piece-body">Bidirectional interest propagation with exposure budgets; an <strong>11-language</strong> audio-visual pipeline that flags conflicting modalities instead of forcing a label.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">Recommendation · multimodal · robotics</p>
+                  <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Languages</dt><dd>11<span>audio-visual</span></dd></div>
-              <div><dt>Signals</dt><dd>Audio + visual<span>conflict flags</span></dd></div>
-              <div><dt>Behaviour</dt><dd>Abstention<span>instead of force-fit</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">Recommendation · multimodal · robotics</p>
-              <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">06</span><span>Role · 2025–Mar 2026</span></p>
-              <h3>CrAIg Capital</h3>
-              <p class="piece-dek">Co-founder and CTO of an AI-assisted housing debt-collection product.</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">Scope</p>
-                <p class="piece-body">Co-founded the company and led product and engineering. Built the operating stack — data pipelines, workflow automation, roadmap, and delivery — for a small team.</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">06</span>
+                <span class="piece-type">Role · 2025–Mar 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">Operating</p>
-                <p class="piece-body">The product sat between housing providers and collectors, so handoffs and process mattered as much as the model. Set technical direction, hiring priorities, and delivery standards.</p>
+              <div class="piece-copy">
+                <h3>CrAIg Capital</h3>
+                <p class="piece-dek">Co-founder and CTO, building the operating stack.</p>
+                <p class="piece-body">Data pipelines, workflow automation, and delivery for an AI-assisted housing debt-collection product. Technical direction, hiring, and standards.</p>
+                <div class="piece-foot">
+                  <p class="piece-note">Housing · operations · AI</p>
+                  <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>Role</dt><dd>Co-founder<span>CTO</span></dd></div>
-              <div><dt>Stack</dt><dd>Data + workflow<span>automation, delivery</span></dd></div>
-              <div><dt>Period</dt><dd>2025–2026<span>through March</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">Housing · operations · AI</p>
-              <div class="piece-links"><a href="archive.html">More in the archive ↗</a></div>
             </div>
           </article>
         </div>

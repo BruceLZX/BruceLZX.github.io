@@ -75,164 +75,110 @@
       <div class="wrap">
         <div class="work-list">
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">01</span><span>论文 · 2026</span></p>
-              <h3>MedTokenBudget</h3>
-              <p class="piece-dek">在冻结骨干、压缩 Token 的前提下，仍然保留病灶证据的路由器。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">方法</p>
-                <p class="piece-body">医学图像的大部分 Token 花在背景上。我在冻结的视觉骨干之后训练一个轻量路由器，用 mask 监督、预算课程和注意力蒸馏，把病灶证据压进固定预算。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">01</span>
+                <span class="piece-type">论文 · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">证据</p>
-                <p class="piece-body">ISIC 2019、30% 预算下，三个种子平均 <strong>80.38 ± 0.18%</strong>，ToMe 为 <strong>76.93 ± 0.03%</strong>。骨干没有改动，提升来自模型被允许看到什么。</p>
+              <div class="piece-copy">
+                <h3>MedTokenBudget</h3>
+                <p class="piece-dek">留住病灶，只花三分之一的 Token。</p>
+                <p class="piece-body">冻结骨干之后的 mask 监督路由器。ISIC 2019、30% Token 预算下，三个种子平均 80.38%，ToMe 为 76.93%。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">独立作者 · arXiv 预印本</p>
+                  <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>准确率</dt><dd>80.38%<span>30% Token 预算</span></dd></div>
-              <div><dt>增益</dt><dd>+3.45<span>相对 ToMe</span></dd></div>
-              <div><dt>实验</dt><dd>3 个种子<span>冻结骨干</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">独立作者 · arXiv 预印本</p>
-              <div class="piece-links"><a href="https://arxiv.org/abs/2609.30613" target="_blank" rel="noopener">arXiv:2609.30613 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">02</span><span>论文 · 2025</span></p>
-              <h3>Efficient Attention via Pre-Scoring</h3>
-              <p class="piece-dek">在 131k Token 的上下文里，先挑出值得注意的键区间。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">方法</p>
-                <p class="piece-body">近似注意力通常在事后决定哪些块重要。我在注意力之前先给键区间打分，再把固定交互预算只花在有信号的区间上；Triton 实现，与 HyperAttention 结合。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">02</span>
+                <span class="piece-type">论文 · 2025</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">结果</p>
-                <p class="piece-body">131k 上下文下，ChatGLM 困惑度从 <strong>12.0 降到 9.5</strong>，对比 HyperAttention 与 LevAttention。这是质量结果，不是实测加速比。</p>
+              <div class="piece-copy">
+                <h3>Efficient Attention via Pre-Scoring</h3>
+                <p class="piece-dek">在注意力之前，先挑出关键区间。</p>
+                <p class="piece-body">先给键区间打分，再把固定交互预算只花在有信号的地方。131k 上下文下，ChatGLM 困惑度从 12.0 降到 9.5；这是质量结果，不是实测加速比。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">第一作者 · 审稿中</p>
+                  <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>困惑度</dt><dd>12.0 → 9.5<span>ChatGLM，131k</span></dd></div>
-              <div><dt>对比</dt><dd>2 个基线<span>HyperAttention / LevAttention</span></dd></div>
-              <div><dt>实现</dt><dd>Triton<span>固定交互预算</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">第一作者 · 审稿中</p>
-              <div class="piece-links"><a href="https://arxiv.org/abs/2505.11040" target="_blank" rel="noopener">arXiv:2505.11040 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">03</span><span>产品 · 2026</span></p>
-              <h3>Fridge Manager</h3>
-              <p class="piece-dek">从冰箱里已有的东西出发的实时用餐规划，而不是先让你去采购。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">产品</p>
-                <p class="piece-body">多数规划器假设厨房是空的。Fridge Manager 把库存、剩菜、饮食约束和真正可用的时间放在同一个规划问题里，而不是拆成几个过滤器。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">03</span>
+                <span class="piece-type">产品 · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">实现</p>
-                <p class="piece-body">Next.js + Supabase，已上线。范围刻意很小：一个家庭、一周、一份能执行的计划。</p>
+              <div class="piece-copy">
+                <h3>Fridge Manager</h3>
+                <p class="piece-dek">用冰箱里已有的东西做一顿饭。</p>
+                <p class="piece-body">把库存、剩菜、饮食约束和时间放在同一个规划问题里。Next.js + Supabase，已上线 howtoeat.food。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">产品 · 2026</p>
+                  <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>状态</dt><dd>已上线<span>howtoeat.food</span></dd></div>
-              <div><dt>技术</dt><dd>Next.js<span>Supabase</span></dd></div>
-              <div><dt>范围</dt><dd>库存优先<span>家庭用餐规划</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">产品 · 2026</p>
-              <div class="piece-links"><a href="https://howtoeat.food" target="_blank" rel="noopener">howtoeat.food ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">04</span><span>产品 · 2026</span></p>
-              <h3>AI Doctor WeChat</h3>
-              <p class="piece-dek">把临床教学放进医生已经在用的微信，而不是再学一个收件箱。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">设计</p>
-                <p class="piece-body">微信小程序负责采集与速查，Web 工作台负责细看，FastAPI 后端在教学资料上做检索；同一个工作台服务医生、助理和学生。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">04</span>
+                <span class="piece-type">产品 · 2026</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">约束</p>
-                <p class="piece-body">难的不是模型，而是让采集、检索和权限在三个界面之间保持一致。产品没有公开链接。</p>
+              <div class="piece-copy">
+                <h3>AI Doctor WeChat</h3>
+                <p class="piece-dek">把临床教学放回微信。</p>
+                <p class="piece-body">小程序做采集，Web 做细看，FastAPI 做教学资料检索——三个界面服务医生、助理和学生。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">微信 · FastAPI · 临床教学</p>
+                  <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>界面</dt><dd>3 个<span>微信 / Web / API</span></dd></div>
-              <div><dt>后端</dt><dd>FastAPI<span>教学资料检索</span></dd></div>
-              <div><dt>访问</dt><dd>私有<span>无公开链接</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">微信 · FastAPI · 临床教学</p>
-              <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">05</span><span>经历 · 2026.07–08</span></p>
-              <h3>PMAOS / Next Big Seek</h3>
-              <p class="piece-dek">面向机器人实验室的推荐与多模态推理——从兴趣传播到弃权。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">系统</p>
-                <p class="piece-body">设计用户与视频之间的双向兴趣传播与曝光预算，避免信息流塌缩成同几支热门视频；搭建支持 <strong>11 种语言</strong> 的音视频链路，可以弃权或标出模态冲突，而不是强行给标签。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">05</span>
+                <span class="piece-type">经历 · 2026.07–08</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">决策</p>
-                <p class="piece-body">也参与毫米机器人实验规划。推荐与机器人决策共用同一套弃权逻辑：报告不确定性，而不是编一个标签。</p>
+              <div class="piece-copy">
+                <h3>PMAOS / Next Big Seek</h3>
+                <p class="piece-dek">知道什么时候该弃权的推荐。</p>
+                <p class="piece-body">双向兴趣传播与曝光预算；<strong>11 种语言</strong>的音视频链路，遇到模态冲突会标出来，而不是强行给标签。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">推荐 · 多模态 · 机器人</p>
+                  <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>语言</dt><dd>11 种<span>音视频链路</span></dd></div>
-              <div><dt>信号</dt><dd>音频 + 视觉<span>冲突标记</span></dd></div>
-              <div><dt>行为</dt><dd>可弃权<span>而非强行归类</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">推荐 · 多模态 · 机器人</p>
-              <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
             </div>
           </article>
 
           <article class="piece" data-reveal>
-            <header class="piece-head">
-              <p class="piece-meta"><span class="piece-index">06</span><span>经历 · 2025–2026.03</span></p>
-              <h3>CrAIg Capital</h3>
-              <p class="piece-dek">AI 辅助住房债务催收产品的联合创始人 / CTO。</p>
-            </header>
-            <div class="piece-grid">
-              <div class="piece-col">
-                <p class="piece-kicker">范围</p>
-                <p class="piece-body">联合创办公司，负责产品与工程；搭起数据管线、流程自动化、路线图与交付这套运营栈。</p>
+            <div class="piece-main">
+              <div class="piece-rail">
+                <span class="piece-index">06</span>
+                <span class="piece-type">经历 · 2025–2026.03</span>
               </div>
-              <div class="piece-col">
-                <p class="piece-kicker">运营</p>
-                <p class="piece-body">产品处在住房机构与催收方之间，交接与流程和模型同样重要。负责技术方向、招聘优先级与交付标准。</p>
+              <div class="piece-copy">
+                <h3>CrAIg Capital</h3>
+                <p class="piece-dek">联合创始人 / CTO，搭起运营栈。</p>
+                <p class="piece-body">为 AI 辅助住房债务催收产品搭数据管线、流程自动化与交付；负责技术方向、招聘和标准。</p>
+                <div class="piece-foot">
+                  <p class="piece-note">住房 · 运营 · AI</p>
+                  <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
+                </div>
               </div>
-            </div>
-            <dl class="piece-facts">
-              <div><dt>角色</dt><dd>联合创始人<span>CTO</span></dd></div>
-              <div><dt>栈</dt><dd>数据 + 流程<span>自动化与交付</span></dd></div>
-              <div><dt>时间</dt><dd>2025–2026<span>至 3 月</span></dd></div>
-            </dl>
-            <div class="piece-foot">
-              <p class="piece-note">住房 · 运营 · AI</p>
-              <div class="piece-links"><a href="archive-zh.html">更多见档案 ↗</a></div>
             </div>
           </article>
         </div>
