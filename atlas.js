@@ -121,9 +121,9 @@
       }
     }
 
-    const centerX = vw * (narrow.matches ? 0.5 : 0.84 + 0.1 * progress);
+    const centerX = vw * (narrow.matches ? 0.5 : 0.92 + 0.02 * progress);
     const centerY = vh * (narrow.matches ? 0.24 : 0.3 + 0.3 * progress);
-    const x = clamp(centerX - px * mw, vw - mw, vw * 0.3);
+    const x = clamp(centerX - px * mw, vw - mw, vw * 0.4);
     const y = clamp(centerY - py * mh, vh - mh, vh * 0.12);
 
     map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
@@ -176,6 +176,8 @@
     sections.forEach((section) => spy.observe(section));
   }
 })();
+
+
 
 
 

@@ -29,7 +29,7 @@ framework, deployed from the repository root by GitHub Pages.
   map navigation, no fake coordinates.
 - `assets/atlas.svg`: six seeded contour peaks with no route line. An HTML
   focus marker travels with the active point; its number follows the section. It
-  is hidden below 1366px. Regenerate with `python scripts/make_atlas.py`
+  is hidden below 1000px. Regenerate with `python scripts/make_atlas.py`
   (requires numpy and matplotlib). The SVG stays under 50 KB.
 - `email.js`: reverses the obfuscated address on archive/CV pages. `site.css`
   is archived-only; legacy homepage CSS/JS was removed in October 2026.
@@ -67,6 +67,8 @@ and the evidence supporting the research results.
 Commit to `main`; GitHub Pages serves the repository root at
 <https://brucelzx.github.io/>. Every page must keep working as plain HTML with
 JavaScript disabled; the scroll-driven map is an enhancement only.
+
+
 
 
 

@@ -696,8 +696,16 @@ html[lang="zh-CN"] .nav-links { font-size: 11.5px; }
 html[lang="zh-CN"] .nav-tools { font-size: 10.5px; }
 html[lang="zh-CN"] .footer { font-size: 10px; }
 
-@media (max-width: 1365px) {
+@media (max-width: 999px) {
   .map-focus { display: none; }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .piece-main {
+    grid-template-columns: 150px minmax(0, 620px);
+    gap: 40px;
+    max-width: 900px;
+  }
 }
 
 /* ---------- responsive ---------- */
@@ -774,6 +782,8 @@ html[lang="zh-CN"] .footer { font-size: 10px; }
   .piece { break-inside: avoid; min-height: 0; padding-block: 24px; }
   .work-list { display: block; }
 }
+
+
 
 
 
