@@ -18,39 +18,38 @@ B.S. in Computer Science, \textit{Magna Cum Laude}; GPA: 3.76/4.00; Viterbi Dean
 \role{Health Intelligence Lab, UCLA}{Graduate Researcher}{}{Aug 2026 – Present}
 \detail{Advisor: Prof. Yuzhe Yang}
 \begin{itemize}
-\item Investigate multimodal glucose forecasting using CGM, insulin, meals, activity, and patient context.
-\item Curated a unified CGM release from \textbf{49 datasets} (\textbf{7,000+} source person records) with provenance checksums, device-clock fixes, and 14 automated release checks.
-\item Built patient-disjoint MetaboNet benchmarks and data audits to compare GluFormer, T1DFormer, and custom models at 30-, 60-, and 120-minute horizons.
+\item Working on multimodal foundation models for diabetes that forecast glucose from continuous glucose monitoring (CGM) together with insulin, meals, activity, and patient context.
+\item Harmonized CGM data from 49 datasets into a common format with meal, insulin, and wearable context; now building patient-disjoint benchmarks to compare GluFormer, T1DFormer, and custom forecasting models.
 \end{itemize}
 \role{Prof. Yan Liu's Group, USC}{Drug Discovery Research}{}{Spring 2026}
 \detail{Research collaboration with a Ph.D. student in the group}
 \begin{itemize}
-\item Benchmarked descriptor-based models, Chemprop, and hybrids on seven TDC datasets with scaffold splits.
-\item Extra Trees on RDKit descriptors had the best average AUROC (85.9), reaching \textbf{90.0~$\pm$~6.4} on SARS-CoV-2 3CLPro; analyzed descriptor importance and SHAP attributions behind its predictions.
+\item Benchmarked molecular descriptor-based models, Chemprop, and hybrid approaches for SARS-CoV-2 antiviral screening across seven Therapeutics Data Commons datasets using scaffold splits.
+\item Analyzed descriptor importance and SHAP attributions to find the molecular features behind predictions.
 \end{itemize}
 
 \section{Selected Papers \& Research Contributions}
 \entry{MedTokenBudget: Lesion-Preserving Token Routing}{2026}
 \detail{\textbf{Zhexiang Li} (sole author). Under review.}
 \begin{itemize}
-\item Developed lesion-supervised post-backbone token routing; at a 30\% token budget on ISIC 2019, it achieved \textbf{80.38~$\pm$~0.18\%} accuracy versus 76.93~$\pm$~0.03\% for ToMe across three seeds, with the frozen backbone unchanged.
+\item Designed lesion-supervised token routing after a frozen vision backbone so that dermoscopy classifiers keep diagnostic regions under a fixed token budget; trained it with budget curriculum learning, diversity regularization, and attention distillation, and evaluated it on ISIC 2019.
 \end{itemize}
 \entry{Mass-Conservation Token Transformers for MS/MS Retrieval}{2026}
 \detail{Under review at AAAI 2027}
 \begin{itemize}
-\item Encoded mass-conserving fragment pairs as sparse evidence tokens for spectrum retrieval; constructed mass- and overlap-based hard negatives and evaluated ranking changes after evidence removal.
+\item Encoded mass-conserving fragment pairs as sparse evidence tokens for spectrum retrieval; built mass- and overlap-based hard negatives and tested how rankings change when the evidence is removed.
 \end{itemize}
 \entry{Efficient Attention via Pre-Scoring}{2025}
 \detail{\textbf{Zhexiang Li}, Haoyu Wang, Yutong Bao, David Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
 \begin{itemize}
 \item Proposed pre-scoring to prioritize informative keys before approximate attention; implemented key selection in Triton as first author, advised by Prof. David P. Woodruff (CMU).
-\item Integrated with HyperAttention, reduced ChatGLM perplexity from \textbf{12.0 to 9.5} at 131k-token contexts under a fixed interaction budget.
+\item Integrated pre-scoring with HyperAttention and evaluated it on ChatGLM with 131k-token contexts.
 \end{itemize}
 
 \section{Additional Experience}
 \role{Piezolab Medical}{AI Engineer Intern}{Lake Forest, CA}{Jun – Aug 2025}
 \begin{itemize}
-\item Built an LLM-assisted pipeline to ingest, clean, and cluster \textbf{5,000+} medical-malpractice documents for quality-of-care research; developed agent workflows for vascular-care research.
+\item Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice documents for quality-of-care research; developed agent workflows for vascular-care research.
 \end{itemize}
 \role{University of California, Santa Cruz}{Machine Learning Tutor}{}{Spring 2023}
 \begin{itemize}

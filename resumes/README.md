@@ -20,9 +20,14 @@ identifiers are only used for source and intermediate files.
 ## Editorial rules
 
 - Research: emphasize research questions, methods, evaluation, papers, and teaching.
-- AI Engineer: emphasize what was built, the technical contribution, and the
-  resulting capability or measured outcome. Test/check/file counts do not substitute
-  for accomplishments and should stay out of the application resumes.
+- AI Engineer: emphasize what was built and the technical contribution.
+  Test/check/file counts do not substitute for accomplishments and should stay
+  out of the application resumes.
+- Lead with what is being done and what was done, not with results. Describe
+  unfinished work, such as the HAIL project, as ongoing. Leave out outcome
+  metrics (accuracy, AUROC, perplexity) and volume counts (endpoints, tables,
+  checks, yields); keep only numbers that describe scope, such as 5,000+
+  documents, 11 languages, or 49 datasets.
 - Keep skills near the top of both resumes, ordered for the intended role.
 - Write English and Chinese separately. Keep dates, affiliations, links, publication
   status, and factual claims aligned; sentence structure need not match.
@@ -57,7 +62,7 @@ also informs the typography and emphasis.
 - Give more space to relevant research/engineering evidence; do not add
   unrelated entries merely to fill the page.
 - Align dates, use reverse chronology within experience sections, and
-  reserve bold emphasis for headings and a few meaningful results or scope figures.
+  reserve bold emphasis for headings and paper names.
 - Verify selectable text and reading order in the exported PDFs; this is not
   a guarantee of compatibility with every applicant tracking system.
 
@@ -87,34 +92,31 @@ with their sources.
 
 ## Evidence and scope
 
-- Pre-Scoring: [arXiv v4](https://arxiv.org/abs/2505.11040v4), abstract:
-  ChatGLM at 131k-token contexts, fixed interaction budget, integrated with
-  HyperAttention; perplexity 12.0 to 9.5. This is not a measured speedup claim.
+- Pre-Scoring: [arXiv v4](https://arxiv.org/abs/2505.11040v4): integrated with
+  HyperAttention and evaluated on ChatGLM at 131k-token contexts under a fixed
+  interaction budget. Describe the evaluation, not a speedup.
 - MedTokenBudget: under review; link no arXiv version from the site or the
-  resumes (`build.py` allows only the Pre-Scoring arXiv link). Table 2 of the
-  paper: ISIC 2019, 30% token budget, three seeds; supervised LATS accuracy 80.38 +/- 0.18%,
-  ToMe 76.93 +/- 0.03%. The router is post-backbone; the frozen backbone is
-  unchanged. Do not equate token reduction with end-to-end compute savings.
+  resumes (`build.py` allows only the Pre-Scoring arXiv link). Evaluated on
+  ISIC 2019; the router is post-backbone and the frozen backbone is unchanged.
+  Do not equate token reduction with end-to-end compute savings.
 - Mass-Conservation: under review at AAAI 2027, as the owner reports; author
   order and numerical results have not been supplied. Do not infer either.
 - PMAOS delivery/deployment status, business impact, and additional clinical
   workflow outcomes must not be inferred from code or test counts.
 - Magna Cum Laude and GPA 3.76: USC transcript, "USC Degrees Awarded".
-- CGM release: Diabetes-FM release r14 has 49 datasets, 7,363 source person
-  records (not confirmed unique people), and passed checks C1–C14. No model is
-  trained on that data yet, so HAIL bullets describe data and benchmark
-  pipelines, not forecasting results.
-- Drug discovery: the project poster reports Extra Trees on RDKit descriptors
-  with the best average AUROC (85.9) and 90.0 +/- 6.4 on SARSCoV2_3CLPro_Diamond
-  over three scaffold splits; the work was a collaboration with a Ph.D. student.
-- AI Doctor: 110 FastAPI endpoints, 26 MySQL tables, five-role access with
+- HAIL: ongoing. CGM data from 49 datasets has been harmonized; benchmarks are
+  being built and no model has results yet. Write it as work in progress,
+  without record counts or release checks.
+- Drug discovery: a collaboration with a Ph.D. student; describe the
+  benchmarking and SHAP analysis. The poster holds the model comparison.
+- AI Doctor: a FastAPI backend on WeChat Cloud Hosting, five-role access with
   doctor confirmation, RAG with BGE embeddings, ChromaDB, and keyword fallback,
   and an asyncio queue with global, per-user, and per-API limits. Write
   "implemented RAG" and "deployed backend"; the cloud image skips the vector
   dependencies, so do not claim vector RAG in production.
-- Fridge Manager is the live howtoeat.food app; its offline pipeline turned 758
-  cooking videos into 121 publishable recipes. The investment-analysis agent
-  skill covers 14 report dimensions and gates sections with a Python QA harness.
+- Fridge Manager is the live howtoeat.food app; its offline pipeline turns
+  cooking videos into structured recipes. The investment-analysis agent skill
+  drafts evidence-backed reports and checks each section with a Python QA harness.
 - Selection (November 2026): the AI Engineer resume keeps HAIL, PMAOS,
   Piezolab, and Terlingua as a one-line entry, then AI Doctor, Fridge Manager,
   and the agent skill. Synaptics (oldest, least AI-related) and the

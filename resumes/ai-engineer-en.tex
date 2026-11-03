@@ -18,13 +18,12 @@ B.S. in Computer Science, \textit{Magna Cum Laude}; GPA: 3.76/4.00; Viterbi Dean
 \section{Engineering \& Research Experience}
 \role{Health Intelligence Lab, UCLA}{Graduate Researcher}{}{Aug 2026 – Present}
 \begin{itemize}
-\item Curated a unified CGM release from \textbf{49 datasets} (\textbf{7,000+} source person records) with meal, insulin, and wearable context, provenance checksums, and 14 automated release checks.
-\item Built patient-disjoint benchmarks and data audits with Prof. Yuzhe Yang to compare GluFormer, T1DFormer, and custom glucose forecasters at 30-, 60-, and 120-minute horizons.
+\item Working on multimodal glucose forecasting with Prof. Yuzhe Yang: harmonized CGM data from 49 datasets with meal, insulin, and wearable context, and now building patient-disjoint benchmarks to compare forecasting models.
 \end{itemize}
 \role{PMAOS / Next Big Seek}{AI Engineer Intern}{}{Jul – Aug 2026}
 \begin{itemize}
 \item Designed short-video recommendation using bidirectional user–video interest propagation, exposure budgets across multiple timescales, and fatigue controls to manage repeated recommendations.
-\item Built \textbf{11-language} audio-visual affect inference that fuses evidence and abstains when modalities conflict.
+\item Built 11-language audio-visual affect inference that fuses evidence and abstains when modalities conflict.
 \end{itemize}
 \role{Terlingua Threads}{Full-Stack Engineer}{Remote}{Jan – May 2026}
 \begin{itemize}
@@ -32,28 +31,28 @@ B.S. in Computer Science, \textit{Magna Cum Laude}; GPA: 3.76/4.00; Viterbi Dean
 \end{itemize}
 \role{Piezolab Medical}{AI Engineer Intern}{Lake Forest, CA}{Jun – Aug 2025}
 \begin{itemize}
-\item Built an LLM-assisted pipeline to ingest, clean, and cluster \textbf{5,000+} medical-malpractice documents for quality-of-care review; developed agent workflows and acceptance tests for vascular-care research.
+\item Built an LLM-assisted pipeline to ingest, clean, and cluster 5,000+ medical-malpractice documents for quality-of-care review; developed agent workflows for vascular-care research.
 \end{itemize}
 
 \section{Selected AI Projects}
 \role{AI Doctor WeChat}{Python, FastAPI, MySQL, RAG}{}{2026}
 \begin{itemize}
-\item Built and deployed a FastAPI backend (\textbf{110} endpoints, \textbf{26} MySQL tables) on WeChat Cloud Hosting for a clinic's Mini Program and web workspace covering clinical teaching and patient intake.
-\item Added five-role access control with doctor sign-off before patients see records, RAG (BGE embeddings, ChromaDB, keyword fallback), and an asyncio queue that rate-limits LLM calls globally, per user, and per API.
+\item Built and deployed the FastAPI backend on WeChat Cloud Hosting for a clinic's Mini Program and web workspace covering clinical teaching and patient intake.
+\item Designed five-role access control so LLM-drafted visit records reach patients only after a doctor confirms them; added RAG (BGE embeddings, ChromaDB, keyword fallback) and a rate-limited asyncio queue for LLM calls.
 \end{itemize}
 \role{Fridge Manager}{Next.js, TypeScript, Supabase, LLM and vision models}{}{2026}
 \begin{itemize}
 \item Built and launched \link{https://howtoeat.food}{howtoeat.food}, an AI kitchen web app that plans meals and grocery lists from each user's inventory, leftovers, preferences, cookware, and cooking time.
-\item Shipped photo-based inventory recognition and LLM recipe import with user corrections, admin review, and deduplication; a multimodal video pipeline turned \textbf{758} cooking videos into \textbf{121} recipes.
+\item Added photo-based inventory recognition and LLM recipe import with user review and deduplication; built a multimodal pipeline (subtitles, ASR/OCR, keyframe vision) that turns cooking videos into recipes.
 \end{itemize}
 \role{Investment Analysis Agent Skill}{Python, Claude Code}{}{Jul 2026}
 \begin{itemize}
-\item Wrote an agent skill that turns a company name or pitch deck into an evidence-backed report across 14 dimensions; a Python QA harness gates each section on independent and primary sources, depth, and completeness.
+\item Built an agent skill that researches a company from its name or pitch deck and drafts an evidence-backed investment report; a Python QA harness checks each section's sources, depth, and completeness.
 \end{itemize}
 
 \section{Selected ML Research}
 \begin{itemize}
-\item \textbf{Efficient Attention via Pre-Scoring} (first author; under review): Triton key selection that, with HyperAttention, cut ChatGLM perplexity from \textbf{12.0 to 9.5} at 131k-token contexts under a fixed interaction budget. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}
-\item \textbf{MedTokenBudget} (sole author; under review): lesion-supervised post-backbone token routing reached \textbf{80.38\%} mean accuracy on ISIC 2019 at a 30\% token budget versus 76.93\% for ToMe across three seeds.
+\item \textbf{Efficient Attention via Pre-Scoring} (first author; under review): selects informative keys before approximate attention; implemented in Triton and evaluated with HyperAttention on 131k-token contexts. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}
+\item \textbf{MedTokenBudget} (sole author; under review): lesion-supervised token routing that keeps the diagnostic regions of dermoscopy images under a fixed token budget; evaluated on ISIC 2019.
 \end{itemize}
 \end{document}

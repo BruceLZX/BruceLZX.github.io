@@ -75,7 +75,7 @@ def validate(path, profile):
             assert "/ToUnicode" in font, f"{profile}: missing Unicode map for {font['/BaseFont']}"
     extracted = [page.extract_text(), subprocess.check_output(
         ["pdftotext", str(path), "-"], encoding="utf-8")]
-    required = ["bruceli@ucla.edu", "80.38", "76.93", "12.0", "9.5", "131k"]
+    required = ["bruceli@ucla.edu", "Pre-Scoring", "MedTokenBudget"]
     if profile.endswith("zh"):
         body = (ROOT / f"{profile}.tex").read_text(encoding="utf-8").split(r"\begin{document}")[1]
         required += ["李哲骧", "教育背景", *re.findall(r"[\u4e00-\u9fff]{2,}", body)]

@@ -55,7 +55,7 @@ def main():
                 reader = PdfReader(candidate)
                 assert 1 < len(reader.pages) <= 4, f"Unexpected CV page count: {len(reader.pages)}"
                 combined = "".join(p.extract_text() for p in reader.pages)
-                for required in ("80.38", "76.93", "12.0", "9.5", "bruceli@ucla.edu"):
+                for required in ("Pre-Scoring", "MedTokenBudget", "bruceli@ucla.edu"):
                     assert required in combined, (name, required)
                 for index, pdfpage in enumerate(reader.pages, 1):
                     assert (float(pdfpage.mediabox.width), float(pdfpage.mediabox.height)) == (612, 792)

@@ -23,13 +23,12 @@
 \section{工程与科研经历}
 \role{UCLA Health Intelligence Lab（HAIL）}{研究生研究员}{}{2026.08 – 至今}
 \begin{itemize}
-\item 整合 \textbf{49 个数据集}（\textbf{7,000 余条}来源个人记录）的 CGM 数据，纳入饮食、胰岛素与可穿戴设备信息，建立含来源校验和及 14 项自动检查的统一数据版本。
-\item 在 Yuzhe Yang 教授指导下搭建按患者划分的基准与数据检查流程，支持 GluFormer、T1DFormer 及自研模型在未来 30、60、120 分钟的血糖预测对比。
+\item 在 Yuzhe Yang 教授指导下研究多模态血糖预测：已将 49 个数据集的 CGM 数据整理为统一格式，纳入饮食、胰岛素与可穿戴设备信息；正在搭建按患者划分的基准，用于比较预测模型。
 \end{itemize}
 \role{未来求索 / PMAOS}{AI 工程实习生}{}{2026.07 – 2026.08}
 \begin{itemize}
 \item 设计短视频推荐算法，将用户与视频双向兴趣传播、多时间尺度曝光预算和疲劳控制结合，用于管理重复推荐与不同兴趣的曝光分配。
-\item 开发支持 \textbf{11 种语言}的音视频情绪识别，融合多模态证据，在模态冲突时暂不判断。
+\item 开发支持 11 种语言的音视频情绪识别，融合多模态证据，在模态冲突时暂不判断。
 \end{itemize}
 \role{Terlingua Threads}{全栈工程师}{远程}{2026.01 – 2026.05}
 \begin{itemize}
@@ -37,28 +36,28 @@
 \end{itemize}
 \role{Piezolab Medical}{AI 工程实习生}{加州 Lake Forest}{2025.06 – 2025.08}
 \begin{itemize}
-\item 搭建大模型辅助流程，对 \textbf{5,000 余份}医疗事故资料进行导入、清洗与聚类，支持医疗质量分析；为血管护理研究开发智能体工作流程并编写验收测试。
+\item 搭建大模型辅助流程，对 5,000 余份医疗事故资料进行导入、清洗与聚类，支持医疗质量分析；为血管护理研究开发智能体工作流程。
 \end{itemize}
 
 \section{代表 AI 项目}
 \role{AI Doctor WeChat}{Python、FastAPI、MySQL、RAG}{}{2026}
 \begin{itemize}
-\item 开发并在微信云托管部署 FastAPI 后端（\textbf{110} 个接口、\textbf{26} 张 MySQL 表），支撑诊所小程序与 Web 工作台的临床教学和患者信息采集。
-\item 设计五类角色权限，病历经医生确认后才对患者可见；实现 RAG（BGE 向量、ChromaDB、关键词兜底），以及按全局、用户和接口限流调度大模型调用的 asyncio 队列。
+\item 开发并在微信云托管部署 FastAPI 后端，支撑诊所小程序与 Web 工作台的临床教学和患者信息采集。
+\item 设计五类角色权限，大模型整理的病历须经医生确认后才对患者可见；实现 RAG（BGE 向量、ChromaDB、关键词兜底）和限流的 asyncio 大模型调用队列。
 \end{itemize}
 \role{Fridge Manager}{Next.js、TypeScript、Supabase、大模型与视觉模型}{}{2026}
 \begin{itemize}
-\item 开发并上线 AI 厨房助手 \link{https://howtoeat.food}{howtoeat.food}，根据每位用户的库存、剩菜、偏好、厨具与烹饪时间生成菜单和采购清单。
-\item 实现拍照识别库存与大模型菜谱导入（用户修正、管理员审核、去重）；用多模态视频流程从 \textbf{758} 个烹饪视频整理出 \textbf{121} 道菜谱。
+\item 开发并上线 AI 厨房助手 \link{https://howtoeat.food}{howtoeat.food}，根据库存、剩菜、偏好、厨具与烹饪时间生成菜单和采购清单。
+\item 实现拍照识别库存与大模型菜谱导入（用户修正、管理员审核、去重）；搭建多模态视频流程（字幕、ASR/OCR、关键帧视觉），把烹饪视频整理成结构化菜谱。
 \end{itemize}
 \role{投资分析 Agent Skill}{Python、Claude Code}{}{2026.07}
 \begin{itemize}
-\item 编写智能体技能，将公司名称或商业计划书转化为覆盖 14 个维度、有证据支撑的投资报告；以 Python 质检框架按独立与一手来源、分析深度和完整性逐节把关。
+\item 编写智能体技能，根据公司名称或商业计划书调研并起草有证据支撑的投资报告；用 Python 质检框架检查每一节的来源、深度和完整性。
 \end{itemize}
 
 \section{代表算法研究}
 \begin{itemize}
-\item \textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：用 Triton 实现关键 key 筛选；与 HyperAttention 结合后，在固定交互预算、131k token 上下文的 ChatGLM 实验中，将困惑度从 \textbf{12.0 降至 9.5}。\link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}
-\item \textbf{MedTokenBudget}（独立作者，审稿中）：病灶监督的骨干网络后 token 路由；在 ISIC 2019、30\% token 预算下，三随机种子平均准确率为 \textbf{80.38\%}，ToMe 为 76.93\%。
+\item \textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：提出在近似注意力前筛选关键 key，用 Triton 实现，并与 HyperAttention 结合在 131k token 长上下文上评估。\link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}
+\item \textbf{MedTokenBudget}（独立作者，审稿中）：病灶监督的 token 路由，使皮肤镜图像分类在固定 token 预算下保留诊断区域，在 ISIC 2019 上评估。
 \end{itemize}
 \end{document}
