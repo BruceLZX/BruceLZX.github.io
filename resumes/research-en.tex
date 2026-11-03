@@ -8,32 +8,32 @@
 \entry{University of California, Los Angeles}{Expected Jun 2028}
 M.S. in Computer Science
 \entry{University of Southern California}{May 2026}
-B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
+B.S. in Computer Science, \textit{Magna Cum Laude}; GPA: 3.76/4.00; Viterbi Dean's List
 
 \section{Research Skills}
 \textbf{Methods:} multimodal learning, efficient attention, token routing, molecular property prediction\\
-\textbf{Tools:} Python, PyTorch, Triton, RDKit, Chemprop, C/C++, SQL, Linux
+\textbf{Tools:} Python, PyTorch, Triton, RDKit, Chemprop, scikit-learn, C/C++, SQL, Linux
 
 \section{Research Experience}
-\entry{Graduate Researcher | Health Intelligence Lab, UCLA}{Aug 2026 - Present}
+\role{Health Intelligence Lab, UCLA}{Graduate Researcher}{}{Aug 2026 – Present}
 \detail{Advisor: Prof. Yuzhe Yang}
 \begin{itemize}
 \item Investigate multimodal glucose forecasting using CGM, insulin, meals, activity, and patient context.
+\item Curated a unified CGM release from \textbf{49 datasets} (\textbf{7,000+} source person records) with provenance checksums, device-clock fixes, and 14 automated release checks.
 \item Built patient-disjoint MetaboNet benchmarks and data audits to compare GluFormer, T1DFormer, and custom models at 30-, 60-, and 120-minute horizons.
 \end{itemize}
-\entry{Drug Discovery Research | USC, Prof. Yan Liu's group}{Spring 2026}
+\role{Prof. Yan Liu's Group, USC}{Drug Discovery Research}{}{Spring 2026}
 \detail{Research collaboration with a Ph.D. student in the group}
 \begin{itemize}
-\item Benchmarked molecular descriptor-based models, Chemprop, and hybrid approaches across seven Therapeutics Data Commons datasets using scaffold splits.
-\item Analyzed descriptor importance and SHAP attributions to examine molecular features associated with predicted antiviral activity.
+\item Benchmarked descriptor-based models, Chemprop, and hybrids on seven TDC datasets with scaffold splits.
+\item Extra Trees on RDKit descriptors had the best average AUROC (85.9), reaching \textbf{90.0~$\pm$~6.4} on SARS-CoV-2 3CLPro; analyzed descriptor importance and SHAP attributions behind its predictions.
 \end{itemize}
 
 \section{Selected Papers \& Research Contributions}
 \entry{MedTokenBudget: Lesion-Preserving Token Routing}{2026}
-\detail{Zhexiang Li (sole author). Preprint. \link{https://arxiv.org/abs/2609.30613}{Paper}}
+\detail{\textbf{Zhexiang Li} (sole author). Preprint. \link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}}
 \begin{itemize}
-\item Developed lesion-supervised post-backbone token routing to retain diagnostic image regions under a limited token budget.
-\item At a 30\% token budget on ISIC 2019, achieved \textbf{80.38 $\pm$ 0.18\%} accuracy versus 76.93 $\pm$ 0.03\% for ToMe across three seeds; the frozen backbone remains unchanged.
+\item Developed lesion-supervised post-backbone token routing; at a 30\% token budget on ISIC 2019, it achieved \textbf{80.38~$\pm$~0.18\%} accuracy versus 76.93~$\pm$~0.03\% for ToMe across three seeds, with the frozen backbone unchanged.
 \end{itemize}
 \entry{Mass-Conservation Token Transformers for MS/MS Retrieval}{2026}
 \detail{Manuscript submitted to AAAI 2027}
@@ -41,14 +41,18 @@ B.S. in Computer Science; GPA: 3.76/4.00; Viterbi Dean's List
 \item Encoded mass-conserving fragment pairs as sparse evidence tokens for spectrum retrieval; constructed mass- and overlap-based hard negatives and evaluated ranking changes after evidence removal.
 \end{itemize}
 \entry{Efficient Attention via Pre-Scoring}{2025}
-\detail{Zhexiang Li, Haoyu Wang, Yutong Bao, David Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{Paper}}
+\detail{\textbf{Zhexiang Li}, Haoyu Wang, Yutong Bao, David Woodruff. Under review. \link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}}
 \begin{itemize}
 \item Proposed pre-scoring to prioritize informative keys before approximate attention; implemented key selection in Triton as first author, advised by Prof. David P. Woodruff (CMU).
 \item Integrated with HyperAttention, reduced ChatGLM perplexity from \textbf{12.0 to 9.5} at 131k-token contexts under a fixed interaction budget.
 \end{itemize}
 
-\section{Teaching}
-\entry{Machine Learning Tutor | UCSC}{Spring 2023}
+\section{Additional Experience}
+\role{Piezolab Medical}{AI Engineer Intern}{Lake Forest, CA}{Jun – Aug 2025}
+\begin{itemize}
+\item Built an LLM-assisted pipeline to ingest, clean, and cluster \textbf{5,000+} medical-malpractice documents for quality-of-care research; developed agent workflows for vascular-care research.
+\end{itemize}
+\role{University of California, Santa Cruz}{Machine Learning Tutor}{}{Spring 2023}
 \begin{itemize}
 \item Led office hours and co-designed Jupyter assignments on logistic regression, SVMs, and tree models; contributed to the coding autograder for Prof. Lise Getoor's course.
 \end{itemize}

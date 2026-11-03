@@ -29,8 +29,11 @@ identifiers are only used for source and intermediate files.
 - Keep CrAIg Capital and Game Theory in the full CV, not these one-page resumes.
 - Preserve the USC-only bachelor's education entry; UCSC may appear in teaching.
 - Do not invent impact numbers or imply that submitted papers are accepted.
-- AI Doctor has no public link. Fridge Manager links to https://howtoeat.food.
+- AI Doctor has no public link. Fridge Manager links to https://howtoeat.food;
+  its video-to-recipe pipeline appears only inside that entry, never on its own.
 - Retain the internship window until the owner changes it.
+- When space is short, keep real roles before personal projects, and cut the
+  project whose signal another entry already carries.
 
 ## Layout and writing references
 
@@ -42,7 +45,13 @@ and its [CS master's samples](https://capd.mit.edu/resources/sample-resumes/).
 also informs the typography and emphasis.
 
 - Use a single text column, 11 pt body text, 0.6 inch side margins, and
-  0.55 inch top/bottom margins. Keep contact details on one line.
+  0.55 inch top/bottom margins. Keep contact details on one line, with the
+  website, GitHub, and LinkedIn URLs written out so printed copies keep them.
+- Set section headings in small capitals over a hairline rule (they extract as
+  uppercase text). Write `\role{Organization}{Role}{Location}{Dates}` for
+  positions and projects, use en dashes in date ranges, and tie `±` values to
+  their numbers. Chinese resumes use FandolSong for text and FandolHei for
+  headings and bold, with upright roles and a full-width separator.
 - Keep most bullets within one or two lines: contribution, method, then
   outcome or scope. Use only numbers already supported by the owner’s record.
 - Give more space to relevant research/engineering evidence; do not add
@@ -89,10 +98,30 @@ with their sources.
   numerical results have not been supplied. Do not infer either.
 - PMAOS delivery/deployment status, business impact, and additional clinical
   workflow outcomes must not be inferred from code or test counts.
-- Fridge Manager and Synaptics remain in the full CV/archive. The AI application
-  resume selects AI Doctor and the business-card workflow for relevance.
-- The research resume prioritizes papers, research experience, and teaching;
-  the full CV retains the broader industry record.
+- Magna Cum Laude and GPA 3.76: USC transcript, "USC Degrees Awarded".
+- CGM release: Diabetes-FM release r14 has 49 datasets, 7,363 source person
+  records (not confirmed unique people), and passed checks C1–C14. No model is
+  trained on that data yet, so HAIL bullets describe data and benchmark
+  pipelines, not forecasting results.
+- Drug discovery: the project poster reports Extra Trees on RDKit descriptors
+  with the best average AUROC (85.9) and 90.0 +/- 6.4 on SARSCoV2_3CLPro_Diamond
+  over three scaffold splits; the work was a collaboration with a Ph.D. student.
+- AI Doctor: 110 FastAPI endpoints, 26 MySQL tables, five-role access with
+  doctor confirmation, RAG with BGE embeddings, ChromaDB, and keyword fallback,
+  and an asyncio queue with global, per-user, and per-API limits. Write
+  "implemented RAG" and "deployed backend"; the cloud image skips the vector
+  dependencies, so do not claim vector RAG in production.
+- Fridge Manager is the live howtoeat.food app; its offline pipeline turned 758
+  cooking videos into 121 publishable recipes. The investment-analysis agent
+  skill covers 14 report dimensions and gates sections with a Python QA harness.
+- Selection (November 2026): the AI Engineer resume keeps HAIL, PMAOS,
+  Piezolab, and Terlingua as a one-line entry, then AI Doctor, Fridge Manager,
+  and the agent skill. Synaptics (oldest, least AI-related) and the
+  business-card app (its vision parsing overlaps Fridge Manager) stay in the
+  full CV/archive.
+- The research resume prioritizes papers and research experience; its
+  Additional Experience keeps Piezolab, the medical-domain LLM work, and UCSC
+  teaching. PMAOS and the broader industry record stay in the full CV.
 
 Further writing references: [CMU's 2026 graduate guide](https://www.cmu.edu/career/documents/sample-resumes-cover-letters/graduate_student_resume_guide_2026.pdf)
 and [DeepMind's role descriptions](https://deepmind.google/careers/).

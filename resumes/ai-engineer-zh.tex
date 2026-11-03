@@ -1,7 +1,10 @@
 \documentclass[10pt]{article}
 \usepackage{resume}
 \usepackage{xeCJK}
-\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf,Script=Default]
+\xeCJKDeclareCharClass{Default}{"2013}
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolHei-Bold.otf,Script=Default]
+\renewcommand{\rolestyle}{\upshape}
+\renewcommand{\rolesep}{｜}
 \hypersetup{pdftitle={李哲骧 - AI 工程岗位简历},pdflang={zh-CN}}
 \begin{document}
 \chineseheader
@@ -10,53 +13,52 @@
 \entry{加州大学洛杉矶分校（UCLA）}{预计 2028.06 毕业}
 计算机科学硕士在读
 \entry{南加州大学（USC）}{2026.05 毕业}
-计算机科学学士；GPA：3.76/4.00；Viterbi Dean's List
+计算机科学学士（Magna Cum Laude 荣誉毕业）；GPA：3.76/4.00；Viterbi Dean's List
 
 \section{技术能力}
-\textbf{编程语言：}Python、C/C++、JavaScript/TypeScript、SQL\\
-\textbf{AI 开发：}PyTorch、Triton；多模态推理、推荐算法、大模型工作流、知识检索\\
-\textbf{应用开发：}FastAPI、Next.js、Supabase、Linux
+\textbf{编程语言：}Python、C/C++、JavaScript/TypeScript、SQL、Java、Swift\\
+\textbf{AI 开发：}PyTorch、Triton、大模型 API、智能体工作流、RAG（BGE 向量、ChromaDB）、多模态推理\\
+\textbf{应用开发：}FastAPI、asyncio、SQLAlchemy、MySQL、PostgreSQL（Supabase）、Next.js、Docker、Linux、Git
 
 \section{工程与科研经历}
-\entry{UCLA Health Intelligence Lab（HAIL）｜研究生研究员}{2026.08 - 至今}
+\role{UCLA Health Intelligence Lab（HAIL）}{研究生研究员}{}{2026.08 – 至今}
 \begin{itemize}
-\item 在 Yuzhe Yang 教授指导下搭建多模态血糖预测基准与数据检查流程，按患者划分数据，支持未来 30、60、120 分钟的模型对比评估。
-\item 评估 GluFormer、T1DFormer、自研预测状态模型及 Transformer，研究 CGM 与胰岛素、饮食、活动等患者信息的联合建模。
+\item 整合 \textbf{49 个数据集}（\textbf{7,000 余条}来源个人记录）的 CGM 数据，纳入饮食、胰岛素与可穿戴设备信息，建立含来源校验和及 14 项自动检查的统一数据版本。
+\item 在 Yuzhe Yang 教授指导下搭建按患者划分的基准与数据检查流程，支持 GluFormer、T1DFormer 及自研模型在未来 30、60、120 分钟的血糖预测对比。
 \end{itemize}
-\entry{未来求索 / PMAOS｜AI 工程实习生}{2026.07 - 2026.08}
+\role{未来求索 / PMAOS}{AI 工程实习生}{}{2026.07 – 2026.08}
 \begin{itemize}
 \item 设计短视频推荐算法，将用户与视频双向兴趣传播、多时间尺度曝光预算和疲劳控制结合，用于管理重复推荐与不同兴趣的曝光分配。
-\item 开发支持 \textbf{11 种语言}的音视频情绪识别流程，融合不同模态证据；决策层可在证据不足时暂不判断，或明确标记模态冲突。
+\item 开发支持 \textbf{11 种语言}的音视频情绪识别，融合多模态证据，在模态冲突时暂不判断。
 \end{itemize}
-\entry{Terlingua Threads（远程）｜全栈工程师}{2026.01 - 2026.05}
+\role{Terlingua Threads}{全栈工程师}{远程}{2026.01 – 2026.05}
 \begin{itemize}
-\item 开发 Shopify 集成页面和 Google Maps 功能，完善移动端布局、无障碍访问与内容维护结构。
+\item 开发 Shopify 集成页面和 Google Maps 功能，完善移动端布局与无障碍访问。
 \end{itemize}
-\entry{Piezolab Medical（加州 Lake Forest）｜AI 工程实习生}{2025.06 - 2025.08}
+\role{Piezolab Medical}{AI 工程实习生}{加州 Lake Forest}{2025.06 – 2025.08}
 \begin{itemize}
-\item 搭建大模型辅助文档处理流程，对 \textbf{5,000 余份医疗事故资料}进行导入、清洗与聚类，支持医疗质量分析。
-\item 为血管护理研究开发智能体工作流程，并编写验收测试。
+\item 搭建大模型辅助流程，对 \textbf{5,000 余份}医疗事故资料进行导入、清洗与聚类，支持医疗质量分析；为血管护理研究开发智能体工作流程并编写验收测试。
 \end{itemize}
 
 \section{代表 AI 项目}
-\entry{AI Doctor WeChat｜FastAPI、知识检索}{2026}
+\role{AI Doctor WeChat}{Python、FastAPI、MySQL、RAG}{}{2026}
 \begin{itemize}
-\item 搭建临床教学与协作应用，将微信小程序、Web 工作台连接到 FastAPI 后端，集成知识检索和患者信息采集流程，支持医生、助理与学生协作。
+\item 开发并在微信云托管部署 FastAPI 后端（\textbf{110} 个接口、\textbf{26} 张 MySQL 表），支撑诊所小程序与 Web 工作台的临床教学和患者信息采集。
+\item 设计五类角色权限，病历经医生确认后才对患者可见；实现 RAG（BGE 向量、ChromaDB、关键词兜底），以及按全局、用户和接口限流调度大模型调用的 asyncio 队列。
 \end{itemize}
-\entry{AI 名片助手｜iOS、视觉解析、OCR}{2026.01 - 至今}
+\role{Fridge Manager}{Next.js、TypeScript、Supabase、大模型与视觉模型}{}{2026}
 \begin{itemize}
-\item 将名片照片转为可检索的联系人和公司档案，结合视觉解析与 OCR 备用识别，并提供多图核对及中英文信息复核。\link{https://github.com/BruceLZX/Business-Card-AI-organzier}{源代码}
+\item 开发并上线 AI 厨房助手 \link{https://howtoeat.food}{howtoeat.food}，根据每位用户的库存、剩菜、偏好、厨具与烹饪时间生成菜单和采购清单。
+\item 实现拍照识别库存与大模型菜谱导入（用户修正、管理员审核、去重）；用多模态视频流程从 \textbf{758} 个烹饪视频整理出 \textbf{121} 道菜谱。
+\end{itemize}
+\role{投资分析 Agent Skill}{Python、Claude Code}{}{2026.07}
+\begin{itemize}
+\item 编写智能体技能，将公司名称或商业计划书转化为覆盖 14 个维度、有证据支撑的投资报告；以 Python 质检框架按独立与一手来源、分析深度和完整性逐节把关。
 \end{itemize}
 
 \section{代表算法研究}
-\entry{Efficient Attention via Pre-Scoring｜第一作者}{2025}
-\detail{审稿中。\link{https://arxiv.org/abs/2505.11040}{论文}}
 \begin{itemize}
-\item 使用 Triton 实现关键 key 筛选；与 HyperAttention 结合后，在固定交互预算、131k token 上下文的 ChatGLM 实验中，将困惑度从 \textbf{12.0 降至 9.5}。
-\end{itemize}
-\entry{MedTokenBudget｜独立作者}{2026}
-\detail{预印本。\link{https://arxiv.org/abs/2609.30613}{论文}}
-\begin{itemize}
-\item 实现病灶监督的骨干网络后 token 路由；在 ISIC 2019、30\% token 预算下，三随机种子平均准确率为 \textbf{80.38\%}，ToMe 为 76.93\%。
+\item \textbf{Efficient Attention via Pre-Scoring}（第一作者，审稿中）：用 Triton 实现关键 key 筛选；与 HyperAttention 结合后，在固定交互预算、131k token 上下文的 ChatGLM 实验中，将困惑度从 \textbf{12.0 降至 9.5}。\link{https://arxiv.org/abs/2505.11040}{arXiv:2505.11040}
+\item \textbf{MedTokenBudget}（独立作者，预印本）：病灶监督的骨干网络后 token 路由；在 ISIC 2019、30\% token 预算下，三随机种子平均准确率为 \textbf{80.38\%}，ToMe 为 76.93\%。\link{https://arxiv.org/abs/2609.30613}{arXiv:2609.30613}
 \end{itemize}
 \end{document}

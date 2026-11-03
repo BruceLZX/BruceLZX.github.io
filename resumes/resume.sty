@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{resume}[2026/10/11 One-page application resumes]
+\ProvidesPackage{resume}[2026/11/02 One-page application resumes]
 \RequirePackage[letterpaper,hmargin=0.6in,vmargin=0.55in]{geometry}
 \RequirePackage{fontspec}
 \setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic,Ligatures=NoCommon]
@@ -14,18 +14,26 @@
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1em}
 \raggedright
-\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-3pt}\hrule]
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[{\vspace{-3pt}\titlerule[0.6pt]}]
 \titlespacing*{\section}{0pt}{8pt}{4pt}
 \setlist[itemize]{leftmargin=13pt,label=\textbullet,topsep=2pt,itemsep=1.5pt,parsep=0pt,partopsep=0pt}
+% \entry{heading}{date}: schools, papers, and other single-title entries.
 \newcommand{\entry}[2]{\par\addvspace{4pt}\Needspace{3\baselineskip}\textbf{#1}\hfill{\small #2}\par}
+% \role{organization or project}{role or stack}{location, may be empty}{dates}.
+% Chinese resumes switch the role to upright text and a full-width separator.
+\newcommand{\rolestyle}{\itshape}
+\newcommand{\rolesep}{\enspace|\enspace}
+\newcommand{\locsep}{\enspace\textperiodcentered\enspace}
+\newcommand{\role}[4]{\entry{#1\textmd{\rolesep{\rolestyle #2}}}{\if\relax\detokenize{#3}\relax\else #3\locsep\fi #4}}
 \newcommand{\detail}[1]{{\small #1}\par}
 \newcommand{\link}[2]{\href{#1}{\underline{#2}}}
+\newcommand{\contactsep}{\enspace|\enspace}
 \newcommand{\resumeheader}[2]{%
   \begingroup\centering
   {\fontsize{24}{26}\selectfont\bfseries #1}\par\vspace{4pt}
-  {\small\href{mailto:bruceli@ucla.edu}{bruceli@ucla.edu}\enspace|\enspace +1 (831) 239-2728\enspace|\enspace Los Angeles, CA\enspace|\enspace\link{https://brucelzx.github.io/}{Website}\enspace|\enspace\link{https://github.com/BruceLZX}{GitHub}\enspace|\enspace\link{https://www.linkedin.com/in/zhexiang-li/}{LinkedIn}}\par\vspace{3pt}
+  {\small\href{mailto:bruceli@ucla.edu}{bruceli@ucla.edu}\contactsep +1 (831) 239-2728\contactsep Los Angeles, CA\contactsep\href{https://brucelzx.github.io/}{brucelzx.github.io}\contactsep\href{https://github.com/BruceLZX}{github.com/BruceLZX}\contactsep\href{https://www.linkedin.com/in/zhexiang-li/}{linkedin.com/in/zhexiang-li}}\par\vspace{3pt}
   {\small #2}\par
   \endgroup\vspace{2pt}
 }
-\newcommand{\englishheader}{\resumeheader{Zhexiang (Bruce) Li}{Available for internships: Jun 13 - Sep 17, 2027}}
+\newcommand{\englishheader}{\resumeheader{Zhexiang (Bruce) Li}{Available for internships: Jun 13 – Sep 17, 2027}}
 \newcommand{\chineseheader}{\resumeheader{李哲骧（Bruce Li）}{可全职实习：2027 年 6 月 13 日至 9 月 17 日}}

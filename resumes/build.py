@@ -32,13 +32,13 @@ def embed_fandol_unicode(source, destination):
             if "/ToUnicode" in font:
                 continue
             name = str(font.get("/BaseFont", ""))
-            match = re.search(r"FandolSong-(Regular|Bold)", name)
+            match = re.search(r"Fandol(Song|Hei)-(Regular|Bold)", name)
             if not match:
                 continue
             assert font["/Encoding"] == "/Identity-H", name
             info = font["/DescendantFonts"][0].get_object()["/CIDSystemInfo"]
             assert (info["/Registry"], info["/Ordering"]) == ("Adobe", "GB1"), name
-            filename = f"FandolSong-{match[1]}.otf"
+            filename = f"Fandol{match[1]}-{match[2]}.otf"
             path = subprocess.check_output(["kpsewhich", filename], text=True).strip()
             with TTFont(path) as original:
                 assert original["CFF "].cff.topDictIndex[0].ROS == ("Adobe", "GB1", 5)
@@ -84,7 +84,8 @@ def validate(path, profile):
     for text in extracted:
         compact = re.sub(r"\s+", "", text)
         for phrase in required:
-            assert phrase in compact, f"{profile}: failed text extraction: {phrase}"
+            # Small-capital section headings extract as uppercase letters.
+            assert phrase.casefold() in compact.casefold(), f"{profile}: failed text extraction: {phrase}"
         assert not re.search(r"629|438|139|34\s*contract", compact), profile
     urls = [a.get_object().get("/A", {}).get("/URI", "") for a in page.get("/Annots", [])]
     for url in ("https://arxiv.org/abs/2505.11040", "https://arxiv.org/abs/2609.30613"):

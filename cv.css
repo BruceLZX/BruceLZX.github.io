@@ -20,6 +20,7 @@ h3{margin:0;font-size:15px;line-height:1.45}
 time{flex:0 0 auto;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
 p{margin:5px 0 0}
 .subline{color:var(--muted);font-size:13px}
+.subline strong{color:var(--ink)}
 ul{margin:6px 0 0;padding-left:19px}
 li{margin:4px 0}
 .skills p{margin:5px 0}
@@ -48,7 +49,9 @@ footer{margin-top:30px;padding-top:12px;border-top:1px solid var(--rule);color:v
  section{margin-top:12pt;break-inside:auto}
  h2{font-size:11pt;margin-bottom:6pt;padding-bottom:3pt;letter-spacing:.04em}
  h3{font-size:10.5pt;line-height:1.3}
- .entry{margin-bottom:7pt}
+ .entry{margin-bottom:7pt;break-inside:auto}
+ .entry-head,.subline{break-after:avoid}
+ li{break-inside:avoid}
  .entry-head{display:flex;gap:14pt}
  time{display:block;flex:0 0 auto;font-size:8.5pt;margin:0}
  .subline{font-size:9pt}
