@@ -87,9 +87,11 @@ def validate(path, profile):
             # Small-capital section headings extract as uppercase letters.
             assert phrase.casefold() in compact.casefold(), f"{profile}: failed text extraction: {phrase}"
         assert not re.search(r"629|438|139|34\s*contract", compact), profile
+        assert not re.search(r"arXiv:(?!2505\.11040)", compact), f"{profile}: unexpected arXiv ID"
     urls = [a.get_object().get("/A", {}).get("/URI", "") for a in page.get("/Annots", [])]
-    for url in ("https://arxiv.org/abs/2505.11040", "https://arxiv.org/abs/2609.30613"):
-        assert url in urls, f"{profile}: missing paper link"
+    assert "https://arxiv.org/abs/2505.11040" in urls, f"{profile}: missing paper link"
+    # Only Pre-Scoring is linked; MedTokenBudget's arXiv link stays off while it is under review.
+    assert all(url == "https://arxiv.org/abs/2505.11040" for url in urls if "arxiv.org" in url), profile
 
 
 def main():

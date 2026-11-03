@@ -46,7 +46,7 @@ also informs the typography and emphasis.
 
 - Use a single text column, 11 pt body text, 0.6 inch side margins, and
   0.55 inch top/bottom margins. Keep contact details on one line, with the
-  website, GitHub, and LinkedIn URLs written out so printed copies keep them.
+  website, GitHub, and LinkedIn as clickable labels; the PDFs are read on screen.
 - Set section headings in small capitals over a hairline rule (they extract as
   uppercase text). Write `\role{Organization}{Role}{Location}{Dates}` for
   positions and projects, use en dashes in date ranges, and tie `±` values to
@@ -90,12 +90,13 @@ with their sources.
 - Pre-Scoring: [arXiv v4](https://arxiv.org/abs/2505.11040v4), abstract:
   ChatGLM at 131k-token contexts, fixed interaction budget, integrated with
   HyperAttention; perplexity 12.0 to 9.5. This is not a measured speedup claim.
-- MedTokenBudget: [Table 2](https://arxiv.org/html/2609.30613v1): ISIC 2019,
-  30% token budget, three seeds; supervised LATS accuracy 80.38 +/- 0.18%,
+- MedTokenBudget: under review; link no arXiv version from the site or the
+  resumes (`build.py` allows only the Pre-Scoring arXiv link). Table 2 of the
+  paper: ISIC 2019, 30% token budget, three seeds; supervised LATS accuracy 80.38 +/- 0.18%,
   ToMe 76.93 +/- 0.03%. The router is post-backbone; the frozen backbone is
   unchanged. Do not equate token reduction with end-to-end compute savings.
-- Mass-Conservation: retain the supplied submission status; author order and
-  numerical results have not been supplied. Do not infer either.
+- Mass-Conservation: under review at AAAI 2027, as the owner reports; author
+  order and numerical results have not been supplied. Do not infer either.
 - PMAOS delivery/deployment status, business impact, and additional clinical
   workflow outcomes must not be inferred from code or test counts.
 - Magna Cum Laude and GPA 3.76: USC transcript, "USC Degrees Awarded".
